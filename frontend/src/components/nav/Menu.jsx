@@ -18,7 +18,7 @@ export default function App() {
     <Navbar>
       <NavbarBrand>
         <AcmeLogo />
-        <p className="font-bold text-inherit">SEVO SMART</p>
+        {/* <p className="font-bold text-inherit">SEVO SMART</p> */}
       </NavbarBrand>
 
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
@@ -40,27 +40,11 @@ export default function App() {
         <NavbarItem>
           <Link color="foreground" href="#">
             Discover 
-            Construction
           </Link>
         </NavbarItem>
         <NavbarItem>
           <Link color="foreground" href="#">
             Shop
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link color="foreground" href="#">
-            Discover
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link color="foreground" href="#">
-            Support
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link color="foreground" href="#">
-            Support
           </Link>
         </NavbarItem>
       </NavbarContent>
