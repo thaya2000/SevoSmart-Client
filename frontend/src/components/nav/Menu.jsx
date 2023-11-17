@@ -40,6 +40,22 @@ export default function App() {
         <NavbarItem>
           <Link color="foreground" href="#">
             Discover 
+            Construction
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link color="foreground" href="#">
+            Shop
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link color="foreground" href="#">
+            Discover
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link color="foreground" href="#">
+            Support
           </Link>
         </NavbarItem>
         <NavbarItem>
