@@ -1,0 +1,74 @@
+import React from 'react'
+import './SolarPanelLearnmore.css'
+import Solarimg01 from '../../images/Solarcontent02img.png';
+import Solarimg02 from '../../images/Solarcontent03img.png';
+import Solarimg03 from '../../images/Solarcontent04img.png';
+
+
+
+const SolarPanelLearnmore = () => {
+  return (
+    <div className='SolarPanelLearnmore'>
+        <div className="content01">
+            <div className="Solar-title">
+                <span>Solar panels</span>
+                <button>shop now</button>
+            </div>
+            <div className="Solar-images">
+                <div className="S01">
+                    <img src={Solarimg02} alt="" /> 
+                </div>
+                <img src={Solarimg01} alt="" />
+                
+                <img src={Solarimg03} alt="" />
+            </div> 
+        </div>
+        <div className="content02" style={{ backgroundImage: `url(${Solarimg01})` }}>
+            <div className="content02-discription">
+                <span>Renewable Energy Source</span>
+                <span>Solar panels harness energy 
+                    from the sun, a virtually 
+                    limitless and renewable 
+                    source. 
+                </span>
+            </div>
+            <div className="content02-img">
+                
+            </div>
+        </div>
+        <div className="content02" style={{ backgroundImage: `url(${Solarimg02})` }}>
+            
+            <div className="content02-img">
+                
+            </div>
+            <div className="content03-discription">
+                <span>Energy Cost Savings:</span>
+                <span>One of the most significant 
+                    financial advantages of solar 
+                    panels is the potential for 
+                    substantial energy cost savings. 
+                    By generating your own 
+                    electricity. 
+                </span>
+            </div>
+        </div>
+        <div className="content02" style={{ backgroundImage: `url(${Solarimg03})` }}>
+            <div className="content02-discription">
+                <span>Eco Friendly:</span>
+                <span>Solar panels are a highly 
+                    eco-friendly energy solution. 
+                    By harnessing sunlight to 
+                    generate electricity, they 
+                    produce zero emissions, helping 
+                    combat climate change. 
+                </span>
+            </div>
+            <div className="content02-img">
+                
+            </div>
+        </div>
+    </div>
+  )
+}
+
+export default SolarPanelLearnmore
