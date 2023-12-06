@@ -7,13 +7,14 @@ import Menu from "./components/nav/Menu.jsx";
 import { Login } from "./pages/login/Login.jsx";
 import { Signup_step1 } from "./pages/signup/Signup_step1.jsx";
 import { Signup_step2 } from "./pages/signup/Signup_step2.jsx";
+import { NewBuildingConsultation } from "./pages/new_building_consultation/NewBuildingConsultation.jsx";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <NextUIProvider>
-      <Menu/>
+      <Login/>
     </NextUIProvider>
   );
 }

@@ -10,6 +10,7 @@ import {
   Dropdown,
   DropdownMenu,
   Avatar,
+  Menu,
 } from "@nextui-org/react";
 import { AcmeLogo } from "./AcmeLogo.jsx";
 
@@ -18,7 +19,7 @@ export default function App() {
     <Navbar>
       <NavbarBrand>
         <AcmeLogo />
-        <p className="font-bold text-inherit">SEVO SMART</p>
+        <p className="font-bold text-inherit px-2">SEVO SMART</p>
       </NavbarBrand>
 
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
@@ -83,3 +84,4 @@ export default function App() {
     </Navbar>
   );
 }
+
