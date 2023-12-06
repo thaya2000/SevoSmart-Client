@@ -1,0 +1,240 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: 100%;
+}
+
+.contentTitle {
+  padding-top: 25vh;
+  padding-left: 8vw;
+  /* scroll-snap-align: start; */
+  justify-content: center;
+
+  height: 95vh;
+
+  background: linear-gradient(
+    180deg,
+    #80808a 0%,
+    #040e42 40%,
+    #040e42 70%,
+    #80808a 120%
+  );
+}
+
+.contentTitle > span {
+  display: flex;
+  flex-direction: column;
+  font-size: 5vw;
+  color: #ffffff;
+  font-weight: bolder;
+  font-family: Inter;
+  align-items: flex-start;
+}
+
+.SolarButtons {
+  margin-top: 4rem;
+}
+.SButton1 {
+  background-color: #040e42;
+  color: #ffffff;
+  height: 2rem;
+  width: 8rem;
+  border-radius: 15px;
+  margin-right: 20vw;
+  cursor: pointer;
+  border: none;
+}
+.SButton2 {
+  cursor: pointer;
+  background-color: #ffffff;
+  color: #040e42;
+  height: 2rem;
+  width: 8rem;
+  border-radius: 15px;
+  border: none;
+}
+.SButton1:hover {
+  background-color: #1c2636;
+}
+
+.SButton2:hover {
+  background-color: #80808a;
+}
+
+.CButton1:hover {
+  background-color: #1c2636;
+}
+
+.CButton2:hover {
+  background-color: #80808a;
+}
+
+.CButton1 {
+  background-color: #040e42;
+  color: #ffffff;
+  height: 2rem;
+  width: 8rem;
+  border-radius: 15px;
+  margin-right: 20vw;
+  cursor: pointer;
+  border: none;
+}
+
+.CButton2 {
+  cursor: pointer;
+  background-color: #ffffff;
+  color: #040e42;
+  height: 2rem;
+  width: 8rem;
+  border-radius: 15px;
+  border: none;
+}
+
+.SolarTitle {
+  padding-top: 15vw;
+}
+
+.SolarTitle > span {
+  font-weight: bold;
+  color: #081c3a;
+  font-size: 5vw;
+}
+
+.contentSolar {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  height: 50vw;
+  width: 100%;
+  background-size: 115vw;
+}
+
+.contentConstruction {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  height: 50vw;
+  width: 100%;
+  background-size: 100vw;
+  margin-bottom: 1px;
+}
+
+.ConstructionTitle {
+  padding-top: 15vw;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 5vw;
+}
+
+.ConstructionButtons {
+  margin-bottom: 4rem;
+  margin-top: 4rem;
+}
+
+@media screen and (max-width: 900px) {
+  .content {
+    display: flex;
+    flex-direction: column;
+
+    
+    width: 100%;
+  }
+
+  .contentTitle {
+    
+    scroll-snap-align: start;
+    justify-content: center;
+
+    height: 100%;
+    padding-bottom: 15vh;
+    background: linear-gradient(180deg, #040e42 30%, #80808a 70%);
+  }
+
+
+  .contentSolar {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    height: 100%;
+    background-size: 120vw;
+    width: 100%;
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+  }
+  .SolarButtons {
+    margin-top: 4rem;
+  }
+  .SButton1 {
+    background-color: #040e42;
+    color: #ffffff;
+    height: 2rem;
+    width: 8rem;
+    border-radius: 15px;
+    margin-right: 15vw;
+    cursor: pointer;
+  }
+  .SButton2 {
+    cursor: pointer;
+    background-color: #ffffff;
+    color: #040e42;
+    height: 2rem;
+    width: 8rem;
+    border-radius: 15px;
+  }
+  .SolarTitle {
+    padding-top: 6vh;
+    
+  }
+
+  .SolarTitle>span {
+    font-weight: bold;
+    color: #081c3a;
+    font-size: 8vh;
+  }
+
+  .contentConstruction {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    height: 100%;
+    background-size: 110vw;
+    width: 100%;
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+  }
+  .ConstructionTitle {
+    padding-top: 5vh;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 8vh;
+  }
+
+  .ConstructionButtons {
+    margin-bottom: 4rem;
+    margin-top: 4vh;
+  }
+  .CButton1 {
+    background-color: #040e42;
+    color: #ffffff;
+    height: 2rem;
+    width: 8rem;
+    border-radius: 15px;
+    margin-right: 10vw;
+    cursor: pointer;
+  }
+
+  .CButton2 {
+    cursor: pointer;
+    background-color: #ffffff;
+    color: #040e42;
+    height: 2rem;
+    width: 8rem;
+    border-radius: 15px;
+  }
+}
