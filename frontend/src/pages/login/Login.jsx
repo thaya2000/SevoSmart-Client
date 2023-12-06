@@ -19,7 +19,7 @@ export const Login = () => {
                 <text>User Name</text>
               </div>
               <div className="input-container">
-                <input type="text" />
+                <input className="username" type="text" />
               </div>
             </div>
 
