@@ -1,11 +1,7 @@
 import { useState } from "react";
-
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
-
-import Navigation from "./Components/Navigation/Navigation";
-
-
+import Navigation from "./Components/Navigation/Navigation.jsx";
 import SolarPanelLearnmore from "./Components/SolarPanelLearnmore/SolarPanelLearnmore.jsx";
 import Footer from "./Components/footer/Footer.jsx";
 import ConstructionsLearnmore from "./Pages/ConstructionsLearnmore/ConstructionsLearnmore.jsx";
@@ -17,17 +13,14 @@ function App() {
   return (
     <BrowserRouter>
       <Navigation />
-      
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/solar-learnmore" element={<SolarPanelLearnmore />} />
         <Route path="/construction-learnmore" element={<ConstructionsLearnmore />} />
         <Route path="/menu" element={<NavigationVertical/>}/>
-
       </Routes>
     <Footer/>
     </BrowserRouter>
-
   );
 }
 

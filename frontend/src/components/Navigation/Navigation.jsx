@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import "./Navigation.css";
 import { UilSearch, UilUser } from "@iconscout/react-unicons";
 import logo from "../../images/logo.png";
-import Energy from "../Energy/Energy";
-import Constructions from "../Constructions/Constructions";
-import Shop from "../Shop/Shop";
-import Discover from "../Discover/Discover";
-import Support from "../Support/Support";
+import Energy from "../Energy/Energy.jsx";
+import Constructions from "../Constructions/Constructions.jsx";
+import Shop from "../Shop/Shop.jsx";
+import Discover from "../Discover/Discover.jsx";
+import Support from "../Support/Support.jsx";
 import { Link } from "react-router-dom";
 
 const Navigation = () => {
@@ -32,6 +32,8 @@ const Navigation = () => {
   const handleSupportButtonHover = () => {
     setShowSupport(true);
   };
+
+  
 
   const handleEnergyButtonLeave = () => {
     setShowEnergy(false);
@@ -61,7 +63,7 @@ const Navigation = () => {
       }}
     >
       <div className="navi">
-        <div className="menu" >
+        <div className="menu">
           <Link to="/menu">
             <button className="menu-button">Menu</button>
           </Link>
