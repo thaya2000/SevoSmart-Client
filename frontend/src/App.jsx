@@ -16,7 +16,6 @@ function App() {
       <Navigation />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/" element={<Login/> } />
         <Route path="/solar-learnmore" element={<SolarPanelLearnmore />} />
         <Route path="/construction-learnmore" element={<ConstructionsLearnmore />} />
         <Route path="/menu" element={<NavigationVertical/>}/>
