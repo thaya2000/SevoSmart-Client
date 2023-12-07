@@ -14,7 +14,10 @@ const NavigationVertical = () => {
               
           </div>
           <div className="navi-buttons">
-              <button>Energy</button>
+              <Link to="/energy-vertical">
+                  <button>Energy</button>
+              </Link>
+              
               <button>Constructions</button>
               <button>Shop</button>
               <button>Discover</button>

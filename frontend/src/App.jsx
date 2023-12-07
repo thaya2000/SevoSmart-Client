@@ -7,18 +7,22 @@ import Footer from "./Components/footer/Footer.jsx";
 import ConstructionsLearnmore from "./Pages/ConstructionsLearnmore/ConstructionsLearnmore.jsx";
 import NavigationVertical from "./components/Navigation/NavigationVertical.jsx";
 import Home from "./pages/Home/Home.jsx";
-import Login from "./Pages/login/Login.jsx"
+import EnergyVertical from "./components/Energy/EnergyVertical.jsx";
+
 
 function App() {
 
   return (
     <BrowserRouter>
+      
       <Navigation />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/solar-learnmore" element={<SolarPanelLearnmore />} />
         <Route path="/construction-learnmore" element={<ConstructionsLearnmore />} />
-        <Route path="/menu" element={<NavigationVertical/>}/>
+        <Route path="/menu" element={<NavigationVertical />} />
+        <Route path="/energy-vertical" element={<EnergyVertical />} />
+        
       </Routes>
     <Footer/>
     </BrowserRouter>

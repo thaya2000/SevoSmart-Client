@@ -16,10 +16,10 @@
 }
 
 .product-image {
-  width: 100px;
-  height: 100px;
+  width: 20vw;
+  height: 30vw;
   object-fit: cover;
-  width: 100%;
+  
   height: auto;
   transition: transform 0.3s ease-in-out;
 }
@@ -96,4 +96,77 @@
 
 .show-Energy {
   color: #171a20;
+}
+
+
+.products-vertical {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: auto;
+}
+
+/* Adjust the minmax values and gap based on your design */
+@media screen and (min-width: 600px) {
+  .products-vertical {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
+/* @media screen and (min-width: 900px) {
+  .products-vertical {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+} */
+.list-vertical{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-top: 3vh;
+  margin-left: 5vw;
+  margin-bottom: 3vh;
+}
+.list-vertical>span{
+
+  margin-top: 3vh;
+  margin-left: 5vw;
+  font-weight: bold;
+  
+}
+
+.header-energy{
+  display: flex;
+  flex-direction: row;
+  margin-top: 2vh;
+  margin-bottom: 5vh;
+}
+.back-arrow{
+margin-left: 2vw;
+cursor: pointer;
+}
+.title-energy{
+margin-left: auto;
+}
+.close-icon{
+  margin-left: auto;
+  margin-right: 2vw;
+  cursor: pointer;
+}
+
+.product-vertical{
+  display: flex;
+  flex-direction: column;
+  
+  align-items: center;
+  justify-content: center;
+}
+
+.energy-vertical{
+    position: fixed;
+  display: flex;
+  flex-direction: column;
+  padding-top: 3vh;
+  width: 100%;
+  background-color: #F2F2F2;
+
 }
