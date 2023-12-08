@@ -11,6 +11,7 @@ import EnergyVertical from "./components/Energy/EnergyVertical.jsx";
 import ConstructionsVertical from "./components/Constructions/ConstructionsVertical.jsx";
 import Login from './Pages/Auth/login/Login.jsx'
 import ShopVertical from "./components/Shop/ShopVertical.jsx";
+import DiscoverVertical from "./components/Discover/DiscoverVertical.jsx";
 
 function App() {
 
@@ -27,8 +28,7 @@ function App() {
         <Route path="/construction-vertical" element={<ConstructionsVertical />} />
         <Route path="/login" element={<Login />} />
         <Route path="/shop-vertical" element={<ShopVertical />} />
-
-        
+        <Route path="/discover-vertical" element={<DiscoverVertical />} />
       </Routes>
     <Footer/>
       

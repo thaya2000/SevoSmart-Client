@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useEffect, useState } from "react";
 import "./Navigation.css";
 import { UilSearch, UilUser } from "@iconscout/react-unicons";
 import logo from "../../images/logo.png";
@@ -16,6 +16,39 @@ const Navigation = () => {
   const [showDiscover, setShowDiscover] = useState(false);
   const [showSupport, setShowSupport] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+
+
+
+
+const [scrolled, setScrolled] = useState(true);
+  const [prevScrollPosition, setPrevScrollPosition] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const scrollUpThreshold = 100;
+
+      if (scrollPosition > scrollUpThreshold && scrollPosition > prevScrollPosition) {
+        // Scrolling up
+        setScrolled(true);
+      } else {
+        // Scrolling down or not enough scroll up
+        setScrolled(false);
+      }
+
+      setPrevScrollPosition(scrollPosition);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [prevScrollPosition]);
+
+
+
+
 
   const handleEnergyButtonHover = () => {
     setShowEnergy(true);
@@ -62,7 +95,7 @@ const Navigation = () => {
         handleEnergyButtonLeave();
       }}
     >
-      <div className="navi">
+      <div className={`navi ${scrolled ? 'scrolled' : ''}`}>
         <div className="menu">
           <Link to="/menu">
             <button className="menu-button">Menu</button>

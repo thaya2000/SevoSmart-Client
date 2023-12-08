@@ -24,7 +24,10 @@ const NavigationVertical = () => {
                     <button className="navi-butt">Shop</button>
 
               </Link>
-              <button className="navi-butt">Discover</button>
+              <Link to="/discover-vertical">
+                  <button className="navi-butt">Discover</button>
+              </Link>
+              
               <button className="navi-butt">Support</button>
           </div>
           <div className="account-button">

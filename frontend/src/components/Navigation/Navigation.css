@@ -1,17 +1,3 @@
-.Container{
-  position: fixed;
-  overflow-x: hidden;
-  
-
-  
-}
-
-
-
-/* .dropdown{
-  
-  
-} */
 
 .menu{
   
@@ -19,39 +5,62 @@
     
     display: none;
     flex-direction: column;
-    justify-content: flex-end;
+    align-items: flex-start;
+    justify-content: center;
     width: 2.25rem;
     height: 1.5rem;
-    margin-top: 1rem;
+    margin-bottom: 1rem;
+    
     
     margin-left: 80vw;
     
     
 }
 .menu-button{
-  display: flex;
-    height: 2rem;
-    width: 5rem;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid #FFFFFF;
-    border-radius: 6px;
-    background-color: transparent;
-    cursor: pointer;
-    color: #FFFFFF;
+display: flex;
+  height: 2rem;
+  width: 5rem;
+  align-items: center;
+  justify-content: center;
+  
+  border-radius: 6px;
+  background-color: transparent;
+  cursor: pointer;
+  color: #FFFFFF;
+  
+ 
+}
+.menu-button:hover{
+
+  border: 1px solid ;
+
  
 }
 
 
 
-.navi{
+.navi {
+  /* Your existing styles */
+  align-items: center;
   position: fixed;
   display: flex;
   flex-direction: row;
-  padding-top:1rem;
+  /* padding-top: 1rem; */
+  /* padding-bottom: 2rem; */
   width: 100%;
   background-color: transparent;
+  transition: background-color 0.5s ease, height 0.5s ease;
+  height: 10vh;
+  backdrop-filter: blur(8px);
 
+}
+
+.navi.scrolled {
+  
+background-color: transparent; /* Change to the desired background color */
+  height:0; /* Change to the desired height */
+  overflow: hidden; /* Hide any content within the navigation bar */
+  transition: background-color 0.5s ease, height 0.5s ease;
 }
 
 .logo>img{
@@ -67,7 +76,7 @@
     cursor: pointer;
     align-items: center;
     margin-right: 1rem;
-    margin-top: 1rem;
+    margin-bottom: 1rem;
     padding: 0.25rem;
     width: 4vh;
     height: 4vh;
@@ -105,7 +114,7 @@
     cursor: pointer;
     align-items: center;
     margin-right: 1rem;
-    margin-top: 1rem;
+    margin-bottom: 1rem;
     margin-left: auto;
     padding: 0.25rem;
     width: 4vh;
@@ -166,6 +175,7 @@
    .show-Account{
     color:#171a20;
     border: 2px solid #171a20;
+    
   }
 
   
@@ -238,7 +248,7 @@ margin-left: 5vw;
   background-color: #e7e6e6;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 700px) {
 
 .navibuttons{
   display: none;
