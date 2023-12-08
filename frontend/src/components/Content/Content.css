@@ -9,10 +9,12 @@
 .contentTitle {
   padding-top: 25vh;
   padding-left: 8vw;
-  /* scroll-snap-align: start; */
+  
   justify-content: center;
 
   height: 95vh;
+    padding-left: 10vw;
+  padding-right: 10vw;
 
   background: linear-gradient(
     180deg,
@@ -24,14 +26,29 @@
 }
 
 .contentTitle > span {
+
   display: flex;
   flex-direction: column;
-  font-size: 5vw;
-  color: #ffffff;
+  font-size: 8vw;
+  color: #FFFFFF;
   font-weight: bolder;
   font-family: Inter;
-  align-items: flex-start;
+  align-items: start;
+  overflow: hidden;
+  
 }
+/* .contentTitle > span.animating {
+  animation: typingAnimation 9s steps(40, end) infinite; 
+}
+
+@keyframes typingAnimation {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+} */
 
 .SolarButtons {
   margin-top: 4rem;

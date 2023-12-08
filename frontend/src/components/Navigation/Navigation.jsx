@@ -194,7 +194,7 @@ const [scrolled, setScrolled] = useState(true);
             Discover
           </button>
 
-          <button
+          {/* <button
             className={`navibuttons 
             ${showEnergy ? "show-Energy" : ""} 
             ${showConstuctions ? "show-Energy" : ""} 
@@ -211,7 +211,7 @@ const [scrolled, setScrolled] = useState(true);
             }}
           >
             Support
-          </button>
+          </button> */}
         </div>
 
         <div
