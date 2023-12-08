@@ -12,6 +12,7 @@ import ConstructionsVertical from "./components/Constructions/ConstructionsVerti
 import Login from './Pages/Auth/login/Login.jsx'
 import ShopVertical from "./components/Shop/ShopVertical.jsx";
 import DiscoverVertical from "./components/Discover/DiscoverVertical.jsx";
+// import Signup_step1 from './Pages/Auth/signup/Signup_step1.jsx';
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/shop-vertical" element={<ShopVertical />} />
         <Route path="/discover-vertical" element={<DiscoverVertical />} />
+        {/* <Route path="/signup" element={<Signup_step1 />} /> */}
       </Routes>
     <Footer/>
       
