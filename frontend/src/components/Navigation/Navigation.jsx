@@ -215,7 +215,10 @@ const Navigation = () => {
             handleEnergyButtonLeave();
           }}
         >
-          <UilUser />
+          <Link to="/login">
+            <UilUser />
+          </Link>
+          
         </div>
       </div>
       <div className="dropdown">

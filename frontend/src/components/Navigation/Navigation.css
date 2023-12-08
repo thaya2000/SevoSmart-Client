@@ -179,8 +179,11 @@
   position: fixed;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
   padding-top: 3vh;
   width: 100%;
+  
   background-color: #F2F2F2;
 
  }
@@ -206,14 +209,14 @@ align-items: flex-start;
 margin-left: 5vw;
 }
 
-.navi-buttons>button{
+.navi-butt{
   margin-bottom: 2vh;
   color: #171a20;
   padding: 0.25rem;
   border-radius: 10px;
 }
 
-.navi-buttons>button:hover{
+.navi-butt:hover{
   margin-bottom: 2vh;
   color: #171a20;
   background-color: #e7e6e6;

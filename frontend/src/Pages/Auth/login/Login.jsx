@@ -1,7 +1,9 @@
-import "./Login.css";
-import { AcmeLogo } from "../../components/nav/AcmeLogo";
+import React from 'react'
 
-export const Login = () => {
+import "./Login.css";
+import { AcmeLogo } from "../../../components/nav/AcmeLogo";
+
+const Login = () => {
   return (
     <div>
       <AcmeLogo />
@@ -50,3 +52,5 @@ export const Login = () => {
     </div>
   );
 };
+
+export default Login

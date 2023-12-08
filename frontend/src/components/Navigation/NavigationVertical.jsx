@@ -15,16 +15,22 @@ const NavigationVertical = () => {
           </div>
           <div className="navi-buttons">
               <Link to="/energy-vertical">
-                  <button>Energy</button>
+                  <button className="navi-butt">Energy</button>
               </Link>
-              
-              <button>Constructions</button>
-              <button>Shop</button>
-              <button>Discover</button>
-              <button>Support</button>
+              <Link to="/construction-vertical">
+                  <button className="navi-butt">Constructions</button>
+              </Link>
+              <Link to="/shop-vertical">
+                    <button className="navi-butt">Shop</button>
+
+              </Link>
+              <button className="navi-butt">Discover</button>
+              <button className="navi-butt">Support</button>
           </div>
           <div className="account-button">
-              <UilUser/>
+            <Link to="/login">
+            <UilUser />
+            </Link>
           </div>
     </div>
   )

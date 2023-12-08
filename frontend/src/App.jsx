@@ -8,7 +8,9 @@ import ConstructionsLearnmore from "./Pages/ConstructionsLearnmore/Constructions
 import NavigationVertical from "./components/Navigation/NavigationVertical.jsx";
 import Home from "./pages/Home/Home.jsx";
 import EnergyVertical from "./components/Energy/EnergyVertical.jsx";
-
+import ConstructionsVertical from "./components/Constructions/ConstructionsVertical.jsx";
+import Login from './Pages/Auth/login/Login.jsx'
+import ShopVertical from "./components/Shop/ShopVertical.jsx";
 
 function App() {
 
@@ -22,9 +24,14 @@ function App() {
         <Route path="/construction-learnmore" element={<ConstructionsLearnmore />} />
         <Route path="/menu" element={<NavigationVertical />} />
         <Route path="/energy-vertical" element={<EnergyVertical />} />
+        <Route path="/construction-vertical" element={<ConstructionsVertical />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/shop-vertical" element={<ShopVertical />} />
+
         
       </Routes>
     <Footer/>
+      
     </BrowserRouter>
   );
 }

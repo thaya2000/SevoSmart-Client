@@ -76,3 +76,34 @@
 .show-Energy {
   color: #171a20;
 }
+
+.Construction-vertical{
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  padding-top: 3vh;
+  width: 100%;
+  background-color: #F2F2F2;
+}
+
+.Cproduct-vertical{
+  display: flex;
+  flex-direction: column;
+  
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3vh;
+}
+
+.Cproducts-vertical {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: auto;
+}
+
+/* Adjust the minmax values and gap based on your design */
+@media screen and (min-width: 600px) {
+  .Cproducts-vertical {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}

@@ -34,7 +34,10 @@ const EnergyVertical = () => {
                   <span>Energy</span>
               </div>
               <div className="close-icon">
-                  <UilTimes />
+                    <Link to="/">
+                      <UilTimes />
+                    </Link>
+                  
               </div>
             </div>
       <div className="products-vertical">
