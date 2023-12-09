@@ -13,7 +13,9 @@ const ContentConstructions = () => {
           <span>Constructions</span>
         </div>
         <div className="ConstructionButtons">
+        <Link to="/Constructions">
         <button className='CButton1' >Construction</button>
+        </Link>
         <Link to="/construction-learnmore">
           <button className='CButton2' >Learn more</button>
         </Link>

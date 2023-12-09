@@ -6,7 +6,6 @@ import "./Signup_step1.css"
 export const Signup_step1 = () => {
   return (
     <div>
-        <AcmeLogo/>
 
 <div className="Signup_step1-background">
   <div className="Signup_step1-container">

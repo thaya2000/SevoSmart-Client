@@ -5,7 +5,6 @@ import "./Signup_step2.css";
 export const Signup_step2 = () => {
   return (
     <div>
-      <AcmeLogo />
       <div className="Signup_step2-background">
         <div className="Signup_step2-container">
           <div className="Signup_step2-header">

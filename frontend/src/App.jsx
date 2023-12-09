@@ -15,6 +15,7 @@ import NavigationVertical from "./components/Navigation/NavigationVertical.jsx";
 import Home from "./pages/Home/Home.jsx";
 import Constructions from "./Components/Constructions/Constructions.jsx";
 
+
 function App() {
   return (
     <BrowserRouter>
@@ -23,8 +24,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/consruction" element={<NewBuildingConsultation />} />
+        <Route path="/signup" element={<Signup_step1/>}/>
+        <Route path="/signup2" element={<Signup_step2/>}/>
+        <Route path="/consultations" element={<NewBuildingConsultation />} />
         <Route path="/solar-learnmore" element={<SolarPanelLearnmore />} />
+        <Route path="/constructions" element={<Constructions/>}/>
         <Route
           path="/construction-learnmore"
           element={<ConstructionsLearnmore />}

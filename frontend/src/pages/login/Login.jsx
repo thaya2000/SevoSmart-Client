@@ -5,7 +5,6 @@ import { AcmeLogo } from "../../components/nav/AcmeLogo";
 export const Login = () => {
   return (
     <div>
-      <AcmeLogo />
 
       <div className="login-background">
         <div className="logincontainer">

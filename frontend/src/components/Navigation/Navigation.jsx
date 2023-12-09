@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import "./Navigation.css";
 import { UilSearch, UilUser } from "@iconscout/react-unicons";
 import logo from "../../images/logo.png";
@@ -8,6 +9,7 @@ import Shop from "../Shop/Shop";
 import Discover from "../Discover/Discover";
 import Support from "../Support/Support";
 import { Link } from "react-router-dom";
+import { Login } from "../../pages/login/Login";
 
 const Navigation = () => {
   const [showEnergy, setShowEnergy] = useState(false);
@@ -212,7 +214,7 @@ const Navigation = () => {
             handleSupportButtonLeave();
             handleEnergyButtonLeave();
           }}
-        >
+        onClick={Login}>
           <UilUser />
         </div>
       </div>
