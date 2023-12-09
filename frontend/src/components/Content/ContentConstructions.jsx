@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 const ContentConstructions = () => {
   return (
-    <div className="contentConstruction" style={{ backgroundImage: `url(${ConstructionsBg})` }}>
+    <div className="contentConstruction" id="contentConstructions" style={{ backgroundImage: `url(${ConstructionsBg})` }}>
         <div className="ConstructionTitle">
           <span>Constructions</span>
         </div>

@@ -9,7 +9,7 @@ import SolarPanelLearnmore from "../SolarPanelLearnmore/SolarPanelLearnmore";
 const ContentSolar = () => {
   return (
     <div
-      className="contentSolar"
+      className="contentSolar" id="contentSolar"
       style={{ backgroundImage: `url(${SolarBg})` }}
     >
       <div className="SolarTitle">
