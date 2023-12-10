@@ -6,7 +6,6 @@ import Menu from "./components/nav/Menu.jsx";
 import { Login } from "./pages/login/Login.jsx";
 import { Signup_step1 } from "./pages/signup/Signup_step1.jsx";
 import { Signup_step2 } from "./pages/signup/Signup_step2.jsx";
-import { NewBuildingConsultation } from "./pages/new_building_consultation/NewBuildingConsultation.jsx";
 import Navigation from "./Components/Navigation/Navigation";
 import SolarPanelLearnmore from "./Components/SolarPanelLearnmore/SolarPanelLearnmore.jsx";
 import Footer from "./Components/footer/Footer.jsx";
@@ -14,6 +13,8 @@ import ConstructionsLearnmore from "./Pages/ConstructionsLearnmore/Constructions
 import NavigationVertical from "./components/Navigation/NavigationVertical.jsx";
 import Home from "./pages/Home/Home.jsx";
 import Constructions from "./Components/Constructions/Constructions.jsx";
+import { NewBuildingConsultation } from "./Pages/new_building_consultation/NewBuildingConsultation.jsx";
+import EnergyOrder from "./Pages/energy_order/EnergyOrder.jsx";
 
 
 function App() {
@@ -26,9 +27,10 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup_step1/>}/>
         <Route path="/signup2" element={<Signup_step2/>}/>
-        <Route path="/consultations" element={<NewBuildingConsultation />} />
+        <Route path="/consultations" element={<NewBuildingConsultation/>} />
         <Route path="/solar-learnmore" element={<SolarPanelLearnmore />} />
         <Route path="/constructions" element={<Constructions/>}/>
+        <Route path="/energy-order" element={<EnergyOrder/>}/>
         <Route
           path="/construction-learnmore"
           element={<ConstructionsLearnmore />}

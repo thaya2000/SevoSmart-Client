@@ -5,19 +5,14 @@ import { BsCalendarDate } from "react-icons/bs";
 import { TiTick } from "react-icons/ti";
 import { FaRegFolderClosed } from "react-icons/fa6";
 
+
+
 export const NewBuildingConsultation = () => {
-
-
-    const [isCalendarOpen, setIsCalendarOpen] = useState(false);
-  
-    const toggleCalendar = () => {
-      setIsCalendarOpen(!isCalendarOpen);
-    };
   
 
   return (
     <div>
-      <div className="flex flex-row w-[100%] lg:w-[70%] mx-auto">
+      <div className="flex flex-row justify-around  w-[100%] w-max-[100px] lg:w-[70%] mx-auto">
         <div className="flex flex-col w-[60%] my-12 mt-20 mx-auto">
           <h1 className="text-3xl font-medium">
             Schedule your time & Connect with us
@@ -55,27 +50,26 @@ export const NewBuildingConsultation = () => {
             <FaRegFolderClosed size={30} />
           </div>
         </div>
-        <div className="flex flex-col w-[40%] my-12 mt-20 mx-auto">
-          {" "}
-          {/* Adjusted margin */}
+        <div className="flex flex-col w-280 my-12 mt-20 ml-auto">
+    
           <div className="flex flex-col  ">
             <text className="font-medium text-sm">Full Name</text>
             <input
-              className="h-7 bg-[#D9D9D9] w-[100%] lg:w-[60%]"
+              className="h-7 bg-[#D9D9D9] "
               type="text"
             />
           </div>
           <div className="flex flex-col mt-2">
             <text className="font-medium text-sm">Email ID</text>
             <input
-              className="h-7  bg-[#D9D9D9] w-[100%] lg:w-[60%]"
+              className="h-7  bg-[#D9D9D9]"
               type="text"
             />
           </div>
           <div className="flex flex-col mt-2">
             <text className="font-medium text-sm">Phone No</text>
             <input
-              className="h-7 bg-[#D9D9D9] w-[100%] lg:w-[60%]"
+              className="h-7 bg-[#D9D9D9] "
               type="text"
             />
           </div>
@@ -84,27 +78,20 @@ export const NewBuildingConsultation = () => {
               <span className="hover:cursor-pointer text-[#0569FF]">
                 Click here
               </span>
-            </a>{" "}
+            </a>
             to schedule time
           </p>
 
          <div className="flex flex-row mt-3">
-         <div className="">
-            <input
-              type="date"
-              style={{ display: isCalendarOpen ? "block" : "none" }}
-              onFocus={() => setIsCalendarOpen(true)}
-              onBlur={() => setIsCalendarOpen(false)}
-            />
-            <BsCalendarDate size={30} onClick={toggleCalendar} />
-          </div>
+            <BsCalendarDate size={30}/>
+        
           <div>
             
           </div>
 
          </div>
 
-          <button className="bg-[#334BA1] mt-3 rounded-full h-7 w-[100%] lg:w-[60%]">
+          <button className="bg-[#334BA1] mt-3 rounded-full h-7 ]">
             Submit
           </button>
         </div>
