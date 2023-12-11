@@ -48,9 +48,9 @@ const Login = () => {
               </div>
               <div className="underline"></div>
             </div>
-            {/* <Link to='/signup'> */}
+            <Link to='/signup'>
               <button className="create-account-button">Create Account</button>
-            {/* </Link> */}
+            </Link>
             
         </div>
       </div>

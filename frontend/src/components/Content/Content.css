@@ -154,8 +154,7 @@
 
 @media screen and (max-width: 900px) {
   .content {
-    display: flex;
-    flex-direction: column;
+
 
     
     width: 100%;
@@ -165,7 +164,7 @@
     
     scroll-snap-align: start;
     justify-content: center;
-
+    padding-top: none;
     height: 100%;
     padding-bottom: 15vh;
     background: linear-gradient(180deg, #040e42 30%, #80808a 70%);
@@ -211,7 +210,7 @@
   .SolarTitle>span {
     font-weight: bold;
     color: #081c3a;
-    font-size: 8vh;
+    font-size: 3rem;
   }
 
   .contentConstruction {
@@ -229,7 +228,7 @@
     padding-top: 5vh;
     color: #ffffff;
     font-weight: bold;
-    font-size: 8vh;
+    font-size: 3rem;
   }
 
   .ConstructionButtons {

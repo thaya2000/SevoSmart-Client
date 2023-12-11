@@ -2,9 +2,19 @@
 .Home{
     display: flex;
     flex-direction: column;
-    overflow-x: hidden;
+    
+    width: 100%;
     
    
+}
+@media screen and (min-width: 900px) {
+    .Home{
+
+    
+    width: 110%;
+    
+   
+}
 }
 
 
