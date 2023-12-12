@@ -1,19 +1,66 @@
-import React, {useState} from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./NewBuildingConsultation.css";
 import { AcmeLogo } from "../../components/nav/AcmeLogo";
 import { BsCalendarDate } from "react-icons/bs";
 import { TiTick } from "react-icons/ti";
 import { FaRegFolderClosed } from "react-icons/fa6";
-
-
+import axios from "axios";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 export const NewBuildingConsultation = () => {
-  
+  const [selectedDate, setSelectedDate] = useState(null);
+  const datepickerRef = useRef(null);
+
+  const handleCalendarIconClick = () => {
+    if (datepickerRef.current) {
+      datepickerRef.current.setOpen(true);
+    }
+  };
+
+  const [files, setFiles] = useState([]);
+  const [uploadedFiles, setUploadedFiles] = useState([]);
+  const [uploadProgress, setUploadProgress] = useState(0);
+
+  function handleMultipleChange(event) {
+    setFiles([...event.target.files]);
+  }
+
+  function handleMultipleSubmit(event) {
+    event.preventDefault();
+    const url = "http://localhost:3000/uploadFiles";
+    const formData = new FormData();
+    files.forEach((file, index) => {
+      formData.append(`file${index}`, file);
+    });
+
+    const config = {
+      headers: {
+        "content-type": "multipart/form-data",
+      },
+      onUploadProgress: function (progressEvent) {
+        const percentCompleted = Math.round(
+          (progressEvent.loaded * 100) / progressEvent.total
+        );
+        setUploadProgress(percentCompleted);
+      },
+    };
+
+    axios
+      .post(url, formData, config)
+      .then((response) => {
+        console.log(response.data);
+        setUploadedFiles(response.data.files);
+      })
+      .catch((error) => {
+        console.error("Error uploading files: ", error);
+      });
+  }
 
   return (
     <div>
-      <div className="flex flex-row justify-around  w-[100%] w-max-[100px] lg:w-[70%] mx-auto">
-        <div className="flex flex-col w-[60%] my-12 mt-20 mx-auto">
+      <div className="flex justify-center py-[70px]">
+        <div className="flex flex-col w-[400px] ">
           <h1 className="text-3xl font-medium">
             Schedule your time & Connect with us
           </h1>
@@ -47,29 +94,63 @@ export const NewBuildingConsultation = () => {
             your documents here
           </p>
           <div className="mt-2 ml-6">
-            <FaRegFolderClosed size={30} />
+            <form onSubmit={handleMultipleSubmit}>
+              <label
+                htmlFor="file-input"
+                className="flex items-center mb-2 hover:cursor-pointer"
+              >
+                <FaRegFolderClosed size={30} />
+              </label>
+              <input
+                id="file-input"
+                className="hidden"
+                type="file"
+                multiple
+                onChange={handleMultipleChange}
+              />
+              <button
+                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-1 me-2 mt-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                type="submit"
+              >
+                Upload
+              </button>
+              <progress
+                className="h-2.5 w-100 rounded-full"
+                value={uploadProgress}
+                max="100"
+              ></progress>
+            </form>
+            {uploadedFiles.map((file, index) => (
+              <img key={index} src={file} alt={`Uploaded content ${index}`} />
+            ))}
           </div>
         </div>
-        <div className="flex flex-col w-280 my-12 mt-20 ml-auto">
-    
+        <div className="flex flex-col w-[250px] mx-[3px]">
           <div className="flex flex-col  ">
-            <text className="font-medium text-sm">Full Name</text>
+            <text className="font-medium text-sm">First Name</text>
             <input
-              className="h-7 bg-[#D9D9D9] "
+              className="pl-[4px] h-7 rounded-md bg-[#D9D9D9] "
+              type="text"
+            />
+          </div>
+          <div className="flex flex-col  ">
+            <text className="font-medium text-sm"> Last Name</text>
+            <input
+              className="pl-[4px] h-7 rounded-md bg-[#D9D9D9] "
               type="text"
             />
           </div>
           <div className="flex flex-col mt-2">
             <text className="font-medium text-sm">Email ID</text>
             <input
-              className="h-7  bg-[#D9D9D9]"
+              className="h-7 pl-[4px] rounded-md  bg-[#D9D9D9]"
               type="text"
             />
           </div>
           <div className="flex flex-col mt-2">
             <text className="font-medium text-sm">Phone No</text>
             <input
-              className="h-7 bg-[#D9D9D9] "
+              className="h-7 pl-[4px] rounded-md bg-[#D9D9D9] "
               type="text"
             />
           </div>
@@ -77,21 +158,25 @@ export const NewBuildingConsultation = () => {
             <a href="#">
               <span className="hover:cursor-pointer text-[#0569FF]">
                 Click here
-              </span>
+              </span>{" "}
             </a>
             to schedule time
           </p>
 
-         <div className="flex flex-row mt-3">
-            <BsCalendarDate size={30}/>
-        
-          <div>
-            
+          <div className="flex gap-4 items-center mt-3 h-7 border-gray-800">
+            <BsCalendarDate size={30} onClick={handleCalendarIconClick} className="hover:cursor-pointer" />
+
+            <DatePicker
+              ref={datepickerRef}
+              selected={selectedDate}
+              onChange={(date) => setSelectedDate(date)}
+              dateFormat="dd/MM/yyyy"
+              filterDate={(date) => date.getDay() !== 6 && date.getDay() !== 0 }
+              className="text-black"
+            />
           </div>
 
-         </div>
-
-          <button className="bg-[#334BA1] mt-3 rounded-full h-7 ]">
+          <button className="bg-[#334BA1] mt-3 rounded-full h-7">
             Submit
           </button>
         </div>
