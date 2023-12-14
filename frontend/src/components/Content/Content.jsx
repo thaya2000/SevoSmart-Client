@@ -7,26 +7,33 @@ const Content = () => {
   const targetText = "Sri Lanka.";
 
   useEffect(() => {
-    if (startTypewriter) {
-      const typeText = async () => {
+    const typeText = async () => {
+      while (startTypewriter) {
         for (let i = 0; i < targetText.length; i++) {
           setTypewriterText((prevText) => prevText + targetText.charAt(i));
           await new Promise((resolve) => setTimeout(resolve, 100));
         }
-      };
 
-      typeText();
-    }
+        await new Promise((resolve) => setTimeout(resolve, 1500));
+
+        setTypewriterText(""); // Clear text after each sentence
+      }
+    };
+
+    typeText();
   }, [startTypewriter, targetText]);
 
   useEffect(() => {
     // Start the typewriter effect after a delay
     const timeoutId = setTimeout(() => {
       setStartTypewriter(true);
-    }, 1500);
+    }, 1000);
 
     // Cleanup function to clear the timeout when the component unmounts
-    return () => clearTimeout(timeoutId);
+    return () => {
+      setStartTypewriter(false); // Stop the typewriter loop
+      clearTimeout(timeoutId);
+    };
   }, []);
 
   return (
