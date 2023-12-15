@@ -1,4 +1,4 @@
-import React, {useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Navigation.css";
 import { UilSearch, UilUser } from "@iconscout/react-unicons";
 import logo from "../../images/logo.png";
@@ -8,6 +8,7 @@ import Shop from "../Shop/Shop.jsx";
 import Discover from "../Discover/Discover.jsx";
 import Support from "../Support/Support.jsx";
 import { Link } from "react-router-dom";
+import { Login } from "../../Pages/Auth/login/Login.jsx";
 
 const Navigation = () => {
   const [showEnergy, setShowEnergy] = useState(false);
@@ -17,10 +18,7 @@ const Navigation = () => {
   const [showSupport, setShowSupport] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
-
-
-
-const [scrolled, setScrolled] = useState(true);
+  const [scrolled, setScrolled] = useState(true);
   const [prevScrollPosition, setPrevScrollPosition] = useState(0);
 
   useEffect(() => {
@@ -28,7 +26,10 @@ const [scrolled, setScrolled] = useState(true);
       const scrollPosition = window.scrollY;
       const scrollUpThreshold = 100;
 
-      if (scrollPosition > scrollUpThreshold && scrollPosition > prevScrollPosition) {
+      if (
+        scrollPosition > scrollUpThreshold &&
+        scrollPosition > prevScrollPosition
+      ) {
         // Scrolling up
         setScrolled(true);
       } else {
@@ -39,16 +40,12 @@ const [scrolled, setScrolled] = useState(true);
       setPrevScrollPosition(scrollPosition);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, [prevScrollPosition]);
-
-
-
-
 
   const handleEnergyButtonHover = () => {
     setShowEnergy(true);
@@ -65,8 +62,6 @@ const [scrolled, setScrolled] = useState(true);
   const handleSupportButtonHover = () => {
     setShowSupport(true);
   };
-
-  
 
   const handleEnergyButtonLeave = () => {
     setShowEnergy(false);
@@ -95,7 +90,7 @@ const [scrolled, setScrolled] = useState(true);
         handleEnergyButtonLeave();
       }}
     >
-      <div className={`navi ${scrolled ? 'scrolled' : ''}`}>
+      <div className={`navi ${scrolled ? "scrolled" : ""}`}>
         <div className="menu">
           <Link to="/menu">
             <button className="menu-button">Menu</button>
@@ -247,11 +242,9 @@ const [scrolled, setScrolled] = useState(true);
             handleSupportButtonLeave();
             handleEnergyButtonLeave();
           }}
+          onClick={Login}
         >
-          <Link to="/login">
-            <UilUser />
-          </Link>
-          
+          <UilUser />
         </div>
       </div>
       <div className="dropdown">

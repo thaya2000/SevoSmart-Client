@@ -1,25 +1,47 @@
-import React, { useEffect, useRef } from "react";
-import ScrollTrigger from "react-scroll-trigger";
+import React, { useState, useEffect } from "react";
 import "./Content.css";
-import SolarBg from "../../images/SolarBg.png";
-import ConstructionsBg from "../../images/ConstructionsBg.jpg";
 
 const Content = () => {
-    useEffect(() => {
-    const spans = document.querySelectorAll('.contentTitle > span');
-    spans.forEach((span) => {
-      span.classList.add('animating');
-    });
-    }, []);
-  
-  
-  
+  const [typewriterText, setTypewriterText] = useState("");
+  const [startTypewriter, setStartTypewriter] = useState(false);
+  const targetText = "Sri Lanka.";
+
+  useEffect(() => {
+    const typeText = async () => {
+      while (startTypewriter) {
+        for (let i = 0; i < targetText.length; i++) {
+          setTypewriterText((prevText) => prevText + targetText.charAt(i));
+          await new Promise((resolve) => setTimeout(resolve, 100));
+        }
+
+        await new Promise((resolve) => setTimeout(resolve, 1500));
+
+        setTypewriterText(""); // Clear text after each sentence
+      }
+    };
+
+    typeText();
+  }, [startTypewriter, targetText]);
+
+  useEffect(() => {
+    // Start the typewriter effect after a delay
+    const timeoutId = setTimeout(() => {
+      setStartTypewriter(true);
+    }, 1000);
+
+    // Cleanup function to clear the timeout when the component unmounts
+    return () => {
+      setStartTypewriter(false); // Stop the typewriter loop
+      clearTimeout(timeoutId);
+    };
+  }, []);
+
   return (
     <div className="content">
       <div className="contentTitle">
-        <span>Delivering the Best
-              Smart Home solutions in
-              Sri Lanka.</span>
+        <span>Delivering the Best</span>
+        <span>Smart Home solutions in</span>
+        <span>{typewriterText}</span>
       </div>
 
       <div className="Accessories"></div>
