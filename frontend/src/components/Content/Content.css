@@ -7,14 +7,10 @@
 }
 
 .contentTitle {
-  padding-top: 25vh;
-  padding-left: 8vw;
-  
+  display: flex;
   justify-content: center;
-
   height: 95vh;
-    padding-left: 10vw;
-  padding-right: 10vw;
+  width: 100vw;
 
   background: linear-gradient(
     180deg,
@@ -26,16 +22,16 @@
 }
 
 .contentTitle > span {
-
   display: flex;
   flex-direction: column;
   font-size: 8vw;
-  color: #FFFFFF;
+  color: #ffffff;
   font-weight: bolder;
   font-family: Inter;
-  align-items: start;
+  align-items: center;
+  justify-content: center;
+  width: 90vw;
   overflow: hidden;
-  
 }
 /* .contentTitle > span.animating {
   animation: typingAnimation 9s steps(40, end) infinite; 
@@ -154,14 +150,10 @@
 
 @media screen and (max-width: 900px) {
   .content {
-
-
-    
     width: 100%;
   }
 
   .contentTitle {
-    
     scroll-snap-align: start;
     justify-content: center;
     padding-top: none;
@@ -169,7 +161,6 @@
     padding-bottom: 15vh;
     background: linear-gradient(180deg, #040e42 30%, #80808a 70%);
   }
-
 
   .contentSolar {
     display: flex;
@@ -204,10 +195,9 @@
   }
   .SolarTitle {
     padding-top: 6vh;
-    
   }
 
-  .SolarTitle>span {
+  .SolarTitle > span {
     font-weight: bold;
     color: #081c3a;
     font-size: 3rem;
