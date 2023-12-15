@@ -8,7 +8,7 @@ import Shop from "../Shop/Shop.jsx";
 import Discover from "../Discover/Discover.jsx";
 import Support from "../Support/Support.jsx";
 import { Link } from "react-router-dom";
-import { Login } from "../../Pages/Auth/login/Login.jsx";
+// import { Login } from "../../Pages/Auth/login/Login.jsx";
 
 const Navigation = () => {
   const [showEnergy, setShowEnergy] = useState(false);
@@ -242,7 +242,7 @@ const Navigation = () => {
             handleSupportButtonLeave();
             handleEnergyButtonLeave();
           }}
-          onClick={Login}
+          // onClick={Login}
         >
           <UilUser />
         </div>
