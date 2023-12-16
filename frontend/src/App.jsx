@@ -8,7 +8,7 @@ import SolarPanelLearnmore from "./Components/SolarPanelLearnmore/SolarPanelLear
 import Footer from "./Components/footer/Footer.jsx";
 import ConstructionsLearnmore from "./Pages/ConstructionsLearnmore/ConstructionsLearnmore.jsx";
 import NavigationVertical from "./components/Navigation/NavigationVertical.jsx";
-import Home from "./pages/Home/Home.jsx";
+
 import EnergyVertical from "./components/Energy/EnergyVertical.jsx";
 import ConstructionsVertical from "./components/Constructions/ConstructionsVertical.jsx";
 import Login from "./Pages/Auth/login/Login.jsx";
@@ -18,6 +18,7 @@ import Signup_step1 from "./Pages/Auth/signup/Signup_step1.jsx";
 import Constructions from "./Components/Constructions/Constructions.jsx";
 import { NewBuildingConsultation } from "./Pages/new_building_consultation/NewBuildingConsultation.jsx";
 import EnergyOrder from "./Pages/energy_order/EnergyOrder.jsx";
+import Home from "./Pages/Home/Home.jsx";
 
 function App() {
   return (
@@ -25,8 +26,10 @@ function App() {
       <Navigation />
 
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home/>} />
         <Route path="/solar-learnmore" element={<SolarPanelLearnmore />} />
+        <Route path="/energy-order" element={<EnergyOrder/>}/>
+        <Route path="/new-building-consultation" element={<NewBuildingConsultation/>}/>
         <Route
           path="/construction-learnmore"
           element={<ConstructionsLearnmore />}

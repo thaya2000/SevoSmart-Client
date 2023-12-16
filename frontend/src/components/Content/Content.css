@@ -1,11 +1,13 @@
 .content {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
+  
 }
 
 .contentTitle {
+ 
   display: flex;
   flex-direction: column;
   justify-content: center;

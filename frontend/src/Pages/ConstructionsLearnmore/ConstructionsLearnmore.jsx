@@ -1,8 +1,9 @@
 import React from 'react'
 import './ConstructionsLearnmore.css'
-import Constructionimg01 from '../../images/ConstructionImage01.webp'
-import Constructionimg02 from '../../images/ConstructionImage02.jpg'
+import Havana from '../../images/images2/havana.jpg'
+import construction1 from 'C:/Sevo-Smart/frontend/src/images/images2/construction1.jpg'
 import Constructionimg03 from '../../images/ConstructionImage03.jpeg'
+import { Link } from 'react-router-dom'
 
 const ConstructionsLearnmore = () => {
     return (
@@ -10,18 +11,20 @@ const ConstructionsLearnmore = () => {
             <div className="Ccontent01">
                 <div className="Construction-title">
                     <span>Construction</span>
-                    <button>Book now</button>
+                   <Link to="/new-building-consultation">
+                   <button className='bg-black text-white w-32 h-8 rounded-full border-none cursor-pointer'>Book now</button>
+                   </Link>
                 </div>
                 <div className="Construction-images">
                     <div className="C01">
-                        <img src={Constructionimg02} alt="" /> 
+                        <img src={construction1} alt="" /> 
                     </div>
-                    <img src={Constructionimg01} alt="" />
+                    <img src={Havana} alt="" />
                     
                     <img src={Constructionimg03} alt="" />
                 </div> 
             </div>
-            <div className="Ccontent02" style={{ backgroundImage: `url(${Constructionimg01})` }}>
+            <div className="Ccontent02" style={{ backgroundImage: `url(${Havana})` }}>
                 <div className="Ccontent02-discription">
                     <span>Havana construction:</span>
                     <span>A leading firm in the 
@@ -33,7 +36,7 @@ const ConstructionsLearnmore = () => {
                 </div>
                 
             </div>
-            <div className="Ccontent02" style={{ backgroundImage: `url(${Constructionimg02})` }}>
+            <div className="Ccontent02" style={{ backgroundImage: `url(${construction1})` }}>
                 
                 
                 <div className="Ccontent03-discription">

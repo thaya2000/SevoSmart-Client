@@ -110,7 +110,7 @@ const Navigation = () => {
             <img src={logo} alt="" />
           </div>
         </Link>
-        <div className="pageButtons">
+        <div className="pageButtons text-black">
           <button
             className={`navibuttons 
             ${showEnergy ? "show-Energy" : ""} 
@@ -227,7 +227,7 @@ const Navigation = () => {
         >
           <UilSearch />
         </div>
-        <div
+        {/* <div
           className={`naviAccount 
             ${showEnergy ? "show-Account" : ""} 
             ${showConstuctions ? "show-Account" : ""} 
@@ -245,7 +245,7 @@ const Navigation = () => {
           // onClick={Login}
         >
           <UilUser />
-        </div>
+        </div> */}
       </div>
       <div className="dropdown">
         {showEnergy && <Energy />}

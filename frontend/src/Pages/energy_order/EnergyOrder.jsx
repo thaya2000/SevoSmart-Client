@@ -22,7 +22,7 @@ const EnergyOrder = () => {
 
   return (
     <div>
-      <div className="flex justify-center gap-10 py-[70px]">
+      <div className="flex justify-center gap-10 py-[80px]">
         <div className="flex flex-col w-[250px]">
           <div className="flex flex-col  ">
             <text className="font-medium text-sm">First Name</text>
