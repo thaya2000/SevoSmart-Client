@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Navigation.css";
 import { UilSearch, UilUser } from "@iconscout/react-unicons";
 import logo from "../../images/logo.png";
-import Energy from "../Energy/Energy";
-import Constructions from "../Constructions/Constructions";
-import Shop from "../Shop/Shop";
-import Discover from "../Discover/Discover";
-import Support from "../Support/Support";
+import Energy from "../Energy/Energy.jsx";
+import Constructions from "../Constructions/Constructions.jsx";
+import Shop from "../Shop/Shop.jsx";
+import Discover from "../Discover/Discover.jsx";
+import Support from "../Support/Support.jsx";
 import { Link } from "react-router-dom";
+// import { Login } from "../../Pages/Auth/login/Login.jsx";
 
 const Navigation = () => {
   const [showEnergy, setShowEnergy] = useState(false);
@@ -16,6 +17,35 @@ const Navigation = () => {
   const [showDiscover, setShowDiscover] = useState(false);
   const [showSupport, setShowSupport] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const [scrolled, setScrolled] = useState(true);
+  const [prevScrollPosition, setPrevScrollPosition] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const scrollUpThreshold = 100;
+
+      if (
+        scrollPosition > scrollUpThreshold &&
+        scrollPosition > prevScrollPosition
+      ) {
+        // Scrolling up
+        setScrolled(true);
+      } else {
+        // Scrolling down or not enough scroll up
+        setScrolled(false);
+      }
+
+      setPrevScrollPosition(scrollPosition);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [prevScrollPosition]);
 
   const handleEnergyButtonHover = () => {
     setShowEnergy(true);
@@ -60,8 +90,9 @@ const Navigation = () => {
         handleEnergyButtonLeave();
       }}
     >
-      <div className="navi">
-        <div className="menu" >
+      <div className={`navi 
+      ${scrolled ? "scrolled" : ""}`}>
+        <div className="menu">
           <Link to="/menu">
             <button className="menu-button">Menu</button>
           </Link>
@@ -80,7 +111,7 @@ const Navigation = () => {
             <img src={logo} alt="" />
           </div>
         </Link>
-        <div className="pageButtons">
+        <div className="pageButtons text-black">
           <button
             className={`navibuttons 
             ${showEnergy ? "show-Energy" : ""} 
@@ -159,7 +190,7 @@ const Navigation = () => {
             Discover
           </button>
 
-          <button
+          {/* <button
             className={`navibuttons 
             ${showEnergy ? "show-Energy" : ""} 
             ${showConstuctions ? "show-Energy" : ""} 
@@ -176,7 +207,7 @@ const Navigation = () => {
             }}
           >
             Support
-          </button>
+          </button> */}
         </div>
 
         <div
@@ -197,7 +228,7 @@ const Navigation = () => {
         >
           <UilSearch />
         </div>
-        <div
+        {/* <div
           className={`naviAccount 
             ${showEnergy ? "show-Account" : ""} 
             ${showConstuctions ? "show-Account" : ""} 
@@ -212,11 +243,12 @@ const Navigation = () => {
             handleSupportButtonLeave();
             handleEnergyButtonLeave();
           }}
+          // onClick={Login}
         >
           <UilUser />
-        </div>
+        </div> */}
       </div>
-      <div className="dropdown">
+      <div className={`dropdown ${showEnergy || showConstuctions || showShop || showDiscover || showSupport ? 'active' : ''}`}>
         {showEnergy && <Energy />}
         {showConstuctions && <Constructions />}
         {showShop && <Shop />}

@@ -32,11 +32,15 @@
 }
 
 .partners {
-  display: flex;
+    display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: auto;
+  
   width: 100%;
-  margin: 1rem;
+  margin: auto;
   justify-content: center;
   align-items: center;
+  padding-left: 4vh;
 }
 
 .partners > img {
@@ -53,12 +57,13 @@
   font-size: 0.75rem;
 }
 
-@media screen and (max-width: 900px) {
+@media only screen and (max-width: 1000px) {
   .details {
     background: #040e42;
     display: flex;
     flex-direction: row;
     width: 100%;
+    overflow-x: hidden;
   }
 
   .contact {
@@ -87,9 +92,15 @@
   }
 
   .partners {
-    display: "flex";
-    width: 100%;
-    margin: 1rem;
+    display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+ 
+  
+  width: 100%;
+  /* margin: auto; */
+  padding-left: 3.5vh;
+  align-items: flex-end;
+ 
   }
 
   .partners > img {

@@ -47,7 +47,7 @@ const Footer = () => {
             </div>
 
         </div>
-        <div className="partners" >
+        <div className="partners py-4 mx-auto" >
           <img src={logo1} alt="" />
           <img src={logo2} alt="" />
           <img src={logo3} alt="" />

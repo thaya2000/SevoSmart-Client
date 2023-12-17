@@ -5,53 +5,85 @@
 
   
 }
-
-
-
-/* .dropdown{
-  
-  
-} */
-
 .menu{
   
   position: absolute;
     
     display: none;
     flex-direction: column;
-    justify-content: flex-end;
+    align-items: flex-start;
+    justify-content: center;
     width: 2.25rem;
     height: 1.5rem;
-    margin-top: 1rem;
+    margin-bottom: 1rem;
+    
     
     margin-left: 80vw;
     
     
 }
 .menu-button{
-  display: flex;
-    height: 2rem;
-    width: 5rem;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid #FFFFFF;
-    border-radius: 6px;
-    background-color: transparent;
-    cursor: pointer;
-    color: #FFFFFF;
+display: flex;
+  height: 2rem;
+  width: 5rem;
+  align-items: center;
+  justify-content: center;
+  
+  border-radius: 6px;
+  background-color: transparent;
+  cursor: pointer;
+  color: #FFFFFF;
+  
  
+}
+.menu-button:hover{
+
+  border: 1px solid ;
+
+ 
+}
+
+.dropdown {
+  
+  opacity: 1;
+  visibility: hidden;
+  transform: translateY(-100%);
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 1.2s ease;
+}
+
+.dropdown.active {
+  
+  
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 
 
-.navi{
+.navi {
+  opacity: 1;
+  /* Your existing styles */
+  align-items: center;
   position: fixed;
   display: flex;
   flex-direction: row;
-  padding-top:1rem;
+  /* padding-top: 1rem; */
+  /* padding-bottom: 2rem; */
   width: 100%;
   background-color: transparent;
+  transition: background-color 0.5s ease, height 0.5s ease;
+  height: 10vh;
+  backdrop-filter: blur(8px);
 
+}
+
+.navi.scrolled {
+  
+background-color: transparent; /* Change to the desired background color */
+  height:0; /* Change to the desired height */
+  overflow: hidden; /* Hide any content within the navigation bar */
+  transition: background-color 0.5s ease, height 0.5s ease;
 }
 
 .logo>img{
@@ -67,7 +99,7 @@
     cursor: pointer;
     align-items: center;
     margin-right: 1rem;
-    margin-top: 1rem;
+    margin-bottom: 1rem;
     padding: 0.25rem;
     width: 4vh;
     height: 4vh;
@@ -105,7 +137,7 @@
     cursor: pointer;
     align-items: center;
     margin-right: 1rem;
-    margin-top: 1rem;
+    margin-bottom: 1rem;
     margin-left: auto;
     padding: 0.25rem;
     width: 4vh;
@@ -124,6 +156,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+  
 }
 
 .navibuttons {
@@ -166,11 +199,13 @@
    .show-Account{
     color:#171a20;
     border: 2px solid #171a20;
+    
   }
 
   
  .show-Energy{
   color:#171a20;
+  position: absolute;
   
  
  }
@@ -179,8 +214,11 @@
   position: fixed;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
   padding-top: 3vh;
   width: 100%;
+  
   background-color: #F2F2F2;
 
  }
@@ -206,14 +244,14 @@ align-items: flex-start;
 margin-left: 5vw;
 }
 
-.navi-buttons>button{
+.navi-butt{
   margin-bottom: 2vh;
   color: #171a20;
   padding: 0.25rem;
   border-radius: 10px;
 }
 
-.navi-buttons>button:hover{
+.navi-butt:hover{
   margin-bottom: 2vh;
   color: #171a20;
   background-color: #e7e6e6;
@@ -235,7 +273,7 @@ margin-left: 5vw;
   background-color: #e7e6e6;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1000px) {
 
 .navibuttons{
   display: none;

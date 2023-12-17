@@ -1,18 +1,25 @@
+import React from 'react'
+import { UilTimes, UilUser } from "@iconscout/react-unicons";
+import logo from "../../../images/logo.png";
+import { Link } from "react-router-dom";
 import "./Login.css";
-import { AcmeLogo } from "../../components/nav/AcmeLogo";
+import ConstructionsBg from '../../../images/ConstructionsBg.jpg';
 
-export const Login = () => {
+
+const Login = () => {
   return (
-    <div>
-      <AcmeLogo />
 
-      <div className="login-background">
-        <div className="logincontainer">
-          <div className="header">
-            <div className="text">Sign In</div>
-          </div>
-
-          <div className="inputs">
+    <div className="logincontainer">
+      <div className="login-header">
+          <img src={logo} alt="" />
+          <Link to="/">
+              <button className='login-close-button'><UilTimes /></button>
+          </Link>
+      </div>
+      <div className="login-Card" style={{ backgroundImage: `url(${ConstructionsBg})` }}>
+          <div className="login-card" >
+            <span className='signin'>Sign In</span>
+            <div className="inputs">
             <div className="user-name-input">
               <div>
                 <text>User Name</text>
@@ -31,10 +38,9 @@ export const Login = () => {
                 <input type="password" />
               </div>
             </div>
-          </div>
-
-          <div className="submit-container">
-            <button className="login-button">Log In</button>
+        </div>
+        <div className="submit-container">
+            <button className="login-button">Sign In</button>
             <div className="underline-container">
               <div className="underline"></div>
               <div className="or-text">
@@ -42,11 +48,21 @@ export const Login = () => {
               </div>
               <div className="underline"></div>
             </div>
-
-            <button className="create-account-button">Create Account</button>
-          </div>
+            <Link to='/signup'>
+              <button className="create-account-button">Create Account</button>
+            </Link>
+            
         </div>
       </div>
+      </div>
+      
+
+          
+
+          
     </div>
+
   );
 };
+
+export default Login

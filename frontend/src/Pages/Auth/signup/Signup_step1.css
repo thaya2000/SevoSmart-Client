@@ -1,24 +1,41 @@
-
-
-
-
+.Signup_step1-background{
+    position: fixed;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  width: 100%;
+}
 .Signup_step1-container{
+
     display: flex;
     flex-direction: column;
-    background: #fff;
-    margin: auto;
-    width:100%;
-    height:80%;
+    align-items: center;
+    justify-content: center;
+    width: 25rem;
+    
+    
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 4rem;
     border-radius: 15px;
+  
+  
+  /* background-color: #F2F2F2; */
    
 
 }
 
+.signup-card{
+
+    
+}
 .Signup_step1-header{
     display: flex;
     flex-direction: column; 
-    align-items: flex-start; 
-    margin-top: 30px;
+    /* align-items: flex-start;  */
+    
+
+    
 }
 
 .create-account1-text{
@@ -33,8 +50,10 @@
     display: flex;
     flex-direction: column;
     gap: 25px;
-    align-items: flex-start;
-    width: 100%;
+    /* align-items: flex-start; */
+    
+    margin-left: auto;
+    margin-right: auto;
 }
 .Signup_step1-input-container{
     display: flex;
@@ -87,7 +106,7 @@
     flex-direction: column;
     gap: 10px;
     margin: 60px auto;
-    width: 100%;
+    width: 10rem;
 
 }
 

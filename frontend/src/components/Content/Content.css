@@ -1,18 +1,22 @@
 .content {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-
-  width: 100%;
+  justify-content: center;
+  width: 100vw;
+  
+  
+  
 }
 
 .contentTitle {
-  padding-top: 25vh;
-  padding-left: 8vw;
-  /* scroll-snap-align: start; */
+ 
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-
   height: 95vh;
+  width: 100vw;
+  padding-top:8vh;
+  align-items: center;
 
   background: linear-gradient(
     180deg,
@@ -26,15 +30,31 @@
 .contentTitle > span {
   display: flex;
   flex-direction: column;
-  font-size: 5vw;
+  font-size: 7vw;
   color: #ffffff;
   font-weight: bolder;
   font-family: Inter;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
+  width: 90vw;
+  overflow: hidden;
 }
+/* .contentTitle > span.animating {
+  animation: typingAnimation 9s steps(40, end) infinite; 
+}
+
+@keyframes typingAnimation {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+} */
 
 .SolarButtons {
   margin-top: 4rem;
+  
 }
 .SButton1 {
   background-color: #040e42;
@@ -92,32 +112,38 @@
   border: none;
 }
 
-.SolarTitle {
-  padding-top: 15vw;
+.SolarTitle{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
 }
 
 .SolarTitle > span {
   font-weight: bold;
   color: #081c3a;
   font-size: 5vw;
+  
 }
 
 .contentSolar {
   display: flex;
   flex-direction: column;
-
+  justify-content: center;
   align-items: center;
-  height: 50vw;
-  width: 100%;
-  background-size: 115vw;
+  height:100vh;
+  /* width: 100%; */
+  background-size: 100vw;
+  
+  
 }
 
 .contentConstruction {
   display: flex;
   flex-direction: column;
-
+  justify-content: center;
   align-items: center;
-  height: 50vw;
+  height: 100vh;
   width: 100%;
   background-size: 100vw;
   margin-bottom: 1px;
@@ -135,36 +161,35 @@
   margin-top: 4rem;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1000px) {
   .content {
-    display: flex;
-    flex-direction: column;
-
-    
     width: 100%;
+    height: 100%;
   }
 
   .contentTitle {
-    
-    scroll-snap-align: start;
+    scroll-snap-align: center;
     justify-content: center;
-
-    height: 100%;
-    padding-bottom: 15vh;
+    align-items: center;
+    /* padding-top: none; */
+    /* padding:10vh; */
+    height: 100vh;
+    /* padding-bottom: 15vh; */
     background: linear-gradient(180deg, #040e42 30%, #80808a 70%);
   }
-
 
   .contentSolar {
     display: flex;
     flex-direction: column;
-
+    justify-content: center;
     align-items: center;
-    height: 100%;
-    background-size: 120vw;
+    height: 85vh;
+    background-size: 130vh;
     width: 100%;
-    padding-top: 10vh;
-    padding-bottom: 10vh;
+    /* padding-top: 10vh;
+    padding-bottom: 10vh; */
+    padding-right: none;
+    scroll-snap-align: start;
   }
   .SolarButtons {
     margin-top: 4rem;
@@ -186,33 +211,32 @@
     width: 8rem;
     border-radius: 15px;
   }
-  .SolarTitle {
+  /* .SolarTitle {
     padding-top: 6vh;
-    
-  }
+  } */
 
-  .SolarTitle>span {
+  .SolarTitle > span {
     font-weight: bold;
     color: #081c3a;
-    font-size: 8vh;
+    font-size: 3rem;
   }
 
   .contentConstruction {
     display: flex;
     flex-direction: column;
-
     align-items: center;
-    height: 100%;
-    background-size: 110vw;
+    justify-content: center;
+    height: 60vh;
+    background-size: 120vh;
     width: 100%;
-    padding-top: 10vh;
-    padding-bottom: 10vh;
+    /* padding-top: 10vh;
+    padding-bottom: 10vh; */
   }
   .ConstructionTitle {
     padding-top: 5vh;
     color: #ffffff;
     font-weight: bold;
-    font-size: 8vh;
+    font-size: 3rem;
   }
 
   .ConstructionButtons {
@@ -236,5 +260,15 @@
     height: 2rem;
     width: 8rem;
     border-radius: 15px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .contentSolar{
+    
+    background-size: 130vh;
+  }
+  .contentConstruction{
+    background-size: 90vh;
   }
 }
