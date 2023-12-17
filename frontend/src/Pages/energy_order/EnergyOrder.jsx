@@ -9,6 +9,8 @@ import { IoMdTime } from "react-icons/io";
 import "react-datepicker/dist/react-datepicker.css";
 import "react-time-picker/dist/TimePicker.css";
 import "react-clock/dist/Clock.css";
+import Navigation from "../../components/Navigation/Navigation";
+import Footer from "../../Components/footer/Footer";
 
 const EnergyOrder = () => {
   const [selectedDate, setSelectedDate] = useState(null);
@@ -22,6 +24,7 @@ const EnergyOrder = () => {
 
   return (
     <div>
+      <Navigation/>
       <div className="flex justify-center gap-10 py-[80px]">
         <div className="flex flex-col w-[250px]">
           <div className="flex flex-col  ">
@@ -145,6 +148,7 @@ const EnergyOrder = () => {
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };

@@ -40,6 +40,7 @@
   margin: auto;
   justify-content: center;
   align-items: center;
+  padding-left: 4vh;
 }
 
 .partners > img {
@@ -56,7 +57,7 @@
   font-size: 0.75rem;
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1000px) {
   .details {
     background: #040e42;
     display: flex;
@@ -91,8 +92,14 @@
   }
 
   .partners {
-    display: "flex";
-    width: 100%;
+    display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+ 
+  
+  width: 100%;
+  /* margin: auto; */
+  padding-left: 3.5vh;
+  align-items: flex-end;
  
   }
 

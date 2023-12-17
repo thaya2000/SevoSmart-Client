@@ -4,7 +4,7 @@ import "./Content.css";
 const Content = () => {
   const [typewriterText, setTypewriterText] = useState("");
   const [startTypewriter, setStartTypewriter] = useState(false);
-  const targetText = "Sri Lanka.";
+  const targetText = "Delivering the Best Smart Home solutions in Sri Lanka.";
 
   useEffect(() => {
     const typeText = async () => {
@@ -39,8 +39,8 @@ const Content = () => {
   return (
     <div className="content">
       <div className="contentTitle">
-        <span>Delivering the Best</span>
-        <span>Smart Home solutions in</span>
+        {/* <span></span> */}
+        {/* <span>Smart Home solutions in</span> */}
         <span>{typewriterText}</span>
       </div>
 

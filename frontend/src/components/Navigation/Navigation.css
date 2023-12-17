@@ -43,9 +43,26 @@ display: flex;
  
 }
 
+.dropdown {
+  
+  opacity: 1;
+  visibility: hidden;
+  transform: translateY(-100%);
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 1.2s ease;
+}
+
+.dropdown.active {
+  
+  
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
 
 
 .navi {
+  opacity: 1;
   /* Your existing styles */
   align-items: center;
   position: fixed;
@@ -188,6 +205,7 @@ background-color: transparent; /* Change to the desired background color */
   
  .show-Energy{
   color:#171a20;
+  position: absolute;
   
  
  }
@@ -255,7 +273,7 @@ margin-left: 5vw;
   background-color: #e7e6e6;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1000px) {
 
 .navibuttons{
   display: none;

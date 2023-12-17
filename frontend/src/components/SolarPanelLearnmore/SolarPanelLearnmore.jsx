@@ -4,12 +4,15 @@ import Solarimg01 from '../../images/Solarcontent02img.png';
 import Solarimg02 from '../../images/Solarcontent03img.png';
 import Solarimg03 from '../../images/Solarcontent04img.png';
 import { Link } from 'react-router-dom';
+import Navigation from '../Navigation/Navigation';
+import Footer from '../footer/Footer';
 
 
 
 const SolarPanelLearnmore = () => {
   return (
-    <div className='SolarPanelLearnmore'>
+      <div className='SolarPanelLearnmore'>
+          <Navigation/>
         <div className="content01">
             <div className="Solar-title">
                 <span>Solar panels</span>
@@ -69,7 +72,8 @@ const SolarPanelLearnmore = () => {
             <div className="content02-img">
                 
             </div>
-        </div>
+          </div>
+          <Footer/>
     </div>
   )
 }

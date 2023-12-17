@@ -4,10 +4,13 @@ import Havana from '../../images/images2/havana.jpg'
 import construction1 from 'C:/Sevo-Smart/frontend/src/images/images2/construction1.jpg'
 import Constructionimg03 from '../../images/ConstructionImage03.jpeg'
 import { Link } from 'react-router-dom'
+import Navigation from '../../components/Navigation/Navigation'
+import Footer from '../../Components/footer/Footer'
 
 const ConstructionsLearnmore = () => {
     return (
         <div className='ConstructionLearnmore'>
+            <Navigation/>
             <div className="Ccontent01">
                 <div className="Construction-title">
                     <span>Construction</span>
@@ -60,6 +63,7 @@ const ConstructionsLearnmore = () => {
                 </div>
                 
             </div>
+            <Footer/>
         </div>
       )
 }

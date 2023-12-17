@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import Navigation from '../../Components/Navigation/Navigation';
+import Navigation from '../../Components/Navigation/Navigation.jsx';
 import ContentSolar from '../../Components/Content/ContentSolar';
 import ContentConstructions from '../../Components/Content/ContentConstructions';
 import Footer from '../../Components/footer/Footer'; 
@@ -49,7 +49,7 @@ const Home = () => {
       <div ref={contentConstructionsRef}>
         <ContentConstructions />
       </div>
-
+      <Footer/>
     </div>
   );
 };

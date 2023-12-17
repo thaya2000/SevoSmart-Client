@@ -90,7 +90,8 @@ const Navigation = () => {
         handleEnergyButtonLeave();
       }}
     >
-      <div className={`navi ${scrolled ? "scrolled" : ""}`}>
+      <div className={`navi 
+      ${scrolled ? "scrolled" : ""}`}>
         <div className="menu">
           <Link to="/menu">
             <button className="menu-button">Menu</button>
@@ -247,7 +248,7 @@ const Navigation = () => {
           <UilUser />
         </div> */}
       </div>
-      <div className="dropdown">
+      <div className={`dropdown ${showEnergy || showConstuctions || showShop || showDiscover || showSupport ? 'active' : ''}`}>
         {showEnergy && <Energy />}
         {showConstuctions && <Constructions />}
         {showShop && <Shop />}
