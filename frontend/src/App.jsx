@@ -2,7 +2,7 @@ import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 
-import Navigation from "./Components/Navigation/Navigation.jsx";
+// import Navigation from "./Components/Navigation/Navigation.jsx";
 
 import SolarPanelLearnmore from "./Components/SolarPanelLearnmore/SolarPanelLearnmore.jsx";
 import Footer from "./Components/footer/Footer.jsx";
@@ -26,17 +26,23 @@ function App() {
       {/* <Navigation /> */}
 
       <Routes>
-        <Route path="/" element={<Home/>} />
+        <Route path="/" element={<Home />} />
         <Route path="/solar-learnmore" element={<SolarPanelLearnmore />} />
-        <Route path="/energy-order" element={<EnergyOrder/>}/>
-        <Route path="/new-building-consultation" element={<NewBuildingConsultation/>}/>
+        <Route path="/energy-order" element={<EnergyOrder />} />
+        <Route
+          path="/new-building-consultation"
+          element={<NewBuildingConsultation />}
+        />
         <Route
           path="/construction-learnmore"
           element={<ConstructionsLearnmore />}
         />
         <Route path="/menu" element={<NavigationVertical />} />
         <Route path="/energy-vertical" element={<EnergyVertical />} />
-        <Route path="/construction-vertical" element={<ConstructionsVertical />} />
+        <Route
+          path="/construction-vertical"
+          element={<ConstructionsVertical />}
+        />
         <Route path="/shop-vertical" element={<ShopVertical />} />
         <Route path="/discover-vertical" element={<DiscoverVertical />} />
       </Routes>
