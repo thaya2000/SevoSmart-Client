@@ -7,8 +7,9 @@ import { FaRegFolderClosed } from "react-icons/fa6";
 import axios from "axios";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import Navigation from "../../components/Navigation/Navigation.jsx";
+
 import Footer from "../../Components/footer/Footer";
+import Navigation from "../../Components/Navigation/Navigation";
 
 export const NewBuildingConsultation = () => {
   const [selectedDate, setSelectedDate] = useState(null);
@@ -61,7 +62,7 @@ export const NewBuildingConsultation = () => {
 
   return (
     <div>
-      <Navigation />
+     <Navigation/>
       <div className="flex flex-col items-center gap-5 py-[100px]">
         <div className="flex flex-col sm:flex-row sm:justify-center gap-8">
           <div className="flex flex-col w-[250px]">
