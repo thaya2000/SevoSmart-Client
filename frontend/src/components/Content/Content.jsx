@@ -14,7 +14,7 @@ const Content = () => {
           await new Promise((resolve) => setTimeout(resolve, 100));
         }
 
-        await new Promise((resolve) => setTimeout(resolve, 1500));
+        await new Promise((resolve) => setTimeout(resolve, 10000));
 
         setTypewriterText(""); // Clear text after each sentence
       }

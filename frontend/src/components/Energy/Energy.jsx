@@ -4,6 +4,7 @@ import Battery from "../../images/Battery.png";
 import Inverter from "../../images/Inverter.png";
 import SolarPanel from "../../images/SolarPanel.png";
 import SolarRoof from "../../images/SolarRoof.png";
+import Navigation from "../Navigation/Navigation";
 
 const Product = ({ image, name }) => {
   return (
@@ -21,6 +22,7 @@ const Product = ({ image, name }) => {
 const Energy = () => {
   return (
     <div className="Energy">
+      
       <div className="products">
         <Product image={SolarPanel} name="Solar Panels" />
         <Product image={SolarRoof} name="Solar Roofs" />

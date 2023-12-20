@@ -1,8 +1,8 @@
 import React from 'react'
 import './SolarPanelLearnmore.css'
-import Solarimg01 from '../../images/Solarcontent02img.png';
-import Solarimg02 from '../../images/Solarcontent03img.png';
-import Solarimg03 from '../../images/Solarcontent04img.png';
+import Solarimg01 from '../../images/images2/Spanel01.jpg';
+import Solarimg02 from '../../images/images2/Spanel03.png';
+import Solarimg03 from '../../images/images2/Spanel02.png';
 import { Link } from 'react-router-dom';
 import Navigation from '../Navigation/Navigation';
 import Footer from '../footer/Footer';

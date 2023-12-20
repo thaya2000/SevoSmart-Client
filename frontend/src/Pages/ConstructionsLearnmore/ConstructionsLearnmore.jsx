@@ -4,13 +4,14 @@ import Havana from "../../images/images2/havana.jpg";
 import construction1 from "../../images/images2/construction1.jpg";
 import Constructionimg03 from "../../images/ConstructionImage03.jpeg";
 import { Link } from "react-router-dom";
-import Navigation from "../../components/Navigation/Navigation";
+
 import Footer from "../../Components/footer/Footer";
+import Navigation from "../../Components/Navigation/Navigation";
 
 const ConstructionsLearnmore = () => {
   return (
     <div className="ConstructionLearnmore">
-      <Navigation />
+      <Navigation/>
       <div className="Ccontent01">
         <div className="Construction-title">
           <span>Construction</span>
@@ -29,7 +30,7 @@ const ConstructionsLearnmore = () => {
           <img src={Constructionimg03} alt="" />
         </div>
       </div>
-      <div className="Ccontent02" style={{ backgroundImage: `url(${Havana})` }}>
+      <div className="Ccontent02 " style={{ backgroundImage: `url(${Havana})` }}>
         <div className="Ccontent02-discription">
           <span>Havana construction:</span>
           <span>
@@ -39,7 +40,7 @@ const ConstructionsLearnmore = () => {
         </div>
       </div>
       <div
-        className="Ccontent02"
+        className="Ccontent02 "
         style={{ backgroundImage: `url(${construction1})` }}
       >
         <div className="Ccontent03-discription">
@@ -51,7 +52,7 @@ const ConstructionsLearnmore = () => {
         </div>
       </div>
       <div
-        className="Ccontent02"
+        className="Ccontent02 "
         style={{ backgroundImage: `url(${Constructionimg03})` }}
       >
         <div className="Ccontent02-discription">

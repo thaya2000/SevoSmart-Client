@@ -2,6 +2,7 @@
   position: fixed;
   overflow-x: hidden;
   
+  
 
   
 }
@@ -57,12 +58,13 @@ display: flex;
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
+  
 }
 
 
 
 .navi {
-  opacity: 1;
+  z-index: -1;
   /* Your existing styles */
   align-items: center;
   position: fixed;
@@ -205,7 +207,7 @@ background-color: transparent; /* Change to the desired background color */
   
  .show-Energy{
   color:#171a20;
-  position: absolute;
+  /* position: absolute; */
   
  
  }
@@ -273,7 +275,7 @@ margin-left: 5vw;
   background-color: #e7e6e6;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 600px) {
 
 .navibuttons{
   display: none;
