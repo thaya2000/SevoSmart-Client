@@ -4,7 +4,7 @@ import "./App.css";
 
 // import Navigation from "./Components/Navigation/Navigation.jsx";
 
-import SolarPanelLearnmore from "./Components/SolarPanelLearnmore/SolarPanelLearnmore";
+import SolarPanelLearnmore from "./Components/SolarPanelLearnmore/SolarPanelLearnmore.jsx";
 import Footer from "./Components/footer/Footer.jsx";
 import ConstructionsLearnmore from "./Pages/ConstructionsLearnmore/ConstructionsLearnmore.jsx";
 import NavigationVertical from "./components/Navigation/NavigationVertical.jsx";
