@@ -263,12 +263,28 @@
   }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 500px) {
   .contentSolar{
     
     background-size: 130vh;
   }
   .contentConstruction{
     background-size: 90vh;
+  }
+  .contentTitle > span {
+  display: flex;
+  flex-direction: column;
+  font-size: 7vh;
+  color: #ffffff;
+  font-weight: bolder;
+  font-family: Inter;
+  align-items: center;
+  justify-content: center;
+  width: 90vw;
+  overflow: hidden;
+}
+  .contentTitle {
+    justify-content: flex-start;
+    padding-top: 15vh;
   }
 }
