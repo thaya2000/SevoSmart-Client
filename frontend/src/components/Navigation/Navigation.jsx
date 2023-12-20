@@ -91,7 +91,9 @@ const Navigation = () => {
       }}
     >
       <div className={`navi 
-      ${scrolled ? "scrolled" : ""}`}>
+      ${scrolled ? "scrolled" : ""}
+      ${showEnergy || showConstuctions || showShop || showDiscover || showSupport ? 'show-Energy' : ''}
+      `}>
         <div className="menu">
           <Link to="/menu">
             <button className="menu-button">Menu</button>

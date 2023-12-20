@@ -87,7 +87,8 @@
   margin-top: 20px;
   margin-left: auto;
   margin-bottom: 20px;
-  margin-right: 1vw; /* Adjust the margin of the vertical line */
+  margin-right: 1vw;
+  z-index: -100;
 }
 
 .show-Account {
@@ -97,6 +98,7 @@
 
 .show-Energy {
   color: #171a20;
+  z-index: 100;
 }
 
 
