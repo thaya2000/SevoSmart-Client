@@ -92,12 +92,13 @@
 .Ccontent02{
     display: flex;
     flex-direction: row;
-    height: 100%;
-    width: auto;
-    background-size: 100vw;
+    height: 90%;
+    width: 100vw;
+    background-size: 100vw 50vw;
     
     
 }
+
 
 .Ccontent02-discription{
     background: linear-gradient(180deg, #040E42 60%, #80808a 100%);
@@ -112,10 +113,12 @@
     padding: 2vw;
 }
 
+
+
 .Ccontent02-discription>span:nth-child(1){
     
     font-weight: bold;
-    font-size: 3.5vw;
+    font-size: 3.25vw;
     
     margin-bottom: 5vw;
 
@@ -124,11 +127,13 @@
 .Ccontent02-discription>span:nth-child(2){
     
     font-weight: bold;
-    font-size: 2.5vw;
+    font-size: 2.25vw;
     
    
 
 }
+
+
 
 .Ccontent03-discription{
     background: linear-gradient(180deg, #040E42 60%, #80808a 100%);
@@ -147,7 +152,7 @@
 .Ccontent03-discription>span:nth-child(1){
     
     font-weight: bold;
-    font-size: 3.5vw;
+    font-size: 3.25vw;
    
     margin-bottom: 5vw;
 
@@ -156,7 +161,7 @@
 .Ccontent03-discription>span:nth-child(2){
     
     font-weight: bold;
-    font-size: 2.5vw;
+    font-size: 2.25vw;
     
    
 

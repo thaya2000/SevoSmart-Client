@@ -94,7 +94,7 @@
     flex-direction: row;
     height: 100%;
     width: auto;
-    background-size: 100vw;
+    background-size: 100vw 60vw;
     
     
 }
@@ -115,7 +115,7 @@
 .content02-discription>span:nth-child(1){
     
     font-weight: bold;
-    font-size: 3.5vw;
+    font-size: 3.25vw;
     
     margin-bottom: 5vw;
 
@@ -124,7 +124,7 @@
 .content02-discription>span:nth-child(2){
     
     font-weight: bold;
-    font-size: 2.5vw;
+    font-size: 2.25vw;
     
    
 

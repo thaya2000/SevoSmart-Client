@@ -14,7 +14,7 @@ const Home = () => {
   const handleWheelScroll = (event) => {
     const deltaY = event.deltaY;
 
-    if (deltaY > 0) {
+    if (deltaY > -0.75) {
       // Scroll down to the next section
       if (contentSolarRef.current && window.scrollY < contentSolarRef.current.offsetTop) {
         contentSolarRef.current.scrollIntoView({ behavior: 'smooth' });
