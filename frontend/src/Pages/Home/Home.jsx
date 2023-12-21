@@ -1,10 +1,10 @@
-import React, { useRef, useEffect } from 'react';
-import Navigation from '../../Components/Navigation/Navigation.jsx';
-import ContentSolar from '../../Components/Content/ContentSolar';
-import ContentConstructions from '../../Components/Content/ContentConstructions';
-import Footer from '../../Components/Footer/Footer'; 
-import './Home.css';
-import Content from '../../components/Content/Content';
+import React, { useRef, useEffect } from "react";
+import Navigation from "../../Components/Navigation/Navigation.jsx";
+import ContentSolar from "../../Components/Content/ContentSolar";
+import ContentConstructions from "../../Components/Content/ContentConstructions";
+import Footer from "../../Components/Footer/Footer";
+import "./Home.css";
+import Content from "../../Components/Content/Content";
 
 const Home = () => {
   const contentRef = useRef(null);
@@ -16,26 +16,38 @@ const Home = () => {
 
     if (deltaY > -0.75) {
       // Scroll down to the next section
-      if (contentSolarRef.current && window.scrollY < contentSolarRef.current.offsetTop) {
-        contentSolarRef.current.scrollIntoView({ behavior: 'smooth' });
-      } else if (contentConstructionsRef.current && window.scrollY < contentConstructionsRef.current.offsetTop) {
-        contentConstructionsRef.current.scrollIntoView({ behavior: 'smooth' });
+      if (
+        contentSolarRef.current &&
+        window.scrollY < contentSolarRef.current.offsetTop
+      ) {
+        contentSolarRef.current.scrollIntoView({ behavior: "smooth" });
+      } else if (
+        contentConstructionsRef.current &&
+        window.scrollY < contentConstructionsRef.current.offsetTop
+      ) {
+        contentConstructionsRef.current.scrollIntoView({ behavior: "smooth" });
       }
     } else {
       // Scroll up to the previous section
-      if (contentSolarRef.current && window.scrollY < contentSolarRef.current.offsetTop) {
-        contentRef.current.scrollIntoView({ behavior: 'smooth' });
-      } else if (contentConstructionsRef.current && window.scrollY < contentConstructionsRef.current.offsetTop) {
-        contentSolarRef.current.scrollIntoView({ behavior: 'smooth' });
+      if (
+        contentSolarRef.current &&
+        window.scrollY < contentSolarRef.current.offsetTop
+      ) {
+        contentRef.current.scrollIntoView({ behavior: "smooth" });
+      } else if (
+        contentConstructionsRef.current &&
+        window.scrollY < contentConstructionsRef.current.offsetTop
+      ) {
+        contentSolarRef.current.scrollIntoView({ behavior: "smooth" });
       }
     }
   };
 
   useEffect(() => {
-    window.addEventListener('wheel', handleWheelScroll);
+    window.addEventListener("wheel", handleWheelScroll);
 
     return () => {
-      window.removeEventListener('wheel', handleWheelScroll);
+      window.removeEventListener("wheel", handleWheelScroll);
     };
   }, []);
 
@@ -49,7 +61,7 @@ const Home = () => {
       <div ref={contentConstructionsRef}>
         <ContentConstructions />
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };
