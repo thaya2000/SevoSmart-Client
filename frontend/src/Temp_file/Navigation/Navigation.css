@@ -1,0 +1,323 @@
+.Container{
+  position: fixed;
+  overflow-x: hidden;
+  
+  
+
+  
+}
+.menu{
+  
+  position: absolute;
+    
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 2.25rem;
+    height: 1.5rem;
+    margin-bottom: 1rem;
+    
+    
+    margin-left: 80vw;
+    
+    
+}
+.menu-button{
+display: flex;
+  height: 2rem;
+  width: 5rem;
+  align-items: center;
+  justify-content: center;
+  
+  border-radius: 6px;
+  background-color: transparent;
+  cursor: pointer;
+  color: #FFFFFF;
+  
+ 
+}
+.menu-button:hover{
+
+  border: 1px solid ;
+
+ 
+}
+
+.dropdown {
+  
+  opacity: 1;
+  visibility: hidden;
+  transform: translateY(-100%);
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 1.2s ease;
+}
+
+.dropdown.active {
+  
+  
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  
+}
+
+
+
+.navi {
+  z-index: -1;
+  /* Your existing styles */
+  align-items: center;
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  /* padding-top: 1rem; */
+  /* padding-bottom: 2rem; */
+  width: 100%;
+  background-color: transparent;
+  transition: background-color 0.5s ease, height 0.5s ease;
+  height: 10vh;
+  backdrop-filter: blur(8px);
+
+}
+
+.navi.scrolled {
+  
+background-color: transparent; /* Change to the desired background color */
+  height:0; /* Change to the desired height */
+  overflow: hidden; /* Hide any content within the navigation bar */
+  transition: background-color 0.5s ease, height 0.5s ease;
+}
+
+.logo>img{
+    width: 5rem;
+    margin-bottom: 1rem;
+    
+}
+
+.naviAccount{
+    /* margin-left: auto; */
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    align-items: center;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.25rem;
+    width: 4vh;
+    height: 4vh;
+    color: #FFF;
+    border: 2px solid #FFF;
+    border-radius: 1.25rem;
+
+    
+    
+}
+
+.naviAccount:hover{
+  background-color: #F2F2F2;
+ padding: 0.25rem;
+  color: #171a20;
+  border: 2px solid #171a20;
+  border-radius: 1.25rem;
+}
+
+.naviSearch:hover{
+  background-color: #F2F2F2;
+ padding: 0.25rem;
+  color: #171a20;
+  border: 2px solid #171a20;
+  border-radius: 1.25rem;
+}
+  
+
+
+
+
+.naviSearch{
+  display: flex;
+    justify-content: center;
+    cursor: pointer;
+    align-items: center;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    margin-left: auto;
+    padding: 0.25rem;
+    width: 4vh;
+    height: 4vh;
+    color: #FFF;
+    border: 2px solid #FFF;
+    border-radius: 1.25rem;
+    
+}
+
+
+
+.pageButtons{
+    margin-left: auto;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+}
+
+.navibuttons {
+    position: relative; 
+    cursor: pointer;
+    border: transparent;
+    background-color: transparent;
+    padding: 0.25rem;
+    font-size: large;
+    margin-left: 1vw;
+    color: #FFF;
+  }
+  .navibuttons:hover{
+    background-color: #F2F2F2;
+    border-radius: 6px;
+  }
+
+
+ 
+  
+  /* .navibuttons::after {
+    content: ''; 
+    position: absolute;
+    top: 2.5rem;
+    left: 0;
+    color: #3d3535;
+    width: 100%;
+    height: 5px;
+    background-color: transparent;
+    transform-origin: bottom;
+    transform: scaleX(0); 
+    transition: transform 0.8s ease-in-out; 
+  } */
+  
+  /* .navibuttons:hover::after {
+    transform: scaleY(1); 
+    background-color: rgb(79, 84, 91); 
+  } */
+
+   .show-Account{
+    color:#171a20;
+    border: 2px solid #171a20;
+    
+  }
+
+  
+ .show-Energy{
+  color:#171a20;
+  /* position: absolute; */
+  
+ 
+ }
+
+ .navigation-vertical{
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-top: 3vh;
+  width: 100%;
+  
+  background-color: #F2F2F2;
+
+ }
+.close-button{
+  display: flex;
+margin-left: auto;
+margin-right: 2vw;
+align-items: center;
+justify-content: center;
+margin-bottom: auto;
+border-radius: 5px;
+}
+
+.close-button:hover{
+  background-color: #e7e6e6;
+}
+
+.navi-buttons{
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+align-items: flex-start;
+margin-left: 5vw;
+}
+
+.navi-butt{
+  margin-bottom: 2vh;
+  color: #171a20;
+  padding: 0.25rem;
+  border-radius: 10px;
+}
+
+.navi-butt:hover{
+  margin-bottom: 2vh;
+  color: #171a20;
+  background-color: #e7e6e6;
+}
+
+.account-button{
+  margin-left: 6vw;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  margin-right: auto;
+  justify-content: center;
+  align-items: center;
+  padding: 0.25rem;
+  border: 2px solid #171a20;
+  border-radius: 2rem;
+  cursor: pointer;
+}
+.account-button:hover{
+  background-color: #e7e6e6;
+}
+
+@media screen and (max-width: 600px) {
+
+.navibuttons{
+  display: none;
+}
+.naviAccount {
+  display: none;
+}
+.naviSearch{
+  display: none;
+}
+.menu{
+  
+  position: absolute;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 2.25rem;
+    height: 1.5rem;
+    margin-top: 1rem;
+    
+    margin-left: 80vw;
+    
+    
+}
+.menu>button{
+  display: flex;
+    height: 3rem;
+    width: 5rem;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #FFFFFF;
+    border-radius: 6px;
+    background-color: transparent;
+    cursor: pointer;
+    color: #FFFFFF;
+ 
+}
+
+
+
+
+
+}
+

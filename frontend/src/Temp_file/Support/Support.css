@@ -1,0 +1,22 @@
+.Support{
+    display: flex;
+    flex-direction: row;
+    height: 50vh;
+    width: 100vw;
+    background-color: #FFFFFF;
+    padding-top: 10vh;
+    justify-content: center;
+    
+}
+
+   .show-Account{
+    color:#171a20;
+    border: 2px solid #171a20;
+  }
+
+  
+ .show-Energy{
+  color:#171a20;
+  
+ 
+ }

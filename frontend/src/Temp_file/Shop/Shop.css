@@ -1,0 +1,93 @@
+.Shop{
+    display: flex;
+    flex-direction: row;
+    height: 50vh;
+    width: 100vw;
+    background-color: #FFFFFF;
+    padding-top: 10vh;
+    justify-content: center;
+    
+    
+    
+}
+.ShopProducts{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* margin-right: 2vw; */
+
+
+}
+.name{
+    font-weight: bold;
+}
+
+
+
+.Sproduct01{
+    padding-top: 3rem;
+    padding-left: 3rem;
+}
+
+.Sproduct01>img{
+    width: 15vw;
+}
+
+
+.arrow-button{
+    justify-content: center;
+    align-items: center;
+    padding-top: 3rem;
+    margin-left: 5vw;
+    
+    
+}
+
+.arrow-button>button{
+    height: 3rem;
+    width: 3rem;
+    border-radius: 1.5rem;
+    border: none;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    
+}
+
+   .show-Account{
+    color:#171a20;
+    border: 2px solid #171a20;
+  }
+
+  
+ .show-Energy{
+  color:#171a20;
+  
+ 
+ }
+
+
+.ShopVertical{
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  padding-top: 3vh;
+  width: 100%;
+  background-color: #F2F2F2;
+}
+.ShopProducts-vertical{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: auto;
+}
+
+@media screen and (min-width: 600px) {
+  .ShopProducts-vertical {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
+.Sproduct01{
+    display: flex;
+    flex-direction: column;
+        align-items: center;
+}
