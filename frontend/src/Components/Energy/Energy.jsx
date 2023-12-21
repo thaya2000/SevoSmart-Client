@@ -5,6 +5,7 @@ import Inverter from "../../Images/Inverter.png";
 import SolarPanel from "../../Images/SolarPanel.png";
 import SolarRoof from "../../Images/SolarRoof.png";
 import Navigation from "../Navigation/Navigation";
+import { Link } from "react-router-dom";
 
 const Product = ({ image, name }) => {
   return (
@@ -12,8 +13,13 @@ const Product = ({ image, name }) => {
       <img className="product-image" src={image} alt="" />
       <div className="name">{name}</div>
       <div className="button">
-        <button>Learn</button>
-        <button>Order</button>
+        <Link to='/energy-order'>
+          <button className="e-button-1">Learn</button>
+        </Link>
+        <Link to='/solar-learnmore'>
+          <button className="e-button-2">Order</button>
+        </Link>
+        
       </div>
     </div>
   );

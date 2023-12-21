@@ -1,10 +1,11 @@
 import React, { useRef, useEffect } from "react";
-import Navigation from "../../Components/Navigation/Navigation.jsx";
+
 import ContentSolar from "../../Components/Content/ContentSolar";
 import ContentConstructions from "../../Components/Content/ContentConstructions";
 import Footer from "../../Components/Footer/Footer";
 import "./Home.css";
 import Content from "../../Components/Content/Content";
+import Navigation from "../../components/Navigation/Navigation";
 
 const Home = () => {
   const contentRef = useRef(null);
@@ -53,7 +54,7 @@ const Home = () => {
 
   return (
     <div className="Home">
-      <Navigation />
+      <Navigation/>
       <Content ref={contentRef} />
       <div ref={contentSolarRef}>
         <ContentSolar />
