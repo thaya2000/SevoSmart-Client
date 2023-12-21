@@ -13,7 +13,36 @@ import Navigation from "../../components/Navigation/Navigation";
 import Footer from "../../Components/footer/Footer";
 
 const EnergyOrder = () => {
+    // State to manage selected date and time
   const [selectedDate, setSelectedDate] = useState(null);
+
+  // Other existing state and ref definitions can go here...
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+  const formData = {
+    firstName: e.target.firstName ? e.target.firstName.value : '',
+    lastName: e.target.lastName ? e.target.lastName.value : '',
+    email: e.target.email ? e.target.email.value : '',
+    phone: e.target.phone ? e.target.phone.value : '',
+    solarPanel: e.target.solarpanel ? e.target.solarpanel.checked : false,
+    battery: e.target.battery ? e.target.battery.checked : false,
+    inverter: e.target.inverter ? e.target.inverter.checked : false,
+    selectedDate: selectedDate ? selectedDate.toLocaleDateString() : null,
+    selectedTime: e.target.time ? e.target.time.value : '',
+  };
+
+    try {
+      const response = await axios.post('/api/energyOrder', formData);
+      console.log('Data sent successfully:', response.data);
+      // Handle any success scenarios here (e.g., show a confirmation message)
+    } catch (error) {
+      console.error('Error sending data:', error);
+      // Handle any error scenarios here (e.g., show an error message)
+    }
+  };
+  
   const datepickerRef = useRef(null);
 
   const handleCalendarIconClick = () => {
@@ -25,12 +54,14 @@ const EnergyOrder = () => {
   return (
     <div>
       <Navigation />
+      <form onSubmit={handleSubmit}>
       <div className="flex flex-col items-center gap-5 py-[80px]">
         <div className="flex flex-col sm:flex-row gap-8">
           <div className="flex flex-col w-[250px]">
             <div className="flex flex-col  ">
               <text className="font-medium text-sm">First Name</text>
               <input
+                
                 className="h-7 pl-[4px] rounded-md bg-[#D9D9D9] "
                 type="text"
               />
@@ -151,7 +182,7 @@ const EnergyOrder = () => {
               </div>
             </div>
 
-            <button className="bg-[#334BA1] my-3 rounded-full h-7">
+            <button type="submit" className="bg-[#334BA1] my-3 rounded-full h-7">
               Submit
             </button>
           </div>
@@ -159,7 +190,8 @@ const EnergyOrder = () => {
             
           </div>
         </div>
-      </div>
+        </div>
+        </form>
 
       <Footer />
     </div>

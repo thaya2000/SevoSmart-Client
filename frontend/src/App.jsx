@@ -2,7 +2,7 @@ import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 
-import Navigation from "./Components/Navigation/Navigation.jsx";
+import Navigation from "./Components/Navigation/Navigation";
 
 import SolarPanelLearnmore from "./Components/SolarPanelLearnmore/SolarPanelLearnmore.jsx";
 import Footer from "./Components/footer/Footer.jsx";
