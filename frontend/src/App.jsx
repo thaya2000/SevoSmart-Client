@@ -13,7 +13,7 @@ import ShopVertical from "./Components/Shop/ShopVertical.jsx";
 import DiscoverVertical from "./Components/Discover/DiscoverVertical.jsx";
 
 import Home from "./Pages/Home/Home.jsx";
-import { NewBuildingConsultation } from "./Pages/newBuildingConsultation/NewBuildingConsultation.jsx";
+import { NewBuildingConsultation } from "./Pages/NewBuildingConsultation/NewBuildingConsultation.jsx";
 import EnergyOrder from "./Pages/EnergyOrder/EnergyOrder.jsx";
 
 function App() {
