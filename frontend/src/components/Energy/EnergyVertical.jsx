@@ -13,8 +13,12 @@ const Product = ({ image, name }) => {
       <img className="product-image" src={image} alt="" />
       <div className="name">{name}</div>
       <div className="button">
-        <button>Learn</button>
-        <button>Order</button>
+        <Link to='/solar-learnmore'>
+          <button className="e-button">Learn</button>
+        </Link>
+        <Link to='/energy-order'>
+          <button className="e-button">Order</button>
+        </Link>
       </div>
     </div>
   );
