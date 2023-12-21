@@ -2,9 +2,9 @@ import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import ScrollTrigger from "react-scroll-trigger";
 import "./Content.css";
-import Solar from "../../images/images2/solar.jpg";
-import ConstructionsBg from "../../images/ConstructionsBg.jpg";
-import SolarPanelLearnmore from "../SolarPanelLearnmore/SolarPanelLearnmore";
+import Solar from "../../Images/Images2/solar.jpg";
+
+
 
 const ContentSolar = () => {
   return (

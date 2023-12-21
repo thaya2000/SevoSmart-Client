@@ -1,11 +1,11 @@
 import React from "react";
 import "./ConstructionsLearnmore.css";
-import Havana from "../../images/images2/havana.jpg";
-import construction1 from "../../images/images2/construction1.jpg";
-import Constructionimg03 from "../../images/ConstructionImage03.jpeg";
+import Havana from "../../Images/Images2/havana.jpg";
+import construction1 from "../../Images/Images2/construction1.jpg";
+import Constructionimg03 from "../../Images/ConstructionImage03.jpeg";
 import { Link } from "react-router-dom";
 
-import Footer from "../../Components/footer/Footer";
+import Footer from "../../Components/Footer/Footer";
 import Navigation from "../../Components/Navigation/Navigation";
 
 const ConstructionsLearnmore = () => {

@@ -1,9 +1,9 @@
 import React from 'react'
 import "./Energy.css";
-import Battery from "../../images/Battery.png";
-import Inverter from "../../images/Inverter.png";
-import SolarPanel from "../../images/SolarPanel.png";
-import SolarRoof from "../../images/SolarRoof.png";
+import Battery from "../../Images/Battery.png";
+import Inverter from "../../Images/Inverter.png";
+import SolarPanel from "../../Images/SolarPanel.png";
+import SolarRoof from "../../Images/SolarRoof.png";
 import { UilAngleLeft, UilTimes } from '@iconscout/react-unicons';
 import { Link } from "react-router-dom";
 

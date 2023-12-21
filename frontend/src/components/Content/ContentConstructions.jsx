@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import ScrollTrigger from 'react-scroll-trigger';
 import './Content.css';
-import SolarBg from '../../images/SolarBg.png';
-import c1 from '../../images/images2/c1.jpg';
+import SolarBg from '../../Images/SolarBg.png';
+import c1 from '../../Images/Images2/c1.jpg';
 import { Link } from "react-router-dom";
 
 

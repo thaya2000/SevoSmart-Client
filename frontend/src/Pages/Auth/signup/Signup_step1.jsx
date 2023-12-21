@@ -3,9 +3,9 @@ import "./Signup_step1.css"
  
 import { Link } from "react-router-dom";
 import { UilTimes, UilUser } from "@iconscout/react-unicons";
-import logo from "../../../images/logo.png";
+import logo from "../../../Images/logo.png";
 import React from 'react'
-import ConstructionsBg from '../../../images/ConstructionsBg.jpg';
+import ConstructionsBg from '../../../Images/ConstructionsBg.jpg';
 
 
 const Signup_step1 = () => {

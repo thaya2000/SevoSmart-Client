@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import Navigation from '../../Components/Navigation/Navigation.jsx';
 import ContentSolar from '../../Components/Content/ContentSolar';
 import ContentConstructions from '../../Components/Content/ContentConstructions';
-import Footer from '../../Components/footer/Footer'; 
+import Footer from '../../Components/Footer/Footer'; 
 import './Home.css';
 import Content from '../../components/Content/Content';
 

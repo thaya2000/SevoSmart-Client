@@ -3,20 +3,20 @@ import "./Footer.css"
 import { FaFacebook } from 'react-icons/fa';
 import { IoLogoWhatsapp, IoLogoLinkedin } from 'react-icons/io';
 import { MdMailOutline } from 'react-icons/md';
-import logo1 from '../../images/ABB_logo.png'
-import logo2 from '../../images/fronius_logo.png'
-import logo3 from '../../images/goodwe_logo.png'
-import logo4 from '../../images/growatt_logo.webp'
-import logo5 from '../../images/huawei_logo.png'
-import logo6 from '../../images/jinko_logo.svg'
-import logo7 from '../../images/omnik_logo.png'
-import logo8 from '../../images/rec_logo.png'
-import logo9 from '../../images/sma_logo.png'
-import logo10 from '../../images/solax_logo.png'
-import logo11 from '../../images/solis_logo.png'
-import logo12 from '../../images/suntree_logo.png'
-import logo13 from '../../images/trinasolar_logo.png'
-import logo14 from '../../images/yinkli_logo.png'
+import logo1 from '../../Images/ABB_logo.png'
+import logo2 from '../../Images/fronius_logo.png'
+import logo3 from '../../Images/goodwe_logo.png'
+import logo4 from '../../Images/growatt_logo.webp'
+import logo5 from '../../Images/huawei_logo.png'
+import logo6 from '../../Images/jinko_logo.svg'
+import logo7 from '../../Images/omnik_logo.png'
+import logo8 from '../../Images/rec_logo.png'
+import logo9 from '../../Images/sma_logo.png'
+import logo10 from '../../Images/solax_logo.png'
+import logo11 from '../../Images/solis_logo.png'
+import logo12 from '../../Images/suntree_logo.png'
+import logo13 from '../../Images/trinasolar_logo.png'
+import logo14 from '../../Images/yinkli_logo.png'
 
 const Footer = () => {
   return (

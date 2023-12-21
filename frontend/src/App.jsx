@@ -2,22 +2,17 @@ import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 
-import Navigation from "./Components/Navigation/Navigation";
-
-import SolarPanelLearnmore from "./Components/SolarPanelLearnmore/SolarPanelLearnmore.jsx";
-import Footer from "./Components/footer/Footer.jsx";
+import SolarPanelLearnmore from "./Pages/SolarPanelLearnmore/SolarPanelLearnmore.jsx";
 import ConstructionsLearnmore from "./Pages/ConstructionsLearnmore/ConstructionsLearnmore.jsx";
-import NavigationVertical from "./components/Navigation/NavigationVertical.jsx";
+import NavigationVertical from "./Components/Navigation/NavigationVertical.jsx";
 
-import EnergyVertical from "./components/Energy/EnergyVertical.jsx";
-import ConstructionsVertical from "./components/Constructions/ConstructionsVertical.jsx";
-import Login from "./Pages/Auth/login/Login.jsx";
-import ShopVertical from "./components/Shop/ShopVertical.jsx";
-import DiscoverVertical from "./components/Discover/DiscoverVertical.jsx";
-import Signup_step1 from "./Pages/Auth/signup/Signup_step1.jsx";
-// import Constructions from "./Components/Constructions/Constructions.jsx";
-import { NewBuildingConsultation } from "./Pages/new_building_consultation/NewBuildingConsultation.jsx";
-import EnergyOrder from "./Pages/energy_order/EnergyOrder.jsx";
+import EnergyVertical from "./Components/Energy/EnergyVertical.jsx";
+import ConstructionsVertical from "./Components/Constructions/ConstructionsVertical.jsx";
+
+import ShopVertical from "./Components/Shop/ShopVertical.jsx";
+import DiscoverVertical from "./Components/Discover/DiscoverVertical.jsx";
+import { NewBuildingConsultation } from "./Pages/NewBuildingConsultation/NewBuildingConsultation.jsx";
+import EnergyOrder from "./Pages/EnergyOrder/EnergyOrder.jsx";
 import Home from "./Pages/Home/Home.jsx";
 
 function App() {

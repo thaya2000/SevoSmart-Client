@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Navigation.css";
 import { UilSearch, UilUser } from "@iconscout/react-unicons";
-import logo from "../../images/logo.png";
+import logo from "../../Images/logo.png";
 import Energy from "../Energy/Energy.jsx";
 import Constructions from "../Constructions/Constructions.jsx";
 import Shop from "../Shop/Shop.jsx";
