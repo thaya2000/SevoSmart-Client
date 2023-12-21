@@ -24,7 +24,7 @@
 .name {
   margin-top: 2vh;
   font-weight: bold;
-  font-size: 0.75rem;
+  font-size: 0.75rem;cursor: pointer;
 }
 
 .Cproduct {
@@ -40,6 +40,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-top: none;
+  margin-left: none;
+  margin-right: none;
+  font-size: 1rem;
+}
+.c-span{
   margin-top: none;
   margin-left: none;
   margin-right: none;
@@ -78,12 +84,19 @@
 }
 
 .Construction-vertical{
-  position: fixed;
+  position: relative;
   display: flex;
   flex-direction: column;
   padding-top: 3vh;
   width: 100%;
   background-color: #F2F2F2;
+}
+
+.c-span-vertical{
+  margin-top: 3vh;
+  margin-left: 5vw;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .Cproduct-vertical{

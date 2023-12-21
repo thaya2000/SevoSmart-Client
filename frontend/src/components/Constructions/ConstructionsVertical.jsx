@@ -11,7 +11,9 @@ const ConstructionProduct = ({ image, name }) => {
   return (
     <div className="Cproduct-vertical">
       <img className="Cproduct-image" src={image} alt="" />
-      <div className="name">{name}</div>
+      <div className="name">
+        <Link to='/construction-learnmore'>{name}</Link>
+      </div>
     </div>
   );
 };
@@ -51,13 +53,16 @@ const ConstructionsVertical = () => {
 
       <div className="options-vertical">
         <div className="list-vertical">
-          <span>Schedule a Consultation</span>
-          <span>About Team</span>
-          <span>Incentives</span>
-          <span>Support</span>
-          <span>Partner with Sevo</span>
-          <span>Commercial</span>
-          <span>Utilities</span>
+          <Link to='/new-building-consultation'>
+            <span className='c-span-vertical'>Schedule a Consultation</span>
+          </Link>
+          
+          <span className='c-span-vertical'>About Team</span>
+          <span className='c-span-vertical'>Incentives</span>
+          <span className='c-span-vertical'>Support</span>
+          <span className='c-span-vertical'>Partner with Sevo</span>
+          <span className='c-span-vertical'>Commercial</span>
+          <span className='c-span-vertical'>Utilities</span>
         </div>
       </div>
     </div>

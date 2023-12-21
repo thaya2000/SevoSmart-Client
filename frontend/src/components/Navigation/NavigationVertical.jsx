@@ -30,9 +30,9 @@ const NavigationVertical = () => {
         <button className="navi-butt">Support</button>
       </div>
       <div className="account-button">
-        <Link to="/login">
+        {/* <Link to="/login"> */}
           <UilUser />
-        </Link>
+        {/* </Link> */}
       </div>
     </div>
   );

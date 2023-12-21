@@ -4,12 +4,18 @@ import NewBuilding from "../../Images/NewBuilding.png";
 import Renovation from "../../Images/Renovation.png";
 import SwimmingPool from "../../Images/SwimmingPool.png";
 import Havana from "../../Images/Havana.png";
+import { Link } from "react-router-dom";
 
 const ConstructionProduct = ({ image, name }) => {
   return (
     <div className="Cproduct">
       <img className="Cproduct-image" src={image} alt="" />
-      <div className="name">{name}</div>
+      
+      <div className="name">
+        <Link to='/construction-learnmore'>{name}</Link>
+      </div>
+      
+      
     </div>
   );
 };
@@ -32,13 +38,15 @@ const Constructions = () => {
 
       <div className="Coptions">
         <div className="list">
-          <span>Schedule a Consultation</span>
-          <span>About Team</span>
-          <span>Incentives</span>
-          <span>Support</span>
-          <span>Partner with Sevo</span>
-          <span>Commercial</span>
-          <span>Utilities</span>
+            <Link to='/new-building-consultation'>
+            <span className="c-span">Schedule a Consultation</span>
+          </Link>
+          <span className='c-span'>About Team</span>
+          <span className='c-span'>Incentives</span>
+          <span className='c-span'>Support</span>
+          <span className='c-span'>Partner with Sevo</span>
+          <span className='c-span'>Commercial</span>
+          <span className='c-span'>Utilities</span>
         </div>
       </div>
     </div>

@@ -40,7 +40,7 @@
   justify-content: space-around;
 }
 
-.button > button {
+.e-button {
   background: transparent;
   border: none;
   text-decoration: underline;
@@ -165,9 +165,10 @@ margin-left: auto;
 }
 
 .energy-vertical{
-    position: fixed;
+    position: relative;
   display: flex;
   flex-direction: column;
+  height: 100%;
   padding-top: 3vh;
   width: 100%;
   background-color: #F2F2F2;

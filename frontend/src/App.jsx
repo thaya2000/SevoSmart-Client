@@ -11,9 +11,10 @@ import ConstructionsVertical from "./Components/Constructions/ConstructionsVerti
 
 import ShopVertical from "./Components/Shop/ShopVertical.jsx";
 import DiscoverVertical from "./Components/Discover/DiscoverVertical.jsx";
-import { NewBuildingConsultation } from "./Pages/NewBuildingConsultation/NewBuildingConsultation.jsx";
-import EnergyOrder from "./Pages/EnergyOrder/EnergyOrder.jsx";
+
 import Home from "./Pages/Home/Home.jsx";
+import { NewBuildingConsultation } from "./Pages/newBuildingConsultation/NewBuildingConsultation.jsx";
+import EnergyOrder from "./Pages/energyOrder/EnergyOrder.jsx";
 
 function App() {
   return (
@@ -23,10 +24,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/solar-learnmore" element={<SolarPanelLearnmore />} />
-        <Route path="/energy-order" element={<EnergyOrder />} />
+        <Route path="/energy-order" element={<EnergyOrder/>} />
         <Route
           path="/new-building-consultation"
-          element={<NewBuildingConsultation />}
+          element={<NewBuildingConsultation/>}
         />
         <Route
           path="/construction-learnmore"
