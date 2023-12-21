@@ -1,9 +1,9 @@
 import React from 'react'
 import { UilTimes, UilUser } from "@iconscout/react-unicons";
-import logo from "../../../images/logo.png";
+import logo from "../../../Images/logo.png";
 import { Link } from "react-router-dom";
 import "./Login.css";
-import ConstructionsBg from '../../../images/ConstructionsBg.jpg';
+import ConstructionsBg from '../../../Images/ConstructionsBg.jpg';
 
 
 const Login = () => {

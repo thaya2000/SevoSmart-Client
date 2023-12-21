@@ -1,9 +1,9 @@
 import React from 'react'
 import "./Constructions.css";
-import NewBuilding from "../../images/NewBuilding.png";
-import Renovation from "../../images/Renovation.png";
-import SwimmingPool from "../../images/SwimmingPool.png";
-import Havana from "../../images/Havana.png";
+import NewBuilding from "../../Images/NewBuilding.png";
+import Renovation from "../../Images/Renovation.png";
+import SwimmingPool from "../../Images/SwimmingPool.png";
+import Havana from "../../Images/Havana.png";
 import { Link } from "react-router-dom";
 import { UilAngleLeft, UilTimes } from '@iconscout/react-unicons';
 

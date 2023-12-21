@@ -1,9 +1,9 @@
 import React from 'react'
 import './Shop.css'
 import { UilArrowRight } from '@iconscout/react-unicons';
-import SolarLight from '../../images/SolarLight.png';
-import SolarThings from '../../images/SolarThings.png';
-import Apparel from '../../images/Apparel.png';
+import SolarLight from '../../Images/SolarLight.png';
+import SolarThings from '../../Images/SolarThings.png';
+import Apparel from '../../Images/Apparel.png';
 
 const Shop = () => {
   return (

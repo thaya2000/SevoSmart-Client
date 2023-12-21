@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./NewBuildingConsultation.css";
-import { AcmeLogo } from "../../components/nav/AcmeLogo";
 import { BsCalendarDate } from "react-icons/bs";
 import { TiTick } from "react-icons/ti";
 import { FaRegFolderClosed } from "react-icons/fa6";
@@ -8,7 +7,7 @@ import axios from "axios";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-import Footer from "../../Components/footer/Footer";
+import Footer from "../../Components/Footer/Footer";
 import Navigation from "../../Components/Navigation/Navigation";
 
 export const NewBuildingConsultation = () => {

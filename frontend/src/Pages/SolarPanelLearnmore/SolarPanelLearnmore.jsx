@@ -1,11 +1,11 @@
 import React from 'react'
 import './SolarPanelLearnmore.css'
-import Solarimg01 from '../../images/images2/Spanel01.jpg';
-import Solarimg02 from '../../images/images2/Spanel03.png';
-import Solarimg03 from '../../images/images2/Spanel02.png';
+import Solarimg01 from '../../Images/Images2/Spanel01.jpg';
+import Solarimg02 from '../../Images/Images2/Spanel03.png';
+import Solarimg03 from '../../Images/Images2/Spanel02.png';
 import { Link } from 'react-router-dom';
-import Navigation from '../Navigation/Navigation';
-import Footer from '../footer/Footer';
+import Navigation from '../../Components/Navigation/Navigation';
+import Footer from '../../Components/Footer/Footer';
 
 
 

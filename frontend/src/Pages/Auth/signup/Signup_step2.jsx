@@ -1,11 +1,11 @@
 import React from "react";
-import { AcmeLogo } from "../../components/nav/AcmeLogo";
+
 import "./Signup_step2.css";
 
 export const Signup_step2 = () => {
   return (
     <div>
-      <AcmeLogo />
+      {/* <AcmeLogo /> */}
       <div className="Signup_step2-background">
         <div className="Signup_step2-container">
           <div className="Signup_step2-header">
