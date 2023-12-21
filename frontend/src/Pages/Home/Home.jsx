@@ -5,7 +5,7 @@ import ContentConstructions from "../../Components/Content/ContentConstructions"
 import Footer from "../../Components/Footer/Footer";
 import "./Home.css";
 import Content from "../../Components/Content/Content";
-import Navigation from "../../components/Navigation/Navigation";
+import Navigation from "../../Components/Navigation/Navigation";
 
 const Home = () => {
   const contentRef = useRef(null);
