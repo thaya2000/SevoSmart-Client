@@ -108,4 +108,10 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
+  .c-span{
+    cursor: pointer;
+    margin-top: 3vh;
+    margin-left: 5vw;
+    font-weight: bold;
+  }
 }

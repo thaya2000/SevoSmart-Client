@@ -32,13 +32,16 @@ const Constructions = () => {
 
       <div className="Coptions">
         <div className="list">
-          <span>Schedule a Consultation</span>
-          <span>About Team</span>
-          <span>Incentives</span>
-          <span>Support</span>
-          <span>Partner with Sevo</span>
-          <span>Commercial</span>
-          <span>Utilities</span>
+          <Link to='/new-building-consultation'>
+            <span className='c-span'>Schedule a Consultation</span>
+          </Link>
+          
+          <span className='c-span'>About Team</span>
+          <span className='c-span'>Incentives</span>
+          <span className='c-span'>Support</span>
+          <span className='c-span'>Partner with Sevo</span>
+          <span className='c-span'>Commercial</span>
+          <span className='c-span'>Utilities</span>
         </div>
       </div>
     </div>
