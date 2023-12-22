@@ -4,11 +4,13 @@ import './Content.css';
 import SolarBg from '../../Images/SolarBg.png';
 import c1 from '../../Images/Images2/c1.jpg';
 import { Link } from "react-router-dom";
+import Footer from '../Footer/Footer';
 
 
 const ContentConstructions = () => {
   return (
-    <div className="contentConstruction" id="contentConstructions" style={{ backgroundImage: `url(${c1})` }}>
+    <div className="all">
+      <div className="contentConstruction" id="contentConstructions" style={{ backgroundImage: `url(${c1})` }}>
         <div className="ConstructionTitle">
           <span>Constructions</span>
         </div>
@@ -22,6 +24,9 @@ const ContentConstructions = () => {
           
         </div>
       </div>
+      <Footer/>
+    </div>
+    
   )
 }
 

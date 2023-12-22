@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@ap.cx/react-fullpage": "^0.3.0",
     "@fortawesome/fontawesome-free": "^6.5.1",
     "@heroicons/react": "^2.0.18",
     "@iconscout/react-unicons": "^2.0.2",
