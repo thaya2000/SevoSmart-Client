@@ -4,6 +4,7 @@ import NewBuilding from "../../Images/NewBuilding.png";
 import Renovation from "../../Images/Renovation.png";
 import SwimmingPool from "../../Images/SwimmingPool.png";
 import Havana from "../../Images/Havana.png";
+import { Link } from "react-router-dom";
 
 const ConstructionProduct = ({ image, name }) => {
   return (
