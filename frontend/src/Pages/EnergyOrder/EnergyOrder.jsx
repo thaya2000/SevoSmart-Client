@@ -13,13 +13,21 @@ import Navigation from "../../Components/Navigation/Navigation";
 import Footer from "../../Components/Footer/Footer";
 
 const EnergyOrder = () => {
-  const initialValues = { firstname: "", lastname:"", email: "", phoneno:"",product:"", solar:"", battery:"", iverter:"",date:"", time:"" };
+  const initialValues = {
+    firstname: "",
+    lastname: "",
+    email: "",
+    phoneno: "",
+    product: "",
+    solarpanel: "",
+    battery: "",
+    inverter: "",
+    date: "",
+    time: "",
+  };
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
-
-
-  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -38,6 +46,7 @@ const EnergyOrder = () => {
       console.log(formValues);
     }
   }, [formErrors]);
+
   const validate = (values) => {
     const errors = {};
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
@@ -53,43 +62,33 @@ const EnergyOrder = () => {
       errors.email = "This is not a valid email format!";
     }
     if (!values.phoneno) {
-      errors.phoneno= "Phone no is required";
-    } 
-    if (!values.solar && !values.battery && !values.inverter) {
+      errors.phoneno = "Phone no is required";
+    }
+    if (!values.date) {
+      errors.date = "Date is required!";
+    }
+    if (!values.time) {
+      errors.time = "Time is required!";
+    }
+
+    if (!values.solarpanel && !values.battery && !values.inverter) {
       errors.product = "You need to choose your product";
-    } 
+    }
     return errors;
   };
 
-  // State to manage selected date and time
   const [selectedDate, setSelectedDate] = useState(null);
 
-  // Other existing state and ref definitions can go here...
 
-  //const handleSubmit = async (e) => {
-    // e.preventDefault();
-
-    // const formData = {
-    //   firstName: e.target.firstName ? e.target.firstName.value : "",
-    //   lastName: e.target.lastName ? e.target.lastName.value : "",
-    //   email: e.target.email ? e.target.email.value : "",
-    //   phone: e.target.phone ? e.target.phone.value : "",
-    //   solarPanel: e.target.solarpanel ? e.target.solarpanel.checked : false,
-    //   battery: e.target.battery ? e.target.battery.checked : false,
-    //   inverter: e.target.inverter ? e.target.inverter.checked : false,
-    //   selectedDate: selectedDate ? selectedDate.toLocaleDateString() : null,
-    //   selectedTime: e.target.time ? e.target.time.value : "",
-    // };
-
-    // try {
-    //   const response = await axios.post("/api/energyOrder", formData);
-    //   console.log("Data sent successfully:", response.data);
-    //   // Handle any success scenarios here (e.g., show a confirmation message)
-    // } catch (error) {
-    //   console.error("Error sending data:", error);
-    //   // Handle any error scenarios here (e.g., show an error message)
-    // }
- // };
+  // try {
+  //   const response = await axios.post("/api/energyOrder", formData);
+  //   console.log("Data sent successfully:", response.data);
+  //   // Handle any success scenarios here (e.g., show a confirmation message)
+  // } catch (error) {
+  //   console.error("Error sending data:", error);
+  //   // Handle any error scenarios here (e.g., show an error message)
+  // }
+  // };
 
   const datepickerRef = useRef(null);
 
@@ -113,30 +112,43 @@ const EnergyOrder = () => {
                   type="text"
                   value={formValues.firstname}
                   onChange={handleChange}
+                  name="firstname"
                 />
               </div>
+              <p className="text-red-700">{formErrors.firstname}</p>
               <div className="flex flex-col  ">
                 <text className="font-medium text-sm"> Last Name</text>
                 <input
                   className="h-7 pl-[4px] rounded-md bg-[#D9D9D9] "
                   type="text"
-                  
+                  value={formValues.lastname}
+                  onChange={handleChange}
+                  name="lastname"
                 />
               </div>
+              <p className="text-red-700">{formErrors.lastname}</p>
               <div className="flex flex-col mt-2">
                 <text className="font-medium text-sm">Email ID</text>
                 <input
                   className="h-7 pl-[4px] rounded-md bg-[#D9D9D9] "
                   type="text"
+                  value={formValues.email}
+                  onChange={handleChange}
+                  name="email"
                 />
               </div>
+              <p className="text-red-700">{formErrors.email}</p>
               <div className="flex flex-col mt-2">
                 <text className="font-medium text-sm">Phone No</text>
                 <input
                   className="h-7 pl-[4px] rounded-md bg-[#D9D9D9] "
                   type="text"
+                  value={formValues.phoneno}
+                  onChange={handleChange}
+                  name="phoneno"
                 />
               </div>
+              <p className="text-red-700">{formErrors.phoneno}</p>
             </div>
 
             <div className="flex flex-col w-[250px] mx-[3px]">
@@ -146,8 +158,12 @@ const EnergyOrder = () => {
                   <input
                     className="relative float-left -ml-[1.5rem] mr-[6px] mt-[0.15rem] h-[1.125rem] w-[1.125rem] appearance-none rounded-[0.25rem] border-[0.125rem] border-solid border-neutral-300 outline-none before:pointer-events-none before:absolute before:h-[0.875rem] before:w-[0.875rem] before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-[0px_0px_0px_13px_transparent] before:content-[''] checked:border-primary checked:bg-primary checked:before:opacity-[0.16] checked:after:absolute checked:after:-mt-px checked:after:ml-[0.25rem] checked:after:block checked:after:h-[0.8125rem] checked:after:w-[0.375rem] checked:after:rotate-45 checked:after:border-[0.125rem] checked:after:border-l-0 checked:after:border-t-0 checked:after:border-solid checked:after:border-white checked:after:bg-transparent checked:after:content-[''] hover:cursor-pointer hover:before:opacity-[0.04] hover:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:shadow-none focus:transition-[border-color_0.2s] focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:before:transition-[box-shadow_0.2s,transform_0.2s] focus:after:absolute focus:after:z-[1] focus:after:block focus:after:h-[0.875rem] focus:after:w-[0.875rem] focus:after:rounded-[0.125rem] focus:after:content-[''] checked:focus:before:scale-100 checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca] checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] checked:focus:after:-mt-px checked:focus:after:ml-[0.25rem] checked:focus:after:h-[0.8125rem] checked:focus:after:w-[0.375rem] checked:focus:after:rotate-45 checked:focus:after:rounded-none checked:focus:after:border-[0.125rem] checked:focus:after:border-l-0 checked:focus:after:border-t-0 checked:focus:after:border-solid checked:focus:after:border-white checked:focus:after:bg-transparent dark:border-neutral-600 dark:checked:border-primary dark:checked:bg-primary dark:focus:before:shadow-[0px_0px_0px_13px_rgba(255,255,255,0.4)] dark:checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca]"
                     type="checkbox"
-                    value=""
+                    checked={formValues.solarpanel}
+                    onChange={(e) =>
+                      setFormValues({ ...formValues, solarpanel: e.target.checked })
+                    }
                     id="solarpanel"
+                    name="solarpanel"
                   />
                   <label
                     className="inline-block pl-[0.15rem] hover:cursor-pointer"
@@ -161,9 +177,15 @@ const EnergyOrder = () => {
                   <input
                     className="relative float-left -ml-[1.5rem] mr-[6px] mt-[0.15rem] h-[1.125rem] w-[1.125rem] appearance-none rounded-[0.25rem] border-[0.125rem] border-solid border-neutral-300 outline-none before:pointer-events-none before:absolute before:h-[0.875rem] before:w-[0.875rem] before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-[0px_0px_0px_13px_transparent] before:content-[''] checked:border-primary checked:bg-primary checked:before:opacity-[0.16] checked:after:absolute checked:after:-mt-px checked:after:ml-[0.25rem] checked:after:block checked:after:h-[0.8125rem] checked:after:w-[0.375rem] checked:after:rotate-45 checked:after:border-[0.125rem] checked:after:border-l-0 checked:after:border-t-0 checked:after:border-solid checked:after:border-white checked:after:bg-transparent checked:after:content-[''] hover:cursor-pointer hover:before:opacity-[0.04] hover:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:shadow-none focus:transition-[border-color_0.2s] focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:before:transition-[box-shadow_0.2s,transform_0.2s] focus:after:absolute focus:after:z-[1] focus:after:block focus:after:h-[0.875rem] focus:after:w-[0.875rem] focus:after:rounded-[0.125rem] focus:after:content-[''] checked:focus:before:scale-100 checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca] checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] checked:focus:after:-mt-px checked:focus:after:ml-[0.25rem] checked:focus:after:h-[0.8125rem] checked:focus:after:w-[0.375rem] checked:focus:after:rotate-45 checked:focus:after:rounded-none checked:focus:after:border-[0.125rem] checked:focus:after:border-l-0 checked:focus:after:border-t-0 checked:focus:after:border-solid checked:focus:after:border-white checked:focus:after:bg-transparent dark:border-neutral-600 dark:checked:border-primary dark:checked:bg-primary dark:focus:before:shadow-[0px_0px_0px_13px_rgba(255,255,255,0.4)] dark:checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca]"
                     type="checkbox"
-                    value=""
+                    checked={formValues.battery}
+                    onChange={(e) =>
+                      setFormValues({
+                        ...formValues,
+                        battery: e.target.checked,
+                      })
+                    }
                     id="battery"
-                    defaultChecked
+                    name="battery"
                   />
                   <label
                     className="inline-block pl-[0.15rem] hover:cursor-pointer"
@@ -176,9 +198,15 @@ const EnergyOrder = () => {
                   <input
                     className="relative float-left -ml-[1.5rem] mr-[6px] mt-[0.15rem] h-[1.125rem] w-[1.125rem] appearance-none rounded-[0.25rem] border-[0.125rem] border-solid border-neutral-300 outline-none before:pointer-events-none before:absolute before:h-[0.875rem] before:w-[0.875rem] before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-[0px_0px_0px_13px_transparent] before:content-[''] checked:border-primary checked:bg-primary checked:before:opacity-[0.16] checked:after:absolute checked:after:-mt-px checked:after:ml-[0.25rem] checked:after:block checked:after:h-[0.8125rem] checked:after:w-[0.375rem] checked:after:rotate-45 checked:after:border-[0.125rem] checked:after:border-l-0 checked:after:border-t-0 checked:after:border-solid checked:after:border-white checked:after:bg-transparent checked:after:content-[''] hover:cursor-pointer hover:before:opacity-[0.04] hover:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:shadow-none focus:transition-[border-color_0.2s] focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:before:transition-[box-shadow_0.2s,transform_0.2s] focus:after:absolute focus:after:z-[1] focus:after:block focus:after:h-[0.875rem] focus:after:w-[0.875rem] focus:after:rounded-[0.125rem] focus:after:content-[''] checked:focus:before:scale-100 checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca] checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] checked:focus:after:-mt-px checked:focus:after:ml-[0.25rem] checked:focus:after:h-[0.8125rem] checked:focus:after:w-[0.375rem] checked:focus:after:rotate-45 checked:focus:after:rounded-none checked:focus:after:border-[0.125rem] checked:focus:after:border-l-0 checked:focus:after:border-t-0 checked:focus:after:border-solid checked:focus:after:border-white checked:focus:after:bg-transparent dark:border-neutral-600 dark:checked:border-primary dark:checked:bg-primary dark:focus:before:shadow-[0px_0px_0px_13px_rgba(255,255,255,0.4)] dark:checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca]"
                     type="checkbox"
-                    value=""
+                    checked={formValues.inverter}
+                    onChange={(e) =>
+                      setFormValues({
+                        ...formValues,
+                        inverter: e.target.checked,
+                      })
+                    }
                     id="inverter"
-                    defaultChecked
+                    name="inverter"
                   />
                   <label
                     className="inline-block pl-[0.15rem] hover:cursor-pointer"
@@ -188,19 +216,12 @@ const EnergyOrder = () => {
                   </label>
                 </div>
               </div>
+              <p className="text-red-700">{formErrors.product}</p>
             </div>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-8">
             <div className="flex flex-col w-[250px]">
-              {/* <p className="">
-                <a href="#">
-                  <span className="hover:cursor-pointer text-[#0569FF]">
-                    Click here
-                  </span>{" "}
-                </a>
-                to schedule time
-              </p> */}
 
               <div className="flex flex-col gap-3 ">
                 <div className="flex justify-items-start items-center gap-3 h-7 border-gray-800">
@@ -211,9 +232,13 @@ const EnergyOrder = () => {
                   />
 
                   <DatePicker
+                    name="date"
                     ref={datepickerRef}
                     selected={selectedDate}
-                    onChange={(date) => setSelectedDate(date)}
+                    onChange={(date) => {
+                      setFormValues({ ...formValues, date });
+                      setSelectedDate(date);
+                    }}
                     dateFormat="dd/MM/yyyy"
                     filterDate={(date) =>
                       date.getDay() !== 6 && date.getDay() !== 0
@@ -221,15 +246,20 @@ const EnergyOrder = () => {
                     className=""
                   />
                 </div>
+                <p className="text-red-700">{formErrors.date}</p>
 
                 <div className="flex">
                   <input
+                    value={formValues.time}
+                    onChange={handleChange}
+                    name="time"
                     disableClock="true"
                     placeholder="Time"
                     className="h-7 hover:cursor-pointer rounded-md bg-[#D9D9D9]"
                     type="time"
                   />
                 </div>
+                <p className="text-red-700">{formErrors.time}</p>
               </div>
 
               <button
