@@ -20,12 +20,12 @@ const Shop = () => {
         <div className="name">Solar Accessories</div>
         
       </div>
-      <div className="Sproduct01">
+      {/* <div className="Sproduct01">
         <img src={Apparel} alt="" />
         <div className="name">Apparel</div>
          
       </div>
-      
+       */}
       <div className="arrow-button">
         <button><UilArrowRight /></button>
         <div className="name">Explore More</div>
