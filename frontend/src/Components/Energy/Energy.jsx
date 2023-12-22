@@ -1,9 +1,9 @@
 import React from "react";
 import "./Energy.css";
-import Battery from "../../Images/Battery.png";
-import Inverter from "../../Images/Inverter.png";
-import SolarPanel from "../../Images/SolarPanel.png";
-import SolarRoof from "../../Images/SolarRoof.png";
+import Battery from "../../Images/Images2/battery1.png";
+import Inverter from "../../Images/Images2/inverter1.png";
+import SolarPanel from "../../Images/Images2/solarpanal1.png";
+import SolarRoof from "../../Images/Images2/solarroof1.png";
 import Navigation from "../Navigation/Navigation";
 import { Link } from "react-router-dom";
 

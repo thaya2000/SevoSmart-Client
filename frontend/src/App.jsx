@@ -15,6 +15,7 @@ import DiscoverVertical from "./Components/Discover/DiscoverVertical.jsx";
 import Home from "./Pages/Home/Home.jsx";
 import { NewBuildingConsultation } from "./Pages/NewBuildingConsultation/NewBuildingConsultation.jsx";
 import EnergyOrder from "./Pages/EnergyOrder/EnergyOrder.jsx";
+import Footer from "./Components/Footer/Footer.jsx";
 
 function App() {
   return (
@@ -42,7 +43,7 @@ function App() {
         <Route path="/shop-vertical" element={<ShopVertical />} />
         <Route path="/discover-vertical" element={<DiscoverVertical />} />
       </Routes>
-      {/* <Footer /> */}
+      {/* <Footer/> */}
     </BrowserRouter>
   );
 }
