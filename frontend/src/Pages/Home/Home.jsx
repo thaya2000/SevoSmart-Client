@@ -10,20 +10,30 @@ import Content from "../../Components/Content/Content";
 const Home = () => {
   const contentRefs = [useRef(null), useRef(null), useRef(null)];
   const [activeSlide, setActiveSlide] = useState(0);
+  const [isScrolling, setIsScrolling] = useState(false);
 
   const handleWheelScroll = debounce((event) => {
-    const deltaY = event.deltaY;
-    const scrollDelta = deltaY > 0 ? 1 : -1;
-    const newSlide = Math.max(0, Math.min(activeSlide + scrollDelta, 2));
+    if (!isScrolling) {
+      setIsScrolling(true);
 
-    if (newSlide !== activeSlide) {
-      setActiveSlide(newSlide);
+      const deltaY = event.deltaY;
+      const scrollDelta = deltaY > 0 ? 1 : -1;
+      const newSlide = Math.max(0, Math.min(activeSlide + scrollDelta, 2));
 
-      // Manually scroll to the new slide position
-      const targetPosition = contentRefs[newSlide].current.offsetTop;
+      if (newSlide !== activeSlide) {
+        setActiveSlide(newSlide);
 
-      // Use smooth scroll to the target position
-      smoothScrollTo(targetPosition);
+        // Manually scroll to the new slide position
+        const targetPosition = contentRefs[newSlide].current.offsetTop;
+
+        // Use smooth scroll to the target position
+        smoothScrollTo(targetPosition);
+      }
+
+      // Allow the next scroll event after a short delay
+      setTimeout(() => {
+        setIsScrolling(false);
+      }, 1000); // Adjust the delay time as needed
     }
   }, 800); // Adjust the debounce time as needed
 
