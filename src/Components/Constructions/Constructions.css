@@ -78,14 +78,18 @@
 }
 
 .Construction-vertical{
-  position: fixed;
+  position: relative;
   display: flex;
   flex-direction: column;
   padding-top: 3vh;
   width: 100%;
   background-color: #F2F2F2;
 }
-
+.c-span{
+  margin-top: 3vh;
+  margin-left: 5vw;
+  font-weight: bold;
+}
 .Cproduct-vertical{
   display: flex;
   flex-direction: column;
