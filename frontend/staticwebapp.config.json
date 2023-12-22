@@ -1,6 +1,6 @@
 {
   "navigationFallback": {
-    "rewrite": "frontend/dist/index.html",
+    "rewrite": "/frontend/dist/index.html",
     "exclude": ["/static/images/*.{png,jpg,gif}", "/static/css/*"]
   },
   "mimeTypes": {
