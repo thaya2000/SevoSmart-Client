@@ -76,7 +76,7 @@ display: flex;
   background-color: transparent;
   transition: background-color 0.5s ease, height 0.5s ease;
   height: 10vh;
-  backdrop-filter: blur(8px);
+  webkit-backdrop-filter: blur(8px);
 
 }
 
@@ -275,7 +275,7 @@ margin-left: 5vw;
   background-color: #e7e6e6;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 1000px) {
 
 .navibuttons{
   display: none;

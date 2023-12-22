@@ -35,15 +35,20 @@ const Footer = () => {
             <div className="socialMedia">
               <span>PowerUp your life with clean energy......</span>
               <div style={{ display: 'flex', gap: '10px' }}>
-                <FaFacebook size={30} color="#1877f2" />
+                <a href='https://www.facebook.com/sevosmart2021?mibextid=LQQJ4d' target="_blank" rel="noopener noreferrer">
+              <FaFacebook size={30} color="#1877f2" />
+            </a>
+            <a href='tel:+94766865193'>
+              <IoLogoWhatsapp size={30} color="#25D366" />
+            </a>
                 
-                <IoLogoWhatsapp size={30} color="#25D366" />
                 
-                
-                <MdMailOutline size={30} color="#D44638" />
+                <a href='mailto:sevosmarttech2001@gmail.com'>
+              <MdMailOutline size={30} color="#D44638" />
+            </a>
 
               </div>
-              <span className='SoftwareDeveloped'>Powered by DreamTrillians </span>
+              <span className='SoftwareDeveloped'>Powered by DreamTrillions </span>
             </div>
 
         </div>
