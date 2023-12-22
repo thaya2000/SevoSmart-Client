@@ -1,6 +1,6 @@
 .Container{
   position: fixed;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   
   
 
@@ -64,7 +64,7 @@ display: flex;
 
 
 .navi {
-  z-index: -1;
+  /* z-index: -1; */
   /* Your existing styles */
   align-items: center;
   position: fixed;
@@ -275,7 +275,7 @@ margin-left: 5vw;
   background-color: #e7e6e6;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
 
 .navibuttons{
   display: none;
@@ -288,16 +288,16 @@ margin-left: 5vw;
 }
 .menu{
   
-  position: absolute;
+  
     
     display: flex;
-    flex-direction: column;
+    
     justify-content: flex-end;
     width: 2.25rem;
     height: 1.5rem;
     margin-top: 1rem;
     
-    margin-left: 80vw;
+    margin-left: 75vw;
     
     
 }
@@ -312,6 +312,7 @@ margin-left: 5vw;
     background-color: transparent;
     cursor: pointer;
     color: #FFFFFF;
+   
  
 }
 
