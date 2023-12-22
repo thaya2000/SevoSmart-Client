@@ -102,8 +102,16 @@
 }
 
 /* Adjust the minmax values and gap based on your design */
-@media screen and (min-width: 600px) {
+@media screen and (max-width: 600px) {
   .Cproducts-vertical {
+    position: relative;
+    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  .c-span{
+    cursor: pointer;
+    margin-top: 3vh;
+    margin-left: 5vw;
+    font-weight: bold;
   }
 }

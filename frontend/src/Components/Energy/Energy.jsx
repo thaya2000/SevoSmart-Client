@@ -1,10 +1,11 @@
 import React from "react";
 import "./Energy.css";
-import Battery from "../../Images/Battery.png";
-import Inverter from "../../Images/Inverter.png";
-import SolarPanel from "../../Images/SolarPanel.png";
-import SolarRoof from "../../Images/SolarRoof.png";
+import Battery from "../../Images/Images2/battery1.png";
+import Inverter from "../../Images/Images2/inverter1.png";
+import SolarPanel from "../../Images/Images2/solarpanal1.png";
+import SolarRoof from "../../Images/Images2/solarroof1.png";
 import Navigation from "../Navigation/Navigation";
+import { Link } from "react-router-dom";
 
 const Product = ({ image, name }) => {
   return (
@@ -12,8 +13,13 @@ const Product = ({ image, name }) => {
       <img className="product-image" src={image} alt="" />
       <div className="name">{name}</div>
       <div className="button">
-        <button>Learn</button>
-        <button>Order</button>
+        <Link to='/energy-order'>
+          <button className="e-button-1">Learn</button>
+        </Link>
+        <Link to='/solar-learnmore'>
+          <button className="e-button-2">Order</button>
+        </Link>
+        
       </div>
     </div>
   );
