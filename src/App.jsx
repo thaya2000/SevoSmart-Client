@@ -24,7 +24,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/solar-learnmore" element={<SolarPanelLearnmore />} />
+        {/* <Route path="/solar-learnmore" element={<SolarPanelLearnmore />} />
         <Route path="/energy-order" element={<EnergyOrder />} />
         <Route
           path="/new-building-consultation"
@@ -41,7 +41,7 @@ function App() {
           element={<ConstructionsVertical />}
         />
         <Route path="/shop-vertical" element={<ShopVertical />} />
-        <Route path="/discover-vertical" element={<DiscoverVertical />} />
+        <Route path="/discover-vertical" element={<DiscoverVertical />} /> */}
       </Routes>
       {/* <Footer/> */}
     </BrowserRouter>
