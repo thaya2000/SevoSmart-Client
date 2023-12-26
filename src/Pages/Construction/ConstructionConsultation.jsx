@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from "react";
-import "./NewBuildingConsultation.css";
 import { BsCalendarDate } from "react-icons/bs";
 import { TiTick } from "react-icons/ti";
 import { FaRegFolderClosed } from "react-icons/fa6";
@@ -268,15 +267,15 @@ export const NewBuildingConsultation = () => {
               </div>
               <p className="text-red-700 mb-3">{formErrors.date}</p>
               <div className="flex">
-              <input
-                    value={formValues.time}
-                    onChange={handleChange}
-                    name="time"
-                    disableClock="true"
-                    placeholder="Time"
-                    className="h-7 hover:cursor-pointer rounded-md bg-[#D9D9D9]"
-                    type="time"
-                  />
+                <input
+                  value={formValues.time}
+                  onChange={handleChange}
+                  name="time"
+                  disableClock="true"
+                  placeholder="Time"
+                  className="h-7 hover:cursor-pointer rounded-md bg-[#D9D9D9]"
+                  type="time"
+                />
               </div>
               <p className="text-red-700">{formErrors.time}</p>
 

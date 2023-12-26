@@ -1,5 +1,5 @@
 import React from "react";
-import "./ConstructionsLearnmore.css";
+import "./ConstructionLearnmore.css";
 import Havana from "../../Images/Images2/havana.jpg";
 import construction1 from "../../Images/Images2/construction1.jpg";
 import Constructionimg03 from "../../Images/ConstructionImage03.jpeg";
@@ -11,7 +11,7 @@ import Navigation from "../../Components/Navigation/Navigation";
 const ConstructionsLearnmore = () => {
   return (
     <div className="ConstructionLearnmore">
-      <Navigation/>
+      <Navigation />
       <div className="Ccontent01">
         <div className="Construction-title">
           <span>Construction</span>
@@ -30,7 +30,10 @@ const ConstructionsLearnmore = () => {
           <img src={Constructionimg03} alt="" />
         </div>
       </div>
-      <div className="Ccontent02 " style={{ backgroundImage: `url(${Havana})` }}>
+      <div
+        className="Ccontent02 "
+        style={{ backgroundImage: `url(${Havana})` }}
+      >
         <div className="Ccontent02-discription">
           <span>Havana construction:</span>
           <span>

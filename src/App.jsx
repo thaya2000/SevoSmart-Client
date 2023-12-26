@@ -1,16 +1,16 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 
-import SolarPanelLearnmore from "./Pages/SolarPanelLearnmore/SolarPanelLearnmore.jsx";
-import ConstructionsLearnmore from "./Pages/ConstructionsLearnmore/ConstructionsLearnmore.jsx";
+import SolarPanelLearnmore from "./Pages/SolarPanel/SolarPanelLearnmore.jsx";
+import ConstructionsLearnmore from "./Pages/Construction/ConstructionLearnmore.jsx";
 import NavigationVertical from "./Components/Navigation/NavigationVertical.jsx";
 import EnergyVertical from "./Components/Energy/EnergyVertical.jsx";
 import ConstructionsVertical from "./Components/Constructions/ConstructionsVertical.jsx";
 import ShopVertical from "./Components/Shop/ShopVertical.jsx";
 import DiscoverVertical from "./Components/Discover/DiscoverVertical.jsx";
 import Home from "./Pages/Home/Home.jsx";
-import { NewBuildingConsultation } from "./Pages/NewBuildingConsultation/NewBuildingConsultation.jsx";
-import EnergyOrder from "./Pages/EnergyOrder/EnergyOrder.jsx";
+import { NewBuildingConsultation } from "./Pages/Construction/ConstructionConsultation.jsx";
+import EnergyOrder from "./Pages/SolarPanel/SolarPanelConsultation.jsx";
 
 function App() {
   return (
