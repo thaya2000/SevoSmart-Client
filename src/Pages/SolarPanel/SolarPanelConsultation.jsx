@@ -9,8 +9,8 @@ import { IoMdTime } from "react-icons/io";
 import "react-datepicker/dist/react-datepicker.css";
 import "react-time-picker/dist/TimePicker.css";
 import "react-clock/dist/Clock.css";
-import Navigation from "../../Components/Navigation/Navigation";
-import Footer from "../../Components/Footer/Footer";
+import Navigation from "../../component/Navigation/Navigation";
+import Footer from "../../component/Footer/Footer";
 
 const EnergyOrder = () => {
   const initialValues = {

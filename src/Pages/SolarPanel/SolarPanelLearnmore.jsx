@@ -4,8 +4,8 @@ import Solarimg01 from '../../Images/Images2/Spanel01.jpg';
 import Solarimg02 from '../../Images/Images2/Spanel03.png';
 import Solarimg03 from '../../Images/Images2/Spanel02.png';
 import { Link } from 'react-router-dom';
-import Navigation from '../../Components/Navigation/Navigation';
-import Footer from '../../Components/Footer/Footer';
+import Navigation from '../../component/Navigation/Navigation';
+import Footer from '../../component/Footer/Footer';
 
 
 

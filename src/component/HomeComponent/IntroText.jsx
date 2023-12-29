@@ -1,28 +1,31 @@
 import React, { useState, useEffect } from "react";
-import "./Content.css";
+import "./IntroText.css";
+import ProductIntroCard from "./ProductInroCard";
+import SolarCoverImage from "../../assets/solar.jpg";
 
-const Content = () => {
+const HomeComponent = ({}) => {
   const [typewriterText, setTypewriterText] = useState("");
   const [startTypewriter, setStartTypewriter] = useState(false);
   const targetText = "Delivering the Best Smart Home solutions in Sri Lanka.";
 
   useEffect(() => {
     const typeText = async () => {
+      const timeoutId = setTimeout(() => {
+        setStartTypewriter(true);
+      }, 1000);
       while (startTypewriter) {
         for (let i = 0; i < targetText.length; i++) {
           setTypewriterText((prevText) => prevText + targetText.charAt(i));
-          await new Promise((resolve) => setTimeout(resolve, 100));
+          await new Promise((resolve) => setTimeout(resolve, 150));
         }
-
-        await new Promise((resolve) => setTimeout(resolve, 10000));
-
-        setTypewriterText(""); // Clear text after each sentence
+        await new Promise((resolve) => setTimeout(resolve, 2000));
+        setTypewriterText("");
       }
     };
-
     typeText();
   }, [startTypewriter, targetText]);
 
+  /*
   useEffect(() => {
     // Start the typewriter effect after a delay
     const timeoutId = setTimeout(() => {
@@ -35,18 +38,15 @@ const Content = () => {
       clearTimeout(timeoutId);
     };
   }, []);
+  */
 
   return (
-    <div className="content">
-      <div className="contentTitle">
-        {/* <span></span> */}
-        {/* <span>Smart Home solutions in</span> */}
+    <div className="homepage-section">
+      <div className="intro-section">
         <span>{typewriterText}</span>
       </div>
-
-      <div className="Accessories"></div>
     </div>
   );
 };
 
-export default Content;
+export default HomeComponent;

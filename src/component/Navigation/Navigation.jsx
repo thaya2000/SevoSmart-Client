@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import "./Navigation.css";
 import { UilSearch, UilUser } from "@iconscout/react-unicons";
 import logo from "../../Images/logo.png";
-import Energy from "../Energy/Energy.jsx";
-import Constructions from "../Constructions/Constructions.jsx";
+import Energy from "../../component/Energy/Energy.jsx";
+import Constructions from "../../component/Constructions/Constructions.jsx";
 import Shop from "../Shop/Shop.jsx";
-import Discover from "../Discover/Discover.jsx";
+import Discover from "../../component/Discover/Discover.jsx";
 import Support from "../Support/Support.jsx";
 import { Link } from "react-router-dom";
-// import { Login } from "../../Pages/Auth/login/Login.jsx";
+// import { Login } from "../../pages/Auth/login/Login.jsx";
 
 const Navigation = () => {
   const [showEnergy, setShowEnergy] = useState(false);

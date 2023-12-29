@@ -1,16 +1,15 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
-
-import SolarPanelLearnmore from "./Pages/SolarPanel/SolarPanelLearnmore.jsx";
-import ConstructionsLearnmore from "./Pages/Construction/ConstructionLearnmore.jsx";
-import NavigationVertical from "./Components/Navigation/NavigationVertical.jsx";
-import EnergyVertical from "./Components/Energy/EnergyVertical.jsx";
-import ConstructionsVertical from "./Components/Constructions/ConstructionsVertical.jsx";
-import ShopVertical from "./Components/Shop/ShopVertical.jsx";
-import DiscoverVertical from "./Components/Discover/DiscoverVertical.jsx";
-import Home from "./Pages/Home/Home.jsx";
-import { NewBuildingConsultation } from "./Pages/Construction/ConstructionConsultation.jsx";
-import EnergyOrder from "./Pages/SolarPanel/SolarPanelConsultation.jsx";
+import SolarPanelLearnmore from "./pages/SolarPanel/SolarPanelLearnmore.jsx";
+import ConstructionsLearnmore from "./pages/Construction/ConstructionLearnmore.jsx";
+import NavigationVertical from "./component/Navigation/NavigationVertical.jsx";
+import EnergyVertical from "./component/Energy/EnergyVertical.jsx";
+import ConstructionsVertical from "./component/Constructions/ConstructionsVertical.jsx";
+import ShopVertical from "./component/Shop/ShopVertical.jsx";
+import DiscoverVertical from "./component/Discover/DiscoverVertical.jsx";
+import Home from "./pages/Home/Home.jsx";
+import { NewBuildingConsultation } from "./pages/Construction/ConstructionConsultation.jsx";
+import EnergyOrder from "./pages/SolarPanel/SolarPanelConsultation.jsx";
 
 function App() {
   return (

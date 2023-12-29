@@ -1,41 +1,29 @@
 import React, { useRef, useState, useEffect } from "react";
-import Navigation from "../../Components/Navigation/Navigation.jsx";
-import ContentSolar from "../../Components/Content/ContentSolar";
-import ContentConstructions from "../../Components/Content/ContentConstructions";
-import Footer from "../../Components/Footer/Footer";
+import Navigation from "../../component/Navigation/Navigation.jsx";
 import "./Home.css";
-import Content from "../../Components/Content/Content";
-import Fullpage, {FullPageSections, FullpageSection, FullpageNavigation } from '@ap.cx/react-fullpage'
+import IntroText from "../../component/HomeComponent/IntroText.jsx";
+import ProductIntroCard from "../../component/HomeComponent/ProductInroCard.jsx";
+import SolarCoverImage from "../../assets/solar.jpg";
+import ConstructionCoverImage from "../../assets/construction.jpg";
 
 const Home = () => {
-  
-
   return (
-
-      <Fullpage>
-        <FullPageSections>
-        
-            <Navigation />
-          
-          <FullpageSection>
-            <Content />
-          </FullpageSection>
-          <Navigation />
-          <FullpageSection>
-            <ContentSolar />
-          </FullpageSection>
-          <Navigation />
-          <FullpageSection>
-            <ContentConstructions />
-            
-          </FullpageSection>
-          {/* <FullpageSection style={{ height: "50vh" }}>
-          <Footer/>
-          </FullpageSection> */}
-        </FullPageSections>
-        
-      </Fullpage>
-
+    <div className="home">
+      <IntroText />
+      <ProductIntroCard
+        image={SolarCoverImage}
+        serviceTitle="Solar Panels"
+        orderLink="/energy-order"
+        learnMoreLink="/solar-learnmore"
+      />
+      <ProductIntroCard
+        image={ConstructionCoverImage}
+        serviceTitle="Constructions"
+        orderLink="/new-building-consultation"
+        learnMoreLink="/construction-learnmore"
+        textColor="#ffffff"
+      />
+    </div>
   );
 };
 

@@ -5,8 +5,8 @@ import construction1 from "../../Images/Images2/construction1.jpg";
 import Constructionimg03 from "../../Images/ConstructionImage03.jpeg";
 import { Link } from "react-router-dom";
 
-import Footer from "../../Components/Footer/Footer";
-import Navigation from "../../Components/Navigation/Navigation";
+import Footer from "../../component/Footer/Footer";
+import Navigation from "../../component/Navigation/Navigation";
 
 const ConstructionsLearnmore = () => {
   return (

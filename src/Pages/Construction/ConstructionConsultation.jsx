@@ -6,8 +6,8 @@ import axios from "axios";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-import Footer from "../../Components/Footer/Footer";
-import Navigation from "../../Components/Navigation/Navigation";
+import Footer from "../../component/Footer/Footer";
+import Navigation from "../../component/Navigation/Navigation";
 
 export const NewBuildingConsultation = () => {
   const initialValues = {
