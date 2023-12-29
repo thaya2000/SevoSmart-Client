@@ -1,0 +1,191 @@
+
+.logincontainer{
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+
+  
+  width: 100%;
+  
+  background-color: #F2F2F2;
+   
+
+}
+.login-header>img{
+    width: 5rem;
+}
+.login-header{
+    display: flex;
+    flex-direction: row; 
+    align-items: center; 
+    padding-top: 2vh;
+    justify-content: flex-start;
+    
+    width: 100%;
+    
+}
+.login-close-button{
+    margin-left: 85vw;
+}
+.login-Card{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 25rem;
+  margin-top: 5rem;
+  
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 15px;
+}
+.login-card{
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 25rem;
+  padding: 3rem;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 15px;
+  backdrop-filter: blur(5px);
+}
+
+.text{
+    color:black;
+    font-size: 40px;
+    font-weight:bolder;
+}
+
+
+.inputs{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    align-items: flex-start;
+    width: 100%;
+}
+.input-container{
+    display: flex;
+    flex-direction: row;
+    margin-top: 0.5rem;
+    border-bottom: 1px solid;
+    width: 100%;
+    height: 30px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    
+   
+    
+}
+
+.input-container input{
+    background:transparent;
+    
+    border: none;
+    outline: none;
+    color: black;
+    font-size: 15px;
+    width: 100%;
+    padding: auto;
+    display: flex;
+}
+.user-name-input{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    font-weight: bolder;
+}
+.password-input{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    font-weight: bolder;
+}
+
+.submit-container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 60px auto;
+    width: 100%;
+
+}
+
+.submit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 59px;
+    color: #fff;
+    background: #4c00b4;
+    border-radius: 50px;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.login-button{
+   display: flex;
+    background-color:#081C3A;
+    height: 35px;
+    width: 50%;
+    font-weight: bolder;
+    color: #F2F2F2;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    border-radius: 2rem;
+  
+    
+}
+.create-account-button{
+   display: flex;
+    background-color:#081C3A;
+    height: 35px;
+    width: 50%;
+    font-weight: bolder;
+    color: #F2F2F2;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    border-radius: 2rem;
+}
+
+.underline-container{
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+}
+.or-text{
+    padding:5px;
+    margin: 0 5px;
+}
+
+.underline{
+    width:100%;
+    height: 1px;
+    background: black;
+    border-radius: 9px;
+  
+}
+
+  
+  
+
+
+
+
+
+
+
+
