@@ -5,6 +5,7 @@ import IntroText from "../../component/HomeComponent/IntroText.jsx";
 import ProductIntroCard from "../../component/HomeComponent/ProductInroCard.jsx";
 import SolarCoverImage from "../../assets/solar.jpg";
 import ConstructionCoverImage from "../../assets/construction.jpg";
+import FooterNew from "../../component/Footer/FooterNew.jsx";
 
 const Home = () => {
   return (
@@ -23,6 +24,7 @@ const Home = () => {
         learnMoreLink="/construction-learnmore"
         textColor="#ffffff"
       />
+      <FooterNew />
     </div>
   );
 };
