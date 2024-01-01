@@ -1,5 +1,5 @@
 .service {
-  height: 100vh;
+  height: 100dvh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -35,7 +35,7 @@
 .service__button-container {
   display: flex;
   width: 100%;
-  height: 12vh;
+  height: 12dvh;
   justify-content: space-evenly;
   align-items: center;
 }
@@ -74,7 +74,7 @@
   }
 
   .service__title > span {
-    font-size: 9vh;
+    font-size: 9dvh;
   }
 }
 
@@ -84,6 +84,6 @@
   }
 
   .service__title > span {
-    font-size: 6vh;
+    font-size: 6dvh;
   }
 }

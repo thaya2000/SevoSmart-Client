@@ -3,14 +3,15 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   scroll-snap-align: center;
   position: relative;
 }
 
 .footerTop {
-  height: 65vh;
+  min-height: 40dvh;
+  max-height: 80dvh;
+  height: auto;
   width: 100%;
   background: black;
 }
@@ -23,7 +24,7 @@
 }
 
 .details {
-  height: 30vh;
+  height: 30dvh;
   background: #040e42;
   height: auto;
   display: flex;
@@ -66,12 +67,16 @@
 }
 
 .partners {
+  min-height: 10dvh;
+  max-height: 20dvh;
+  height: 10dvh;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   width: 100%;
   margin: 0;
+  padding: auto;
   padding-left: 5vw;
   padding-right: 5vw;
 }
