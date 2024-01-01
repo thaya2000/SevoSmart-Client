@@ -10,7 +10,7 @@
 }
 
 .service__background-image {
-  width: 100vw;
+  width: 100dvw;
   height: 100dvh;
   object-fit: cover;
   position: absolute;
@@ -20,7 +20,7 @@
 }
 
 .service__overlay {
-  width: 60vw;
+  width: 60dvw;
 }
 
 .service__title > span {
