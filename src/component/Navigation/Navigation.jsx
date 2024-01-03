@@ -31,7 +31,7 @@ const Navigation = () => {
         scrollPosition > prevScrollPosition
       ) {
         // Scrolling up
-        setScrolled(true);
+        setScrolled(false);
       } else {
         // Scrolling down or not enough scroll up
         setScrolled(false);
@@ -90,10 +90,19 @@ const Navigation = () => {
         handleEnergyButtonLeave();
       }}
     >
-      <div className={`navi 
-      ${scrolled ? "scrolled" : ""}
-      ${showEnergy || showConstuctions || showShop || showDiscover || showSupport ? 'show-Energy' : ''}
-      `}>
+      <div
+        className={`navi 
+      ${
+        showEnergy ||
+        showConstuctions ||
+        showShop ||
+        showDiscover ||
+        showSupport
+          ? "show-Energy"
+          : ""
+      }
+      `}
+      >
         <div className="menu">
           <Link to="/menu">
             <button className="menu-button">Menu</button>
@@ -250,7 +259,17 @@ const Navigation = () => {
           <UilUser />
         </div> */}
       </div>
-      <div className={`dropdown ${showEnergy || showConstuctions || showShop || showDiscover || showSupport ? 'active' : ''}`}>
+      <div
+        className={`dropdown ${
+          showEnergy ||
+          showConstuctions ||
+          showShop ||
+          showDiscover ||
+          showSupport
+            ? "active"
+            : ""
+        }`}
+      >
         {showEnergy && <Energy />}
         {showConstuctions && <Constructions />}
         {showShop && <Shop />}

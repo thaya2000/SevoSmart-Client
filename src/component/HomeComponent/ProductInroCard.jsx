@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "./ProductInroCard.css";
+import Navigation from "../../component/Navigation/Navigation.jsx";
 
 const ProductIntroCard = ({
   image,

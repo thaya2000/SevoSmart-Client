@@ -9,23 +9,25 @@ import FooterNew from "../../component/Footer/FooterNew.jsx";
 
 const Home = () => {
   return (
-    <div className="home">
-      <IntroText />
-      <ProductIntroCard
-        image={SolarCoverImage}
-        serviceTitle="Solar Panels"
-        orderLink="/energy-order"
-        learnMoreLink="/solar-learnmore"
-      />
-      <ProductIntroCard
-        image={ConstructionCoverImage}
-        serviceTitle="Constructions"
-        orderLink="/new-building-consultation"
-        learnMoreLink="/construction-learnmore"
-        textColor="#ffffff"
-      />
-      <FooterNew />
-    </div>
+    <Navigation />
+    // <div className="home">
+
+    //   <IntroText />
+    //   <ProductIntroCard
+    //     image={SolarCoverImage}
+    //     serviceTitle="Solar Panels"
+    //     orderLink="/energy-order"
+    //     learnMoreLink="/solar-learnmore"
+    //   />
+    //   <ProductIntroCard
+    //     image={ConstructionCoverImage}
+    //     serviceTitle="Constructions"
+    //     orderLink="/new-building-consultation"
+    //     learnMoreLink="/construction-learnmore"
+    //     textColor="#ffffff"
+    //   />
+    //   <FooterNew />
+    // </div>
   );
 };
 
