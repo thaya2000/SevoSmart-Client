@@ -10,11 +10,13 @@ import DiscoverVertical from "./component/Discover/DiscoverVertical.jsx";
 import Home from "./pages/Home/Home.jsx";
 import { NewBuildingConsultation } from "./pages/Construction/ConstructionConsultation.jsx";
 import EnergyOrder from "./pages/SolarPanel/SolarPanelConsultation.jsx";
+import Navigation from "./component/Navigation/Navigation.jsx";
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
+      <Navigation />
+      {/* <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/solar-learnmore" element={<SolarPanelLearnmore />} />
         <Route path="/energy-order" element={<EnergyOrder />} />
@@ -34,7 +36,7 @@ function App() {
         />
         <Route path="/shop-vertical" element={<ShopVertical />} />
         <Route path="/discover-vertical" element={<DiscoverVertical />} />
-      </Routes>
+      </Routes> */}
     </BrowserRouter>
   );
 }

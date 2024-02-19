@@ -1,5 +1,3 @@
-import React, { useRef, useState, useEffect } from "react";
-import Navigation from "../../component/Navigation/Navigation.jsx";
 import "./Home.css";
 import IntroText from "../../component/HomeComponent/IntroText.jsx";
 import ProductIntroCard from "../../component/HomeComponent/ProductInroCard.jsx";
