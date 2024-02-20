@@ -1,100 +1,82 @@
-.Shop{
-    display: flex;
-    flex-direction: row;
-    height: 50vh;
-    width: 100vw;
-    background-color: #FFFFFF;
-    padding-top: 5vh;
-    justify-content: center;
-    
-    
-    
+.Shop {
+  display: flex;
+  flex-direction: row;
+  height: 50vh;
+  width: 100vw;
+  background-color: #ffffff;
+  padding-top: 5vh;
+  justify-content: center;
 }
-.ShopProducts{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    /* margin-right: 2vw; */
-
-
+.ShopProducts {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* margin-right: 2vw; */
 }
-.name{
-    font-weight: bold;
+.name {
+  font-weight: bold;
 }
 
-
-
-
-.Sproduct01{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding-top: 3rem;
-    padding-left: 3rem;
+.Sproduct01 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 3rem;
+  padding-left: 3rem;
 }
-.Sproduct01-v{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding-top: 3rem;
-    
+.Sproduct01-v {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 3rem;
 }
-.Sproduct01-v>img{
-    width: 50vw;
+.Sproduct01-v > img {
+  width: 50vw;
 }
 
-.Sproduct01>img{
-    width: 15vw;
+.Sproduct01 > img {
+  width: 15vw;
 }
 
-.arrow-button{
-    justify-content: center;
-    align-items: center;
-    padding-top: 3rem;
-    margin-left: 5vw;
-    
-    
+.arrow-button {
+  justify-content: center;
+  align-items: center;
+  padding-top: 3rem;
+  margin-left: 5vw;
 }
 
-.arrow-button>button{
-    height: 3rem;
-    width: 3rem;
-    border-radius: 1.5rem;
-    border: none;
-    margin-bottom: 1rem;
-    cursor: pointer;
-    
+.arrow-button > button {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 1.5rem;
+  border: none;
+  margin-bottom: 1rem;
+  cursor: pointer;
 }
 
-   .show-Account{
-    color:#171a20;
-    border: 2px solid #171a20;
-  }
+.show-Account {
+  color: #171a20;
+  border: 2px solid #171a20;
+}
 
-  
- .show-Energy{
-  color:#171a20;
-  
- 
- }
+.show-Content {
+  color: #171a20;
+}
 
-
-.ShopVertical{
+.ShopVertical {
   position: fixed;
   display: flex;
   flex-direction: column;
   padding-top: 1vh;
   width: 100vw;
-  background-color: #F2F2F2;
+  background-color: #f2f2f2;
 }
-.ShopProducts-vertical{
-    
-    /* margin-right: auto; */
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    
+.ShopProducts-vertical {
+  /* margin-right: auto; */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 }
 
 @media screen and (max-width: 600px) {
@@ -104,12 +86,10 @@
     flex-direction: column;
     justify-content: center;
   }
-  .Sproduct01-v{
+  .Sproduct01-v {
     display: flex;
     flex-direction: column;
-    
+
     justify-content: center;
+  }
 }
-
-}
-

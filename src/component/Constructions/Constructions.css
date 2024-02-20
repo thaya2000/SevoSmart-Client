@@ -77,23 +77,23 @@
   color: #171a20;
 }
 
-.Construction-vertical{
+.Construction-vertical {
   position: relative;
   display: flex;
   flex-direction: column;
   padding-top: 3vh;
   width: 100%;
-  background-color: #F2F2F2;
+  background-color: #f2f2f2;
 }
-.c-span{
+.c-span {
   margin-top: 3vh;
   margin-left: 5vw;
   font-weight: bold;
 }
-.Cproduct-vertical{
+.Cproduct-vertical {
   display: flex;
   flex-direction: column;
-  
+
   align-items: center;
   justify-content: center;
   margin-bottom: 3vh;
@@ -112,7 +112,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
-  .c-span{
+  .c-span {
     cursor: pointer;
     margin-top: 3vh;
     margin-left: 5vw;

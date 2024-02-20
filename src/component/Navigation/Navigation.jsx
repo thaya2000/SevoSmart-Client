@@ -17,35 +17,35 @@ const Navigation = () => {
   const [showDiscover, setShowDiscover] = useState(false);
   const [showSupport, setShowSupport] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  // const [scrolled, setScrolled] = useState(true);
+  // const [prevScrollPosition, setPrevScrollPosition] = useState(0);
 
-  const [scrolled, setScrolled] = useState(true);
-  const [prevScrollPosition, setPrevScrollPosition] = useState(0);
+  // useEffect(() => {
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      const scrollUpThreshold = 100;
+  //   const handleScroll = () => {
+  //     const scrollPosition = window.scrollY;
+  //     const scrollUpThreshold = 100;
 
-      if (
-        scrollPosition > scrollUpThreshold &&
-        scrollPosition > prevScrollPosition
-      ) {
-        // Scrolling up
-        setScrolled(false);
-      } else {
-        // Scrolling down or not enough scroll up
-        setScrolled(false);
-      }
+  //     if (
+  //       scrollPosition > scrollUpThreshold &&
+  //       scrollPosition > prevScrollPosition
+  //     ) {
+  //       // Scrolling up
+  //       setScrolled(false);
+  //     } else {
+  //       // Scrolling down or not enough scroll up
+  //       setScrolled(false);
+  //     }
 
-      setPrevScrollPosition(scrollPosition);
-    };
+  //     setPrevScrollPosition(scrollPosition);
+  //   };
 
-    window.addEventListener("scroll", handleScroll);
+  //   window.addEventListener("scroll", handleScroll);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [prevScrollPosition]);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, [prevScrollPosition]);
 
   const handleEnergyButtonHover = () => {
     setShowEnergy(true);
@@ -56,12 +56,13 @@ const Navigation = () => {
   const handleShopButtonHover = () => {
     setShowShop(true);
   };
+
   const handleDiscoverButtonHover = () => {
     setShowDiscover(true);
   };
-  const handleSupportButtonHover = () => {
-    setShowSupport(true);
-  };
+  // const handleSupportButtonHover = () => {
+  //   setShowSupport(true);
+  // };
 
   const handleEnergyButtonLeave = () => {
     setShowEnergy(false);
@@ -108,6 +109,7 @@ const Navigation = () => {
             <button className="menu-button">Menu</button>
           </Link>
         </div>
+
         <Link to="/">
           <div
             className="logo"

@@ -6,7 +6,6 @@
   background-color: #ffffff;
   padding-top: 10vh;
   justify-content: center;
-  
 }
 .products {
   display: flex;
@@ -20,7 +19,7 @@
   width: 20vw;
   height: 30vw;
   object-fit: cover;
-  
+
   height: auto;
   transition: transform 0.3s ease-in-out;
 }
@@ -49,7 +48,7 @@
   /* margin-right: 0.5rem; */
   cursor: pointer;
 }
-.e-button-2{
+.e-button-2 {
   background: transparent;
   border: none;
   text-decoration: underline;
@@ -111,7 +110,6 @@
   z-index: 100;
 }
 
-
 .products-vertical {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -130,7 +128,7 @@
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
 } */
-.list-vertical{
+.list-vertical {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -139,34 +137,32 @@
   margin-left: 5vw;
   margin-bottom: 3vh;
 }
-.list-vertical>span{
-
+.list-vertical > span {
   margin-top: 3vh;
   margin-left: 5vw;
   font-weight: bold;
-  
 }
 
-.header-energy{
+.header-energy {
   display: flex;
   flex-direction: row;
   margin-top: 2vh;
   margin-bottom: 5vh;
 }
-.back-arrow{
-margin-left: 2vw;
-cursor: pointer;
+.back-arrow {
+  margin-left: 2vw;
+  cursor: pointer;
 }
-.title-energy{
-margin-left: auto;
+.title-energy {
+  margin-left: auto;
 }
-.close-icon{
+.close-icon {
   margin-left: auto;
   margin-right: 2vw;
   cursor: pointer;
 }
 
-.product-vertical{
+.product-vertical {
   display: flex;
   flex-direction: column;
   margin-bottom: 1rem;
@@ -174,12 +170,11 @@ margin-left: auto;
   justify-content: center;
 }
 
-.energy-vertical{
-    position: relative;
+.energy-vertical {
+  position: relative;
   display: flex;
   flex-direction: column;
   padding-top: 3vh;
   width: 100%;
-  background-color: #F2F2F2;
-
+  background-color: #f2f2f2;
 }

@@ -1,71 +1,66 @@
-
-.Discover{
-    display: flex;
-    flex-direction: row;
-    height: 50vh;
-    width: 100vw;
-    background-color: #FFFFFF;
-    padding-top: 10vh;
-    justify-content: center;
-    
+.Discover {
+  display: flex;
+  flex-direction: row;
+  height: 50vh;
+  width: 100vw;
+  background-color: #ffffff;
+  padding-top: 10vh;
+  justify-content: center;
 }
 
-.left{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    margin-right: 5vw;
+.left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-right: 5vw;
 }
-.left>span{
-    margin-top: 3vh;
-    font-weight: bold;
-}
-
-.right{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    margin-left: 5vw;
-}
-.right>span{
-    margin-top: 3vh;
-    font-weight: bold;
+.left > span {
+  margin-top: 3vh;
+  font-weight: bold;
 }
 
-   .show-Account{
-    color:#171a20;
-    border: 2px solid #171a20;
-  }
+.right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-left: 5vw;
+}
+.right > span {
+  margin-top: 3vh;
+  font-weight: bold;
+}
 
-  
- .show-Energy{
-  color:#171a20;
-  
- 
- }
+.show-Account {
+  color: #171a20;
+  border: 2px solid #171a20;
+}
 
- .DiscoverVertical{
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    padding-top: 3vh;
-    width: 100%;
-    background-color: #F2F2F2;
- }
+.show-Content {
+  color: #171a20;
+}
 
- .options-vertical{
-    display: flex;
+.DiscoverVertical {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  padding-top: 3vh;
+  width: 100%;
+  background-color: #f2f2f2;
+}
+
+.options-vertical {
+  display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
   margin-top: 3vh;
   margin-left: 5vw;
   margin-bottom: 3vh;
- }
-  .options-vertical>span{
+}
+.options-vertical > span {
   margin-top: 3vh;
   margin-left: 5vw;
   font-weight: bold;
- }
+}
