@@ -1,10 +1,9 @@
 import React from "react";
 import "./Energy.css";
-import Battery from "../../Images/Images2/battery1.png";
-import Inverter from "../../Images/Images2/inverter1.png";
-import SolarPanel from "../../Images/Images2/solarpanal1.png";
-import SolarRoof from "../../Images/Images2/solarroof1.png";
-import Navigation from "../../component/Navigation/Navigation";
+import Battery from "../../../../Images/Images2/battery1.png";
+import Inverter from "../../../../Images/Images2/inverter1.png";
+import SolarPanel from "../../../../Images/Images2/solarpanal1.png";
+import SolarRoof from "../../../../Images/Images2/solarroof1.png";
 import { Link } from "react-router-dom";
 
 const Product = ({ image, name }) => {
@@ -13,13 +12,12 @@ const Product = ({ image, name }) => {
       <img className="product-image" src={image} alt="" />
       <div className="name">{name}</div>
       <div className="button">
-        <Link to='/energy-order'>
+        <Link to="/energy-order">
           <button className="e-button-1">Learn</button>
         </Link>
-        <Link to='/solar-learnmore'>
+        <Link to="/solar-learnmore">
           <button className="e-button-2">Order</button>
         </Link>
-        
       </div>
     </div>
   );
@@ -28,7 +26,6 @@ const Product = ({ image, name }) => {
 const Energy = () => {
   return (
     <div className="Energy">
-      
       <div className="products">
         <Product image={SolarPanel} name="Solar Panels" />
         <Product image={SolarRoof} name="Solar Roofs" />

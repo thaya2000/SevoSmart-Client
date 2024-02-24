@@ -1,282 +1,63 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./Navigation.css";
-import { UilSearch, UilUser } from "@iconscout/react-unicons";
-import logo from "../../Images/logo.png";
-import Energy from "../../component/Energy/Energy.jsx";
-import Constructions from "../../component/Constructions/Constructions.jsx";
-import Shop from "../Shop/Shop.jsx";
-import Discover from "../../component/Discover/Discover.jsx";
-import Support from "../Support/Support.jsx";
-import { Link } from "react-router-dom";
-// import { Login } from "../../pages/Auth/login/Login.jsx";
+import { UilSearch, UilUserCircle } from "@iconscout/react-unicons";
+import Energy from "./NavComponent/Energy/Energy.jsx";
+import Constructions from "./NavComponent/Constructions/Constructions.jsx";
+import Shop from "./NavComponent/Shop/Shop.jsx";
+import Discover from "./NavComponent/Discover/Discover.jsx";
+import Logo from "./NavComponent/Logo/Logo.jsx";
 
 const Navigation = () => {
-  const [showEnergy, setShowEnergy] = useState(false);
-  const [showConstuctions, setShowConstuctions] = useState(false);
-  const [showShop, setShowShop] = useState(false);
-  const [showDiscover, setShowDiscover] = useState(false);
-  const [showSupport, setShowSupport] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
-  // const [scrolled, setScrolled] = useState(true);
-  // const [prevScrollPosition, setPrevScrollPosition] = useState(0);
+  const [activeDropdown, setActiveDropdown] = useState(null);
 
-  // useEffect(() => {
-
-  //   const handleScroll = () => {
-  //     const scrollPosition = window.scrollY;
-  //     const scrollUpThreshold = 100;
-
-  //     if (
-  //       scrollPosition > scrollUpThreshold &&
-  //       scrollPosition > prevScrollPosition
-  //     ) {
-  //       // Scrolling up
-  //       setScrolled(false);
-  //     } else {
-  //       // Scrolling down or not enough scroll up
-  //       setScrolled(false);
-  //     }
-
-  //     setPrevScrollPosition(scrollPosition);
-  //   };
-
-  //   window.addEventListener("scroll", handleScroll);
-
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  // }, [prevScrollPosition]);
-
-  const handleEnergyButtonHover = () => {
-    setShowEnergy(true);
-  };
-  const handleConstuctionsButtonHover = () => {
-    setShowConstuctions(true);
-  };
-  const handleShopButtonHover = () => {
-    setShowShop(true);
+  const handleButtonHover = (index) => {
+    setActiveDropdown(index);
   };
 
-  const handleDiscoverButtonHover = () => {
-    setShowDiscover(true);
+  const handleButtonLeave = () => {
+    setActiveDropdown(null);
   };
-  // const handleSupportButtonHover = () => {
-  //   setShowSupport(true);
-  // };
 
-  const handleEnergyButtonLeave = () => {
-    setShowEnergy(false);
-  };
-  const handleConstuctionsButtonLeave = () => {
-    setShowConstuctions(false);
-  };
-  const handleShopButtonLeave = () => {
-    setShowShop(false);
-  };
-  const handleDiscoverButtonLeave = () => {
-    setShowDiscover(false);
-  };
-  const handleSupportButtonLeave = () => {
-    setShowSupport(false);
-  };
+  const navItems = [
+    { label: "Energy", component: <Energy /> },
+    { label: "Constructions", component: <Constructions /> },
+    { label: "Shop", component: <Shop /> },
+    { label: "Discover", component: <Discover /> },
+    { label: "Support", component: <div></div> },
+  ];
 
   return (
-    <div
-      className="Container"
-      onMouseLeave={() => {
-        handleConstuctionsButtonLeave();
-        handleShopButtonLeave();
-        handleDiscoverButtonLeave();
-        handleSupportButtonLeave();
-        handleEnergyButtonLeave();
-      }}
-    >
-      <div
-        className={`navi 
-      ${
-        showEnergy ||
-        showConstuctions ||
-        showShop ||
-        showDiscover ||
-        showSupport
-          ? "show-Energy"
-          : ""
-      }
-      `}
-      >
-        <div className="menu">
-          <Link to="/menu">
-            <button className="menu-button">Menu</button>
-          </Link>
+    <div className="Container">
+      <div className="navigationBar">
+        <div className="logo">
+          <Logo />
         </div>
-
-        <Link to="/">
-          <div
-            className="logo"
-            onMouseEnter={() => {
-              handleConstuctionsButtonLeave();
-              handleShopButtonLeave();
-              handleDiscoverButtonLeave();
-              handleSupportButtonLeave();
-              handleEnergyButtonLeave();
-            }}
-          >
-            <img src={logo} alt="" />
+        <div className="navigationItems" onMouseLeave={handleButtonLeave}>
+          {navItems.map((item, index) => (
+            <button
+              key={index}
+              className="navibuttons"
+              onMouseEnter={() => handleButtonHover(index)}
+            >
+              {item.label}
+            </button>
+          ))}
+        </div>
+        <div className="naviEnd">
+          <div className="naviSearch">
+            <UilSearch />
           </div>
-        </Link>
-        <div className="pageButtons text-black">
-          <button
-            className={`navibuttons 
-            ${showEnergy ? "show-Energy" : ""} 
-            ${showConstuctions ? "show-Energy" : ""} 
-            ${showShop ? "show-Energy" : ""}
-            ${showDiscover ? "show-Energy" : ""}
-            ${showSupport ? "show-Energy" : ""}
-            `}
-            onMouseEnter={() => {
-              handleConstuctionsButtonLeave();
-              handleShopButtonLeave();
-              handleDiscoverButtonLeave();
-              handleSupportButtonLeave();
-              handleEnergyButtonHover();
-            }}
-            // onMouseLeave={handleEnergyButtonLeave}
-          >
-            Energy
-          </button>
-
-          <button
-            className={`navibuttons 
-            ${showEnergy ? "show-Energy" : ""} 
-            ${showConstuctions ? "show-Energy" : ""} 
-            ${showShop ? "show-Energy" : ""}
-            ${showDiscover ? "show-Energy" : ""}
-            ${showSupport ? "show-Energy" : ""}
-            `}
-            onMouseEnter={() => {
-              handleEnergyButtonLeave();
-              handleShopButtonLeave();
-              handleDiscoverButtonLeave();
-              handleSupportButtonLeave();
-              handleConstuctionsButtonHover();
-            }}
-            // onMouseLeave={handleConstuctionsButtonLeave}
-          >
-            Constuctions
-          </button>
-
-          <button
-            className={`navibuttons 
-            ${showEnergy ? "show-Energy" : ""} 
-            ${showConstuctions ? "show-Energy" : ""} 
-            ${showShop ? "show-Energy" : ""}
-            ${showDiscover ? "show-Energy" : ""}
-            ${showSupport ? "show-Energy" : ""}
-            `}
-            onMouseEnter={() => {
-              handleConstuctionsButtonLeave();
-              handleEnergyButtonLeave();
-              handleDiscoverButtonLeave();
-              handleSupportButtonLeave();
-              handleShopButtonHover();
-            }}
-          >
-            Shop
-          </button>
-
-          <button
-            className={`navibuttons 
-            ${showEnergy ? "show-Energy" : ""} 
-            ${showConstuctions ? "show-Energy" : ""} 
-            ${showShop ? "show-Energy" : ""}
-            ${showDiscover ? "show-Energy" : ""}
-            ${showSupport ? "show-Energy" : ""}
-            `}
-            onMouseEnter={() => {
-              handleConstuctionsButtonLeave();
-              handleEnergyButtonLeave();
-              handleShopButtonLeave();
-              handleSupportButtonLeave();
-              handleDiscoverButtonHover();
-            }}
-          >
-            Discover
-          </button>
-
-          {/* <button
-            className={`navibuttons 
-            ${showEnergy ? "show-Energy" : ""} 
-            ${showConstuctions ? "show-Energy" : ""} 
-            ${showShop ? "show-Energy" : ""}
-            ${showDiscover ? "show-Energy" : ""}
-            ${showSupport ? "show-Energy" : ""}
-            `}
-            onMouseEnter={() => {
-              handleConstuctionsButtonLeave();
-              handleEnergyButtonLeave();
-              handleShopButtonLeave();
-              handleDiscoverButtonLeave();
-              handleSupportButtonHover();
-            }}
-          >
-            Support
-          </button> */}
+          <div className="naviAccount">
+            <UilUserCircle />
+          </div>
         </div>
-
-        <div
-          className={`naviSearch 
-            ${showEnergy ? "show-Account" : ""} 
-            ${showConstuctions ? "show-Account" : ""} 
-            ${showShop ? "show-Account" : ""}
-            ${showDiscover ? "show-Account" : ""}
-            ${showSupport ? "show-Account" : ""}
-            `}
-          onMouseEnter={() => {
-            handleConstuctionsButtonLeave();
-            handleShopButtonLeave();
-            handleDiscoverButtonLeave();
-            handleSupportButtonLeave();
-            handleEnergyButtonLeave();
-          }}
-        >
-          <UilSearch />
-        </div>
-        {/* <div
-          className={`naviAccount 
-            ${showEnergy ? "show-Account" : ""} 
-            ${showConstuctions ? "show-Account" : ""} 
-            ${showShop ? "show-Account" : ""}
-            ${showDiscover ? "show-Account" : ""}
-            ${showSupport ? "show-Account" : ""}
-            `}
-          onMouseEnter={() => {
-            handleConstuctionsButtonLeave();
-            handleShopButtonLeave();
-            handleDiscoverButtonLeave();
-            handleSupportButtonLeave();
-            handleEnergyButtonLeave();
-          }}
-          // onClick={Login}
-        >
-          <UilUser />
-        </div> */}
       </div>
       <div
-        className={`dropdown ${
-          showEnergy ||
-          showConstuctions ||
-          showShop ||
-          showDiscover ||
-          showSupport
-            ? "active"
-            : ""
-        }`}
+        className={`dropdown ${activeDropdown !== null ? "active" : ""}`}
+        onMouseEnter={() => handleButtonHover(activeDropdown)}
+        onMouseLeave={handleButtonLeave}
       >
-        {showEnergy && <Energy />}
-        {showConstuctions && <Constructions />}
-        {showShop && <Shop />}
-        {showDiscover && <Discover />}
-        {showSupport && <Support />}
+        {activeDropdown !== null && navItems[activeDropdown].component}
       </div>
     </div>
   );

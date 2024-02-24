@@ -1,22 +1,23 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
-import SolarPanelLearnmore from "./pages/SolarPanel/SolarPanelLearnmore.jsx";
-import ConstructionsLearnmore from "./pages/Construction/ConstructionLearnmore.jsx";
-import NavigationVertical from "./component/Navigation/NavigationVertical.jsx";
-import EnergyVertical from "./component/Energy/EnergyVertical.jsx";
-import ConstructionsVertical from "./component/Constructions/ConstructionsVertical.jsx";
-import ShopVertical from "./component/Shop/ShopVertical.jsx";
-import DiscoverVertical from "./component/Discover/DiscoverVertical.jsx";
-import Home from "./pages/Home/Home.jsx";
-import { NewBuildingConsultation } from "./pages/Construction/ConstructionConsultation.jsx";
-import EnergyOrder from "./pages/SolarPanel/SolarPanelConsultation.jsx";
 import Navigation from "./component/Navigation/Navigation.jsx";
+import Home from "../src/pages/Home/Home.jsx";
+import SolarPanelLearnmore from "../src/pages/SolarPanel/SolarPanelLearnmore.jsx";
+import EnergyOrder from "../src/pages/Energy/EnergyOrder.jsx";
+import NewBuildingConsultation from "../src/pages/Construction/ConstructionConsultation.jsx";
+import ConstructionsLearnmore from "../src/pages/Construction/ConstructionLearnmore.jsx";
+import NavigationVertical from "./component/Navigation/NavigationVertical.jsx";
+
+import EnergyVertical from "./component/Navigation/NavComponent/Energy/EnergyVertical.jsx";
+import ConstructionsVertical from "./component/Navigation/NavComponent/Constructions/ConstructionsVertical.jsx";
+import ShopVertical from "./component/Navigation/NavComponent/Shop/ShopVertical.jsx";
+import DiscoverVertical from "./component/Navigation/NavComponent/Discover/DiscoverVertical.jsx";
 
 function App() {
   return (
     <BrowserRouter>
       <Navigation />
-      {/* <Routes>
+      <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/solar-learnmore" element={<SolarPanelLearnmore />} />
         <Route path="/energy-order" element={<EnergyOrder />} />
@@ -36,7 +37,7 @@ function App() {
         />
         <Route path="/shop-vertical" element={<ShopVertical />} />
         <Route path="/discover-vertical" element={<DiscoverVertical />} />
-      </Routes> */}
+      </Routes>
     </BrowserRouter>
   );
 }

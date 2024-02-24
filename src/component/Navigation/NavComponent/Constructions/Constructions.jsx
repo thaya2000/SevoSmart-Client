@@ -1,9 +1,9 @@
 import React from "react";
 import "./Constructions.css";
-import NewBuilding from "../../Images/NewBuilding.png";
-import Renovation from "../../Images/Renovation.png";
-import SwimmingPool from "../../Images/SwimmingPool.png";
-import Havana from "../../Images/Havana.png";
+import NewBuilding from "../../../../Images/NewBuilding.png";
+import Renovation from "../../../../Images/Renovation.png";
+import SwimmingPool from "../../../../Images/SwimmingPool.png";
+import Havana from "../../../../Images/Havana.png";
 import { Link } from "react-router-dom";
 
 const ConstructionProduct = ({ image, name }) => {
@@ -33,16 +33,16 @@ const Constructions = () => {
 
       <div className="Coptions">
         <div className="list">
-          <Link to='/new-building-consultation'>
-            <span className='c-span'>Schedule a Consultation</span>
+          <Link to="/new-building-consultation">
+            <span className="c-span">Schedule a Consultation</span>
           </Link>
-          
-          <span className='c-span'>About Team</span>
-          <span className='c-span'>Incentives</span>
-          <span className='c-span'>Support</span>
-          <span className='c-span'>Partner with Sevo</span>
-          <span className='c-span'>Commercial</span>
-          <span className='c-span'>Utilities</span>
+
+          <span className="c-span">About Team</span>
+          <span className="c-span">Incentives</span>
+          <span className="c-span">Support</span>
+          <span className="c-span">Partner with Sevo</span>
+          <span className="c-span">Commercial</span>
+          <span className="c-span">Utilities</span>
         </div>
       </div>
     </div>

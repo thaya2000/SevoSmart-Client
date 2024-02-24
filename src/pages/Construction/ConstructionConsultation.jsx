@@ -9,7 +9,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import Footer from "../../component/Footer/Footer";
 import Navigation from "../../component/Navigation/Navigation";
 
-export const NewBuildingConsultation = () => {
+const NewBuildingConsultation = () => {
   const initialValues = {
     firstname: "",
     lastname: "",
@@ -290,3 +290,5 @@ export const NewBuildingConsultation = () => {
     </div>
   );
 };
+
+export default NewBuildingConsultation;
