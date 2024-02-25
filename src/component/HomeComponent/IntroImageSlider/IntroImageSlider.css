@@ -1,0 +1,43 @@
+.slider-container {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+
+.slider-image {
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  position: absolute;
+}
+
+.slider-image.active {
+  visibility: visible;
+}
+
+.object-fit-cover {
+  object-fit: cover;
+  object-position: top;
+}
+
+.dots-container {
+  position: absolute;
+  bottom: 10px; /* Adjust the distance from the bottom */
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.dot {
+  width: 8px; /* Adjust the dot size */
+  height: 8px; /* Adjust the dot size */
+  border-radius: 50%;
+  background-color: white;
+  margin: 0 5px; /* Adjust the spacing between dots */
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: black;
+}

@@ -1,5 +1,5 @@
 .homepage-section {
-  height: 100dvh;
+  height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -13,29 +13,24 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100dvh;
-  width: 100dvw;
+  height: 100%;
+  width: 100%;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
   align-items: center;
-
-  background: linear-gradient(
-    180deg,
-    #80808a 0%,
-    #040e42 40%,
-    #040e42 70%,
-    #80808a 120%
-  );
+  background-color: #040e42;
 }
 
 .intro-section > span {
   display: flex;
   flex-direction: column;
-  font-size: 7vw;
+  font-size: 3vw;
   color: #ffffff;
   font-weight: bolder;
   font-family: Inter;
   align-items: center;
   justify-content: center;
-  width: 90vw;
+  width: 80%;
   overflow: hidden;
 }
 
