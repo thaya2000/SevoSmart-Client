@@ -13,7 +13,8 @@ import ConstructionsVertical from "./component/Navigation/NavComponent/Construct
 import ShopVertical from "./component/Navigation/NavComponent/Shop/ShopVertical.jsx";
 import DiscoverVertical from "./component/Navigation/NavComponent/Discover/DiscoverVertical.jsx";
 import Accessories from "./pages/Shop/Accessories.jsx";
-import Accessory from "./component/Shop/Accessory.jsx";
+import Cart from "./pages/Shop/Cart.jsx";
+
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
         <Route path="/shop-vertical" element={<ShopVertical />} />
         <Route path="/discover-vertical" element={<DiscoverVertical />} />
         <Route path="/accessories" element={<Accessories />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
     </BrowserRouter>
   );

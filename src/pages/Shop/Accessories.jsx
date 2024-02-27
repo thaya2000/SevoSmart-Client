@@ -10,9 +10,9 @@ const Accessories = () => {
   return (
     <div className="flex flex-col mt-7">
       <div className="flex flex-row justify-between border-b border-black pb-3">
-        <div className="flex text-5xl font-semibold pl-5">Accessories</div>
+      <div className="flex pl-5 sm:text-5xl sm:font-semibold text-2xl font-medium">Accessories</div>
         <div className="flex flex-row justify-between gap-x-3 items-center pr-5">
-          <div className="flex text-2xl font-light">Browse all</div>
+          <div className="flex sm:text-2xl text-lg font-light">Browse all</div>
           <div className="flex ">
             <SlArrowDown />
           </div>
@@ -20,7 +20,7 @@ const Accessories = () => {
       </div>
       <div className="flex flex-wrap justify-center gap-10 p-10">
         <Accessory
-          accessory_image={image2}
+          accessory_image={image1}
           accessory_name="Solar Lights"
           accessory_price="7500 lkr"
         />
@@ -30,12 +30,12 @@ const Accessories = () => {
           accessory_price="7500 lkr"
         />
         <Accessory
-          accessory_image={image2}
+          accessory_image={image3}
           accessory_name="Solar Lights"
           accessory_price="7500 lkr"
         />
         <Accessory
-          accessory_image={image2}
+          accessory_image={image1}
           accessory_name="Solar Lights"
           accessory_price="7500 lkr"
         />
