@@ -8,6 +8,7 @@ import image1 from "../../assets/construction.jpg";
 import image2 from "../../assets/solar.jpg";
 import image3 from "../../assets/footer_sample.jpg";
 import IntroImageSlider from "../../component/HomeComponent/IntroImageSlider/IntroImageSlider.jsx";
+// import Flow from "../../component/HomeComponent/Flow/Flow.jsx";
 
 const Home = () => {
   const images = [image1, image2, image3];
@@ -16,7 +17,7 @@ const Home = () => {
       <div className="intro grid grid-cols-2 ">
         <div className="grid grid-rows-2">
           <IntroText />
-          <div></div>
+          <div>{/* <Flow /> */}</div>
         </div>
         <div className="introImage">
           <IntroImageSlider images={images} />

@@ -18,38 +18,42 @@ const IntroImageSlider = ({ images }) => {
   };
 
   return (
-    <div className="slider-container relative flex">
-      <div className="flex w-3/5">
-        <img
-          src={images[currentImageIndex]}
-          alt={`Image ${currentImageIndex + 1}`}
-          className="slider-image active object-fit-cover"
-        />
-      </div>
-      <div className="flex-1 w-2/5 flex flex-col">
-        <div className=" flex-1">
+    <div className="slider-container relative flex flex-col">
+      <div className="flex w-full flex-row h-9/10">
+        <div className="flex w-full">
           <img
-            src={images[(currentImageIndex + 1) % images.length]}
-            alt={`Image ${(currentImageIndex + 1) % images.length}`}
+            src={images[currentImageIndex]}
+            alt={`Image ${currentImageIndex + 1}`}
             className="slider-image active object-fit-cover"
           />
         </div>
-        <div className="flex-1">
-          <img
-            src={images[(currentImageIndex + 2) % images.length]}
-            alt={`Image ${(currentImageIndex + 2) % images.length}`}
-            className="slider-image active object-fit-cover"
-          />
+        <div className="flex w-full h-full flex-col">
+          <div className="flex w-full h-full">
+            <img
+              src={images[(currentImageIndex + 1) % images.length]}
+              alt={`Image ${(currentImageIndex + 1) % images.length}`}
+              className="slider-image active object-fit-cover"
+            />
+          </div>
+          <div className="flex w-full h-full">
+            <img
+              src={images[(currentImageIndex + 2) % images.length]}
+              alt={`Image ${(currentImageIndex + 2) % images.length}`}
+              className="slider-image active object-fit-cover"
+            />
+          </div>
         </div>
       </div>
-      <div className="dots-container fixed bottom-4 left-0 right-0 flex justify-end mr-10">
-        {images.map((_, index) => (
-          <button
-            key={index}
-            className={`dot ${index === currentImageIndex ? "active" : ""}`}
-            onClick={() => handleDotClick(index)}
-          />
-        ))}
+      <div className="flex justify-end items-center h-1/10 mr-10">
+        <div className="dots-container">
+          {images.map((_, index) => (
+            <button
+              key={index}
+              className={`dot ${index === currentImageIndex ? "active" : ""}`}
+              onClick={() => handleDotClick(index)}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
