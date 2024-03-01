@@ -6,6 +6,33 @@ import image3 from "../../assets/footer_sample.jpg";
 import CartProduct from "../../component/Shop/CartProduct";
 
 const Cart = () => {
+  const products = [
+    {
+      cart_image: image1,
+      product_name: "Solar lights",
+      product_price: "7500",
+      product_quantity: "1",
+    },
+    {
+      cart_image: image2,
+      product_name: "Solar lights",
+      product_price: "7500",
+      product_quantity: "1",
+    },
+    {
+      cart_image: image3,
+      product_name: "Solar lights",
+      product_price: "7500",
+      product_quantity: "1",
+    },
+    {
+      cart_image: image3,
+      product_name: "Solar lights",
+      product_price: "7500",
+      product_quantity: "1",
+    },
+  ];
+  
   return (
     <div className="flex flex-col m-5 ">
       <div className="flex justify-start pl-5 pt-5 sm:text-6xl font-medium text-4xl">
@@ -13,24 +40,11 @@ const Cart = () => {
       </div>
       <div className="flex flex-wrap pt-20">
         <div className="flex flex-col justify-start pl-5 w-200">
-          <CartProduct
-            cart_image={image1}
-            product_name="Solar lights"
-            product_price="7500"
-            product_quantity="1"
-          />
-           <CartProduct
-            cart_image={image2}
-            product_name="Solar lights"
-            product_price="7500"
-            product_quantity="1"
-          />
-           <CartProduct
-            cart_image={image3}
-            product_name="Solar lights"
-            product_price="7500"
-            product_quantity="1"
-          />
+        {products.map((product, index) => (
+          <div key={index}>
+            <CartProduct {...product} />
+          </div>
+        ))}
         </div>
         <div
           className="flex flex-col justify-start px-8 m-auto h-80 w-85"
