@@ -1,0 +1,85 @@
+.text-updater-node {
+  display: flex;
+  align-items: center;
+  height: 16vw;
+  width: 16vw;
+  background: transparent;
+}
+
+.arc {
+  position: relative;
+  border-radius: 100%;
+  border: 2px solid;
+  border-color: transparent #ffd700 transparent transparent;
+}
+
+.circle {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  margin: -5px;
+  background: white;
+  border-radius: 50%;
+  text-align: center;
+  /* line-height: 100px; */
+}
+
+.deg-0 {
+  transform: translate(8vw);
+}
+
+.deg-22 {
+  transform: rotate(22deg) translate(8vw);
+}
+
+.deg-45 {
+  transform: rotate(40deg) translate(8vw);
+}
+
+.deg-338 {
+  transform: rotate(338deg) translate(8vw);
+}
+
+.deg-315 {
+  transform: rotate(320deg) translate(8vw);
+}
+
+.react-flow__pane {
+  cursor: default;
+}
+
+.react-flow__handle {
+  opacity: 0;
+}
+
+path.react-flow__edge-path {
+  stroke-width: 2;
+  stroke: #ffd700;
+}
+
+/* .react-flow__node {
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  transform: translate(-50%, -50%);
+} */
+
+.offer-amount {
+  border-radius: 50%;
+  background-color: #ffd700;
+  color: #0038ff;
+  font-size: 2.5vw;
+  font-weight: 800;
+  font-style: italic;
+}
+
+.dash-circle {
+  border-radius: 50%;
+  border: 1px dashed #040e42;
+  width: 90%;
+  height: 90%;
+}

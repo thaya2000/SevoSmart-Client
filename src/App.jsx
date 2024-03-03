@@ -12,6 +12,7 @@ import EnergyVertical from "./component/Navigation/NavComponent/Energy/EnergyVer
 import ConstructionsVertical from "./component/Navigation/NavComponent/Constructions/ConstructionsVertical.jsx";
 import ShopVertical from "./component/Navigation/NavComponent/Shop/ShopVertical.jsx";
 import DiscoverVertical from "./component/Navigation/NavComponent/Discover/DiscoverVertical.jsx";
+import Test from "./pages/Test/Test.jsx";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
         />
         <Route path="/shop-vertical" element={<ShopVertical />} />
         <Route path="/discover-vertical" element={<DiscoverVertical />} />
+        <Route path="/test" element={<Test />} />
       </Routes>
     </BrowserRouter>
   );
