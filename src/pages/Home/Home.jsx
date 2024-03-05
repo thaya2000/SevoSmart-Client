@@ -8,11 +8,9 @@ import image1 from "../../assets/construction.jpg";
 import image2 from "../../assets/solar.jpg";
 import image3 from "../../assets/footer_sample.jpg";
 import IntroImageSlider from "../../component/HomeComponent/IntroImageSlider/IntroImageSlider.jsx";
-import LayoutFlowWrapper from "../../component/HomeComponent/LayoutFlow/LayoutFlow.jsx";
-import MyFlow from "../../component/HomeComponent/MyFlow/MyFlow.jsx";
-import InteractionFlow from "../../component/HomeComponent/InteractionFlow/InteractionFlow.jsx";
+
+import Offer from "../../component/HomeComponent/Offer/Offer/Offer.jsx";
 import PastProject from "../../component/HomeComponent/PastProject/PastProject.jsx";
-// import Flow from "../../component/HomeComponent/Flow/Flow.jsx";
 
 const Home = () => {
   const images = [image1, image2, image3];
@@ -45,7 +43,7 @@ const Home = () => {
             <IntroText />
           </div>
           <div className="flex h-60v">
-            <InteractionFlow />
+            <Offer />
           </div>
         </div>
         <div className="introImage w-3/6">

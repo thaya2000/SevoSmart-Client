@@ -1,7 +1,7 @@
 import { Handle, Position } from "reactflow";
-import offer_solar from "../../../assets/offer_solar.png";
+import offer_solar from "../../../../assets/offer_solar.png";
 
-function TextUpdaterNode({ data, isConnectable }) {
+function OfferDescription({ data, isConnectable }) {
   return (
     <div className="flex  justify-center text-updater-node arc">
       <div className="circle deg-0 flex justify-center items-center">
@@ -56,4 +56,4 @@ function TextUpdaterNode({ data, isConnectable }) {
   );
 }
 
-export default TextUpdaterNode;
+export default OfferDescription;
