@@ -1,0 +1,56 @@
+.past-project-history {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 90%;
+  width: 18%;
+  font-family: "Koh Santepheap", serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 1rem;
+}
+
+.past-project-history-border1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 90%;
+  width: 70%;
+  border-radius: 50%;
+  border-width: 0.5rem;
+  border-color: transparent;
+  margin: 0;
+}
+
+.past-project-history-border2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border-color: #0569ff;
+  border-width: 0.25rem;
+  font-size: 2.5rem;
+  font-family: "Koh Santepheap", serif;
+  font-weight: 400;
+  font-style: normal;
+  margin: 0;
+}
+
+.past-project-history-border3 {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border-color: #ffd700 #0569ff #0569ff #0569ff;
+  border-width: 0.25rem;
+}
