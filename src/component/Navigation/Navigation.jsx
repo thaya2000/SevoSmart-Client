@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./Navigation.css";
 import { UilSearch, UilUserCircle } from "@iconscout/react-unicons";
 import Energy from "./NavComponent/Energy/Energy.jsx";
@@ -8,14 +8,14 @@ import Discover from "./NavComponent/Discover/Discover.jsx";
 import Logo from "./NavComponent/Logo/Logo.jsx";
 
 const Navigation = () => {
-  const [activeDropdown, setActiveDropdown] = useState(null);
+  const [activeDropdown, setActiveDropdown] = useState(1);
 
   const handleButtonHover = (index) => {
     setActiveDropdown(index);
   };
 
   const handleButtonLeave = () => {
-    setActiveDropdown(null);
+    setActiveDropdown(1);
   };
 
   const navItems = [

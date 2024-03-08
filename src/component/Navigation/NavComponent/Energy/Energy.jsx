@@ -1,4 +1,3 @@
-import React from "react";
 import "./Energy.css";
 import Battery from "../../../../Images/Images2/battery1.png";
 import Inverter from "../../../../Images/Images2/inverter1.png";
@@ -8,15 +7,15 @@ import { Link } from "react-router-dom";
 
 const Product = ({ image, name }) => {
   return (
-    <div className="product">
-      <img className="product-image" src={image} alt="" />
-      <div className="name">{name}</div>
-      <div className="button">
+    <div className="energy-product">
+      <img className="energy-product-image" src={image} alt="" />
+      <div className="energy-product-name">{name}</div>
+      <div className="flex items-center justify-around w-6/10">
         <Link to="/energy-order">
-          <button className="e-button-1">Learn</button>
+          <button className="energy-button">Learn</button>
         </Link>
         <Link to="/solar-learnmore">
-          <button className="e-button-2">Order</button>
+          <button className="energy-button">Order</button>
         </Link>
       </div>
     </div>
@@ -25,15 +24,15 @@ const Product = ({ image, name }) => {
 
 const Energy = () => {
   return (
-    <div className="Energy">
-      <div className="products">
+    <div className="Energy border-2">
+      <div className="products border-2">
         <Product image={SolarPanel} name="Solar Panels" />
         <Product image={SolarRoof} name="Solar Roofs" />
         <Product image={Inverter} name="Inverter" />
         <Product image={Battery} name="Battery" />
       </div>
 
-      <div className="options">
+      <div className="energy-options">
         <div className="list">
           <span>Schedule a Consultation</span>
           <span>Why Solar</span>

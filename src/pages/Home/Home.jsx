@@ -3,12 +3,10 @@ import IntroText from "../../component/HomeComponent/IntroText/IntroText.jsx";
 import ProductIntroCard from "../../component/HomeComponent/ProductIntroCard/ProductIntroCard.jsx";
 import SolarCoverImage from "../../assets/solar.jpg";
 import ConstructionCoverImage from "../../assets/construction.jpg";
-import FooterNew from "../../component/Footer/FooterNew.jsx";
 import image1 from "../../assets/construction.jpg";
 import image2 from "../../assets/solar.jpg";
 import image3 from "../../assets/footer_sample.jpg";
 import IntroImageSlider from "../../component/HomeComponent/IntroImageSlider/IntroImageSlider.jsx";
-
 import Offer from "../../component/HomeComponent/Offer/Offer/Offer.jsx";
 import PastProject from "../../component/HomeComponent/PastProject/PastProject.jsx";
 
@@ -36,7 +34,7 @@ const Home = () => {
   ];
 
   return (
-    <div className="home fixed">
+    <div className="home ">
       <div className="intro flex flex-row ">
         <div className="flex flex-col w-3/6">
           <div className="flex h-40v">
@@ -66,7 +64,6 @@ const Home = () => {
         learnMoreLink="/construction-learnmore"
         textColor="#ffffff"
       />
-      <FooterNew />
     </div>
   );
 };

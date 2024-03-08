@@ -1,0 +1,36 @@
+.footer {
+  background-color: #040e42;
+  color: white;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.text-y {
+  color: #ffd700;
+}
+
+.news-letter-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30%;
+  height: 12%;
+  background-color: #ffd700;
+  border-radius: 1rem;
+}
+
+.news-letter-button p {
+  color: #253795;
+  font-weight: 900;
+}
+
+.menu-heading {
+  color: #efd02d;
+  margin-bottom: 1rem;
+}
+
+.menu-content {
+  color: #d5d9f1;
+  margin-bottom: 1rem;
+}

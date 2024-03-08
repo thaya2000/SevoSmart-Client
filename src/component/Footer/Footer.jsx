@@ -1,75 +1,68 @@
-import React from 'react'
-import "./Footer.css"
-import { FaFacebook } from 'react-icons/fa';
-import { IoLogoWhatsapp, IoLogoLinkedin } from 'react-icons/io';
-import { MdMailOutline } from 'react-icons/md';
-import logo1 from '../../Images/ABB_logo.png'
-import logo2 from '../../Images/fronius_logo.png'
-import logo3 from '../../Images/goodwe_logo.png'
-import logo4 from '../../Images/growatt_logo.webp'
-import logo5 from '../../Images/huawei_logo.png'
-import logo6 from '../../Images/jinko_logo.svg'
-import logo7 from '../../Images/omnik_logo.png'
-import logo8 from '../../Images/rec_logo.png'
-import logo9 from '../../Images/sma_logo.png'
-import logo10 from '../../Images/solax_logo.png'
-import logo11 from '../../Images/solis_logo.png'
-import logo12 from '../../Images/suntree_logo.png'
-import logo13 from '../../Images/trinasolar_logo.png'
-import logo14 from '../../Images/yinkli_logo.png'
+import "./Footer.css";
+import { FaFacebook } from "react-icons/fa";
+import { IoMdMail } from "react-icons/io";
+import { FaWhatsapp } from "react-icons/fa";
+import Logo from "../Navigation/NavComponent/Logo/Logo";
+import Partners from "./Partners/Partners";
 
 const Footer = () => {
   return (
-    <div className='footer'>
-        <div className="details">
-            <div className="contact">
-              <span>Contact Us</span>
-              <span>SEVO SMART TECH (PVT) LTD.</span>
-              <span>Kiri-vasa,
-                Chenaikudyruppu-01A,Kalmunai.
-              </span>
-              <span>T:0672225881 | 0711665128 </span>
-              <span>E:sevosmarttech2001@gmail.com</span>
-
-            </div>
-            <div className="socialMedia">
-              <span>PowerUp your life with clean energy......</span>
-              <div style={{ display: 'flex', gap: '10px' }}>
-                <a href='https://www.facebook.com/sevosmart2021?mibextid=LQQJ4d' target="_blank" rel="noopener noreferrer">
-              <FaFacebook size={30} color="#1877f2" />
-            </a>
-            <a href='tel:+94766865193'>
-              <IoLogoWhatsapp size={30} color="#25D366" />
-            </a>
-                
-                
-                <a href='mailto:sevosmarttech2001@gmail.com'>
-              <MdMailOutline size={30} color="#D44638" />
-            </a>
-
-              </div>
-              <span className='SoftwareDeveloped'>Powered by DreamTrillions </span>
-            </div>
-
+    <div className="footer w-full h-100v  relative  flex flex-col ">
+      <div className="w-full h-4/10 my-10">
+        <Partners />
+      </div>
+      <div className="flex flex-row w-full h-6/10  ">
+        <div className="flex flex-col w-4/10 h-full  p-4">
+          <div className="mb-10">
+            <Logo />
+          </div>
+          <p className="text-y mb-5">
+            Sign up for our newsletter and case alert system
+          </p>
+          <p className="mb-10">E-mail</p>
+          <div className="mb-5">
+            <hr className="flex w-6/10" />
+          </div>
+          <div className="news-letter-button mb-4">
+            <p>Submit</p>
+          </div>
+          <div className="flex flex-row w-3/12 items-center justify-around mb-10">
+            <FaFacebook size="1.5rem" />
+            <IoMdMail size="1.5rem" />
+            <FaWhatsapp size="1.5rem" />
+          </div>
+          <p>© 2024 Powered by DreamTrillions</p>
         </div>
-        <div className="partners py-4 mx-auto" >
-          <img src={logo1} alt="" />
-          <img src={logo2} alt="" />
-          <img src={logo3} alt="" />
-          <img src={logo4} alt="" />
-          <img src={logo5} alt="" />
-          <img src={logo6} alt="" />
-          <img src={logo7} alt="" />
-          <img src={logo8} alt="" />
-          <img src={logo9} alt="" />
-          <img src={logo10} alt="" />
-          <img src={logo11} alt="" />
-          <img src={logo12} alt="" />
-          <img src={logo13} alt="" />
-          <img src={logo14} alt="" />
+        <div className="flex w-3/10 h-full  p-4">
+          <div className="flex flex-col">
+            <p className="menu-heading">Menu</p>
+            <p className="menu-content">About Us</p>
+            <p className="menu-content">What we offer</p>
+            <p className="menu-content">Careers</p>
+            <p className="menu-content">Investor Relations</p>
+            <p className="menu-content">Video Guides</p>
+            <p className="menu-content">Customer Stories</p>
+            <p className="menu-content">Events</p>
+          </div>
         </div>
+        <div className="flex w-3/10 h-full  p-4">
+          <div className="flex flex-col">
+            <p className="menu-heading">Address</p>
+            <div className="menu-content">
+              <p>SEVO SMART TECH (PVT) LTD.</p>
+              <p>Kiri-vasa,</p>
+              <p>Chenaikudyruppu-01A,Kalmunai. </p>
+            </div>
+
+            <p className="menu-heading">Phone Number</p>
+            <p className="menu-content">T:0672225881 | 0711665128</p>
+            <p className="menu-heading">Email</p>
+            <p className="menu-content">sevosmarttech2001@gmail.com</p>
+          </div>
+        </div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

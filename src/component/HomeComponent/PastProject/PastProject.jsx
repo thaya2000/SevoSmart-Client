@@ -17,7 +17,7 @@ export default function PastProject({ pastProjects }) {
       setCurrentImageIndex(
         (prevIndex) => (prevIndex + 1) % pastProjects.length
       );
-    }, 4000);
+    }, 8000);
 
     return () => clearInterval(interval);
   }, [pastProjects.length]);
@@ -34,11 +34,11 @@ export default function PastProject({ pastProjects }) {
 
   return (
     <div className="past-project flex flex-col">
-      <div className="flex flex-row  h-4/10 w-full relative border-2">
-        <div className="title flex items-center justify-center  h-full w-2/6 border-2 text-7xl">
+      <div className="flex flex-row  h-4/10 w-full relative ">
+        <div className="title flex items-center justify-center  h-full w-2/6  text-7xl">
           SEVO SMART TECH
         </div>
-        <div className="past-project-description flex items-center justify-center h-full w-4/6 border-2">
+        <div className="past-project-description flex items-center justify-center h-full w-4/6 ">
           <div className="flex items-center justify-center w-10/12 h-4/5">
             <p>
               {
@@ -49,7 +49,7 @@ export default function PastProject({ pastProjects }) {
           </div>
         </div>
       </div>
-      <div className="flex items-center justify-around flex-row  h-3/10 w-full  relative border-2">
+      <div className="flex items-center justify-around flex-row  h-3/10 w-full  relative ">
         <div>
           <IoIosArrowBack size="5vw" onClick={handleLeftClick} />
         </div>
@@ -79,7 +79,7 @@ export default function PastProject({ pastProjects }) {
           <IoIosArrowForward size="5vw" onClick={handleRightClick} />
         </div>
       </div>
-      <div className="flex flex-row items-center justify-center  h-3/10 w-full  relative border-2">
+      <div className="flex flex-row items-center justify-center  h-3/10 w-full  relative ">
         <div className="flex flex-row items-center justify-around w-8/10 h-full">
           <PastProjectHistory
             projectName="Solar"

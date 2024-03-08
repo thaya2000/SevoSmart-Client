@@ -9,8 +9,13 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  scroll-snap-type: y mandatory;
   overflow-x: hidden;
 }
+
+/* body::-webkit-scrollbar {
+  display: none;
+} */
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",

@@ -1,0 +1,41 @@
+.partner {
+  width: 100px;
+  height: 100px;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  font-size: 50px;
+  background-color: #eaebf4;
+}
+
+.partner img {
+  object-fit: contain;
+  padding: 20px;
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.scroller {
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+}
+
+.scroller_inner_right {
+  display: inline-flex;
+  animation: 35s slide infinite linear;
+}
+
+.scroller_inner_left {
+  display: inline-flex;
+  animation: 30s slide infinite linear reverse;
+}

@@ -3,7 +3,7 @@ import { IoMdSunny } from "react-icons/io";
 
 export default function Logo() {
   return (
-    <div className="sevoLogo my-2">
+    <div className="sevoLogo ">
       <div className="mx-0.25 inline-block">S</div>
       <div className="mx-0.25 inline-block">E</div>
       <div className="mx-0.25 inline-block">V</div>
