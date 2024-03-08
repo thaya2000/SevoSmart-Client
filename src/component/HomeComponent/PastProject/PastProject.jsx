@@ -1,10 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect,  } from "react";
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
 import { TbSolarPanel2 } from "react-icons/tb";
 import { IoIosPeople } from "react-icons/io";
 import { BiSolidBuildingHouse } from "react-icons/bi";
-
 import "./PastProject.css";
 import PropTypes from "prop-types";
 import PastProjectHistory from "../PastProjectHistory/PastProjectHistory";
