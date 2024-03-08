@@ -8,14 +8,14 @@ import Discover from "./NavComponent/Discover/Discover.jsx";
 import Logo from "./NavComponent/Logo/Logo.jsx";
 
 const Navigation = () => {
-  const [activeDropdown, setActiveDropdown] = useState(1);
+  const [activeDropdown, setActiveDropdown] = useState(null);
 
   const handleButtonHover = (index) => {
     setActiveDropdown(index);
   };
 
   const handleButtonLeave = () => {
-    setActiveDropdown(1);
+    setActiveDropdown(null);
   };
 
   const navItems = [

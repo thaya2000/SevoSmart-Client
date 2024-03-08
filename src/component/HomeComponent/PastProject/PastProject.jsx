@@ -50,7 +50,7 @@ export default function PastProject({ pastProjects }) {
         </div>
       </div>
       <div className="flex items-center justify-around flex-row  h-3/10 w-full  relative ">
-        <div>
+        <div className="cursor-pointer  border-2 border-transparent hover:bg-slate-400 active:bg-slate-500 hover:rounded-full hover:border-solid  hover:border-2 hover:border-slate-800">
           <IoIosArrowBack size="5vw" onClick={handleLeftClick} />
         </div>
         <div className="past-project-image flex h-4/5 w-1/5">
@@ -75,7 +75,7 @@ export default function PastProject({ pastProjects }) {
             alt={`Image ${currentImageIndex % pastProjects.length}`}
           />
         </div>
-        <div>
+        <div className="cursor-pointer  border-2 border-transparent hover:bg-slate-400 active:bg-slate-500 hover:rounded-full hover:border-solid  hover:border-2 hover:border-slate-800">
           <IoIosArrowForward size="5vw" onClick={handleRightClick} />
         </div>
       </div>

@@ -33,7 +33,7 @@ const Energy = () => {
       </div>
 
       <div className="energy-options">
-        <div className="list">
+        <div className="energy-list">
           <span>Schedule a Consultation</span>
           <span>Why Solar</span>
           <span>Incentives</span>
