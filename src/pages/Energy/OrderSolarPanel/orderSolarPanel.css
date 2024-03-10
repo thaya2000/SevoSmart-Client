@@ -1,0 +1,155 @@
+.account-details-form {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 5px;
+    margin-right:0;
+    align-items: center; /* Center the content horizontally */
+    justify-content: center; /* Center the content vertically */
+   
+  
+  }
+
+  .home{
+  text-align: left;
+  font-weight:400;
+  font-family: 'Inter', sans-serif;
+  font-size: 32px;
+  }
+  .order-summery {
+    text-align: center;
+  }
+  
+  .upper-container{
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 5px;
+    margin-right:0;
+    align-items: center; /* Center the content horizontally */
+    justify-content: center;
+    margin-top: 0;
+  }
+  h2 {
+    font-family: 'Inter', sans-serif; 
+    font-weight: 600; /* Adjust the font weight (e.g., 600 for semi-bold) */
+    font-size: 32px; /* Set the font size to 64 pixels */
+    margin-bottom: 35px;
+  }
+  
+  label {
+    font-family: 'Inter', sans-serif; /* Use the 'Inter' font, fallback to a sans-serif font */
+    display: block;
+  
+    margin-bottom: 15px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 15px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    outline: none;
+    margin-bottom: 15px;
+    background-color:rgb(204, 203, 203); /* Set background color to grey */
+  }
+  
+  button {
+    width: 300px;
+    padding: 10px;
+    background-color: rgba(51, 75, 161, 1);
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    align-self: center;
+    margin-top: 15px; 
+    
+  }
+  
+  .agreement-statement {
+    margin-top: 15px; 
+    text-align: left; 
+    margin-bottom: 15px;
+  }
+  
+  .agreement-statement p {
+    margin: 0; 
+    line-height: 1.5; 
+    color: #555; 
+  }
+  
+ 
+
+.image-container {
+    display:flex;
+  }
+  
+  .image {
+    width: 70%; 
+    height: 25%;
+    border-radius:30px;
+    margin-top: 50px;
+    margin-left: 70px; 
+  }
+  
+  .power-up{
+    text-align: left;
+    font-weight: 600px;
+  }
+
+  .main-container {
+    width: 50%;
+  margin-right: 30px; }
+
+  .cproduct{
+
+    font-weight: 400;
+    font-family: 'Inter',sans-serif;
+    font-size: 32px;
+    margin-bottom: 20px; 
+    
+      
+  }
+
+  .help-text{
+    margin-top: 20px;
+    margin-bottom: 15px;
+  }
+
+  .product-image{
+    border-radius: 25px;
+    margin-top: 15px;
+  }
+
+
+  .product-name {
+    text-align: left; 
+    font-weight:600; 
+    margin-top: 10px; 
+  }
+  
+  .nextB {
+   
+    background-color: rgba(51, 75, 161, 1); 
+    color: white; 
+    padding: 10px 20px; 
+  
+    /* Hover effect styles */
+    transition: background-color 0.3s ease; /* Add a smooth transition effect */
+  }
+  
+  .nextB:hover {
+    background-color: rgb(69, 73, 87); /* Change the background color on hover */
+  }
+  

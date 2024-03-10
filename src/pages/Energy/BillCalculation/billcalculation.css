@@ -1,0 +1,366 @@
+
+.account-details-form {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 5px;
+    margin-right:0;
+    align-items: center; /* Center the content horizontally */
+    justify-content: center; /* Center the content vertically */
+   
+  
+  }
+
+  .home{
+  text-align: left;
+  font-weight:200;
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  }
+  .order-summery {
+    text-align: center;
+  }
+  
+  .upper-container{
+    max-width: 500px;
+    padding: 20px;
+    border-radius: 5px;
+    margin-left:50px;
+    align-items: center; /* Center the content horizontally */
+    justify-content: center;
+    margin-top: 0;
+   
+    
+  }
+  h2 {
+    font-family: 'Inter', sans-serif; 
+    font-weight: 600; /* Adjust the font weight (e.g., 600 for semi-bold) */
+    font-size: 32px; /* Set the font size to 64 pixels */
+    margin-bottom: 35px;
+  }
+  
+  label {
+    font-family: 'Inter', sans-serif; /* Use the 'Inter' font, fallback to a sans-serif font */
+    display: block;
+  
+    margin-bottom: 15px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 15px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    outline: none;
+    margin-bottom: 15px;
+    background-color:rgb(204, 203, 203); /* Set background color to grey */
+  }
+  
+  button {
+    width: 300px;
+    padding: 10px;
+    background-color: rgba(51, 75, 161, 1);
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    align-self: center;
+    margin-top: 15px; 
+    
+  }
+  
+  .agreement-statement {
+    margin-top: 15px; 
+    text-align: left; 
+    margin-bottom: 15px;
+  }
+  
+  .agreement-statement p {
+    margin: 0; 
+    line-height: 1.5; 
+    color: #555; 
+  }
+  
+ 
+
+.image-container {
+    display:flex;
+    margin-left: 50px;
+  }
+  
+  .image {
+    width: 70%; 
+    height: 25%;
+    border-radius:30px;
+    margin-top: 50px;
+    margin-left: 70px; 
+  }
+  
+  .power-up{
+    text-align: center;
+    font-weight: 600px;
+    margin-left: 30px;
+  }
+
+  .main-container {
+    width: 50%;
+  margin-right: 100px; }
+
+  .cproduct{
+
+    font-weight: 400;
+    font-family: 'Inter',sans-serif;
+    font-size: 32px;
+    margin-bottom: 20px; 
+    
+      
+  }
+
+  .help-text{
+    margin-top: 20px;
+    margin-bottom: 15px;
+  }
+
+  .product-image{
+    border-radius: 25px;
+    margin-top: 15px;
+  }
+
+
+  .product-name {
+    text-align: left; 
+    font-weight:600; 
+    margin-top: 10px;
+  }
+  
+  .nextB {
+   
+    background-color: rgba(51, 75, 161, 1); 
+    color: white; 
+    padding: 10px 20px; 
+    transition: background-color 0.3s ease; /* Add a smooth transition effect */
+  }
+  
+  .nextB:hover {
+    background-color: rgb(69, 73, 87); 
+  }
+  
+  .averagebill{
+    margin-left: 80px;
+    margin-top: 50px;
+    font-family: 'Inter',sans-serif;
+    font-size: 26;
+    font-weight: 600;
+  }
+
+  .squares-container {
+    display: flex;
+    
+  }
+  
+  .square1 {
+    width: 20px; 
+    height: 20px; 
+    background-color: rgba(5, 105, 255, 1); 
+    margin-left: 140px; 
+    margin-top: 20px;
+    display:inline-block;
+    border-radius: 3px;
+  }
+
+  .square2 {
+    width: 20px; 
+    height: 20px; 
+    background-color: gray; 
+    margin-left: 80px; 
+    margin-top: 20px;
+    display: inline-block;
+    border-radius: 3px;
+  }
+
+  .text1 {
+    display: inline-block;
+    color: #151414; 
+    margin-left: 20px; 
+  }
+
+  .text2{
+    display: inline-block;
+    color: #151414; 
+    margin-left: 20px;
+    margin-bottom: 40px; 
+}
+  .text3{
+   
+    color: #151414; 
+    margin-left: 0px;
+    margin-top: 10px;}
+    
+
+    .text4{
+   
+    color: #151414; 
+    margin-left: 0px;
+    margin-top: 10px;
+        
+
+
+  }
+  .square3 {
+    width: 100px; 
+    height: 150px; 
+    background-color: rgba(5, 105, 255, 1); 
+    margin-left: 0; 
+    margin-top: 20px;
+     border-radius: 10px;}
+
+    .square4 {
+    width: 100px; 
+    height: 150px; 
+    background: linear-gradient(to top, rgba(5, 105, 255, 1) 10%, #ccc 10%, #ccc 100%); 
+    margin-left: 0px; 
+    margin-top: 20px;
+   border-radius: 10px;
+   transition: height 0.3s ease;
+ 
+    }
+
+    .container {
+   display: flex;
+   margin-left: 80px;
+   
+   
+      }
+    
+       
+         
+   .A-container {
+    border-color: #151414;
+    margin-top: 0px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 40px;
+    margin-right: 10px;
+    border-width: 4px;
+    overflow: hidden;
+    padding:10px;
+    
+
+    
+  }
+  
+  
+  .B-container{
+   
+    border-width: 4px;
+    margin-top:0px;
+    width:250px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 0px;
+    padding:10px;
+  }
+  
+   .D-container{
+
+    margin-top:15px;
+    margin-left:15px;
+    margin-bottom: 15px;
+    transition: background-color 0.3s ease;
+  
+   }
+
+   .D-container:hover {
+    color: rgb(40, 114, 138); /* Change the background color on hover */
+  }
+  
+
+   .text5{
+   
+    color: #151414; 
+    margin-left: 0px;
+    margin-top: 20px;
+    font-weight: 500;
+    font-size: 20px;
+   }
+
+   .M-container {
+    height:150px;
+    display: flex;
+    /*border:solid 4px black;*/
+    
+    
+       }
+    .E-container {
+        border: rgba(138, 139, 144, 0.811) solid 2px;
+        margin-top: 20px;
+        width:fit-content;
+        padding:10px;
+        margin-bottom: 20px;
+    }
+
+    .your-amount{
+        margin-left:70px;
+        font-weight: 600;
+    }
+
+    .text6{
+        font-weight: 600;
+        margin-left: 10px;
+       
+    }
+
+    .text7{
+        margin-left: 10px;
+    }
+
+    .text8{
+
+        margin-top:30px;
+        color: #151414; 
+        margin-left: 0px;
+        font-weight: 500;
+        font-size: 20px;
+    }
+    
+    .c-container {
+        /* Other styles for your container */
+      
+        /* Add a smooth transition effect */
+        transition: transform 0.5s ease;
+      }
+      
+      .c-container:hover {
+        transform: scale(1.1); 
+      }
+          
+     
+
+    .A-container:hover .square3 {
+    transform: scale(1.1); /* Increase the size on hover */
+    }
+  
+    .B-container:hover .square4 {
+    transform: scale(1.1); /* Increase the size on hover */
+    }
+  
+ 
+   .square3,
+   .square4 {
+    padding-bottom: 10px;
+    transition: transform 0.5s ease;
+   }
+  
+ 
+        

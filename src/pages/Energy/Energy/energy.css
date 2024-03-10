@@ -1,0 +1,107 @@
+.account-details-form {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 5px;
+    margin-right:0;
+    align-items: center; /* Center the content horizontally */
+    justify-content: center; /* Center the content vertically */
+   
+  
+  }
+
+  .price{
+  text-align: center;
+  }
+  .order-summery {
+    text-align: center;
+  }
+  
+  .upper-container{
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 5px;
+    margin-right:0;
+    align-items: center; /* Center the content horizontally */
+    justify-content: center;
+    margin-top: 0;
+  }
+  h2 {
+    font-family: 'Inter', sans-serif; 
+    font-weight: 600; /* Adjust the font weight (e.g., 600 for semi-bold) */
+    font-size: 32px; /* Set the font size to 64 pixels */
+    margin-bottom: 35px;
+  }
+  
+  label {
+    font-family: 'Inter', sans-serif; /* Use the 'Inter' font, fallback to a sans-serif font */
+    display: block;
+  
+    margin-bottom: 15px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 15px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    outline: none;
+    margin-bottom: 15px;
+    background-color:rgb(204, 203, 203); /* Set background color to grey */
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(51, 75, 161, 1);
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    align-self: center;
+    margin-top: 15px; 
+    
+  }
+  
+  .agreement-statement {
+    margin-top: 15px; 
+    text-align: left; 
+    margin-bottom: 15px;
+  }
+  
+  .agreement-statement p {
+    margin: 0; 
+    line-height: 1.5; 
+    color: #555; 
+  }
+  
+  .image {
+    max-width: 100%; 
+    height: auto; 
+    border-radius:30px;
+    margin-top: 50px;
+    margin-left: 70px; 
+  }
+
+.image-container {
+    display: flex;
+  }
+  
+  .image {
+    width: 70%; 
+    height: 50%;
+  }
+  
+  .main-container {
+    width: 50%; }
