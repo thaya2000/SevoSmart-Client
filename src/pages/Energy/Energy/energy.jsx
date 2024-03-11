@@ -2,10 +2,10 @@ import React, { useState ,useEffect} from 'react';
 import './energy.css';
 
 
-import image1 from '../../Images/Images2/S1.jpeg';
-import image2 from '../../Images/Images2/S2.jpeg';
-import image3 from '../../Images/Images2/S3.jpeg';
-import Navigation from '../../../component/Navigation/Navigation';
+import image1 from '../../../Images/S1.jpeg';
+import image2 from '../../../Images/S2.jpeg';
+import image3 from '../../../Images/S3.jpeg';
+
 
 
 function AccountDetailsForm() {
@@ -50,7 +50,7 @@ function AccountDetailsForm() {
 
   return (
     <div>
-        <Navigation/>
+       
     <div className="image-container">
      <img src={currentImageIndex === 0 ? image1 : currentImageIndex === 1 ? image2 : image3} alt="" className='image'/>
     
@@ -60,12 +60,12 @@ function AccountDetailsForm() {
     <div className="upper-container">
     
       {/* Content for the container above "Enter Account Details" */}
-      <h2 className='order-summery'>Order Summary</h2>
-      <p className='price'>Final Price will be provided when your system 
-         design is complete</p>
+      <div className='order-summery'>Order Summary</div>
+      <div className='price'>Final Price will be provided when your system 
+         design is complete</div>
     </div>
     <div className="account-details-form">
-      <h2>Enter Account Details</h2>
+      <div className='Enter-account'>Enter Account Details</div>
       <form onSubmit={handleSubmit}>
         {/* Account Details */}
         <div>
@@ -129,7 +129,7 @@ function AccountDetailsForm() {
 
         {/* Card Details */}
         <div>
-          <h2>Enter Card Details</h2>
+          <div className='Enter-card'>Enter Card Details</div>
           <label htmlFor="nameOnCard">Name on Card</label>
           <input
             type="text"
@@ -173,7 +173,8 @@ function AccountDetailsForm() {
             required />
         </div>
 
-        <button type="submit">Submit</button>
+        {/* <button className='energy-order-button' type="submit">Submit</button> */}
+        <div className='energy-order-button'>Submit</div>
       </form>
     </div>
     </div>

@@ -1,24 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import Link  from 'react-router-dom';
-import image1 from '../../Images/Images2/S1.jpeg';
-import Navigation from "../../component/Navigation/Navigation";
-import image2 from '../../Images/Images2/S2.jpeg';
-import image3 from '../../Images/Images2/S3.jpeg';
+// import Link  from 'react-router-dom';
+import image1 from '../../../Images/S1.jpeg';
+import image2 from '../../../Images/S2.jpeg';
+import image3 from '../../../Images/S3.jpeg';
 import './orderSolarPanel.css';
 
 
+
 function OrderSolarPanel() {
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    confirmEmail: '',
-    phoneNumber: '',
-    nameOnCard: '',
-    cardNumber: '',
-    expirationMonth: '',
-    expirationYear: '',
-  });
+  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -49,7 +39,7 @@ function OrderSolarPanel() {
 
   return (
     <div>
-        <Navigation/>
+
     <div className="image-container">
         
       <img src={currentImageIndex === 0 ? image1 : currentImageIndex === 1 ? image2 : image3} alt="" className="image" />

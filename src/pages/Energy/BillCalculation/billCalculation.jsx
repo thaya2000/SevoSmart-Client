@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import Link  from 'react-router-dom';
-import './billCalculation.css';
-import Navigation from "../../component/Navigation/Navigation";
+// import Link  from 'react-router-dom';
+import './billcalculation.css';
+
+
 
 
 function BillCalculation() {
@@ -28,7 +29,7 @@ function BillCalculation() {
 
   return (
     <div>
-      <Navigation/>
+    
     <div className="image-container">
       <div>
       <h2 className="averagebill">Average monthly electricity bill</h2>
