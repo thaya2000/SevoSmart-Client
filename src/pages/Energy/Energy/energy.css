@@ -78,7 +78,7 @@
   .energy-order-button {
     display: flex;
     justify-content: center;
-    width: 100%;
+    width: 60%;
     padding: 10px;
     background-color: rgba(5, 105, 255, 1);
     color: #fff;
@@ -86,7 +86,8 @@
     border-radius: 25px;
     cursor: pointer;
     align-self: center;
-    margin-top: 15px; 
+    margin-top: 25px; 
+    font-size: 18px;
     
   }
   

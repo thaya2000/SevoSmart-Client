@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 // import Link  from 'react-router-dom';
 import './billcalculation.css';
+import Image7 from '../../../Images/S7.jpg';
 
 
 
@@ -30,9 +31,9 @@ function BillCalculation() {
   return (
     <div>
     
-    <div className="image-container">
+    <div className="img-container">
       <div>
-      <h2 className="averagebill">Average monthly electricity bill</h2>
+       <div className='billhead'>Average bill of your home</div>
       
       <div className="square1">    
      </div>
@@ -57,13 +58,13 @@ function BillCalculation() {
       <div className="main-container">
         <div className="upper-container">
           {/* Content for the container above "Enter Account Details" */}
-          <h2 className="power-up">Your Home</h2>
-            <div className="agreement-statement">Produce clean energy with the lowest cost solar <br/> panels, price match guaranteed</div>
+          <div className="power">Your Home</div>
+            <div className="agreement-statementA">Produce clean energy with the lowest cost solar  panels, <br/>price match guaranteed</div>
 
             <div className='M-container'>
              <div className='c-container'>
                 <img
-                src={require('../../Images/Images2/S7.jpg')}
+                src={Image7}
                 alt="3 Kw Solar System Off Grid"
                 className="product-image"
                 style={{ width: '150px', height: 'auto' }}/>
@@ -103,9 +104,7 @@ function BillCalculation() {
 
 
     
-      <button className="nextB" type="button" >
-              Continue to order
-            </button>
+       <div className='energy-order-buttonA'>continue to order</div>
       </div>
      
           

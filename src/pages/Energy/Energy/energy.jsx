@@ -174,7 +174,7 @@ function AccountDetailsForm() {
         </div>
 
         {/* <button className='energy-order-button' type="submit">Submit</button> */}
-        <div className='energy-order-button'>Submit</div>
+        <div className='energy-order-buttonA'>Submit</div>
       </form>
     </div>
     </div>
