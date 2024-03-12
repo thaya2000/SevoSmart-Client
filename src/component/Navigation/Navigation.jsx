@@ -6,9 +6,20 @@ import Constructions from "./NavComponent/Constructions/Constructions.jsx";
 import Shop from "./NavComponent/Shop/Shop.jsx";
 import Discover from "./NavComponent/Discover/Discover.jsx";
 import Logo from "./NavComponent/Logo/Logo.jsx";
+import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import { useAuth } from "../../context/authContext";
 
 const Navigation = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
+
+  const [auth, setAuth] = useAuth();
+  const navigate = useNavigate();
+  const logout = () => {
+    setAuth({ ...auth, user: null, token: "" });
+    localStorage.removeItem("auth");
+    navigate("/login");
+  };
 
   const handleButtonHover = (index) => {
     setActiveDropdown(index);
@@ -47,8 +58,16 @@ const Navigation = () => {
           <div className="naviSearch">
             <UilSearch />
           </div>
-          <div className="naviAccount">
-            <UilUserCircle />
+          <div>
+            {!auth.user ? (
+              <div className="naviAccount">
+                <UilUserCircle />
+              </div>
+            ) : (
+              <div className="naviAccount">
+                <UilUserCircle />
+              </div>
+            )}
           </div>
         </div>
       </div>

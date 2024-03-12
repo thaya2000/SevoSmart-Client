@@ -14,13 +14,19 @@ import ShopVertical from "./component/Navigation/NavComponent/Shop/ShopVertical.
 import DiscoverVertical from "./component/Navigation/NavComponent/Discover/DiscoverVertical.jsx";
 import Test from "./pages/Test/Test.jsx";
 import Footer from "./component/Footer/Footer.jsx";
+import Signup from "./pages/Auth/signup/Signup.jsx";
+import Login from "./pages/Auth/login/Login.jsx";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
     <BrowserRouter>
       <Navigation />
+      <Toaster />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/register" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/solar-learnmore" element={<SolarPanelLearnmore />} />
         <Route path="/energy-order" element={<EnergyOrder />} />
         <Route
