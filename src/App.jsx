@@ -14,6 +14,9 @@ import ShopVertical from "./component/Navigation/NavComponent/Shop/ShopVertical.
 import DiscoverVertical from "./component/Navigation/NavComponent/Discover/DiscoverVertical.jsx";
 import Accessories from "./pages/Shop/Accessories.jsx";
 import Cart from "./pages/Shop/Cart.jsx";
+import AdminPanel from "./pages/Admin/AdminPanel.jsx";
+import AddProduct from "./pages/Admin/AddProduct.jsx";
+import EditProduct from "./pages/Admin/EditProduct.jsx";
 
 
 function App() {
@@ -42,6 +45,10 @@ function App() {
         <Route path="/discover-vertical" element={<DiscoverVertical />} />
         <Route path="/accessories" element={<Accessories />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/admin-panel" element={<AdminPanel/>} />
+        <Route path="/add-product" element={<AddProduct/>} />
+        <Route path="/edit-product/:id" element={<EditProduct />} />
+
       </Routes>
     </BrowserRouter>
   );
