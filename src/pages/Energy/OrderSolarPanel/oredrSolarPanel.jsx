@@ -3,6 +3,9 @@ import React, { useState, useEffect } from 'react';
 import image1 from '../../../Images/S1.jpeg';
 import image2 from '../../../Images/S2.jpeg';
 import image3 from '../../../Images/S3.jpeg';
+import image4 from '../../../Images/S4.jpg';
+import image5 from '../../../Images/S5.jpg';
+import image6 from '../../../Images/S6.jpg';
 import './orderSolarPanel.css';
 
 
@@ -10,13 +13,7 @@ import './orderSolarPanel.css';
 function OrderSolarPanel() {
   
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
+  
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
  
@@ -30,11 +27,7 @@ function OrderSolarPanel() {
     return () => clearInterval(intervalId); // Cleanup on component unmount
   }, []);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Combined Form submitted:', formData);
-  };
-
+ 
   
 
   return (
@@ -47,8 +40,8 @@ function OrderSolarPanel() {
       <div className="main-container">
         <div className="upper-container">
           {/* Content for the container above "Enter Account Details" */}
-          <h2 className="power-up">Power Up Everything by Solar</h2>
-          <p className="home">Enter home address</p>
+          <div className="power-up">Power Up Everything by Solar</div>
+          <div className="homeN">Enter home Details</div>
 
           <div>
             <label htmlFor="home address">Home Address</label>
@@ -56,8 +49,7 @@ function OrderSolarPanel() {
               type="text"
               id="home address"
               name="address"
-              value={formData.address}
-              onChange={handleChange}
+              // onChange={handleChange}
               required
             />
           </div>
@@ -68,8 +60,7 @@ function OrderSolarPanel() {
               type="text"
               id="ebill"
               name="ebill"
-              value={formData.ebill}
-              onChange={handleChange}
+              // onChange={handleChange}
               defaultValue="LKR/month"
               required
             />
@@ -77,16 +68,16 @@ function OrderSolarPanel() {
         </div>
         <div className="account-details-form">
           <h2 className="cproduct">Choose a product</h2>
-          <form onSubmit={handleSubmit}>
+          
             <span className="help-text">
-              <a href="/help-choose-product" target="_blank" rel="noopener noreferrer">
+              <a href="/help-choose-product" target="_blank" rel="noopener noreferrer"  >
                 Help me choose the product
               </a>
             </span>
 
             <div>
               <img
-                src={require('../../Images/Images2/S4.jpg')}
+                src={image4}
                 alt="10 Kw Solar System Off Grid"
                 className="product-image"
                 style={{ width: '300px', height: 'auto' }}
@@ -96,7 +87,7 @@ function OrderSolarPanel() {
 
             <div>
               <img
-                src={require('../../Images/Images2/S5.jpg')}
+                src={image5}
                 alt="5Kw Solar System Off Grid"
                 className="product-image"
                 style={{ width: '300px', height: 'auto' }}
@@ -106,19 +97,17 @@ function OrderSolarPanel() {
 
             <div>
               <img
-                src={require('../../Images/Images2/S6.jpg')}
+                src={image6}
                 alt="3 Kw Solar System Off Grid"
                 className="product-image"
                 style={{ width: '300px', height: 'auto' }}
               />
               <p className="product-name">3 Kw Solar System Off Grid</p>
             </div>
-            <div className="agreement-statement">Panels for your existing roof with backup protection</div>
+            <div className="agreement-statementO">Panels for your existing roof with backup protection</div>
 
-            <button className="nextB" type="button" >
-              Next
-            </button>
-          </form>
+            <div className='energy-order-buttonB'>Next</div>
+          
         </div>
       </div>
     </div>

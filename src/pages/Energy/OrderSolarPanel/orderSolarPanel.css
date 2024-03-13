@@ -10,11 +10,12 @@
   
   }
 
-  .home{
+  .homeN{
   text-align: left;
-  font-weight:400;
+  font-weight:500;
   font-family: 'Inter', sans-serif;
-  font-size: 32px;
+  font-size: 22px;
+  margin-bottom: 20px;
   }
   .order-summery {
     text-align: center;
@@ -29,6 +30,9 @@
     align-items: center; /* Center the content horizontally */
     justify-content: center;
     margin-top: 0;
+    /* border:solid 2px black; */
+    
+    background-color: rgba(255, 255, 255);
   }
   h2 {
     font-family: 'Inter', sans-serif; 
@@ -51,9 +55,11 @@
   label {
     display: block;
     margin-bottom: 15px;
+    margin-top: 15px;
   }
   
   input {
+    
     width: 100%;
     padding: 8px;
     box-sizing: border-box;
@@ -77,10 +83,12 @@
     
   }
   
-  .agreement-statement {
+  .agreement-statementO {
     margin-top: 15px; 
     text-align: left; 
     margin-bottom: 15px;
+    font-weight: 500;
+    color: rgb(0, 0, 0);
   }
   
   .agreement-statement p {
@@ -102,15 +110,19 @@
     margin-top: 50px;
     margin-left: 70px; 
   }
-  
   .power-up{
-    text-align: left;
-    font-weight: 600px;
-  }
+    text-align:center;
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+    margin-bottom: 30px;
+    font-size:32px;
+    font-family:'Inter',sans-serif;}
 
   .main-container {
     width: 50%;
-  margin-right: 30px; }
+  margin-right: 30px;
+  border:solid 2px black;
+ }
 
   .cproduct{
 
@@ -152,4 +164,40 @@
   .nextB:hover {
     background-color: rgb(69, 73, 87); /* Change the background color on hover */
   }
+  
+
+  .help-text a {
+    color: blue; /* Set the text color to blue */
+    text-decoration: underline; /* Add an underline */
+  }
+  .energy-order-buttonB {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    height: 40px;
+    padding: 10px;
+    background-color: rgb(10, 64, 145);
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    align-self: center;
+    margin-left: 70px;
+    margin-top: 25px; 
+    font-size: 14px;
+    transition: background-color 0.3s; /* Add a smooth transition effect for the background color */
+  }
+  
+  .energy-order-buttonB:hover {
+    background-color: rgba(111, 112, 113, 0.8); /* Change the background color on hover */
+  }
+  
+  .product-image {
+    width: 300px;
+    height: auto;
+    transition: transform 0.3s ease; 
+  }
+  
+  .product-image:hover {
+    transform: scale(0.9); }
   
