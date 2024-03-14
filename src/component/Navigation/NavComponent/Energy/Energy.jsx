@@ -7,15 +7,15 @@ import { Link } from "react-router-dom";
 
 const Product = ({ image, name }) => {
   return (
-    <div className="energy-product">
-      <img className="energy-product-image" src={image} alt="" />
-      <div className="energy-product-name">{name}</div>
+    <div className="energy-nav-product">
+      <img className="energy-nav-product-image" src={image} alt="" />
+      <div className="energy-nav-product-name">{name}</div>
       <div className="flex items-center justify-around w-6/10">
         <Link to="/solar-learnmore">
-          <button className="energy-button">Learn</button>
+          <button className="energy-nav-button">Learn</button>
         </Link>
         <Link to="/energy-order">
-          <button className="energy-button">Order</button>
+          <button className="energy-nav-button">Order</button>
         </Link>
       </div>
     </div>
@@ -24,16 +24,16 @@ const Product = ({ image, name }) => {
 
 const Energy = () => {
   return (
-    <div className="Energy border-2">
-      <div className="products border-2">
+    <div className="energy-nav border-2">
+      <div className="energy-nav-products border-2">
         <Product image={SolarPanel} name="Solar Panels" />
         <Product image={SolarRoof} name="Solar Roofs" />
         <Product image={Inverter} name="Inverter" />
         <Product image={Battery} name="Battery" />
       </div>
 
-      <div className="energy-options">
-        <div className="energy-list">
+      <div className="energy-nav-options">
+        <div className="energy-nav-list">
           <span>Schedule a Consultation</span>
           <span>Why Solar</span>
           <span>Incentives</span>

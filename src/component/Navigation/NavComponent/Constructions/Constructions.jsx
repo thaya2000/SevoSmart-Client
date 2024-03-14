@@ -8,17 +8,17 @@ import { Link } from "react-router-dom";
 
 const ConstructionProduct = ({ image, name }) => {
   return (
-    <div className="construction-product">
-      <img className="construction-product-image" src={image} alt="" />
-      <div className="construction-name">{name}</div>
+    <div className="construction-nav-product">
+      <img className="construction-nav-product-image" src={image} alt="" />
+      <div className="construction-nav-product-name">{name}</div>
     </div>
   );
 };
 
 const Constructions = () => {
   return (
-    <div className="constructions">
-      <div className="construction-products ">
+    <div className="constructions-nav">
+      <div className="construction-nav-products ">
         <ConstructionProduct
           image={NewBuilding}
           name="New Building Construction"
@@ -31,8 +31,8 @@ const Constructions = () => {
         <ConstructionProduct image={Havana} name="Havana Design" />
       </div>
 
-      <div className="construction-options">
-        <div className="construction-list ">
+      <div className="construction-nav-options">
+        <div className="construction-nav-list ">
           <span>Schedule a Consultation</span>
           <span>About Team</span>
           <span>Incentives</span>

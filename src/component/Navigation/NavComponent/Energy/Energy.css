@@ -1,4 +1,4 @@
-.Energy {
+.energy-nav {
   display: flex;
   flex-direction: row;
   height: 60vh;
@@ -9,7 +9,7 @@
   font-family: "Inter", sans-serif;
 }
 
-.products {
+.energy-nav-products {
   width: 80%;
   display: flex;
   flex-direction: row;
@@ -22,7 +22,7 @@
   border-color: transparent #c4c2c2 transparent transparent;
 }
 
-.energy-product {
+.energy-nav-product {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -31,7 +31,7 @@
   width: 100%;
 }
 
-.energy-product-image {
+.energy-nav-product-image {
   display: flex;
   height: 12rem;
   width: 10rem;
@@ -39,18 +39,18 @@
   transition: transform 0.3s ease-in-out;
 }
 
-.energy-product:hover .energy-product-image {
+.energy-nav-product:hover .energy-nav-product-image {
   transform: scale(1.1);
 }
 
-.energy-product-name {
+.energy-nav-product-name {
   display: flex;
   justify-content: center;
   margin: 0;
   font-weight: 700;
 }
 
-.energy-button {
+.energy-nav-button {
   background: transparent;
   margin: 0;
   cursor: pointer;
@@ -60,7 +60,7 @@
   border-color: transparent transparent #929292 transparent;
 }
 
-.energy-options {
+.energy-nav-options {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -69,7 +69,7 @@
   font-size: 1rem;
 }
 
-.energy-list {
+.energy-nav-list {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
