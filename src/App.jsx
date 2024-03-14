@@ -21,6 +21,12 @@ import Loading from "./routes/Loading.jsx";
 import PrivateRoutes from "./routes/PrivateRoutes.jsx";
 import Accessories from "./pages/Shop/Accessories.jsx";
 import Cart from "./pages/Shop/Cart.jsx";
+import Energy from "./component/Navigation/NavComponent/Energy/Energy.jsx";
+import AccountDetailsForm from "./pages/Energy/Energy/energy.jsx";
+import OrderSolarPanel from "./pages/Energy/OrderSolarPanel/oredrSolarPanel.jsx";
+import BillCalculation from "./pages/Energy/BillCalculation/billCalculation.jsx";
+import Learnmore from "./pages/Energy/LearnMoreEnergy/learnmore.jsx";
+import ImageSlider from "./pages/Energy/LearnMoreEnergy/ImageSlider.jsx";
 
 function App() {
   return (
@@ -57,6 +63,11 @@ function App() {
         <Route path="/loading" element={<Loading />} />
         <Route path="/accessories" element={<Accessories />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/energy" element={<AccountDetailsForm />} />
+        <Route path="/oredrSolarPanel" element={<OrderSolarPanel />} />
+        <Route path="/billCalculation" element={<BillCalculation />} />
+        <Route path="/ImageSlider" element={<ImageSlider />} />
+        <Route path="/learnmore" element={<Learnmore />} />
       </Routes>
       <Footer />
     </BrowserRouter>
