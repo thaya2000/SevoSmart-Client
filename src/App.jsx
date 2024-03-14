@@ -21,6 +21,9 @@ import OrderSolarPanel from "./pages/Energy/OrderSolarPanel/oredrSolarPanel.jsx"
 import BillCalculation from "./pages/Energy/BillCalculation/billCalculation.jsx";
 import Learnmore from "./pages/Energy/LearnMoreEnergy/learnmore.jsx";
 import ImageSlider from "./pages/Energy/LearnMoreEnergy/ImageSlider.jsx";
+import AdminPanel from "./pages/Admin/AdminPanel.jsx";
+import AddProduct from "./pages/Admin/AddProduct.jsx";
+import EditProduct from "./pages/Admin/EditProduct.jsx";
 
 function App() {
   return (
@@ -54,6 +57,9 @@ function App() {
         <Route path="/billCalculation" element={<BillCalculation />} />
         <Route path="/ImageSlider" element={<ImageSlider />} />
         <Route path="/learnmore" element={<Learnmore />} />
+        <Route path="/admin-panel" element={<AdminPanel />} />
+        <Route path="/add-product" element={<AddProduct />} />
+        <Route path="/edit-product/:id" element={<EditProduct />} />
       </Routes>
       <Footer />
     </BrowserRouter>
