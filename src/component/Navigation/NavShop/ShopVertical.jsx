@@ -1,8 +1,8 @@
 import React from "react";
-import "./Shop.css";
+import "./NavShop.css";
 import { UilArrowRight } from "@iconscout/react-unicons";
-import SolarLight from "../../../../Images/SolarLight.png";
-import SolarThings from "../../../../Images/SolarThings.png";
+import SolarLight from "../../../Images/SolarLight.png";
+import SolarThings from "../../../Images/SolarThings.png";
 
 import { UilAngleLeft, UilTimes } from "@iconscout/react-unicons";
 import { Link } from "react-router-dom";

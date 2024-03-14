@@ -2,7 +2,7 @@ import "./Footer.css";
 import { FaFacebook } from "react-icons/fa";
 import { IoMdMail } from "react-icons/io";
 import { FaWhatsapp } from "react-icons/fa";
-import Logo from "../Navigation/NavComponent/Logo/Logo";
+import Logo from "../Navigation/Logo/Logo";
 import Partners from "./Partners/Partners";
 
 const Footer = () => {

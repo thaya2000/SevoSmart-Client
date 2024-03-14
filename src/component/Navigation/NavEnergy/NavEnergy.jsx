@@ -1,8 +1,8 @@
-import "./Energy.css";
-import Battery from "../../../../Images/Images2/battery1.png";
-import Inverter from "../../../../Images/Images2/inverter1.png";
-import SolarPanel from "../../../../Images/Images2/solarpanal1.png";
-import SolarRoof from "../../../../Images/Images2/solarroof1.png";
+import "./NavEnergy.css";
+import Battery from "../../../Images/Images2/battery1.png";
+import Inverter from "../../../Images/Images2/inverter1.png";
+import SolarPanel from "../../../Images/Images2/solarpanal1.png";
+import SolarRoof from "../../../Images/Images2/solarroof1.png";
 import { Link } from "react-router-dom";
 
 const Product = ({ image, name }) => {
@@ -22,7 +22,7 @@ const Product = ({ image, name }) => {
   );
 };
 
-const Energy = () => {
+const NavEnergy = () => {
   return (
     <div className="energy-nav border-2">
       <div className="energy-nav-products border-2">
@@ -47,4 +47,4 @@ const Energy = () => {
   );
 };
 
-export default Energy;
+export default NavEnergy;

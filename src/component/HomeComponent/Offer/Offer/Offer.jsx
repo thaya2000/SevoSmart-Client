@@ -1,5 +1,4 @@
 import ReactFlow, { useNodesState, useEdgesState } from "reactflow";
-
 import "reactflow/dist/style.css";
 import OfferDescription from "../OfferDescription/OfferDescription.jsx";
 import OfferNode from "../OfferNode/OfferNode.jsx";

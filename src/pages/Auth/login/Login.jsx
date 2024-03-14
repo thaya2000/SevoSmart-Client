@@ -58,7 +58,7 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
           <div
-            className="bg-red-300 font-light text-2xl border-slate-900 rounded-2xl"
+            className="bg-red-300 flex justify-center items-center font-light text-2xl border-slate-900 rounded-2xl cursor-pointer"
             type="submit"
             onClick={handleSubmit}
           >

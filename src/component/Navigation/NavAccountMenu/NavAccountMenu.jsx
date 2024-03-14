@@ -1,10 +1,10 @@
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { userAuth } from "../../../../context/authContext";
-import "./AccountMenu.css";
+import { userAuth } from "../../../context/authContext";
+import "./NavAccountMenu.css";
 
-export default function AccountMenu() {
+export default function NavAccountMenu() {
   const [auth, setAuth] = userAuth();
   const [activeProfile, setActiveProfile] = useState(false);
 

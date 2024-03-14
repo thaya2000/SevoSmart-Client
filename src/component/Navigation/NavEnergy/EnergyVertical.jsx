@@ -1,9 +1,9 @@
 import React from "react";
-import "./Energy.css";
-import Battery from "../../../../Images/Images2/battery1.png";
-import Inverter from "../../../../Images/Images2/inverter1.png";
-import SolarPanel from "../../../../Images/Images2/solarpanal1.png";
-import SolarRoof from "../../../../Images/Images2/solarroof1.png";
+import "./NavEnergy.css";
+import Battery from "../../../Images/Images2/battery1.png";
+import Inverter from "../../../Images/Images2/inverter1.png";
+import SolarPanel from "../../../Images/Images2/solarpanal1.png";
+import SolarRoof from "../../../Images/Images2/solarroof1.png";
 import { UilAngleLeft, UilTimes } from "@iconscout/react-unicons";
 import { Link } from "react-router-dom";
 

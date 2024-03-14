@@ -1,11 +1,11 @@
 import React from "react";
-import "./Shop.css";
+import "./NavShop.css";
 import { FaRegArrowAltCircleRight } from "react-icons/fa";
-import SolarLight from "../../../../Images/SolarLight.png";
-import SolarThings from "../../../../Images/SolarThings.png";
-import Apparel from "../../../../Images/Apparel.png";
+import SolarLight from "../../../Images/SolarLight.png";
+import SolarThings from "../../../Images/SolarThings.png";
+import Apparel from "../../../Images/Apparel.png";
 
-const Shop = () => {
+const NavShop = () => {
   return (
     <div className="shop">
       <div className="shop-products">
@@ -34,4 +34,4 @@ const Shop = () => {
   );
 };
 
-export default Shop;
+export default NavShop;

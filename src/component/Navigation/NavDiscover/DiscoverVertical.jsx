@@ -1,5 +1,5 @@
 import React from "react";
-import "./Discover.css";
+import "./NavDiscover.css";
 import { Link } from "react-router-dom";
 import { UilAngleLeft, UilTimes } from "@iconscout/react-unicons";
 

@@ -1,15 +1,15 @@
 import { useState } from "react";
 import "./Navigation.css";
 import { UilSearch, UilUserCircle } from "@iconscout/react-unicons";
-import Energy from "./NavComponent/Energy/Energy.jsx";
-import Constructions from "./NavComponent/Constructions/Constructions.jsx";
-import Shop from "./NavComponent/Shop/Shop.jsx";
-import Discover from "./NavComponent/Discover/Discover.jsx";
-import Logo from "./NavComponent/Logo/Logo.jsx";
+import NavEnergy from "../NavEnergy/NavEnergy.jsx";
+import NavConstruction from "../NavConstruction/NavConstruction.jsx";
+import NavShop from "../NavShop/NavShop.jsx";
+import NavDiscover from "../NavDiscover/NavDiscover.jsx";
+import Logo from "../Logo/Logo.jsx";
 import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
-import { userAuth } from "../../context/authContext";
-import AccountMenu from "./NavComponent/AccountMenu/AccountMenu.jsx";
+import { userAuth } from "../../../context/authContext.jsx";
+import NavAccountMenu from "../NavAccountMenu/NavAccountMenu.jsx";
 
 const Navigation = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
@@ -31,19 +31,11 @@ const Navigation = () => {
     setActiveDropdown(null);
   };
 
-  const handleProfileHover = () => {
-    setActiveProfile(true);
-  };
-
-  const handleProfileLeave = () => {
-    setActiveProfile(false);
-  };
-
   const navItems = [
-    { label: "Energy", component: <Energy /> },
-    { label: "Constructions", component: <Constructions /> },
-    { label: "Shop", component: <Shop /> },
-    { label: "Discover", component: <Discover /> },
+    { label: "Energy", component: <NavEnergy /> },
+    { label: "Construction", component: <NavConstruction /> },
+    { label: "Shop", component: <NavShop /> },
+    { label: "Discover", component: <NavDiscover /> },
     { label: "Support", component: <div></div> },
   ];
 
@@ -77,7 +69,7 @@ const Navigation = () => {
               </NavLink>
             ) : (
               <div className="flex flex-col">
-                <AccountMenu />
+                <NavAccountMenu />
               </div>
             )}
           </div>

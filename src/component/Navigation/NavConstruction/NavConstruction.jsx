@@ -1,9 +1,9 @@
 import React from "react";
-import "./Constructions.css";
-import NewBuilding from "../../../../Images/NewBuilding.png";
-import Renovation from "../../../../Images/Renovation.png";
-import SwimmingPool from "../../../../Images/SwimmingPool.png";
-import Havana from "../../../../Images/Havana.png";
+import "./NavConstruction.css";
+import NewBuilding from "../../../Images/NewBuilding.png";
+import Renovation from "../../../Images/Renovation.png";
+import SwimmingPool from "../../../Images/SwimmingPool.png";
+import Havana from "../../../Images/Havana.png";
 import { Link } from "react-router-dom";
 
 const ConstructionProduct = ({ image, name }) => {
@@ -15,7 +15,7 @@ const ConstructionProduct = ({ image, name }) => {
   );
 };
 
-const Constructions = () => {
+const NavConstruction = () => {
   return (
     <div className="constructions-nav">
       <div className="construction-nav-products ">
@@ -46,4 +46,4 @@ const Constructions = () => {
   );
 };
 
-export default Constructions;
+export default NavConstruction;
