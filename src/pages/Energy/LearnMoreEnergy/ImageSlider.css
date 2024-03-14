@@ -1,0 +1,122 @@
+.slider-container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.gradient {
+  position: absolute;
+  opacity: 60%;
+  object-fit: cover;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 620px;
+  background: rgb(0, 0, 0);
+   /* Example of a linear gradient */
+}
+
+
+.slide {
+  width: 100%;
+  height: 620px;
+  object-fit: cover;
+}
+
+.right-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  right: 100px;
+  font-size: 45px;
+  color: #fff;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.left-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  left: 100px;
+  font-size: 45px;
+  color: #fff;
+  z-index: 1;
+  cursor: pointer;
+}
+ 
+.dot {
+  width: 10px; /* Adjust width as needed */
+  height: 10px; /* Adjust height as needed */
+  background-color: gray; /* Default color for inactive dots */
+  border-radius: 50%; /* To make it a circle */
+  margin: 0 5px; /* Adjust margin as needed */
+  cursor: pointer; /* Add cursor pointer for interaction */
+}
+
+.dot-active {
+  background-color: rgb(255, 255, 255); /* Color for active dot */
+}
+
+.learn-more{
+  display: flex;
+  justify-content: center;
+  width: 60%;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  align-self: center;
+  margin-top: 25px; 
+  font-size: 18px;
+}
+.centered-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* border: solid 2px wheat; */
+   align-items: center; /* Add this line to center the content vertically */
+  display: flex; 
+  flex-direction: column; 
+}
+
+.learnmore-buttonA {
+  width: 120px;
+  height: 40px;
+  padding: 10px;
+  background-color: rgb(249, 179, 0);
+  border-width: 3px; /* Set border width */
+  border-style: solid; /* Set border style */
+  border-color: rgb(112, 112, 112); /* Set border color */
+  color: #000000;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  border-radius: 0px;
+  font-weight: 400;
+  cursor: pointer;
+  margin-top: 25px;
+  font-size: 18px;
+  line-height: 20px; /* Vertically center the text */
+  text-align: center;
+  margin-top: 30px;
+
+}
+
+.learbmore-solar {
+  font-family: "Convergence", sans-serif;
+  color: white;
+  font-weight: bold;
+  font-size: 36px;
+  margin-bottom: 20px; /* Add margin to create space */
+}
+
+.learnmore {
+  color: white;
+  margin-left: 20px;
+  text-align: center;
+  margin-top: 20px; 
+  /* Add margin to create space */
+}
+
+
+

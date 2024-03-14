@@ -1,17 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
-import Navigation from "./component/Navigation/Navigation.jsx";
+import Navigation from "./component/Navigation/Navigation/Navigation.jsx";
 import Home from "../src/pages/Home/Home.jsx";
 import SolarPanelLearnmore from "../src/pages/SolarPanel/SolarPanelLearnmore.jsx";
 import EnergyOrder from "../src/pages/Energy/EnergyOrder.jsx";
 import NewBuildingConsultation from "../src/pages/Construction/ConstructionConsultation.jsx";
 import ConstructionsLearnmore from "../src/pages/Construction/ConstructionLearnmore.jsx";
-import NavigationVertical from "./component/Navigation/NavigationVertical.jsx";
-
-import EnergyVertical from "./component/Navigation/NavComponent/Energy/EnergyVertical.jsx";
-import ConstructionsVertical from "./component/Navigation/NavComponent/Constructions/ConstructionsVertical.jsx";
-import ShopVertical from "./component/Navigation/NavComponent/Shop/ShopVertical.jsx";
-import DiscoverVertical from "./component/Navigation/NavComponent/Discover/DiscoverVertical.jsx";
 import Test from "./pages/Test/Test.jsx";
 import Footer from "./component/Footer/Footer.jsx";
 import Signup from "./pages/Auth/signup/Signup.jsx";
@@ -21,6 +15,12 @@ import Loading from "./routes/Loading.jsx";
 import PrivateRoutes from "./routes/PrivateRoutes.jsx";
 import Accessories from "./pages/Shop/Accessories.jsx";
 import Cart from "./pages/Shop/Cart.jsx";
+import NavEnergy from "./component/Navigation/NavEnergy/NavEnergy.jsx";
+import AccountDetailsForm from "./pages/Energy/Energy/energy.jsx";
+import OrderSolarPanel from "./pages/Energy/OrderSolarPanel/oredrSolarPanel.jsx";
+import BillCalculation from "./pages/Energy/BillCalculation/billCalculation.jsx";
+import Learnmore from "./pages/Energy/LearnMoreEnergy/learnmore.jsx";
+import ImageSlider from "./pages/Energy/LearnMoreEnergy/ImageSlider.jsx";
 
 function App() {
   return (
@@ -45,18 +45,15 @@ function App() {
           path="/construction-learnmore"
           element={<ConstructionsLearnmore />}
         />
-        <Route path="/menu" element={<NavigationVertical />} />
-        <Route path="/energy-vertical" element={<EnergyVertical />} />
-        <Route
-          path="/construction-vertical"
-          element={<ConstructionsVertical />}
-        />
-        <Route path="/shop-vertical" element={<ShopVertical />} />
-        <Route path="/discover-vertical" element={<DiscoverVertical />} />
         <Route path="/test" element={<Test />} />
         <Route path="/loading" element={<Loading />} />
         <Route path="/accessories" element={<Accessories />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/energy" element={<AccountDetailsForm />} />
+        <Route path="/orderSolarPanel" element={<OrderSolarPanel />} />
+        <Route path="/billCalculation" element={<BillCalculation />} />
+        <Route path="/ImageSlider" element={<ImageSlider />} />
+        <Route path="/learnmore" element={<Learnmore />} />
       </Routes>
       <Footer />
     </BrowserRouter>

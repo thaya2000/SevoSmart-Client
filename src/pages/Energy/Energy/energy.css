@@ -1,0 +1,157 @@
+.account-details-form {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 5px;
+    margin-right:30px;
+    align-items: center; /* Center the content horizontally */
+    justify-content: center; /* Center the content vertically */
+   
+  
+  }
+
+  .price{
+  margin-top: 40px;
+  text-align: center;
+  margin-left: 20px;
+  }
+  .order-summery {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 600;
+    font-family:'Inter', sans-serif ;
+  }
+
+  .order-summery1{
+    text-align: center;
+    font-size: 32px;
+    font-weight: 600;
+    font-family:'Inter', sans-serif ;
+    margin-left: 0;
+  }
+  
+  .upper-container{
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 5px;
+    margin-right:0;
+    align-items: center; /* Center the content horizontally */
+    justify-content: center;
+    margin-top: 0;
+  }
+  h2 {
+    font-family: 'Inter', sans-serif; 
+    font-weight: 600; /* Adjust the font weight (e.g., 600 for semi-bold) */
+    font-size: 32px; /* Set the font size to 64 pixels */
+    margin-bottom: 35px;
+  }
+  
+  label {
+    font-family: 'Inter', sans-serif; /* Use the 'Inter' font, fallback to a sans-serif font */
+    display: block;
+  
+    margin-bottom: 15px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .label {
+    display: block;
+    margin-bottom: 15px;
+  }
+  
+  .inputl {
+    width: 100%;
+    padding: 8px;
+    height: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    outline: none;
+    margin-bottom: 20px;
+    background-color:rgb(204, 203, 203); /* Set background color to grey */
+  }
+  
+  .energy-order-button {
+    display: flex;
+    justify-content: center;
+    width: 60%;
+    padding: 10px;
+    background-color: rgba(5, 105, 255, 1);
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    align-self: center;
+    margin-top: 25px; 
+    font-size: 18px;
+    
+  }
+  
+  .agreement-statement {
+    margin-top: 15px; 
+    text-align: left; 
+    margin-bottom: 15px;
+    
+  }
+  
+  .agreement-statement p {
+    margin: 0; 
+    line-height: 1.5; 
+    color: #555; 
+  }
+  
+  .image {
+    max-width: 100%; 
+    height: auto; 
+    border-radius:30px;
+    margin-top: 50px;
+    margin-left: 70px; 
+  }
+
+.image-container {
+    display: flex;
+  }
+  
+  .image {
+    width: 70%; 
+    height: 50%;
+  }
+  
+  .main-container {
+    width: 50%; 
+  /*border:solid rebeccapurple 4px;*/
+   margin-left:60px;}
+
+   .Enter-card{
+    font-family: 'Inter', sans-serif; 
+    font-weight: 600; 
+    font-size: 28px; 
+    margin-bottom: 35px;
+   }
+
+
+   .Enter-account{
+      font-family: 'Inter', sans-serif; 
+      font-weight: 600; 
+      font-size: 28px; 
+      margin-bottom: 35px;
+     }
+     /* Add this CSS to your existing stylesheet */
+.account-details-form div {
+  margin-bottom: 15px; /* Adjust the value as needed */
+}
+
+.agreement-statement {
+  margin-bottom: 15px; /* Adjust the value as needed */
+}
+
+/* If you want to add space only to specific inputs, you can target them individually */
+.account-details-form input {
+  margin-bottom: 10px; /* Adjust the value as needed */
+}
+
+   
