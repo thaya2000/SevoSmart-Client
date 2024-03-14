@@ -4,7 +4,7 @@ import { userAuth } from "../../../context/authContext";
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
-
+import { FaUser ,FaLock} from "react-icons/fa";
 const Login = () => {
   const [email, setEmail] = useState("user@gmail.com");
   const [password, setPassword] = useState("user1234");
@@ -41,15 +41,22 @@ const Login = () => {
   return (
     <div className="flex relative items-center justify-center w-100v h-100v">
       <div className="login-container">
-        <div>Create Account</div>
-        <form onSubmit={handleSubmit} className="flex flex-col">
+        <div className="create-account">Login</div>
+        <form onSubmit={handleSubmit} className="from-login">
+          <div className="user-input-container">
+         
           <input
+          
             type="text"
             className="login-input"
             placeholder="Enter your email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
+           <FaUser  className="user-icon" />
+          
+          </div>
+          <div className="password-input-container">
           <input
             type="text"
             className="login-input"
@@ -57,8 +64,10 @@ const Login = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+          <FaLock  className="lock-icon"/>
+          </div>
           <div
-            className="bg-red-300 flex justify-center items-center font-light text-2xl border-slate-900 rounded-2xl cursor-pointer"
+            className="submit-button-login "
             type="submit"
             onClick={handleSubmit}
           >
