@@ -26,9 +26,9 @@ export default function AccountMenu() {
   return (
     <div>
       <div onMouseEnter={handleProfileHover} onMouseLeave={handleProfileLeave}>
-        <button className="naviAccount">
+        <div className="naviAccount">
           {auth.user.firstname.charAt(0).toUpperCase()}
-        </button>
+        </div>
       </div>
       {activeProfile && (
         <div

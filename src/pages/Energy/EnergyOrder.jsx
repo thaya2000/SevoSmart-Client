@@ -260,12 +260,9 @@ const EnergyOrder = () => {
                 <p className="text-red-700">{formErrors.time}</p>
               </div>
 
-              <button
-                type="submit"
-                className="bg-[#334BA1] my-3 rounded-full h-7"
-              >
+              <div type="submit" className="bg-[#334BA1] my-3 rounded-full h-7">
                 Submit
-              </button>
+              </div>
             </div>
             <div className="flex flex-col w-[250px] mx-[3px]"></div>
           </div>

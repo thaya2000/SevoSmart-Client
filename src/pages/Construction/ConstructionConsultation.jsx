@@ -161,9 +161,7 @@ const NewBuildingConsultation = () => {
             </div>
 
             <div className="flex flex-col w-[250px] mx-[3px]">
-              <button className="bg-[#334BA1] mt-3 rounded-full h-7">
-                Submit
-              </button>
+              <div className="bg-[#334BA1] mt-3 rounded-full h-7">Submit</div>
             </div>
           </div>
         </div>

@@ -41,6 +41,9 @@
 }
 
 .service__button-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #040e42;
   color: #ffffff;
   height: 2rem;
@@ -51,6 +54,9 @@
 }
 
 .service__button-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #d6cdcd;
   color: #040e42;
   height: 2rem;
