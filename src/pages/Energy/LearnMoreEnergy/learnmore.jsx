@@ -2,8 +2,9 @@ import React from 'react';
 import ImageSlider from './ImageSlider';
 import './learnmore.css';
 import Image8 from '../../../Images/Image8.jpg';
-
-
+import Image9 from '../../../Images/Image9.png';
+import Image10 from '../../../Images/Image10.png';
+import Image11 from '../../../Images/Image11.jpg';
 
 
 
@@ -39,15 +40,27 @@ function learnmore() {
 
     <div className='bottom-container'>
          <div className='cost-container'>
-        
+         <img
+                src={Image9}
+                alt="cost"
+                className="learnmore-solar1"
+               />
          </div>
          <div className='efficient-container'>
-         
+         <img
+                src={Image11}
+                alt="cost"
+                className="learnmore-solar2"
+               />
          </div>
          
          <div className='longlife-container'>
         
-        
+         <img
+                src={Image10}
+                alt="cost"
+                className="learnmore-solar3"
+               />
          </div>
 
     </div>
