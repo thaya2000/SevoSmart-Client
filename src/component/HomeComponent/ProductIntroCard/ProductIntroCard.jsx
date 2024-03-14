@@ -21,10 +21,10 @@ const ProductIntroCard = ({
         </div>
         <div className="service__button-container">
           <Link to={orderLink}>
-            <button className="service__button-left">Order now</button>
+            <div className="service__button-left">Order now</div>
           </Link>
           <Link to={learnMoreLink}>
-            <button className="service__button-right">Learn more</button>
+            <div className="service__button-right">Learn more</div>
           </Link>
         </div>
       </div>

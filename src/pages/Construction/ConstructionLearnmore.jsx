@@ -16,9 +16,9 @@ const ConstructionsLearnmore = () => {
         <div className="Construction-title">
           <span>Construction</span>
           <Link to="/new-building-consultation">
-            <button className="bg-black text-white w-32 h-8 rounded-full border-none cursor-pointer">
+            <div className="bg-black text-white w-32 h-8 rounded-full border-none cursor-pointer">
               Book now
-            </button>
+            </div>
           </Link>
         </div>
         <div className="Construction-images">

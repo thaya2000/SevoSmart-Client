@@ -87,13 +87,13 @@ export default function Signup() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button
+          <div
             className="bg-red-300 font-light text-2xl border-slate-900 rounded-2xl"
             type="submit"
             onClick={handleSubmit}
           >
             Submit
-          </button>
+          </div>
         </form>
       </div>
     </div>

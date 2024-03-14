@@ -57,13 +57,13 @@ const Navigation = () => {
         </div>
         <div className="navigationItems" onMouseLeave={handleButtonLeave}>
           {navItems.map((item, index) => (
-            <button
+            <div
               key={index}
               className="navibuttons"
               onMouseEnter={() => handleButtonHover(index)}
             >
               {item.label}
-            </button>
+            </div>
           ))}
         </div>
         <div className="naviEnd">

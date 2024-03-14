@@ -12,10 +12,10 @@ const Product = ({ image, name }) => {
       <div className="energy-nav-product-name">{name}</div>
       <div className="flex items-center justify-around w-6/10">
         <Link to="/solar-learnmore">
-          <button className="energy-nav-button">Learn</button>
+          <div className="energy-nav-button">Learn</div>
         </Link>
         <Link to="/energy-order">
-          <button className="energy-nav-button">Order</button>
+          <div className="energy-nav-button">Order</div>
         </Link>
       </div>
     </div>

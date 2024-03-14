@@ -4,8 +4,6 @@ import Solarimg01 from "../../Images/Images2/Spanel01.jpg";
 import Solarimg02 from "../../Images/Images2/Spanel03.png";
 import Solarimg03 from "../../Images/Images2/Spanel02.png";
 import { Link } from "react-router-dom";
-import Navigation from "../../component/Navigation/Navigation";
-import Footer from "../../component/Footer/Footer";
 
 const SolarPanelLearnmore = () => {
   return (
@@ -14,9 +12,9 @@ const SolarPanelLearnmore = () => {
         <div className="Solar-title">
           <span>Solar panels</span>
           <Link to="/energy-order">
-            <button className="bg-black text-white w-32 h-8 rounded-full border-none cursor-pointer">
+            <div className="bg-black text-white w-32 h-8 rounded-full border-none cursor-pointer">
               shop now
-            </button>
+            </div>
           </Link>
         </div>
         <div className="Solar-images">

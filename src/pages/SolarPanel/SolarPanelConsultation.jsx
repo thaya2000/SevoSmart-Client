@@ -79,7 +79,6 @@ const EnergyOrder = () => {
 
   const [selectedDate, setSelectedDate] = useState(null);
 
-
   // try {
   //   const response = await axios.post("/api/energyOrder", formData);
   //   console.log("Data sent successfully:", response.data);
@@ -100,7 +99,6 @@ const EnergyOrder = () => {
 
   return (
     <div>
-      <Navigation />
       <form onSubmit={handleSubmit}>
         <div className="flex flex-col items-center gap-5 py-[80px]">
           <div className="flex flex-col sm:flex-row gap-8">
@@ -160,7 +158,10 @@ const EnergyOrder = () => {
                     type="checkbox"
                     checked={formValues.solarpanel}
                     onChange={(e) =>
-                      setFormValues({ ...formValues, solarpanel: e.target.checked })
+                      setFormValues({
+                        ...formValues,
+                        solarpanel: e.target.checked,
+                      })
                     }
                     id="solarpanel"
                     name="solarpanel"
@@ -222,7 +223,6 @@ const EnergyOrder = () => {
 
           <div className="flex flex-col sm:flex-row gap-8">
             <div className="flex flex-col w-[250px]">
-
               <div className="flex flex-col gap-3 ">
                 <div className="flex justify-items-start items-center gap-3 h-7 border-gray-800">
                   <BsCalendarDate
@@ -262,19 +262,14 @@ const EnergyOrder = () => {
                 <p className="text-red-700">{formErrors.time}</p>
               </div>
 
-              <button
-                type="submit"
-                className="bg-[#334BA1] my-3 rounded-full h-7"
-              >
+              <div type="submit" className="bg-[#334BA1] my-3 rounded-full h-7">
                 Submit
-              </button>
+              </div>
             </div>
             <div className="flex flex-col w-[250px] mx-[3px]"></div>
           </div>
         </div>
       </form>
-
-      <Footer />
     </div>
   );
 };
