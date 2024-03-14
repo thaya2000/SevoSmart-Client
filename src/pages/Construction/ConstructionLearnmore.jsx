@@ -6,12 +6,10 @@ import Constructionimg03 from "../../Images/ConstructionImage03.jpeg";
 import { Link } from "react-router-dom";
 
 import Footer from "../../component/Footer/Footer";
-import Navigation from "../../component/Navigation/Navigation";
 
 const ConstructionsLearnmore = () => {
   return (
     <div className="ConstructionLearnmore">
-      <Navigation />
       <div className="Ccontent01">
         <div className="Construction-title">
           <span>Construction</span>
@@ -66,7 +64,6 @@ const ConstructionsLearnmore = () => {
           </span>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };
