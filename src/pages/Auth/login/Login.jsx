@@ -1,6 +1,6 @@
 import "./Login.css";
 import { useState } from "react";
-import { useAuth } from "../../../context/authContext";
+import { userAuth } from "../../../context/authContext";
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -10,7 +10,7 @@ const Login = () => {
   const [password, setPassword] = useState("user1234");
 
   // hook
-  const [auth, setAuth] = useAuth();
+  const [auth, setAuth] = userAuth();
   const navigate = useNavigate();
   const location = useLocation();
 

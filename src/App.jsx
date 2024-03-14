@@ -17,6 +17,8 @@ import Footer from "./component/Footer/Footer.jsx";
 import Signup from "./pages/Auth/signup/Signup.jsx";
 import Login from "./pages/Auth/login/Login.jsx";
 import { Toaster } from "react-hot-toast";
+import Loading from "./routes/Loading.jsx";
+import PrivateRoutes from "./routes/PrivateRoutes.jsx";
 
 function App() {
   return (
@@ -24,6 +26,10 @@ function App() {
       <Navigation />
       <Toaster />
       <Routes>
+        {/* <Route path="/" element={<PrivateRoutes />}>
+          <Route path="" element={<Home />} />
+        </Route> */}
+
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Signup />} />
         <Route path="/login" element={<Login />} />
@@ -46,6 +52,7 @@ function App() {
         <Route path="/shop-vertical" element={<ShopVertical />} />
         <Route path="/discover-vertical" element={<DiscoverVertical />} />
         <Route path="/test" element={<Test />} />
+        <Route path="/loading" element={<Loading />} />
       </Routes>
       <Footer />
     </BrowserRouter>

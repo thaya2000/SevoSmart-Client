@@ -1,0 +1,32 @@
+.account-menu-container {
+  display: flex;
+  position: absolute;
+  right: 1.5rem;
+  width: 100px;
+  border: solid #040e42 2px;
+  border-radius: 1rem;
+  background-color: #ffffff;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.account-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 1rem;
+}
+
+.naviAccount {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  cursor: pointer;
+  align-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 100%;
+  margin-right: 1rem;
+  border: solid #040e42 2px;
+  font-weight: 700;
+}

@@ -1,163 +1,140 @@
-.SolarPanelLearnmore{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    
-    width: 100%;
-    padding-bottom: 1px;
-    
+.SolarPanelLearnmore {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: 100%;
+  padding-bottom: 1px;
 }
 
-.content01{
-    display: flex;
-    flex-direction: row;
-    
-    
-    justify-content: center;
-    padding-top: 15vh;
-    
-    height: 100%;
-    background: linear-gradient(180deg, #081C3A 0%, #80808a 50%);
-}
-.Solar-title{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.content01 {
+  display: flex;
+  flex-direction: row;
 
-} 
-.Solar-title>span{
-    margin-bottom:4vh ;
-    color: #FFFFFF;
-    font-size: 5vw;
-    font-family: "Convergence";
-    font-weight: bold;
+  justify-content: center;
+  padding-top: 15vh;
+
+  height: 100%;
+  background: linear-gradient(180deg, #081c3a 0%, #80808a 50%);
+}
+.Solar-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.Solar-title > span {
+  margin-bottom: 4vh;
+  color: #ffffff;
+  font-size: 5vw;
+  font-family: "Convergence";
+  font-weight: bold;
 }
 
-.Solar-title>button{
-    background-color: #081C3A;
-    color: #FFFFFF;
-    width: 8rem;
-    height: 2rem;
-    border-radius: 15px;
-    border: none;
-    cursor: pointer;
-    
+.Solar-title > button {
+  background-color: #081c3a;
+  color: #ffffff;
+  width: 8rem;
+  height: 2rem;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
 }
 
-.Solar-title>button:hover{
-    background-color: #172437;
+.Solar-title > button:hover {
+  background-color: #172437;
 }
 
-.Solar-images{
-    display: block;
-    align-items: center;
-    justify-content: center;
-    margin-left: 5vw;
-    margin-top: none;
-    padding-bottom: 5vh;
+.Solar-images {
+  display: block;
+  align-items: center;
+  justify-content: center;
+  margin-left: 5vw;
+  margin-top: none;
+  padding-bottom: 5vh;
 }
-.S01>img{
-    margin-left: 20vw;
-    margin-top: 2vw;
-    width: 12vw;
-    height: 12vw;
-    border-radius: 10rem;
-    border: 1px solid #081C3A;
-
-
+.S01 > img {
+  margin-left: 20vw;
+  margin-top: 2vw;
+  width: 12vw;
+  height: 12vw;
+  border-radius: 10rem;
+  border: 1px solid #081c3a;
 }
 
-.Solar-images>img:nth-child(2){
-    width: 25vw;
-    height: 15vw;
-    border-radius: 10vw;
-    margin-right: 5vw;
-    border: 1px solid #081C3A;
-
+.Solar-images > img:nth-child(2) {
+  width: 25vw;
+  height: 15vw;
+  border-radius: 10vw;
+  margin-right: 5vw;
+  border: 1px solid #081c3a;
 }
-.Solar-images>img:nth-child(3){
-    width: 8vw;
-    height: 8vw;
-    border-radius: 5rem;
-    border: 1px solid #081C3A;
-
+.Solar-images > img:nth-child(3) {
+  width: 8vw;
+  height: 8vw;
+  border-radius: 5rem;
+  border: 1px solid #081c3a;
 }
 
-.content02-img{
-    width: auto;
-    height: 40vw;
-    
+.content02-img {
+  width: auto;
+  height: 40vw;
 }
-.content02{
-    display: flex;
-    flex-direction: row;
-    height: 100%;
-    width: auto;
-    background-size: 100vw 60vw;
-    
-    
+.content02 {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: auto;
+  background-size: 100vw 60vw;
 }
 
-.content02-discription{
-    background: linear-gradient(180deg, #040E42 60%, #80808a 100%);
-    
-    color: #FFFFFF;
-    width: 25vw;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    font-family: Almarai;
-    padding: 2vw;
+.content02-discription {
+  background: linear-gradient(180deg, #040e42 60%, #80808a 100%);
+
+  color: #ffffff;
+  width: 25vw;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-family: Almarai;
+  padding: 2vw;
 }
 
-.content02-discription>span:nth-child(1){
-    
-    font-weight: bold;
-    font-size: 3.25vw;
-    
-    margin-bottom: 5vw;
+.content02-discription > span:nth-child(1) {
+  font-weight: bold;
+  font-size: 3.25vw;
 
+  margin-bottom: 5vw;
 }
 
-.content02-discription>span:nth-child(2){
-    
-    font-weight: bold;
-    font-size: 2.25vw;
-    
-   
-
+.content02-discription > span:nth-child(2) {
+  font-weight: bold;
+  font-size: 2.25vw;
 }
 
-.content03-discription{
-    background: linear-gradient(180deg, #040E42 60%, #80808a 100%);
-    color: #FFFFFF;
-    width: 25vw;
-    height: auto;
-    display: flex;
-    flex-direction: column;
+.content03-discription {
+  background: linear-gradient(180deg, #040e42 60%, #80808a 100%);
+  color: #ffffff;
+  width: 25vw;
+  height: auto;
+  display: flex;
+  flex-direction: column;
 
-    align-items: flex-start;
-    font-family: Almarai;
-    padding: 2vw;
-    margin-left: auto;
+  align-items: flex-start;
+  font-family: Almarai;
+  padding: 2vw;
+  margin-left: auto;
 }
 
-.content03-discription>span:nth-child(1){
-    
-    font-weight: bold;
-    font-size: 3.5vw;
-   
-    margin-bottom: 5vw;
+.content03-discription > span:nth-child(1) {
+  font-weight: bold;
+  font-size: 3.5vw;
 
+  margin-bottom: 5vw;
 }
 
-.content03-discription>span:nth-child(2){
-    
-    font-weight: bold;
-    font-size: 2.5vw;
-    
-   
-
+.content03-discription > span:nth-child(2) {
+  font-weight: bold;
+  font-size: 2.5vw;
 }

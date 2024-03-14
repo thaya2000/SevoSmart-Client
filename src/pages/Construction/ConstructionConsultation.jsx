@@ -4,120 +4,58 @@ import { TiTick } from "react-icons/ti";
 import { FaRegFolderClosed } from "react-icons/fa6";
 import axios from "axios";
 import DatePicker from "react-datepicker";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 import "react-datepicker/dist/react-datepicker.css";
 
-import Footer from "../../component/Footer/Footer";
-import Navigation from "../../component/Navigation/Navigation";
-
 const NewBuildingConsultation = () => {
-  const initialValues = {
-    firstname: "",
-    lastname: "",
-    email: "",
-    phoneno: "",
-    date: "",
-    time: "",
-  };
-  const [formValues, setFormValues] = useState(initialValues);
-  const [formErrors, setFormErrors] = useState({});
-  const [isSubmit, setIsSubmit] = useState(false);
+  const [firstName, setFirstName] = useState("user_f");
+  const [lastName, setLastName] = useState("user_l");
+  const [email, setEmail] = useState("thevarasathayanan@gmail.com");
+  const [phoneNo, setPhoneNo] = useState("1234567890");
+  const [attachments, setAttachements] = useState(null);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormValues({ ...formValues, [name]: value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setFormErrors(validate(formValues));
-    setIsSubmit(true);
-  };
+  const navigate = useNavigate();
 
   useEffect(() => {
-    console.log(formErrors);
-    if (Object.keys(formErrors).length === 0 && isSubmit) {
-      console.log(formValues);
-    }
-  }, [formErrors]);
+    console.log("First Name:", firstName);
+    console.log("Last Name:", lastName);
+    console.log("Email:", email);
+    console.log("Phone Number:", phoneNo);
+    console.log("attachments:", attachments);
+  }, [firstName, lastName, email, phoneNo, attachments]);
 
-  const validate = (values) => {
-    const errors = {};
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-    if (!values.firstname) {
-      errors.firstname = "First name is required!";
-    }
-    if (!values.lastname) {
-      errors.lastname = "Last name is required!";
-    }
-    if (!values.email) {
-      errors.email = "Email is required!";
-    } else if (!regex.test(values.email)) {
-      errors.email = "This is not a valid email format!";
-    }
-    if (!values.phoneno) {
-      errors.phoneno = "Phone no is required";
-    }
-    if (!values.date) {
-      errors.date = "Date is required!";
-    }
-    if (!values.time) {
-      errors.time = "Time is required!";
-    }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const consultantData = new FormData();
+      consultantData.append("firstName", firstName);
+      consultantData.append("lastName", lastName);
+      consultantData.append("email", email);
+      consultantData.append("phoneNo", phoneNo);
+      for (let i = 0; i < attachments.length; i++) {
+        consultantData.append("attachments", attachments[i]);
+      }
 
-    return errors;
-  };
-
-  const [selectedDate, setSelectedDate] = useState(null);
-  const datepickerRef = useRef(null);
-
-  const handleCalendarIconClick = () => {
-    if (datepickerRef.current) {
-      datepickerRef.current.setOpen(true);
+      const { data } = await axios.post(
+        "http://localhost:8083/person",
+        consultantData
+      );
+      console.log(data);
+      if (data?.error) {
+        toast.error(data.error);
+      } else {
+        toast.success(`Document is uploaded successfully`);
+        navigate("/");
+      }
+    } catch (err) {
+      console.log(err);
+      toast.error("Product create failed. Try again.");
     }
   };
-
-  const [files, setFiles] = useState([]);
-  const [uploadedFiles, setUploadedFiles] = useState([]);
-  const [uploadProgress, setUploadProgress] = useState(0);
-
-  function handleMultipleChange(event) {
-    setFiles([...event.target.files]);
-  }
-
-  function handleMultipleSubmit(event) {
-    event.preventDefault();
-    const url = "http://localhost:3000/uploadFiles";
-    const formData = new FormData();
-    files.forEach((file, index) => {
-      formData.append(`file${index}`, file);
-    });
-
-    const config = {
-      headers: {
-        "content-type": "multipart/form-data",
-      },
-      onUploadProgress: function (progressEvent) {
-        const percentCompleted = Math.round(
-          (progressEvent.loaded * 100) / progressEvent.total
-        );
-        setUploadProgress(percentCompleted);
-      },
-    };
-
-    axios
-      .post(url, formData, config)
-      .then((response) => {
-        console.log(response.data);
-        setUploadedFiles(response.data.files);
-      })
-      .catch((error) => {
-        console.error("Error uploading files: ", error);
-      });
-  }
 
   return (
     <div>
-      <Navigation />
       <form onSubmit={handleSubmit}>
         <div className="flex flex-col items-center gap-5 py-[100px]">
           <div className="flex flex-col sm:flex-row sm:justify-center gap-8">
@@ -153,45 +91,45 @@ const NewBuildingConsultation = () => {
                 <input
                   className="pl-[4px] h-7 rounded-md bg-[#D9D9D9] "
                   type="text"
-                  value={formValues.firstname}
-                  onChange={handleChange}
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
                   name="firstname"
                 />
               </div>
-              <p className="text-red-700">{formErrors.firstname}</p>
+              {/* <p className="text-red-700">{formErrors.firstname}</p> */}
               <div className="flex flex-col  ">
                 <text className="font-medium text-sm"> Last Name</text>
                 <input
                   className="pl-[4px] h-7 rounded-md bg-[#D9D9D9] "
                   type="text"
-                  value={formValues.lastname}
-                  onChange={handleChange}
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
                   name="lastname"
                 />
               </div>
-              <p className="text-red-700">{formErrors.lastname}</p>
+              {/* <p className="text-red-700">{formErrors.lastname}</p> */}
               <div className="flex flex-col mt-2">
                 <text className="font-medium text-sm">Email ID</text>
                 <input
                   className="h-7 pl-[4px] rounded-md  bg-[#D9D9D9]"
                   type="text"
-                  value={formValues.email}
-                  onChange={handleChange}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   name="email"
                 />
               </div>
-              <p className="text-red-700">{formErrors.email}</p>
+              {/* <p className="text-red-700">{formErrors.email}</p> */}
               <div className="flex flex-col mt-2">
                 <text className="font-medium text-sm">Phone No</text>
                 <input
                   className="h-7 pl-[4px] rounded-md bg-[#D9D9D9] "
                   type="text"
-                  value={formValues.phoneno}
-                  onChange={handleChange}
+                  value={phoneNo}
+                  onChange={(e) => setPhoneNo(e.target.value)}
                   name="phoneno"
                 />
               </div>
-              <p className="text-red-700">{formErrors.phoneno}</p>
+              {/* <p className="text-red-700">{formErrors.phoneno}</p> */}
             </div>
           </div>
           <div className="flex flex-col sm:flex-row gap-8">
@@ -206,79 +144,23 @@ const NewBuildingConsultation = () => {
                 your documents here
               </p>
               <div className="mt-2 ml-6">
-                <form onSubmit={handleMultipleSubmit}>
-                  <label
-                    htmlFor="file-input"
-                    className="flex items-center mb-2 hover:cursor-pointer"
-                  >
-                    <FaRegFolderClosed size={30} />
-                  </label>
-                  <input
-                    id="file-input"
-                    className="hidden"
-                    type="file"
-                    multiple
-                    onChange={handleMultipleChange}
-                  />
-                  <button
-                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-1 me-2 mt-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-                    type="submit"
-                  >
-                    Upload
-                  </button>
-                  <progress
-                    className="h-2.5 w-100 rounded-full"
-                    value={uploadProgress}
-                    max="100"
-                  ></progress>
-                </form>
-                {uploadedFiles.map((file, index) => (
-                  <img
-                    key={index}
-                    src={file}
-                    alt={`Uploaded content ${index}`}
-                  />
-                ))}
+                <label
+                  htmlFor="file-input"
+                  className="flex items-center mb-2 hover:cursor-pointer"
+                >
+                  <FaRegFolderClosed size={30} />
+                </label>
+                <input
+                  className="pl-[4px] h-7 rounded-md bg-[#D9D9D9]"
+                  type="file"
+                  multiple
+                  name="attachments"
+                  onChange={(e) => setAttachements(e.target.files)}
+                />
               </div>
             </div>
 
             <div className="flex flex-col w-[250px] mx-[3px]">
-              <div className="flex gap-4 items-center h-7 border-gray-800">
-                <BsCalendarDate
-                  size={30}
-                  onClick={handleCalendarIconClick}
-                  className="hover:cursor-pointer"
-                />
-
-                <DatePicker
-                  name="date"
-                  ref={datepickerRef}
-                  selected={selectedDate}
-                  onChange={(date) => {
-                    setFormValues({ ...formValues, date });
-                    setSelectedDate(date);
-                  }}
-                  dateFormat="dd/MM/yyyy"
-                  filterDate={(date) =>
-                    date.getDay() !== 6 && date.getDay() !== 0
-                  }
-                  className=""
-                />
-              </div>
-              <p className="text-red-700 mb-3">{formErrors.date}</p>
-              <div className="flex">
-                <input
-                  value={formValues.time}
-                  onChange={handleChange}
-                  name="time"
-                  disableClock="true"
-                  placeholder="Time"
-                  className="h-7 hover:cursor-pointer rounded-md bg-[#D9D9D9]"
-                  type="time"
-                />
-              </div>
-              <p className="text-red-700">{formErrors.time}</p>
-
               <button className="bg-[#334BA1] mt-3 rounded-full h-7">
                 Submit
               </button>
@@ -286,7 +168,6 @@ const NewBuildingConsultation = () => {
           </div>
         </div>
       </form>
-      <Footer />
     </div>
   );
 };

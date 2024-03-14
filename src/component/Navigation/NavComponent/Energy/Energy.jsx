@@ -11,10 +11,10 @@ const Product = ({ image, name }) => {
       <img className="energy-product-image" src={image} alt="" />
       <div className="energy-product-name">{name}</div>
       <div className="flex items-center justify-around w-6/10">
-        <Link to="/energy-order">
+        <Link to="/solar-learnmore">
           <button className="energy-button">Learn</button>
         </Link>
-        <Link to="/solar-learnmore">
+        <Link to="/energy-order">
           <button className="energy-button">Order</button>
         </Link>
       </div>

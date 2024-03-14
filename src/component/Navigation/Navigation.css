@@ -28,6 +28,28 @@
   justify-content: flex-start;
 }
 
+.navLogin {
+  display: flex;
+  margin-right: 0.5rem;
+  padding: 0.25rem;
+  border: solid #040e42 2px;
+  border-radius: 5px;
+  color: #040e42;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.navLogin:active {
+  background-color: #040e42;
+  color: #ffffff;
+  transform: scale(1.01);
+}
+
+.navLogin:hover {
+  background-color: #040e42;
+  color: #ffffff;
+}
+
 .navigationItems {
   display: flex;
   width: 33%;
@@ -56,15 +78,6 @@
   width: 33%;
   align-items: center;
   justify-content: flex-end;
-}
-
-.naviAccount {
-  display: flex;
-  justify-content: center;
-  cursor: pointer;
-  align-items: center;
-  margin-left: 0.5vw;
-  margin-right: 0.5vw;
 }
 
 .naviSearch {
