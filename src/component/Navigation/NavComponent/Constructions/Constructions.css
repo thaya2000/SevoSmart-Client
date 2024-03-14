@@ -1,4 +1,4 @@
-.constructions {
+.constructions-nav {
   display: flex;
   flex-direction: row;
   height: 60vh;
@@ -10,7 +10,7 @@
   font-family: "Inter", sans-serif;
 }
 
-.construction-products {
+.construction-nav-products {
   width: 70%;
   display: flex;
   flex-direction: row;
@@ -23,7 +23,7 @@
   border-color: transparent #c4c2c2 transparent transparent;
 }
 
-.construction-product {
+.construction-nav-product {
   width: 200px;
   display: flex;
   flex-direction: column;
@@ -33,18 +33,18 @@
   cursor: pointer;
 }
 
-.construction-product-image {
+.construction-nav-product-image {
   width: 150px;
   height: 150px;
   object-fit: cover;
   transition: transform 0.3s ease-in-out;
 }
 
-.construction-product:hover .construction-product-image {
+.construction-nav-product:hover .construction-nav-product-image {
   transform: scale(1.1);
 }
 
-.construction-name {
+.construction-nav-product-name {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -56,7 +56,7 @@
   padding-right: 5px;
 }
 
-.construction-options {
+.construction-nav-options {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -66,7 +66,7 @@
   padding-left: 5%;
 }
 
-.construction-list {
+.construction-nav-list {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -74,7 +74,7 @@
   height: 90%;
 }
 
-.construction-list span {
+.construction-nav-list span {
   cursor: pointer;
 }
 
