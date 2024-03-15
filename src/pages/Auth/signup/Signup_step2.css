@@ -16,9 +16,13 @@
 }
 
 .create-account2-text {
-  color: black;
-  font-size: 40px;
-  font-weight: bold;
+  margin-top: -70px;
+  margin-bottom: 10px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: rgb(122, 124, 124);
+  text-decoration-skip-ink: none; /* Ensure underline covers entire text */
+  padding-bottom: 5px; /* Increase space beneath the text */
+  border-bottom: 3px solid rgb(83, 85, 86);
 }
 
 .Signup_step2-inputs {

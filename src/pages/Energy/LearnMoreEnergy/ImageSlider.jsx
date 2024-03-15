@@ -77,7 +77,7 @@ const ImageSlider = () => {
         src={slides[currentIndex]}
         alt={'Slide ${currentIndex + 1}'}
       />
-      <div className="dots-container">
+      <div className="dots-container absolute flex flex-row bottom-2 w-full item-center justify-center">
         {Array.from({ length: 3 }).map((_, index) => (
           <div 
           onClick={()=> moveDot(index)}

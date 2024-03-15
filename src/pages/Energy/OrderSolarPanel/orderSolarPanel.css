@@ -70,18 +70,6 @@
     background-color:rgb(204, 203, 203); /* Set background color to grey */
   }
   
-  button {
-    width: 300px;
-    padding: 10px;
-    background-color: rgba(51, 75, 161, 1);
-    color: #fff;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    align-self: center;
-    margin-top: 15px; 
-    
-  }
   
   .agreement-statementO {
     margin-top: 15px; 

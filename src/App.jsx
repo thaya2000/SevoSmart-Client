@@ -60,7 +60,6 @@ function App() {
         <Route path="/energy" element={<AccountDetailsForm />} />
         <Route path="/orderSolarPanel" element={<OrderSolarPanel />} />
         <Route path="/billCalculation" element={<BillCalculation />} />
-        <Route path="/ImageSlider" element={<ImageSlider />} />
         <Route path="/learnmore" element={<Learnmore />} />
         <Route path="/admin-panel" element={<AdminPanel />} />
         <Route path="/add-product" element={<AddProduct />} />

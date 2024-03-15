@@ -49,7 +49,7 @@ export default function Signup() {
   return (
     <div className="flex relative items-center justify-center w-100v h-100v">
       <div className="signup-container">
-        <div>Create Account</div>
+        <div className="create-account-text">Create Account</div>
         <form onSubmit={handleSubmit} className="flex flex-col">
           <input
             type="text"
@@ -88,7 +88,7 @@ export default function Signup() {
             onChange={(e) => setPassword(e.target.value)}
           />
           <div
-            className="bg-red-300 flex justify-center items-center font-light text-2xl border-slate-900 rounded-2xl"
+            className="submit-button-register "
             type="submit"
             onClick={handleSubmit}
           >
