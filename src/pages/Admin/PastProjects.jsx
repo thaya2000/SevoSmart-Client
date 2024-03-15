@@ -6,9 +6,9 @@ import image3 from "../../assets/footer_sample.jpg";
 
 const PastProjects = () => {
     const [projects, setProjects] = useState([
-        { id: 1, name: 'Project 1', images: [image1, image2], description: 'Description of Project 1' },
+        { id: 1, name: 'Project 1', images: [image1, image2,image3], description: 'Description of Project 1' },
         { id: 2, name: 'Project 2', images: [image3, image1], description: 'Description of Project 2' },
-        { id: 3, name: 'Project 1', images: [image1, image2], description: 'Description of Project 1' },
+        { id: 3, name: 'Project 1', images: [image1, image2], description: 'To ensure that the borders in the project images column and the actions column match with the other column borders and to get a properly aligned table, you can adjust the padding and margins of the table cells. Here' },
         { id: 4, name: 'Project 2', images: [image3, image1], description: 'Description of Project 2' },
         // Add more projects as needed
     ]);
@@ -43,32 +43,37 @@ const PastProjects = () => {
                     <tbody className='text-white'>
                         {projects.map(project => (
                             <tr key={project.id} className="bg-gray-700">
-                                <td className="border px-4 py-2" style={{ verticalAlign: "top" }}>{project.name}</td>
-                                <td className="border px-4 py-2 flex flex-row" style={{ verticalAlign: "top" }}>
-                                    {project.images.map((image, index) => (
-                                        <img key={index} src={image} alt={`Project ${index + 1}`} className="h-16 object-cover rounded-lg mx-2" style={{ width: 'auto' }} />
-                                    ))}
+                                <td className="border px-4 py-2">{project.name}</td>
+                                <td className="border px-4 py-2">
+                                    <div className="flex flex-row justify-center">
+                                        {project.images.map((image, index) => (
+                                            <img key={index} src={image} alt={`Project ${index + 1}`} className="h-16 object-cover rounded-lg mx-2" style={{ width: 'auto' }} />
+                                        ))}
+                                    </div>
                                 </td>
-                                <td className="border px-4 py-2" style={{ verticalAlign: "top" }}>{project.description}</td>
-                                <td className="border px-4 py-2 flex items-center" style={{ verticalAlign: "top" }}>
+                                <td className="border px-4 py-2" >{project.description}</td>
+                                <td className="border px-4 py-2">
+                                    <div className='flex flex-row justify-center'>
                                     <Link
                                         to={`/edit-project/${project.id}`}
                                         className="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-4 mr-2 rounded"
                                     >
                                         Edit
                                     </Link>
-                                    <button
+                                    <Link
                                         className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-4 rounded"
                                         onClick={() => handleDeleteProject(project.id)}
                                     >
                                         Delete
-                                    </button>
+                                    </Link>
+                                    </div>
                                 </td>
                             </tr>
                         ))}
                     </tbody>
                 </table>
             </div>
+
         </div>
     );
 };
