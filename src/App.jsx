@@ -24,6 +24,11 @@ import ImageSlider from "./pages/Energy/LearnMoreEnergy/ImageSlider.jsx";
 import AdminPanel from "./pages/Admin/AdminPanel.jsx";
 import AddProduct from "./pages/Admin/AddProduct.jsx";
 import EditProduct from "./pages/Admin/EditProduct.jsx";
+import Products from "./pages/Admin/Products.jsx";
+import PastProjects from "./pages/Admin/PastProjects.jsx";
+import AddProject from "./pages/Admin/AddProject.jsx";
+import EditProject from "./pages/Admin/EditProject.jsx";
+import Users from "./pages/Admin/Users.jsx";
 
 function App() {
   return (
@@ -60,6 +65,11 @@ function App() {
         <Route path="/admin-panel" element={<AdminPanel />} />
         <Route path="/add-product" element={<AddProduct />} />
         <Route path="/edit-product/:id" element={<EditProduct />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/past-projects" element={<PastProjects />} />
+        <Route path="/add-project" element={<AddProject />} />
+        <Route path="/edit-project/:id" element={<EditProject />} />
+        <Route path="/users" element={<Users />} />
       </Routes>
       <Footer />
     </BrowserRouter>

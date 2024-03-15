@@ -97,7 +97,7 @@ const EditProduct = ({ onUpdateProduct }) => {
         </div>
         <div className="my-8 flex justify-center">
           <Link
-            to="/admin-panel"  // Replace "/update-product" with your desired path
+            to="/products" 
             className="bg-cyan-300 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
           >
             Update Product
