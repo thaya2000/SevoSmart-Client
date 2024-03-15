@@ -160,8 +160,10 @@ const NewBuildingConsultation = () => {
               </div>
             </div>
 
-            <div className="flex flex-col w-[250px] mx-[3px]">
-              <div className="bg-[#334BA1] mt-3 rounded-full h-7">Submit</div>
+            <div className="flex flex-col w-[250px] mx-[3px] justify-center cursor-pointer">
+              <button className="bg-[#334BA1] mt-3 rounded-full h-7 flex justify-center">
+                Submit
+              </button>
             </div>
           </div>
         </div>
