@@ -51,12 +51,12 @@ const Products = () => {
                                     >
                                         Edit
                                     </Link>
-                                    <button
+                                    <Link
                                         className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded"
                                         onClick={() => handleDeleteProduct(product.id)}
                                     >
                                         Delete
-                                    </button>
+                                    </Link>
                                 </td>
                             </tr>
                         ))}

@@ -4,6 +4,10 @@ const Users = () => {
     const [users, setUsers] = useState([
         { id: 1, name: 'John Doe', phone: '123-456-7890', email: 'john@example.com', address: '123 Main St, City' },
         { id: 2, name: 'Jane Smith', phone: '456-789-0123', email: 'jane@example.com', address: '456 Elm St, Town' },
+        { id: 1, name: 'John Doe', phone: '123-456-7890', email: 'john@example.com', address: '123 Main St, City' },
+        { id: 2, name: 'Jane Smith', phone: '456-789-0123', email: 'jane@example.com', address: '456 Elm St, Town' },
+        { id: 1, name: 'John Doe', phone: '123-456-7890', email: 'john@example.com', address: '123 Main St, City' },
+        { id: 2, name: 'Jane Smith', phone: '456-789-0123', email: 'jane@example.com', address: '456 Elm St, Town' },
         // Add more users as needed
     ]);
 
