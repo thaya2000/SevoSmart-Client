@@ -8,13 +8,13 @@ export default function OfferNode({ data, isConnectable }) {
     <div className="offer">
       <div
         className="offer-icon flex items-center justify-center"
-        style={{ "background-color": data.iconBgColor }}
+        style={{ backgroundColor: data.iconBgColor }}
       >
         {data.icon}
       </div>
       <div
         className="offer-label"
-        style={{ "background-color": data.labelBgColor }}
+        style={{ backgroundColor: data.labelBgColor }}
       >
         {data.label}
         <Handle

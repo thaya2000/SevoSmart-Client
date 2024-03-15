@@ -4,6 +4,13 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      backgroundColor: {
+        primary: "#040e42",
+        secondary: "#ffd700",
+      },
+      textColor: {
+        secondary: "#ffd700",
+      },
       height: {
         "10v": "10vh",
         "20v": "20vh",

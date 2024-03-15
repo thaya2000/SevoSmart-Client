@@ -9,6 +9,8 @@ import image3 from "../../assets/footer_sample.jpg";
 import IntroImageSlider from "../../component/HomeComponent/IntroImageSlider/IntroImageSlider.jsx";
 import Offer from "../../component/HomeComponent/Offer/Offer/Offer.jsx";
 import PastProject from "../../component/HomeComponent/PastProject/PastProject.jsx";
+import BillCalculator from "../../component/HomeComponent/BillCalculator/BillCalculator.jsx";
+import { useState } from "react";
 
 const Home = () => {
   const images = [image1, image2, image3];
@@ -64,6 +66,9 @@ const Home = () => {
         learnMoreLink="/construction-learnmore"
         textColor="#ffffff"
       />
+      <div>
+        <BillCalculator />
+      </div>
     </div>
   );
 };
