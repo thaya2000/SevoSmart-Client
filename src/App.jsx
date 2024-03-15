@@ -24,6 +24,7 @@ import ImageSlider from "./pages/Energy/LearnMoreEnergy/ImageSlider.jsx";
 import AdminPanel from "./pages/Admin/AdminPanel.jsx";
 import AddProduct from "./pages/Admin/AddProduct.jsx";
 import EditProduct from "./pages/Admin/EditProduct.jsx";
+import NewsPage from './pages/News/NewsPage.jsx';
 
 function App() {
   return (
@@ -60,6 +61,7 @@ function App() {
         <Route path="/admin-panel" element={<AdminPanel />} />
         <Route path="/add-product" element={<AddProduct />} />
         <Route path="/edit-product/:id" element={<EditProduct />} />
+        <Route path="/news" element={<NewsPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>
