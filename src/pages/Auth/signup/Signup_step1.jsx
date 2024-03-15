@@ -23,7 +23,7 @@ const Signup_step1 = () => {
       <div className="signup-card" >
           <div className="Signup_step1-container"style={{ backgroundImage: `url(${ConstructionsBg})` }} >
               <div className="Signup_step1-header">
-                <div className="create-account1-text">Create Account</div>
+                <div className="create-account1">Create Account</div>
               </div>
 
             <div className="Signup_step1-inputs">
