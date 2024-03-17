@@ -27,8 +27,8 @@ import EditProduct from "./pages/Admin/EditProduct.jsx";
 import Products from "./pages/Admin/Products.jsx";
 import PastProjects from "./pages/Admin/PastProjects.jsx";
 import AddProject from "./pages/Admin/AddProject.jsx";
-import EditProject from "./pages/Admin/EditProject.jsx";
 import Users from "./pages/Admin/Users.jsx";
+import EditPastProject from "./pages/Admin/EditPastProject.jsx";
 
 function App() {
   return (
@@ -68,8 +68,8 @@ function App() {
         <Route path="/products" element={<Products />} />
         <Route path="/past-projects" element={<PastProjects />} />
         <Route path="/add-project" element={<AddProject />} />
-        <Route path="/edit-project/:id" element={<EditProject />} />
         <Route path="/users" element={<Users />} />
+        <Route path="/edit-project/:id" element={<EditPastProject />} />
       </Routes>
       <Footer />
     </BrowserRouter>

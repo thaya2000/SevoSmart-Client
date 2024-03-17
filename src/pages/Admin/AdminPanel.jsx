@@ -18,6 +18,7 @@ const AdminPanel = () => {
                     <li><Link to="/users">Users</Link></li>
                     <li><Link to="/products">Accessories</Link></li>
                     <li><Link to="/past-projects">Past Projects</Link></li>
+                    <li><Link to="/past-projects">News</Link></li>
                     <li><Link to="/logout">Logout</Link></li>
                 </ul>
             </div>
