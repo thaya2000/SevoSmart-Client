@@ -35,7 +35,7 @@ export const Signup_step2 = () => {
           </div>
 
           <div className="Signup_step2-submit-container">
-            <button className="create-account-button">Create Account</button>
+            {/* <button className="create-account-button">Create Account</button> */}
           </div>
         </div>
       </div>

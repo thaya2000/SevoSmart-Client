@@ -6,12 +6,9 @@
   
   .ImageA-container,
   .textA-container {
-   
-    /* border: #000000 3px solid; */
     width:50%; /* Equal width for both containers */
   }
-  
-  /* Additional styles for the containers */
+
   .ImageA-container {
     width:50%;
 
@@ -27,7 +24,7 @@
   }
   .learnmore-solar{
 
-    margin-top:100px;
+    margin-top:60px;
     margin-left:100px;
     margin-bottom: 100px;
     
@@ -44,16 +41,20 @@
   .bottom-container{
     display:flex;
     width:100%;
+    margin-top: 40px;
     
 
   }
   .cost-container,
   .efficient-container,
   .longlife-container{
+    border-radius: 15px;
     width: 20%;
-    border:solid 3px black;
+    border:solid 1px rgb(153, 150, 150);
     display: inline-block;
-    margin-top: 150px;
+    margin-top: 20px;
+    padding:30px;
+    margin-bottom: 100px;
 
   }
   .cost-container{
@@ -67,3 +68,35 @@
     margin-left:10%;
    
   }
+
+
+  .headof-benifits{
+
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 26px;
+    font-weight: 400;
+   margin-left: 320px;
+   
+
+
+  }
+  .eco-friently{
+    font-family:"Convergence", sans-serif;
+    color: rgb(182, 147, 6);
+    font-size: 22px;
+    margin-top: 20px;
+    text-align: center;
+
+  }
+  .eco-friently-parah{
+    text-align: center;
+  }
+
+
+   .past-project-head{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 26px;
+    font-weight: 400;
+    margin-left: 600px;
+   
+   }

@@ -49,7 +49,7 @@ export default function Signup() {
   return (
     <div className="flex relative items-center justify-center w-100v h-100v">
       <div className="signup-container">
-        <div className="create-account-text">Create Account</div>
+        <div className="create-account-text">SignUp</div>
         <form onSubmit={handleSubmit} className="flex flex-col">
           <input
             type="text"
@@ -89,10 +89,9 @@ export default function Signup() {
           />
           <div
             className="submit-button-register "
-            type="submit"
             onClick={handleSubmit}
           >
-            Submit
+            SignUp
           </div>
         </form>
       </div>

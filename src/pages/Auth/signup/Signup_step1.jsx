@@ -57,7 +57,7 @@ const Signup_step1 = () => {
             </div>
 
             <div className="Signup_step1-submit-container">
-              <button className="next-button">Next</button>
+              {/* <button className="next-button">Next</button> */}
 
         
             </div>

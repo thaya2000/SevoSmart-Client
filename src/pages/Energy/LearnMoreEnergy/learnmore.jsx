@@ -36,22 +36,36 @@ function learnmore() {
       <span className='experienceB'>Your trusted partner in solar energy solutions. We specialize in residential and commercial solar installations, providing seamless integration and cost-effective solutions tailored to your needs. Our services include expert installation, maintenance, and energy management, ensuring optimal performance and sustainability. Experience the power of the sun and embrace a brighter, greener future today.</span>
      </div>
      </div>
+    
     </div>
-
+    <div className='headof-benifits'>
+      <span>Let's uncover the brilliance of solar energy and explore its boundless benefits</span>
+     </div>
     <div className='bottom-container'>
          <div className='cost-container'>
          <img
                 src={Image9}
                 alt="cost"
                 className="learnmore-solar1"
+                width={300}
+                height={300}
+                style={{ borderRadius: '20px' }}
                />
+               <div className='eco-friently'> Eco Friendly </div>
+               <div className='eco-friently-parah'>Solar panels are a highly eco-friendly energy solution. By harnessing sunlight to generate electricity, they produce zero emissions, helping combat climate change </div>
          </div>
          <div className='efficient-container'>
          <img
                 src={Image11}
                 alt="cost"
                 className="learnmore-solar2"
+                width={300}
+                height={300}
+                style={{ borderRadius: '20px' }}
+             
                />
+               <div className='eco-friently'>Renewable Energy Source</div>
+               <div className='eco-friently-parah'>Solar panels harness energy from the sun, a virtually limitless and renewable source.</div>
          </div>
          
          <div className='longlife-container'>
@@ -60,9 +74,23 @@ function learnmore() {
                 src={Image10}
                 alt="cost"
                 className="learnmore-solar3"
+                width={300}
+                height={300}
+                style={{ borderRadius: '10px' }}
                />
+               <div className='eco-friently'> Energy Cost Savings </div>
+               <div className='eco-friently-parah'>One of the most significant financial advantages of solar panels is the potential for substantial energy cost savings. By generating your own electricity </div>
+         
          </div>
 
+    </div>
+
+    <div className='past-project-container'>
+      <div>
+        <span className='past-project-head'>
+          Some of our past project
+        </span>
+      </div>
     </div>
 
      

@@ -20,10 +20,11 @@ import AccountDetailsForm from "./pages/Energy/Energy/energy.jsx";
 import OrderSolarPanel from "./pages/Energy/OrderSolarPanel/oredrSolarPanel.jsx";
 import BillCalculation from "./pages/Energy/BillCalculation/billCalculation.jsx";
 import Learnmore from "./pages/Energy/LearnMoreEnergy/learnmore.jsx";
-import ImageSlider from "./pages/Energy/LearnMoreEnergy/ImageSlider.jsx";
 import AdminPanel from "./pages/Admin/AdminPanel.jsx";
 import AddProduct from "./pages/Admin/AddProduct.jsx";
 import EditProduct from "./pages/Admin/EditProduct.jsx";
+import SwiperSlides from "./pages/Energy/LearnMoreEnergy/swiperSlide.jsx";
+
 
 function App() {
   return (
@@ -59,10 +60,12 @@ function App() {
         <Route path="/admin-panel" element={<AdminPanel />} />
         <Route path="/add-product" element={<AddProduct />} />
         <Route path="/edit-product/:id" element={<EditProduct />} />
+        <Route path="/swiperSlide" element={<SwiperSlides />} />
+      
       </Routes>
       <Footer />
     </BrowserRouter>
   );
-}
+}0
 
 export default App;
