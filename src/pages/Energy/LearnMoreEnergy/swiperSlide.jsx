@@ -1,107 +1,96 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { EffectCoverflow, Pagination, Navigation } from 'swiper';
-import 'swiper/css/swiper.css';
-import 'swiper/css/effect-coverflow.css';
-import 'swiper/css/pagination.css';
-import 'swiper/css/navigation.css';
-import image1 from "../pages/assets/Images/Sevopro/pro1.jpg";
-import image2 from "../pages/assets/Images/Sevopro/pro2.jpg";
-import image3 from "../pages/assets/Images/Sevopro/pro3.jpg";
-import image4 from "../pages/assets/Images/Sevopro/pro4.jpg";
-import image5 from "../pages/assets/Images/Sevopro/pro5.jpg";
-import image6 from "../pages/assets/Images/Sevopro/pro6.jpg";
-import image7 from "../pages/assets/Images/Sevopro/pro7.jpg";
-import image8 from "../pages/assets/Images/Sevopro/pro8.jpg";
-import image9 from "../pages/assets/Images/Sevopro/pro9.jpg";
-import image10 from "../pages/assets/Images/Sevopro/pro10.jpg";
-import image11 from "../pages/assets/Images/Sevopro/pro11.jpg";
-import image12 from "../pages/assets/Images/Sevopro/pro12.jpg";
-import image13 from "../pages/assets/Images/Sevopro/pro13.jpg";
-import image14 from "../pages/assets/Images/Sevopro/pro14.jpg";
+import 'swiper/css';
+import './swiperSlide.css';
 
-// Initialize Swiper core modules
-SwiperCore.use([EffectCoverflow, Pagination, Navigation]);
+// Import Swiper styles
+
+import image1 from "../../../Images/pro1.jpg";
+import image2 from "../../../Images/pro2.jpg";
+import image3 from "../../../Images/pro3.jpg";
+import image4 from "../../../Images/pro4.jpg";
+import image5 from "../../../Images/pro5.jpg";
+import image6 from "../../../Images/pro6.jpg";
+import image7 from "../../../Images/pro7.jpg";
+import image8 from "../../../Images/pro8.jpg";
+import image9 from "../../../Images/pro9.jpg";
+import image10 from "../../../Images/pro10.jpg";
+import image11 from "../../../Images/pro11.jpg";
+import image12 from "../../../Images/pro12.jpg";
+import image13 from "../../../Images/pro13.jpg";
+import image14 from "../../../Images/pro14.jpg";
 
 function SwiperSlides() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const images = [
+    image1,
+    image2,
+    image3,
+    image4,
+    image5,
+    image6,
+    image7,
+    image8,
+    image9,
+    image10,
+    image11,
+    image12,
+    image13,
+    image14
+  ];
+
+  const handleSlideChange = (swiper) => {
+    setCurrentIndex(swiper.activeIndex);
+  };
+
+  // const goToPrevious = () => {
+  //   setCurrentIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
+  // };
+
+  // const goToNext = () => {
+  //   setCurrentIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
+  // };
+
   return (
-    <div className="container">
-      <h1 className="heading">Flower Gallery</h1>
+    <div className="containerA">
       <Swiper
-        effect={'coverflow'}
         grabCursor={true}
         centeredSlides={true}
         loop={true}
-        slidesPerView={'auto'}
+        slidesPerView={5}
         coverflowEffect={{
           rotate: 0,
           stretch: 0,
-          depth: 100,
-          modifier: 2.5,
         }}
-        pagination={{ el: '.swiper-pagination', clickable: true }}
-        navigation={{
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-          clickable: true,
-        }}
-        className="swiper_container"
+        className="swiper_containerA"
+        onSlideChange={(swiper) => handleSlideChange(swiper)}
+        initialSlide={currentIndex}
       >
-        {/* Add SwiperSlides with images */}
-        <SwiperSlide>
-          <img src={image1} alt="slide_image" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={image2} alt="slide_image" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={image3} alt="slide_image" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={image4} alt="slide_image" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={image5} alt="slide_image" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={image6} alt="slide_image" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={image7} alt="slide_image" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={image8} alt="slide_image" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={image9} alt="slide_image" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={image10} alt="slide_image" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={image11} alt="slide_image" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={image12} alt="slide_image" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={image13} alt="slide_image" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={image14} alt="slide_image" />
-        </SwiperSlide>
+        {images.map((image, index) => (
+          <SwiperSlide key={index}>
+            <img
+              src={image}
+              alt={`Slide ${index}`}
+              className={currentIndex === index ? "active-slide" : ""}
+            />
+          </SwiperSlide>
+        ))}
       </Swiper>
 
-      {/* Add slider control buttons */}
-      <div className="slider-controler">
-        <div className="swiper-button-prev slider-arrow">
-          <ion-icon name="arrow-back-outline"></ion-icon>
+      <div className="dot-containerA">
+        <div className="dot-row">
+          {images.map((_, index) => (
+            <div
+              key={index}
+              className={currentIndex === index ? "dot active" : "dot"}
+            ></div>
+          ))}
         </div>
-        <div className="swiper-button-next slider-arrow">
-          <ion-icon name="arrow-forward-outline"></ion-icon>
-        </div>
-        <div className="swiper-pagination"></div>
       </div>
+
+      {/* <button className="swiper-button-prev" onClick={goToPrevious}>Previous</button>
+      <button className="swiper-button-next" onClick={goToNext}>Next</button> */}
     </div>
   );
 }

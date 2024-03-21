@@ -1,0 +1,63 @@
+/* swiperStyles.css */
+
+/* Adjust image width and height */
+.swiper-slide img {
+    width: 220px; /* Adjust as needed */
+    height: 220px; 
+    margin-top:50px;
+    margin-bottom: 50px;
+   
+    
+    border-radius:20px;
+    border: 2px solid darkgoldenrod; 
+    transition: transform 0.3s ease; /* Smooth transition effect */
+}
+
+.swiper-slide img:hover {
+  transform: scale(1.1); /* Scale up the image by 10% on hover */
+}
+  .containerA{
+    width:80%;
+    margin:0 auto;
+  }
+
+  .dot-containerA {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .dot-row {
+    display: flex;
+  }
+  
+  .dot {
+    width: 10px;
+    margin-top:10px;
+    margin-bottom: 40px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: darkgoldenrod;
+
+    /* Adjust spacing between dots */
+  }
+  .swiper-button-next{
+    margin-left:50px;
+
+
+  }
+
+  .slide-image {
+    transition: transform 0.3s;
+  }
+  
+  .slide-image.active-slide {
+    transform: scale(1.1);
+  }
+  
+  .slide-image:hover {
+    border: 2px solid #007bff;
+  }
+  
+
+  

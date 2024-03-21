@@ -60,7 +60,8 @@ function App() {
         <Route path="/admin-panel" element={<AdminPanel />} />
         <Route path="/add-product" element={<AddProduct />} />
         <Route path="/edit-product/:id" element={<EditProduct />} />
-        
+        <Route path="/swiperSlide" element={<SwiperSlides />} />
+      
       </Routes>
       <Footer />
     </BrowserRouter>

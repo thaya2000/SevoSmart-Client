@@ -5,6 +5,7 @@ import Image8 from '../../../Images/Image8.jpg';
 import Image9 from '../../../Images/Image9.png';
 import Image10 from '../../../Images/Image10.png';
 import Image11 from '../../../Images/Image11.jpg';
+import SwiperSlides from './swiperSlide';
 
 
 
@@ -91,6 +92,8 @@ function learnmore() {
           Some of our past project
         </span>
       </div>
+
+      <SwiperSlides/>
     </div>
 
      
