@@ -44,7 +44,7 @@ const NewsPage = () => {
   ];
 
 
-  const [archiveVisible, setArchiveVisible] = useState(false); // State to manage visibility of the archive container
+  const [archiveVisible, setArchiveVisible] = useState(true); // State to manage visibility of the archive container
 
   const toggleArchiveVisibility = () => {
     setArchiveVisible(!archiveVisible); // Toggle visibility state
