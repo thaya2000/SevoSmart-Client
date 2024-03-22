@@ -100,6 +100,13 @@
   text-align: center;
   margin-top: 30px;
 
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.learnmore-buttonA:hover {
+  background-color: #0c243c; /* New background color on hover */
+  border: 0px 2px 5px  rgb(249, 179, 0); /* Add a box-shadow on hover */
+  color: white;
 }
 
 .learbmore-solar {

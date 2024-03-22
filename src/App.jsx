@@ -23,7 +23,8 @@ import Learnmore from "./pages/Energy/LearnMoreEnergy/learnmore.jsx";
 import AdminPanel from "./pages/Admin/AdminPanel.jsx";
 import AddProduct from "./pages/Admin/AddProduct.jsx";
 import EditProduct from "./pages/Admin/EditProduct.jsx";
-import SwiperSlides from "./pages/Energy/LearnMoreEnergy/swiperSlide.jsx";
+import ImageSliderConstruction from "./pages/Energy/learnmoreconstruction/Imagesliderconstruction.jsx";
+import Learnmoreconstruction from "./pages/Energy/learnmoreconstruction/learnmoreconstruction.jsx";
 
 
 function App() {
@@ -60,7 +61,8 @@ function App() {
         <Route path="/admin-panel" element={<AdminPanel />} />
         <Route path="/add-product" element={<AddProduct />} />
         <Route path="/edit-product/:id" element={<EditProduct />} />
-        <Route path="/swiperSlide" element={<SwiperSlides />} />
+        <Route path="/imagesliderconstruction" element={<ImageSliderConstruction/>}/>
+        <Route path="learnmoreconstruction" element={<Learnmoreconstruction/>}/>
       
       </Routes>
       <Footer />

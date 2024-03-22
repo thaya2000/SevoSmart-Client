@@ -17,8 +17,8 @@
   .textA-container {
     margin-right: 10px;
     margin-top:100px;
-    width:50%;
-    margin-left: 150px;
+    width:60%;
+    margin-left: 100px;
    /* Example background color */
     /* Add other styles as needed */
   }
@@ -31,10 +31,24 @@
    
   }
 
-  .experienceA{
+  .experienceAA{
     font-size: 32px;
     font-weight: 540;
     font-family: "Convergence", sans-serif;
+  }
+  
+  .bottom-para {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 540;
+    font-family: "Convergence", sans-serif;
+    color: rgb(9, 9, 110);
+    margin: 30px;
+    transition: font-size 0.3s ease ;
+  }
+  
+  .bottom-para:hover {
+    font-size: 20px; /* Adjust the zoomed font size as needed */
   }
   
 
@@ -54,7 +68,7 @@
     display: inline-block;
     margin-top: 20px;
     padding:30px;
-    margin-bottom: 100px;
+    margin-bottom: 60px;
 
   }
   .cost-container{
@@ -101,20 +115,24 @@
     margin-left: 600px;
    
    }
-   .learnmore-solar1 {
+   .cons-image1 {
+    height: 250px;
+    width:300px;
     transition: transform 0.3s ease;
   }
   
-  .learnmore-solar1:hover {
+  .cons-image1:hover {
     transform: scale(1.05); /* Increase the scale to zoom in */
   }
   
 
-  .learnmore-solar2 {
+  .cons-image2 {
     transition: transform 0.3s ease;
+    width:300px;
+    height:250px;
   }
   
-  .learnmore-solar2:hover {
+  .cons-image2:hover  {
     transform: scale(1.05); /* Increase the scale to zoom in */
   }
 
