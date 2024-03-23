@@ -65,6 +65,7 @@
   height: max-content;
   /* Allow Archive to grow with content */
   margin-right: 10px;
+  margin-left: 0px;
   /* Add a margin between Archive and News Feed */
 }
 
@@ -395,6 +396,12 @@
 
 
 }
+
+
+
+
+
+
 @media screen and (max-width: 800px) {
  
   .feed-items-container {
@@ -409,6 +416,7 @@
     
   }
 
+
   .pagination{
     display: none;
   }
@@ -416,8 +424,42 @@
   .news-feed-container {
     margin-left: 2rem;
   }
+  .news-page{
+    /* align-items: center; */
+  }
 }
+@media screen and (max-width: 630px) {
+    .solar-discounts{
+    width: 30vw;
+    padding: 5px;
+    
+    
+  }
 
+  .solar-discounts h2 {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top:20px;
+  }
+  
+  .solar-discounts p {
+    font-size: 0.7rem;
+    text-align: justify;
+  }
+  .silver-buttons {
+    margin-top: 20px;
+    
+  }
+  
+  .silver-button {
+    width: 120px;
+    font-size: 10px;
+    height: 30px;
+  }
+  .learn-more {
+    font-size: medium;
+  }
+}
 
 
 

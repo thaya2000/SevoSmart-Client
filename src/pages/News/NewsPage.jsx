@@ -112,13 +112,14 @@ const NewsPage = () => {
 
       <div className="news-feed-container">
         <div className='news-head'>
-        {window.innerWidth < 800 && (
+            {window.innerWidth < 800 && (
 
-        <button className="archive-toggle" onClick={toggleArchiveVisibility}>
-        Archive
-      </button>)}
+            <button className="archive-toggle" onClick={toggleArchiveVisibility}>
+              Archive
+            </button>)}
           <span>News Feed</span>
-          </div>
+
+        </div>
         <div className="feed-items-container">
           {newsList.map((news) => (
             <div key={news.id} className="feed-item">
