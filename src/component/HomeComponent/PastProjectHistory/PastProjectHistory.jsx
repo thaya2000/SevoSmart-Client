@@ -7,7 +7,7 @@ export default function PastProjectHistory({
   color,
 }) {
   return (
-    <div className="past-project-history flex flex-col items-center justify-around w-2/10 h-9/10">
+    <div className="past-project-history flex flex-col items-center justify-around m-5">
       <div className="flex items-center justify-center relative h-full w-7/12 ">
         <div
           className="past-project-history-border1 flex items-center justify-center relative "

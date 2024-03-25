@@ -7,10 +7,9 @@ import image1 from "../../assets/construction.jpg";
 import image2 from "../../assets/solar.jpg";
 import image3 from "../../assets/footer_sample.jpg";
 import IntroImageSlider from "../../component/HomeComponent/IntroImageSlider/IntroImageSlider.jsx";
-import Offer from "../../component/HomeComponent/Offer/Offer/Offer.jsx";
 import PastProject from "../../component/HomeComponent/PastProject/PastProject.jsx";
 import BillCalculator from "../../component/HomeComponent/BillCalculator/BillCalculator.jsx";
-import { useState } from "react";
+import OfferPanel from "../../component/HomeComponent/OfferPanel/OfferPanel/OfferPanel.jsx";
 
 const Home = () => {
   const images = [image1, image2, image3];
@@ -37,27 +36,27 @@ const Home = () => {
 
   return (
     <div className="home ">
-      <div className="intro flex flex-row ">
-        <div className="flex flex-col w-3/6">
-          <div className="flex h-40v">
+      <div className="intro grid grid-cols-1 xl:grid-cols-2">
+        <div className="grid sm:grid-rows-2">
+          <div className="flex ">
             <IntroText />
           </div>
-          <div className="flex h-60v">
-            <Offer />
+          <div className="flex justify-center items-center w-full">
+            <OfferPanel />
           </div>
         </div>
-        <div className="introImage w-3/6">
+        <div className="introImage w-full">
           <IntroImageSlider images={images} />
         </div>
       </div>
-      <div className="flex w-full h-90v">
+      <div className="flex w-full relative">
         <PastProject pastProjects={pastProjects} />
       </div>
       <ProductIntroCard
         image={SolarCoverImage}
         serviceTitle="Solar Panels"
-        orderLink="/energy-order"
-        learnMoreLink="/solar-learnmore"
+        orderLink="/orderSolarPanel"
+        learnMoreLink="/learnmore"
       />
       <ProductIntroCard
         image={ConstructionCoverImage}

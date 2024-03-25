@@ -3,8 +3,8 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  height: 90%;
-  width: 18%;
+  width: 15rem;
+  height: 10rem;
   font-family: "Koh Santepheap", serif;
   font-weight: 600;
   font-style: normal;
@@ -19,8 +19,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 90%;
-  width: 70%;
+  height: 7rem;
+  width: 6.5rem;
   border-radius: 50%;
   border-width: 0.5rem;
   border-color: transparent;
@@ -44,7 +44,7 @@
   margin: 0;
 }
 
-.past-project-history-border3 {
+/* .past-project-history-border3 {
   display: flex;
   align-items: center;
   position: absolute;
@@ -53,4 +53,4 @@
   border-radius: 50%;
   border-color: #ffd700 #0569ff #0569ff #0569ff;
   border-width: 0.25rem;
-}
+} */

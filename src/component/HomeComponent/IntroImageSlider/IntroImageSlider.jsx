@@ -28,14 +28,14 @@ const IntroImageSlider = ({ images }) => {
           />
         </div>
         <div className="flex w-full h-full flex-col">
-          <div className="flex w-full h-full">
+          <div className="flex w-full h-1/2">
             <img
               src={images[(currentImageIndex + 1) % images.length]}
               alt={`Image ${(currentImageIndex + 1) % images.length}`}
               className="slider-image active object-fit-cover"
             />
           </div>
-          <div className="flex w-full h-full">
+          <div className="flex w-full h-1/2">
             <img
               src={images[(currentImageIndex + 2) % images.length]}
               alt={`Image ${(currentImageIndex + 2) % images.length}`}
@@ -44,7 +44,7 @@ const IntroImageSlider = ({ images }) => {
           </div>
         </div>
       </div>
-      <div className="flex justify-end items-center h-1/10 mr-10">
+      <div className="flex justify-center md:justify-end  items-center  h-1/10 mr-0 md:mr-10">
         <div className="dots-container">
           {images.map((_, index) => (
             <button

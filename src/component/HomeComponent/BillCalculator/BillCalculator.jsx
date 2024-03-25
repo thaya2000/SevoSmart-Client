@@ -1,31 +1,72 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import "./BillCalculator.css";
 import axios from "axios";
 import { IoCloseCircle } from "react-icons/io5";
 
 export default function BillCalculator() {
   const [bill, setBill] = useState("");
-  const [data, setData] = useState({
+  const [userRecommendation, setUserRecommendation] = useState({
     recommendedSolarPower: 0,
     unitPerMonth: 0,
   });
   const [visible, setVisible] = useState(false);
   const [selectedPackage, setSelectedPackage] = useState(null);
+  const [earnMoney, setEarnMoney] = useState(null);
+  const [saveMoney, setSaveMoney] = useState(null);
+
+  useEffect(() => {
+    console.log(earnMoney);
+  }, [earnMoney]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        if (parseFloat(bill) > 150) {
+          const { data } = await axios.post(
+            `http://localhost:8083/bill/calculate`,
+            {
+              monthlyBill: parseFloat(bill),
+            }
+          );
+          setUserRecommendation(data);
+          selectedPackage != null && handlePackageSelect(selectedPackage);
+        } else {
+          setUserRecommendation({ recommendedSolarPower: 0, unitPerMonth: 0 });
+          setEarnMoney(null);
+          setSaveMoney(null);
+        }
+      } catch (error) {
+        console.error("Error occurred:", error);
+      }
+    };
+
+    fetchData();
+  }, [bill]);
 
   const handleInputChange = async (e) => {
     try {
       const value = e.target.value;
       const newValue = value.replace(/[^0-9.]/g, "");
       setBill(newValue);
+    } catch (error) {
+      console.error("Error occurred:", error);
+    }
+  };
 
-      if (parseFloat(newValue) > 150) {
-        const { data } = await axios.post(`http://localhost:8083/bill`, {
-          monthlyBill: parseFloat(newValue),
-        });
-        setData(data);
-      } else {
-        setData({ recommendedSolarPower: 0, unitPerMonth: 0 });
-      }
+  const handlePackageSelect = async (value) => {
+    try {
+      setSelectedPackage(value);
+      const { data } = await axios.post(
+        `http://localhost:8083/bill/solar/benefits`,
+        {
+          monthlyBill: bill,
+          selectedSolarPower: value,
+        }
+      );
+      console.log(data.earnMoney);
+      setEarnMoney(data.earnMoney);
+      console.log(data.saveMoney);
+      setSaveMoney(data.saveMoney);
     } catch (error) {
       console.error("Error occurred:", error);
     }
@@ -37,10 +78,6 @@ export default function BillCalculator() {
 
   const handleCloseClick = () => {
     setVisible(false);
-  };
-
-  const handlePackageSelect = (value) => {
-    setSelectedPackage(value);
   };
 
   return (
@@ -71,13 +108,13 @@ export default function BillCalculator() {
               <div className="flex flex-row items-center justify-center text-sm">
                 <div className="flex flex-col justify-center border-2 m-2 p-2">
                   <div className="flex justify-center font-bold">
-                    {data.recommendedSolarPower.toFixed(2)} KW
+                    {userRecommendation.recommendedSolarPower.toFixed(2)} KW
                   </div>
                   <div className="flex justify-center">Needed Solar Power</div>
                 </div>
                 <div className="flex flex-col border-2 m-2 p-2">
                   <div className="flex justify-center font-bold">
-                    {data.unitPerMonth}
+                    {userRecommendation.unitPerMonth}
                   </div>
                   <div className="flex justify-center">Used Unit Per month</div>
                 </div>
@@ -109,6 +146,12 @@ export default function BillCalculator() {
                   10KW
                 </div>
               </div>
+              {earnMoney != null && (
+                <div className="m-2 p-2">You can earn money: {earnMoney} </div>
+              )}
+              {saveMoney != null && (
+                <div className="m-2 p-2">You can save money: {saveMoney} </div>
+              )}
               <div
                 className="absolute top-1 right-2"
                 onClick={handleCloseClick}

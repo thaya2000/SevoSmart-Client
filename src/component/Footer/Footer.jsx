@@ -7,33 +7,34 @@ import Partners from "./Partners/Partners";
 
 const Footer = () => {
   return (
-    <div className="footer w-full h-100v  relative  flex flex-col ">
+    <div className="footer bg-primary md:px-3 md:py-8  mx-auto py-4 ">
       <div className="w-full h-4/10 my-10">
         <Partners />
       </div>
-      <div className="flex flex-row w-full h-6/10  ">
-        <div className="flex flex-col w-4/10 h-full  p-4">
-          <div className="mb-10">
+      <div className="footer-bottom-container grid grid-cols-2 mx-auto lg:grid-cols-4 gap-x-0 md:gap-x-0 mp-mobile-bounds">
+        <div className="col-span-2 lg:col-span-1 text-center lg:text-left">
+          <div className=" mt-5 md:mx-0 md:mt-0">
             <Logo />
           </div>
-          <p className="text-y mb-5">
-            Sign up for our newsletter and case alert system
-          </p>
-          <p className="mb-10">E-mail</p>
-          <div className="mb-5">
-            <hr className="flex w-6/10" />
+          <div className="pt-6 md:pt-16 pb-4 md:pb-8  ">
+            <strong className="text-secondary block pb-6 text-2xl lg:text-base">
+              Sign up for our newsletter and case alert system
+            </strong>
+            <p className="mb-6 text-left">E-mail</p>
+            <hr />
+            <div className="grid justify-center py-6">
+              <div className="news-letter-button mb-4">Submit</div>
+            </div>
           </div>
-          <div className="news-letter-button mb-4">
-            <p>Submit</p>
+
+          <div className="flex justify-center pb-8 lg:pb-0">
+            <FaFacebook size="2rem" />
+            <IoMdMail size="2rem" className="mx-8" />
+            <FaWhatsapp size="2rem" />
           </div>
-          <div className="flex flex-row w-3/12 items-center justify-around mb-10">
-            <FaFacebook size="1.5rem" />
-            <IoMdMail size="1.5rem" />
-            <FaWhatsapp size="1.5rem" />
-          </div>
-          <p>© 2024 Powered by DreamTrillions</p>
+          {/* <p>© 2024 Powered by DreamTrillions</p> */}
         </div>
-        <div className="flex w-3/10 h-full  p-4">
+        <div className="lg:col-start-3">
           <div className="flex flex-col">
             <p className="menu-heading">Menu</p>
             <p className="menu-content">About Us</p>
@@ -45,19 +46,19 @@ const Footer = () => {
             <p className="menu-content">Events</p>
           </div>
         </div>
-        <div className="flex w-3/10 h-full  p-4">
+        <div>
           <div className="flex flex-col">
             <p className="menu-heading">Address</p>
             <div className="menu-content">
               <p>SEVO SMART TECH (PVT) LTD.</p>
               <p>Kiri-vasa,</p>
-              <p>Chenaikudyruppu-01A,Kalmunai. </p>
+              <p>Chenaikudyruppu 01A, Kalmunai. </p>
             </div>
 
             <p className="menu-heading">Phone Number</p>
             <p className="menu-content">T:0672225881 | 0711665128</p>
             <p className="menu-heading">Email</p>
-            <p className="menu-content">sevosmarttech2001@gmail.com</p>
+            {/* <p className="menu-content">sevosmarttech2001@gmail.com</p> */}
           </div>
         </div>
       </div>

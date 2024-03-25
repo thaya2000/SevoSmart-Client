@@ -4,7 +4,7 @@ import { userAuth } from "../../../context/authContext";
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { FaUser ,FaLock} from "react-icons/fa";
+import { FaUser, FaLock } from "react-icons/fa";
 const Login = () => {
   const [email, setEmail] = useState("user@gmail.com");
   const [password, setPassword] = useState("user1234");
@@ -44,27 +44,24 @@ const Login = () => {
         <div className="create-account">Login</div>
         <form onSubmit={handleSubmit} className="from-login">
           <div className="user-input-container">
-         
-          <input
-          
-            type="text"
-            className="login-input"
-            placeholder="Enter your email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-           <FaUser  className="user-icon" />
-          
+            <input
+              type="text"
+              className="login-input"
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <FaUser className="user-icon" />
           </div>
           <div className="password-input-container">
-          <input
-            type="text"
-            className="login-input"
-            placeholder="Enter your password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <FaLock  className="lock-icon"/>
+            <input
+              type="text"
+              className="login-input"
+              placeholder="Enter your password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <FaLock className="lock-icon" />
           </div>
           <div
             className="submit-button-login "

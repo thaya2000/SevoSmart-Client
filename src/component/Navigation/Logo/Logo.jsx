@@ -3,12 +3,12 @@ import { IoMdSunny } from "react-icons/io";
 
 export default function Logo() {
   return (
-    <div className="sevoLogo ">
+    <div className="sevoLogo">
       <div className="mx-0.25 inline-block">S</div>
       <div className="mx-0.25 inline-block">E</div>
       <div className="mx-0.25 inline-block">V</div>
       <div className="mx-0.25 inline-block">
-        <IoMdSunny color="#ffd700" size="1.5vw" />
+        <IoMdSunny color="#ffd700" size="2rem" />
       </div>
       <div className="mx-0.25 inline-block">S</div>
       <div className="mx-0.25 inline-block">M</div>
