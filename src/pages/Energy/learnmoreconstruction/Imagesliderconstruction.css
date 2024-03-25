@@ -59,16 +59,15 @@
   }
   
   .learn-more{
-    display: flex;
-    justify-content: center;
-    width: 60%;
+    display: flex; 
+    width: 100%;
     color: #fff;
     border: none;
     border-radius: 25px;
     cursor: pointer;
-    align-self: center;
     margin-top: 25px; 
     font-size: 18px;
+    align-content: center;
   }
   .centered-container {
     position: absolute;
@@ -114,17 +113,68 @@
     color: white;
     font-weight: bold;
     font-size: 36px;
-    margin-bottom: 20px; /* Add margin to create space */
+    margin-bottom: 20px;
+    align-content: center; /* Add margin to create space */
   }
   
   .learnmore {
     color: white;
     margin-left: 20px;
-    text-align: center;
+    align-content: center;
     margin-top: 20px; 
     /* Add margin to create space */
   }
   
+  @media only screen and (max-width: 768px) {
+    .gradient,
+    .slide {
+      height: 400px; /* Adjust height for smaller screens */
+    }
   
+    .right-arrow,
+    .left-arrow {
+      font-size: 22px; /* Decrease arrow size for smaller screens */
+      margin-right: 5px; /* Adjust arrow position */
+      margin-left: 5px; /* Adjust arrow position */
+    }
+  
+    .dot,
+    .dot-active {
+      width: 8px; /* Adjust dot size for smaller screens */
+      height: 8px; /* Adjust dot size for smaller screens */
+      margin: 0 3px;
+      margin-top: 30px; /* Adjust margin for smaller screens */
+    }
+  
+    
+  
+    .centered-container {
+      padding: 0 20px; /* Add padding for smaller screens */
+    }
+  
+    .learbmore-solar {
+      font-size: 22px; /* Decrease font size for smaller screens */
+      margin-bottom: 10px; 
+      align-content: center;/* Adjust margin for smaller screens */
+    }
+  
+    .learnmore {
+      
+      font-size: 10px;
+      align-content: center; /* Adjust margin for smaller screens */
+    }
+  
+    .learnmore-buttonB {
+      width: 100px; /* Adjust button width for smaller screens */
+      height: 28px; /* Adjust button height for smaller screens */
+      padding: 4px; /* Adjust padding for smaller screens */
+      font-size: 14px; /* Decrease font size for smaller screens */
+      margin-top: 20px;
+       /* Adjust margin for smaller screens */
+    }
+  }
+  
+
+
   
   

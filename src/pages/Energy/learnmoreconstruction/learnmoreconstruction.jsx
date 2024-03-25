@@ -27,14 +27,14 @@ function Learnmoreconstruction() {
                 src={Image8}
                 alt="3 Kw Solar System Off Grid"
                 className="learnmore-solar"
-                style={{ width: '400px', height: '350px' }}/>
+               />
       </div>
       <div className="textA-container">
         <div>
-      <span className='experienceAA'>Embark on a journey towards sustainable development  <br/>with our cutting-edge construction solutions</span>
+      <span className='experienceAA'>Embark on a journey towards sustainable development with our cutting-edge construction solutions</span>
      </div>
      <div >
-      <span className='experienceB'>Integrating innovation and expertise in every project. Committed to eco-friendly materials and energy-efficient designs,<br/> we illuminate the path towards a greener tomorrow. Our dedication to quality craftsmanship and environmental<br/> stewardship ensures each structure contributes to a radiant, sustainable future. Join us to shape construction's <br/>responsible future, embracing innovation and sustainability for generations to come.</span>
+      <span className='experienceB'>Integrating innovation and expertise in every project. Committed to eco-friendly materials and energy-efficient designs, we illuminate the path towards a greener tomorrow. Our dedication to quality craftsmanship and environmental stewardship ensures each structure contributes to a radiant, sustainable future. Join us to shape construction's responsible future, embracing innovation and sustainability for generations to come.</span>
      </div>
      </div>
     
@@ -48,8 +48,7 @@ function Learnmoreconstruction() {
                 src={Image9}
                 alt="cost"
                 className="cons-image1"
-                width={300}
-                height={300}
+              
                 style={{ borderRadius: '20px' }}
                />
                <div className='eco-friently'> Havana Designs </div>
@@ -60,6 +59,7 @@ function Learnmoreconstruction() {
                 src={Image11}
                 alt="cost"
                 className="cons-image2"
+                
                 style={{ borderRadius: '20px' }}
              
                />
@@ -73,8 +73,7 @@ function Learnmoreconstruction() {
                 src={Image10}
                 alt="cost"
                 className="learnmore-solar3"
-                width={300}
-                height={300}
+                
                 style={{ borderRadius: '10px' }}
                />
                <div className='eco-friently'> Quality of work </div>

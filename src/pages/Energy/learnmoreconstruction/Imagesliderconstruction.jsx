@@ -48,18 +48,10 @@ const ImageSliderConstruction = () => {
           </span>
           
         </div>
-        <div >
-        <span className="learnmore">Pioneers sustainable construction, blending innovation and expertise.With </span>
+        <div className="learnmore">
+        <span >Pioneers sustainable construction, blending innovation and expertise.With <br/>   eco-friendly materials and energy-efficient designs we shape<br/>greener future while ensuring quality craftsmanship<br/>and environmental stewardship.</span>
         </div>
-        <div >
-        <span className="learnmore"> eco-friendly materials and energy-efficient designs we shape a </span>
-        </div>
-        <div >
-        <span className="learnmore">greener future while ensuring quality craftsmanship </span>
-        </div>
-        <div >
-        <span className="learnmore">and environmental stewardship. </span>
-        </div>
+        
       <div className='learnmore-buttonB'>Consult now</div>
     
       </div>

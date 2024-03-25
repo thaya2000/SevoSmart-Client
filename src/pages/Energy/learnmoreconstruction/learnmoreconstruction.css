@@ -27,8 +27,15 @@
     margin-top:60px;
     margin-left:100px;
     margin-bottom: 100px;
+    width:400px;
+    height: 350px;
+    transition: transform 0.3s ease;
     
    
+  }
+
+  .learnmore-solar:hover {
+    transform: scale(1.05); /* Increase the scale to zoom in */
   }
 
   .experienceAA{
@@ -138,10 +145,87 @@
 
   
   .learnmore-solar3 {
+    width:300px;
+    height:250px;
     transition: transform 0.3s ease;
   }
   
   .learnmore-solar3:hover {
     transform: scale(1.05); /* Increase the scale to zoom in */
+  }
+  @media only screen and (max-width: 798px) {
+    .middle-container {
+      flex-direction: column; /* Stack containers vertically on smaller screens */
+      align-items: center; /* Center items horizontally on smaller screens */
+      margin-top: 50px; /* Adjust margin for smaller screens */
+    }
+  
+    .ImageA-container,
+    .textA-container {
+      width: 100%; /* Full width for both containers on smaller screens */
+      margin: 0; /* Remove margin for smaller screens */
+    }
+  
+    .textA-container {
+      margin-top: 30px; /* Adjust margin for smaller screens */
+      margin-left: 0; /* Remove left margin for smaller screens */
+      text-align: center; /* Center text on smaller screens */
+    }
+  
+    .learnmore-solar {
+      margin: 30px 0;
+      width:250px;
+      height:200px; /* Adjust margin for smaller screens */
+    }
+  
+    .experienceAA {
+      font-size: 22px; 
+     /* Decrease font size for smaller screens */
+    }
+  
+    .bottom-container {
+      flex-direction: column; /* Stack containers vertically on smaller screens */
+      align-items: center; /* Center items horizontally on smaller screens */
+    }
+  
+   
+    .past-project-head {
+      margin-left: 0; /* Remove left margin for smaller screens */
+      text-align: center; /* Center text on smaller screens */
+    }
+  
+    .cons-image1,
+    .cons-image2,
+    .learnmore-solar3 {
+      width: 80%; /* Set width for images on smaller screens */
+      height: 70%; /* Set height for images on smaller screens */
+      margin: 0 auto; /* Center the images horizontally within their containers */
+   
+     
+      /* Adjust margin for smaller screens */
+    }
+
+    .experienceB{
+      font-size: 13px;
+      margin-top: 40px;
+    }
+
+    .headof-benifits{
+      font-size: 22px;
+      margin: 30px 0;
+    }
+
+    .eco-friently-parah{
+      font-size: 13px;
+    }
+    .eco-friently{
+      font-size: 16px;
+    }
+    .cost-container,
+    .efficient-container,
+    .longlife-container {
+      width: 60%; /* Full width for benefit containers on smaller screens */
+      align-content: center;/* Remove left margin for smaller screens */
+    }
   }
   
