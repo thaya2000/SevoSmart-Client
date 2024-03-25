@@ -27,7 +27,7 @@ function learnmore() {
                 src={Image8}
                 alt="3 Kw Solar System Off Grid"
                 className="learnmore-solar"
-                style={{ width: '400px', height: '350px' }}/>
+                />
       </div>
       <div className="textA-container">
         <div>
@@ -48,8 +48,7 @@ function learnmore() {
                 src={Image9}
                 alt="cost"
                 className="learnmore-solar1"
-                width={300}
-                height={300}
+               
                 style={{ borderRadius: '20px' }}
                />
                <div className='eco-friently'> Eco Friendly </div>
@@ -60,13 +59,12 @@ function learnmore() {
                 src={Image11}
                 alt="cost"
                 className="learnmore-solar2"
-                width={300}
-                height={300}
+                
                 style={{ borderRadius: '20px' }}
              
                />
                <div className='eco-friently'>Renewable Energy Source</div>
-               <div className='eco-friently-parah'>Solar panels harness energy from the sun, a virtually limitless and renewable source.</div>
+               <div className='eco-friently-parah'>Solar panels harness energy from the sun,  providing sustainable power generation while reducing dependence on fossil fuels and mitigating climate change.</div>
          </div>
          
          <div className='longlife-container'>
@@ -74,9 +72,8 @@ function learnmore() {
          <img
                 src={Image10}
                 alt="cost"
-                className="learnmore-solar3"
-                width={300}
-                height={300}
+                className="learnmore-solar4"
+               
                 style={{ borderRadius: '10px' }}
                />
                <div className='eco-friently'> Energy Cost Savings </div>
@@ -87,8 +84,8 @@ function learnmore() {
     </div>
 
     <div className='past-project-container'>
-      <div>
-        <span className='past-project-head'>
+      <div className='past-project-headA'>
+        <span >
           Some of our past project
         </span>
       </div>

@@ -94,14 +94,17 @@
   }
 
 
-   .past-project-head{
+   .past-project-headA{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 32px;
     font-weight: 500;
-    margin-left: 600px;
+    text-align: center;
+
    
    }
    .learnmore-solar1 {
+    width: 300px;
+    height: 240px;
     transition: transform 0.3s ease;
   }
   
@@ -111,6 +114,8 @@
   
 
   .learnmore-solar2 {
+    width: 300px;
+    height: 240px;
     transition: transform 0.3s ease;
   }
   
@@ -118,12 +123,105 @@
     transform: scale(1.05); /* Increase the scale to zoom in */
   }
 
-  
-  .learnmore-solar3 {
+ 
+  .learnmore-solar4 {
+    width: 300px;
+    height: 240px;
     transition: transform 0.3s ease;
   }
   
-  .learnmore-solar3:hover {
+  .learnmore-solar4:hover {
     transform: scale(1.05); /* Increase the scale to zoom in */
   }
   
+
+ 
+
+  @media only screen and (max-width: 768px){
+
+    .cost-container,
+    .efficient-container,
+    .longlife-container {
+      width: 40%; /* Full width for benefit containers on smaller screens */
+      
+    }
+
+    .learnmore-solar1,
+    .learnmore-solar2,
+    .learnmore-solar4 {
+      margin-top: 20px;
+      width: 80%; 
+      height: 50%; 
+      margin: 0 auto; /* Center the images horizontally within their containers */
+   
+     
+      /* Adjust margin for smaller screens */
+    }
+
+
+    .experienceA {
+      margin:10px 0;
+      font-size: 22px; 
+     /* Decrease font size for smaller screens */
+    }
+    .learnmore-solar {
+      margin: 30px 0;
+      width:200px;
+      height:150px; /* Adjust margin for smaller screens */
+    }
+
+    .past-project-headA{
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      font-size: 24px;
+      font-weight: 500;
+     
+      text-align: center;
+     
+     }
+    
+    
+  }
+
+
+  
+ 
+
+
+@media only screen and (max-width: 1200px){
+  .learnmore-solar1,
+  .learnmore-solar2,
+  .learnmore-solar4{
+    width: 250px; /* Set width for images on smaller screens */
+    height: 200px; /* Set height for images on smaller screens */
+    margin: 0 auto; 
+
+}
+
+
+.learnmore-solar {
+  margin-left: 30px;
+  width:350px;
+  height:300px; /* Adjust margin for smaller screens */
+}
+
+
+.experienceA {
+  font-size: 24px; 
+ /* Decrease font size for smaller screens */
+}
+
+.experienceB{
+  font-size: 14px;
+  margin-top: 40px;
+}
+
+.cost-container,
+    .efficient-container,
+    .longlife-container {
+      width: 50%; /* Full width for benefit containers on smaller screens */
+   
+    }
+}
+
+
+

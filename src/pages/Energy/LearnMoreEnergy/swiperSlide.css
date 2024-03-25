@@ -2,12 +2,10 @@
 
 /* Adjust image width and height */
 .swiper-slide img {
-    width: 220px; /* Adjust as needed */
+    width: 200px; /* Adjust as needed */
     height: 220px; 
     margin-top:50px;
     margin-bottom: 50px;
-   
-    
     border-radius:20px;
     border: 2px solid darkgoldenrod; 
     transition: transform 0.3s ease; /* Smooth transition effect */
@@ -25,6 +23,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 50px;
   }
   
   .dot-row {
@@ -34,7 +33,7 @@
   .dot {
     width: 10px;
     margin-top:10px;
-    margin-bottom: 40px;
+    margin-bottom:40px;
     height: 10px;
     border-radius: 50%;
     background-color: darkgoldenrod;
@@ -60,4 +59,118 @@
   }
   
 
+
+  @media only screen and (max-width: 768px) {
+   
   
+    /* Adjust container width for smaller screens */
+    .containerA {
+      width: 100%; /* Adjust container width for smaller screens */
+    }
+  
+    /* Adjust dot container margin for smaller screens */
+    .dot-containerA {
+      margin-bottom: 20px; /* Adjust margin for smaller screens */
+    }
+  
+    /* Adjust dot margin for smaller screens */
+    .dot {
+      width: 8px; /* Adjust dot size for smaller screens */
+      height: 8px; /* Adjust dot size for smaller screens */
+      margin-top: 5px; /* Adjust margin for smaller screens */
+      margin-bottom: 20px; /* Adjust margin for smaller screens */
+    }
+  
+    /* Adjust margin for next button on smaller screens */
+    .swiper-button-next {
+      margin-left: 20px; /* Adjust margin for smaller screens */
+    }
+  
+    /* Adjust border size on hover for smaller screens */
+    .slide-image:hover {
+      border-width: 1px; /* Adjust border size on hover for smaller screens */
+    }
+  }
+  
+
+  @media only screen and (max-width: 1400px) {
+    /* Adjust image width and height for smaller screens */
+    .swiper-slide img {
+      width: 150px; /* Adjust as needed for smaller screens */
+      height: 150px; /* Adjust as needed for smaller screens */
+      margin-top: 30px; /* Adjust margin for smaller screens */
+      margin-bottom: 30px; /* Adjust margin for smaller screens */
+    }
+  
+    /* Adjust container width for smaller screens */
+    .containerA {
+      width: 90%; /* Adjust container width for smaller screens */
+    }
+  
+    /* Adjust dot container margin for smaller screens */
+    .dot-containerA {
+      margin-bottom: 20px; /* Adjust margin for smaller screens */
+    }
+  
+    /* Adjust dot margin for smaller screens */
+    .dot {
+      width: 8px; /* Adjust dot size for smaller screens */
+      height: 8px; /* Adjust dot size for smaller screens */
+      margin-top: 5px; /* Adjust margin for smaller screens */
+      margin-bottom: 20px; /* Adjust margin for smaller screens */
+    }
+  
+    /* Adjust margin for next button on smaller screens */
+    
+  }
+
+  
+  @media only screen and (max-width: 1000px) {
+   
+    .swiper-slide img {
+      width: 110px; 
+      height: 110px; 
+      margin-top: 30px;
+      margin-bottom: 30px; /* Adjust margin for smaller screens */
+     
+    }
+  
+    /* Adjust container width for smaller screens */
+   
+  
+    /* Adjust dot container margin for smaller screens */
+    .dot-containerA {
+      margin-bottom: 20px; /* Adjust margin for smaller screens */
+    }
+  
+    /* Adjust dot margin for smaller screens */
+    .dot {
+      width: 8px; /* Adjust dot size for smaller screens */
+      height: 8px; /* Adjust dot size for smaller screens */
+      margin-top: 5px; /* Adjust margin for smaller screens */
+      margin-bottom: 20px; /* Adjust margin for smaller screens */
+    }
+  
+    /* Adjust margin for next button on smaller screens */
+    .swiper-button-next {
+      margin-left: 20px; /* Adjust margin for smaller screens */
+    }
+  
+    /* Adjust border size on hover for smaller screens */
+    .slide-image:hover {
+      border-width: 1px; /* Adjust border size on hover for smaller screens */
+    }
+  }
+  
+
+   
+  @media only screen and (max-width: 650px) {
+   
+    .swiper-slide img {
+      width: 80px; 
+      height: 80px; 
+      margin-top: 30px;
+      margin-bottom: 30px; /* Adjust margin for smaller screens */
+     
+    }
+  }
