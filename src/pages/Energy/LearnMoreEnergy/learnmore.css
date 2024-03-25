@@ -31,12 +31,18 @@
    
   }
 
-  .experienceA{
+  .experienceA {
     font-size: 32px;
     font-weight: 540;
     font-family: "Convergence", sans-serif;
-  }
-  
+    color: black; /* Initial color */
+    transition: color 0.3s ease; /* Add transition effect for color */
+}
+
+.experienceA:hover {
+  background-color: rgb(238, 241, 156); 
+}
+
 
   .bottom-container{
     display:flex;
@@ -161,7 +167,7 @@
 
     .experienceA {
       margin:10px 0;
-      font-size: 22px; 
+      font-size: 20px; 
      /* Decrease font size for smaller screens */
     }
     .learnmore-solar {
