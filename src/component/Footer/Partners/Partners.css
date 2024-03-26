@@ -13,6 +13,8 @@
 .partner img {
   object-fit: contain;
   padding: 20px;
+  pointer-events: none;
+  user-select: none;
 }
 
 @keyframes slide {

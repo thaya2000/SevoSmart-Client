@@ -13,6 +13,8 @@
     "@ap.cx/react-fullpage": "^0.3.0",
     "@dagrejs/dagre": "^1.0.4",
     "@fortawesome/fontawesome-free": "^6.5.1",
+    "@fortawesome/free-solid-svg-icons": "^6.5.1",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "@heroicons/react": "^2.0.18",
     "@iconscout/react-unicons": "^2.0.2",
     "@material-tailwind/react": "^2.1.5",
