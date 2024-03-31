@@ -42,6 +42,11 @@
     font-size: 32px;
     font-weight: 540;
     font-family: "Convergence", sans-serif;
+    transition: color 0.3s ease; /* Add transition effect for color */
+  }
+  
+  .experienceB:hover {
+    background-color: rgb(238, 241, 156); 
   }
   
   .bottom-para {
