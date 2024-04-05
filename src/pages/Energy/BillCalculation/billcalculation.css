@@ -118,7 +118,7 @@
   .main-container {
     width: 50%;
     margin-right: 100px; 
-   border:4px}
+      border:4px}
 
   .cproduct{
 
@@ -406,12 +406,14 @@
     }
     @media screen and (max-width: 768px) {
       .img-container{
-        flex-direction: column; /* Change flex direction to column */
+        flex-direction: column;
+         /* Change flex direction to column */
+       
       }
     
       .main-container {
         width: 100%; /* Set width to 100% to occupy the full width */
-        margin-right: 0; /* Remove right margin */
+        /* Remove right margin */
         margin-top: 20px; /* Add margin to separate it from the image container */
       }
     }
