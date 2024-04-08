@@ -13,13 +13,40 @@
 }
 
 .intro {
-  height: 90vh;
+  /* display: grid; */
+  /* grid-template-columns: repeat(auto-fill, minmax(50%, 1fr)); */
+  gap: 0px;
+  margin: 0px;
+  padding: 0px;
   width: 100%;
-  display: flex;
   background-color: #040e42;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
 }
 
 .introImage {
   display: flex;
   height: 90vh;
 }
+
+@keyframes blink-scale {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* @media screen and (max-width: 1280px) {
+  .intro {
+    grid-template-columns: repeat(auto-fill, minmax(640px, 1fr));
+  }
+} */

@@ -20,23 +20,25 @@ import AccountDetailsForm from "./pages/Energy/Energy/energy.jsx";
 import OrderSolarPanel from "./pages/Energy/OrderSolarPanel/oredrSolarPanel.jsx";
 import BillCalculation from "./pages/Energy/BillCalculation/billCalculation.jsx";
 import Learnmore from "./pages/Energy/LearnMoreEnergy/learnmore.jsx";
+import ImageSlider from "./pages/Energy/LearnMoreEnergy/ImageSlider.jsx";
 import AdminPanel from "./pages/Admin/AdminPanel.jsx";
 import AddProduct from "./pages/Admin/AddProduct.jsx";
 import EditProduct from "./pages/Admin/EditProduct.jsx";
+import Products from "./pages/Admin/Products.jsx";
+import PastProjects from "./pages/Admin/PastProjects.jsx";
+import AddProject from "./pages/Admin/AddProject.jsx";
+import Users from "./pages/Admin/Users.jsx";
+import EditPastProject from "./pages/Admin/EditPastProject.jsx";
 import ImageSliderConstruction from "./pages/Energy/learnmoreconstruction/Imagesliderconstruction.jsx";
 import Learnmoreconstruction from "./pages/Energy/learnmoreconstruction/learnmoreconstruction.jsx";
-
+import NewsPage from "./pages/News/NewsPage.jsx";
+import NewsDetails from "./pages/News/NewsDetails.jsx";
 
 function App() {
   return (
     <BrowserRouter>
       <Navigation />
-      <Toaster />
       <Routes>
-        {/* <Route path="/" element={<PrivateRoutes />}>
-          <Route path="" element={<Home />} />
-        </Route> */}
-
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Signup />} />
         <Route path="/login" element={<Login />} />
@@ -61,13 +63,26 @@ function App() {
         <Route path="/admin-panel" element={<AdminPanel />} />
         <Route path="/add-product" element={<AddProduct />} />
         <Route path="/edit-product/:id" element={<EditProduct />} />
-        <Route path="/imagesliderconstruction" element={<ImageSliderConstruction/>}/>
-        <Route path="learnmoreconstruction" element={<Learnmoreconstruction/>}/>
-      
+        <Route path="/products" element={<Products />} />
+        <Route path="/past-projects" element={<PastProjects />} />
+        <Route path="/add-project" element={<AddProject />} />
+        <Route path="/users" element={<Users />} />
+        <Route path="/edit-project/:id" element={<EditPastProject />} />
+        <Route path="/news" element={<NewsPage />} />
+        <Route path="/newspage/:id" element={<NewsDetails />} />
+        <Route
+          path="/imagesliderconstruction"
+          element={<ImageSliderConstruction />}
+        />
+        <Route
+          path="learnmoreconstruction"
+          element={<Learnmoreconstruction />}
+        />
       </Routes>
       <Footer />
     </BrowserRouter>
   );
-}0
+}
+0;
 
 export default App;

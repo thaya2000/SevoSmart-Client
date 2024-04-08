@@ -1,9 +1,9 @@
 import ReactFlow, { useNodesState, useEdgesState } from "reactflow";
 import "reactflow/dist/style.css";
-import OfferDescription from "../OfferDescription/OfferDescription.jsx";
-import OfferNode from "../OfferNode/OfferNode.jsx";
-import "../OfferDescription/OfferDescription.css";
-import "../OfferNode/OfferNode.css";
+import OfferDescription from '../News/Node_style/Node_1.jsx';
+import OfferNode from "../../component/HomeComponent/Offer/OfferNode/OfferNode.jsx";
+import "../News/Node_style/Node_1.css";
+import "../../component/HomeComponent/Offer/OfferNode/OfferNode.css";
 
 import { FaLightbulb } from "react-icons/fa6";
 import { MdSecurity } from "react-icons/md";
@@ -119,13 +119,19 @@ const initialEdges = [
 
 const nodeTypes = { textUpdater: OfferDescription, offer: OfferNode };
 
-const Offer = () => {
+const OfferC = () => {
   const [nodes, setNodes] = useNodesState(initialNodes);
   const [edges, setEdges] = useEdgesState(initialEdges);
 
   const proOptions = { hideAttribution: true };
 
   return (
+    <div style={{height: 400,
+    width :500,
+    display: 'flex',
+    justifyContent: 'center', /* Center horizontally */
+    alignItems: 'flex-start',
+}}>
     <ReactFlow
       nodes={nodes}
       edges={edges}
@@ -138,7 +144,8 @@ const Offer = () => {
       proOptions={proOptions}
       preventScrolling={false}
     ></ReactFlow>
+    </div>
   );
 };
 
-export default Offer;
+export default OfferC;

@@ -1,0 +1,135 @@
+.offer-panel {
+  display: flex;
+  align-items: center;
+  height: 16rem;
+  width: 16rem;
+  background: transparent;
+}
+
+.arc {
+  position: relative;
+  border-radius: 100%;
+  border: 0.1rem solid;
+  border-color: transparent #ffd700 transparent transparent;
+}
+
+.circle {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.line {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 3rem;
+  height: 2px;
+  background: white;
+}
+
+.offers {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.deg-0 {
+  transform: translate(-50%, -50%) translate(8rem);
+}
+
+.deg-22 {
+  transform: translate(-50%, -50%) rotate(20deg) translate(8rem);
+}
+
+.deg-45 {
+  transform: translate(-50%, -50%) rotate(40deg) translate(8rem);
+}
+
+.deg-338 {
+  transform: translate(-50%, -50%) rotate(-20deg) translate(8rem);
+}
+
+.deg-315 {
+  transform: translate(-50%, -50%) rotate(-40deg) translate(8rem);
+}
+
+.deg-0-line {
+  transform-origin: left;
+  transform: translate(0, -50%) rotate(0deg) translate(8rem);
+}
+
+.deg-22-line {
+  transform-origin: left;
+  transform: translate(0, -50%) rotate(20deg) translate(8rem);
+}
+
+.deg-45-line {
+  transform-origin: left;
+  transform: translate(0, -50%) rotate(40deg) translate(8rem);
+}
+
+.deg-338-line {
+  transform-origin: left;
+  transform: translate(0, -50%) rotate(-20deg) translate(8rem);
+}
+
+.deg-315-line {
+  transform-origin: left;
+  transform: translate(0, -50%) rotate(-40deg) translate(8rem);
+}
+
+.deg-0-offer {
+  transform-origin: 1.25rem 50%;
+  transform: translate(-1.25rem, -50%) rotate(0deg) translate(12rem)
+    rotate(0deg);
+}
+
+.deg-22-offer {
+  transform-origin: 1.25rem 50%;
+  /* transform: translate(0, -50%) rotate(20deg) translate(10rem) rotate(-20deg); */
+  transform: translate(-1.25rem, -50%) rotate(20deg) translate(12rem)
+    rotate(-20deg);
+}
+
+.deg-45-offer {
+  transform-origin: 1.25rem 50%;
+  /* transform: translate(0, -50%) rotate(40deg) translate(11rem) rotate(-40deg); */
+  transform: translate(-1.25rem, -50%) rotate(40deg) translate(12rem)
+    rotate(-40deg);
+}
+
+.deg-338-offer {
+  transform-origin: 1.25rem 50%;
+  transform: translate(-1.25rem, -50%) rotate(-20deg) translate(12rem)
+    rotate(20deg);
+}
+
+.deg-315-offer {
+  transform-origin: 1.25rem 50%;
+  transform: translate(-1.25rem, -50%) rotate(-40deg) translate(12rem)
+    rotate(40deg);
+}
+
+.offer-amount {
+  border-radius: 50%;
+  background-color: #ffd700;
+  color: #0038ff;
+  font-size: 2.5rem;
+  font-weight: 800;
+  font-style: italic;
+}
+
+@media (max-width: 640px) {
+  .offer-panel {
+    display: none;
+  }
+}

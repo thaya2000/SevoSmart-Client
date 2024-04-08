@@ -4,6 +4,13 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      backgroundColor: {
+        primary: "#040e42",
+        secondary: "#ffd700",
+      },
+      textColor: {
+        secondary: "#ffd700",
+      },
       height: {
         "10v": "10vh",
         "20v": "20vh",
@@ -27,6 +34,7 @@ export default {
         "9/10": "90%",
       },
       width: {
+        160: "40rem",
         "10v": "10vw",
         "20v": "20vw",
         "30v": "30vw",
@@ -48,6 +56,25 @@ export default {
         "8/10": "80%",
         "9/10": "90%",
         "1/20": "5%",
+      },
+      keyframes: {
+        "blink-scale": {
+          "0%": {
+            opacity: "1",
+            transform: "scale(1)",
+          },
+          "50%": {
+            opacity: "0",
+            transform: "scale(1.2)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "scale(1)",
+          },
+        },
+      },
+      animation: {
+        "blink-scale": "blink-scale 2s ease-in-out infinite",
       },
     },
   },
