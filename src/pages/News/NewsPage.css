@@ -3,32 +3,30 @@
   padding: 0; /* Remove padding to decrease space between Archive and News Feed */
   display: flex;
   flex-direction: row;
-
 }
 
 .news-head span {
   margin-left: 15px;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   font-size: 40px;
   font-weight: 1000;
   margin-top: -5px;
-  
 }
-.news-head button{
+.news-head button {
   width: auto;
   border: 2px solid yellow;
-  padding:5px 10px;
+  padding: 5px 10px;
   height: 30px;
   font-size: small;
   font-weight: 500;
-  
 }
 
 .archive-container {
   padding: 0;
   width: 200px;
   display: flex;
-  position:fixed;
+  position: fixed;
+  z-index: 10;
 }
 
 .archive-container {
@@ -51,14 +49,13 @@
 .archive-toggle {
   width: auto;
   border: 2px solid yellow;
-  padding:5px 10px;
+  padding: 5px 10px;
   height: 30px;
   font-size: small;
   font-weight: 500;
   z-index: 999;
 }
 .archive {
-  
   font-weight: bold;
   /* position: sticky; */
   /* Position Archive at the top */
@@ -68,8 +65,6 @@
   margin-left: 0px;
   /* Add a margin between Archive and News Feed */
 }
-
-
 
 .months button {
   font-size: 1rem;
@@ -87,26 +82,23 @@
 .archive button:hover {
   background-color: #83baf5;
 }
-.back-arrow{
+.back-arrow {
   background-color: transparent;
   margin-left: 9rem;
   margin-top: 10px;
-  
-  
-  
 }
 
-.back-arrow button{
+.back-arrow button {
   border: 1px solid black;
   width: 25px;
 }
-
 
 .pagination {
   position: fixed;
   bottom: 20px; /* Adjust as needed */
   left: 25px; /* Adjust as needed */
   display: flex;
+  z-index: 10;
 }
 
 .pagination a {
@@ -141,26 +133,19 @@
   font-weight: bold;
 }
 
-
 /* Style the arrow icon */
-
-
-
-
 
 .news-feed-container {
   margin-left: 12rem;
   /* margin-right: 21rem; */
   /* max-width: 1600px; */
   /* overflow-y: auto; */
-  
 }
 
 .news-page h1 {
   font-size: 2.5rem;
   font-weight: bold;
 }
-
 
 .feed-items-container {
   width: 60vw;
@@ -170,8 +155,6 @@
   align-items: center;
   justify-content: center;
 }
-
-
 
 .feed-item {
   /* margin-left: 60px; */
@@ -183,14 +166,11 @@
   flex-direction: column;
   padding: 10px;
   width: 250px;
-  
 }
 @media screen and (max-width: 1350px) {
-  
-.feed-items-container {
-  width: 50vw;
-
-}
+  .feed-items-container {
+    width: 50vw;
+  }
 }
 
 .feed-item img {
@@ -235,16 +215,14 @@
   position: fixed;
   top: 0; /* Adjust the top position as needed */
   right: 0; /* Adjust the right position as needed */
-  margin-top:4.65rem; /* Adjust margin-top if necessary */
+  margin-top: 4.65rem; /* Adjust margin-top if necessary */
   margin-right: 20px; /* Adjust margin-right if necessary */
-  
 }
-
 
 .solar-discounts h2 {
   font-size: 1.5rem;
   font-weight: bold;
-  margin-top:-30px;
+  margin-top: -30px;
 }
 
 .solar-discounts p {
@@ -284,7 +262,6 @@
   width: 200px;
   /* Adjust width as needed */
   height: auto;
-  
 }
 
 .offer-buttons {
@@ -303,7 +280,7 @@
   font-weight: bold;
   border: none;
   cursor: pointer;
-  margin-top:60px;
+  margin-top: 60px;
   margin-left: -80px;
   /* Adjust the margin-right to move the button to the left */
   animation: zoomInOut 2s ease-in-out infinite; /* Apply zoom in and out animation */
@@ -339,20 +316,18 @@
   margin-right: 20px;
   width: 250px;
   height: 45px;
-  margin-top:-4px;
+  margin-top: -4px;
   /* Adjust width as needed */
 }
 
 .learn-more {
   text-decoration: underline;
   font-size: 20px;
-  color:darkblue;
+  color: darkblue;
   text-align: center;
   margin-left: 50px;
   margin-top: 12px;
 }
-
-
 
 /* Media query for mobile devices */
 @media screen and (max-width: 1050px) {
@@ -360,7 +335,7 @@
     display: flex;
     flex-direction: column;
     /* Change flex direction to column on small screens */
-    
+
     /* Center items vertically */
   }
 
@@ -373,84 +348,64 @@
     /* Center text */
     margin-bottom: 20px;
     /* Add some bottom margin */
-    
-    
   }
-  
+
   .feed-items-container {
     display: flex;
-    flex-direction: column;    
+    flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
     margin-left: 0;
     /* margin-right: 16rem; */
     width: 20vw;
-    
-    
   }
   .solar-discounts {
     position: fixed;
-    
   }
-  
-
-
 }
 
-
-
-
-
-
 @media screen and (max-width: 800px) {
- 
   .feed-items-container {
     display: flex;
-    flex-direction: column;    
+    flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
     margin-left: 0;
     /* margin-right: 16rem; */
     width: 0vw;
-    
-    
   }
 
-
-  .pagination{
+  .pagination {
     display: none;
   }
 
   .news-feed-container {
     margin-left: 2rem;
   }
-  .news-page{
+  .news-page {
     /* align-items: center; */
   }
 }
 @media screen and (max-width: 630px) {
-    .solar-discounts{
+  .solar-discounts {
     width: 30vw;
     padding: 5px;
-    
-    
   }
 
   .solar-discounts h2 {
     font-size: 1rem;
     font-weight: bold;
-    margin-top:20px;
+    margin-top: 20px;
   }
-  
+
   .solar-discounts p {
     font-size: 0.7rem;
     text-align: justify;
   }
   .silver-buttons {
     margin-top: 20px;
-    
   }
-  
+
   .silver-button {
     width: 120px;
     font-size: 10px;
@@ -460,19 +415,3 @@
     font-size: medium;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

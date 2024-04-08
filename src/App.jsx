@@ -31,6 +31,8 @@ import Users from "./pages/Admin/Users.jsx";
 import EditPastProject from "./pages/Admin/EditPastProject.jsx";
 import ImageSliderConstruction from "./pages/Energy/learnmoreconstruction/Imagesliderconstruction.jsx";
 import Learnmoreconstruction from "./pages/Energy/learnmoreconstruction/learnmoreconstruction.jsx";
+import NewsPage from "./pages/News/NewsPage.jsx";
+import NewsDetails from "./pages/News/NewsDetails.jsx";
 
 function App() {
   return (
@@ -66,8 +68,8 @@ function App() {
         <Route path="/add-project" element={<AddProject />} />
         <Route path="/users" element={<Users />} />
         <Route path="/edit-project/:id" element={<EditPastProject />} />
-        {/* <Route path="/news" element={<NewsPage />} /> */}
-        {/* <Route path="/newspage/:id" element={<NewsDetails />} /> */}
+        <Route path="/news" element={<NewsPage />} />
+        <Route path="/newspage/:id" element={<NewsDetails />} />
         <Route
           path="/imagesliderconstruction"
           element={<ImageSliderConstruction />}
