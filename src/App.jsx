@@ -34,7 +34,7 @@ import Learnmoreconstruction from "./pages/Energy/learnmoreconstruction/learnmor
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <Navigation />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -66,8 +66,8 @@ function App() {
         <Route path="/add-project" element={<AddProject />} />
         <Route path="/users" element={<Users />} />
         <Route path="/edit-project/:id" element={<EditPastProject />} />
-        <Route path="/news" element={<NewsPage />} />
-        <Route path="/newspage/:id" element={<NewsDetails />} />
+        {/* <Route path="/news" element={<NewsPage />} /> */}
+        {/* <Route path="/newspage/:id" element={<NewsDetails />} /> */}
         <Route
           path="/imagesliderconstruction"
           element={<ImageSliderConstruction />}
@@ -78,7 +78,7 @@ function App() {
         />
       </Routes>
       <Footer />
-    </Router>
+    </BrowserRouter>
   );
 }
 0;
