@@ -88,7 +88,7 @@ const AddProduct = ({ onAddProduct }) => {
         </div>
         <div className="my-8 flex justify-center">
           <Link
-            to="/add-product"
+            to="/products"
             className="bg-cyan-300 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
           >
             Add Product

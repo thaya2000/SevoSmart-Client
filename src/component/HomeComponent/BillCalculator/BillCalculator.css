@@ -1,0 +1,39 @@
+.bill-calculator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 500px;
+  height: 500px;
+  background-color: rgb(255, 255, 255);
+  border: solid #ffd700 2px;
+  border-radius: 20px;
+}
+
+.bill-calculator-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: transparent;
+}
+
+.bill-calculator-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 100px;
+  height: 100px;
+  background-color: #ffd700;
+  border-radius: 100%;
+  bottom: 2rem;
+  right: 2rem;
+  text-align: center;
+  font-weight: 500;
+  animation: blink-scale 2s infinite;
+  color: #ffffff;
+  cursor: pointer;
+}

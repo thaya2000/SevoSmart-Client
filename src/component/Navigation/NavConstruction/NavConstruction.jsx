@@ -5,13 +5,16 @@ import Renovation from "../../../Images/Renovation.png";
 import SwimmingPool from "../../../Images/SwimmingPool.png";
 import Havana from "../../../Images/Havana.png";
 import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const ConstructionProduct = ({ image, name }) => {
   return (
-    <div className="construction-nav-product">
-      <img className="construction-nav-product-image" src={image} alt="" />
-      <div className="construction-nav-product-name">{name}</div>
-    </div>
+    <NavLink to="new-building-consultation">
+      <div className="construction-nav-product">
+        <img className="construction-nav-product-image" src={image} alt="" />
+        <div className="construction-nav-product-name">{name}</div>
+      </div>
+    </NavLink>
   );
 };
 
