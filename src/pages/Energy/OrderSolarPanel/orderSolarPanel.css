@@ -1,9 +1,12 @@
-.account-details-form {
+.account-details-formA {
+   margin-top: 20px;
     max-width: 400px;
-    padding: 20px;
     border-radius: 5px;
     align-items: center; /* Center the content horizontally */
     justify-content: center; /* Center the content vertically */
+    padding: 50px;
+    border:solid 2px black;
+
    
   
   }
@@ -103,14 +106,14 @@
     font-size:32px;
     font-family:'Inter',sans-serif;}
 
-  .main-container {
-    width: 50%;
-  margin-right: 30px;
+  .main-containerA {
+  width: 50%;
+  margin-right: 50px;
   border:solid 2px black;
-  
+
  }
 
-  .cproduct{
+  .cproductA{
 
     font-weight: 400;
     font-family: 'Inter',sans-serif;
@@ -187,17 +190,17 @@
   .product-image:hover {
     transform: scale(0.9); }
     @media screen and (max-width: 768px) {
-      .account-details-form,
+      
       .upper-container,
-      .main-container {
+      .main-containerA {
         max-width: 100%;
         margin: 0;
         padding: 0;
       }
     
-      .main-container {
+      .main-containerA {
         width: 100%;
-        border: 2px black;
+        border: 2px black solid;
       }
     
       .upper-container {
@@ -206,6 +209,7 @@
         margin: 0;
         padding: 0;
         margin-bottom: 20px;
+        align-items: baseline;
       }
     
       .image-container {
@@ -219,25 +223,39 @@
       .power-up{
         margin-left: -30px;
       }
+      .cproductA{
+
+        font-weight: 400;
+        font-family: 'Inter',sans-serif;
+        font-size: 24px;
+        margin-bottom: 20px; 
+        
+          
+      }
+
+     
     }
     
     @media screen and (max-width: 1200px) {
-      .account-details-form,
+     
       .upper-container,
-      .main-container {
+      .main-containerA {
         max-width: 100%;
       }
     
-      .main-container {
-        margin-right: 0;
+      .main-containerA {
+        margin: 0;
         width: 100%;
+       
       }
     
       .upper-container {
         display: flex;
         flex-direction: column;
-        align-items: center;
         
+      }
+      .account-details-formA{
+        margin-left:-25px;
       }
     
       .image-container {
@@ -247,5 +265,8 @@
         margin: 0; /* Reset margin */
         padding: 0; /* Reset padding */
       }
+
+     
+      
     }
     

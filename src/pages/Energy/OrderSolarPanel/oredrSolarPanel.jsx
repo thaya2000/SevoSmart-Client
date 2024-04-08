@@ -37,7 +37,7 @@ function OrderSolarPanel() {
         
       <img src={currentImageIndex === 0 ? image1 : currentImageIndex === 1 ? image2 : image3} alt="" className="image" />
 
-      <div className="main-container">
+      <div className="main-containerA">
         <div className="upper-container">
           {/* Content for the container above "Enter Account Details" */}
           <div className="power-up">Power Up Everything by Solar</div>
@@ -65,9 +65,9 @@ function OrderSolarPanel() {
               required
             />
           </div>
-        </div>
-        <div className="account-details-form">
-          <h2 className="cproduct">Choose a product</h2>
+          
+        <div className="account-details-formA">
+          <h2 className="cproductA">Choose a product</h2>
           
             <span className="help-text">
               <a href="/help-choose-product" target="_blank" rel="noopener noreferrer"  >
@@ -108,6 +108,7 @@ function OrderSolarPanel() {
 
             <div className='energy-order-buttonB'>Next</div>
           
+        </div>
         </div>
       </div>
     </div>
