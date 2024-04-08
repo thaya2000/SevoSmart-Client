@@ -1,81 +1,102 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
+import axios from "axios";
 
-const AddProject = ({ history }) => {
-    const [projectName, setProjectName] = useState('');
-    const [projectDescription, setProjectDescription] = useState('');
-    const [projectImages, setProjectImages] = useState([]);
-    const [imageUrls, setImageUrls] = useState([]);
+const AddProject = () => {
+    const [name, setName] = useState("");
+    const [description, setDescription] = useState("");
+    const [images, setImages] = useState([]);
+    const [imagePreviews, setImagePreviews] = useState([]);
 
-    const handleAddProject = () => {
-        // Here you can perform any necessary validation before adding the project
-        // For example, checking if all required fields are filled
+    const navigate = useNavigate();
 
-        // Construct the project object
-        const newProject = {
-            id: Math.floor(Math.random() * 1000) + 1, // Generate a random ID (replace this with your own ID generation logic)
-            name: projectName,
-            description: projectDescription,
-            images: imageUrls
-        };
+    useEffect(() => {
+        console.log("Name:", name);
+        console.log("Description:", description);
+        console.log("images:", images);
+    }, [name, description, images]);
 
-        // Here you can add the new project to your data store
-        // For example, by calling an API or updating a state in a parent component
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const PastProjectData = new FormData();
+            PastProjectData.append("name", name);
+            PastProjectData.append("description", description);
+            for (let i = 0; i < images.length; i++) {
+                PastProjectData.append("images", images[i]); // Append each selected image file
+            }
 
-        // After adding the project, you can navigate back to the past projects page
-        history.push('/past-projects');
+            const { data } = await axios.post(
+                "http://localhost:8080/api/v1/admin/pastproject",
+                PastProjectData
+            );
+            console.log(data);
+            if (data?.error) {
+              toast.error(data.error);
+            } else {
+              toast.success("Project is uploaded successfully");
+              navigate("/past-projects");
+            }
+        } catch (err) {
+            console.log(err);
+      toast.error("Project upload failed. Try again.");
+        }
     };
 
     const handleImageChange = (e) => {
-        const files = Array.from(e.target.files);
+        const selectedImages = e.target.files;
+        const imagePreviews = [];
+        const newImages = [];
 
-        // For each selected image file, create a URL and add it to the imageUrls state
-        Promise.all(files.map(file => {
-            return new Promise((resolve, reject) => {
-                const reader = new FileReader();
+        // Loop through each selected image
+        for (let i = 0; i < selectedImages.length; i++) {
+            const reader = new FileReader();
+            const selectedImage = selectedImages[i];
 
-                reader.addEventListener('load', (ev) => {
-                    resolve(ev.target.result);
-                });
+            // Read each image and push its data URL to the imagePreviews array
+            reader.onload = () => {
+                imagePreviews.push(reader.result);
+                // If all images have been read, update the state with the array of previews
+                if (imagePreviews.length === selectedImages.length) {
+                    setImagePreviews(imagePreviews);
+                }
+            };
 
-                reader.addEventListener('error', reject);
-
-                reader.readAsDataURL(file);
-            });
-        }))
-            .then(images => {
-                setProjectImages(files);
-                setImageUrls(images);
-            });
+            reader.readAsDataURL(selectedImage);
+            newImages.push(selectedImage); // Push the selected image to the newImages array
+        }
+        setImages(newImages); // Update the images state with the new array of images
     };
 
     return (
         <div className="p-8 bg-indigo-950">
             <h1 className="text-6xl font-medium mb-4 text-white">Add Project</h1>
+            <form onSubmit={handleSubmit}>
+                <div className="flex flex-col mb-4">
+                    <label className="text-white mb-2">Project Name</label>
+                    <input type="text" value={name} onChange={(e) => setName(e.target.value)} className="bg-white rounded-lg px-4 py-2" />
+                </div>
 
-            <div className="flex flex-col mb-4">
-                <label className="text-white mb-2">Project Name</label>
-                <input type="text" value={projectName} onChange={(e) => setProjectName(e.target.value)} className="bg-white rounded-lg px-4 py-2" />
-            </div>
+                <div className="flex flex-col mb-4">
+                    <label className="text-white mb-2">Project Description</label>
+                    <textarea value={description} onChange={(e) => setDescription(e.target.value)} className="bg-white rounded-lg px-4 py-2" />
+                </div>
 
-            <div className="flex flex-col mb-4">
-                <label className="text-white mb-2">Project Description</label>
-                <textarea value={projectDescription} onChange={(e) => setProjectDescription(e.target.value)} className="bg-white rounded-lg px-4 py-2" />
-            </div>
-
-            <div className="flex flex-col mb-4">
-                <label className="text-white mb-2">Project Images</label>
-                <input type="file" accept="image/*" multiple onChange={handleImageChange} className="mb-2" />
-                <div className="flex flex-wrap">
-                    {imageUrls.map((imageUrl, index) => (
-                        <img key={index} src={imageUrl} alt={`Project ${index + 1}`} className="w-40 h-40 object-cover rounded-lg mx-2 mb-2" />
+                <div className="flex flex-col mb-4">
+                    <label className="text-white mb-2">Project Images</label>
+                    <input type="file" accept="image/*" multiple onChange={handleImageChange} className="mb-2" />
+                </div>
+                <div className="mb-4 flex flex-wrap justify-center">
+                    {imagePreviews && imagePreviews.map((preview, index) => (
+                        <img key={index} src={preview} alt={`Product Preview ${index + 1}`} className="w-1/5 mx-2 mb-2" />
                     ))}
                 </div>
-            </div>
 
-
-            <button onClick={handleAddProject} className="bg-blue-700 hover:bg-blue-800 text-white font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none">
-                Add Project
-            </button>
+                <button className="bg-blue-700 hover:bg-blue-800 text-white font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none">
+                    Add Project
+                </button>
+            </form>
         </div>
     );
 };

@@ -20,13 +20,12 @@ const CartProduct = ({
           <div>{product_price}</div>
         </div>
         <div className="flex flex-row justify-between pt-5">
-            <div className="flex text-3xl font-normal">Quantity:</div>
+          <div className="flex text-3xl font-normal">Quantity:</div>
           <div className="flex text-3xl font-normal">{product_quantity}</div>
-          <div>
-          <Link to="/product_remove">
-          <button type="button" className="ml-10 text-3xl font-normal text-center text-black bg-white focus:ring-4 border-b-1 border-black focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Remove</button>
-
-            
+          <div className="ml-10 py-1 px-1 rounded text-3xl font-normal text-center text-black bg-blue-700 focus:ring-4 border-b-1 border-black focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            <Link
+                to="/product_remove"  >
+                Remove
             </Link>
           </div>
         </div>
