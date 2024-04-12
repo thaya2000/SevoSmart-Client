@@ -37,6 +37,7 @@ import NewsDetails from "./pages/News/NewsDetails.jsx";
 function App() {
   return (
     <BrowserRouter>
+      <Toaster />
       <Navigation />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -83,6 +84,5 @@ function App() {
     </BrowserRouter>
   );
 }
-0;
 
 export default App;
