@@ -19,6 +19,7 @@
     margin-top:100px;
     width:60%;
     margin-left: 100px;
+    padding: 20px;
    /* Example background color */
     /* Add other styles as needed */
   }
@@ -283,6 +284,22 @@
     
       
     }
+
+
+    .cost-container{
+      margin:auto;
+      margin-top: 40px;
+     }
+     .efficient-container{
+       margin:auto;
+       margin-top: 60px;
+   
+     }
+     .longlife-container{
+       margin:auto;
+       margin-top: 60px;
+      
+     }
 
 
 
