@@ -48,7 +48,7 @@ const ImageSlider = () => {
           </span>
           
         </div>
-        <div  className="learn-more">
+        <div  className="learn-moreN">
         <span>Embrace the boundless energy of the sun with our state-of-the-art <br/>solar panels,illuminating the path toward a<br/> greener,more radiant tomorrow</span>
         </div>
         

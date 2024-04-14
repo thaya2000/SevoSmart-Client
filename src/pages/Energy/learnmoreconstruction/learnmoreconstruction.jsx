@@ -42,8 +42,8 @@ function Learnmoreconstruction() {
     <div className='headof-benifits'>
       <span>Discover Our Comprehensive Services Tailored to Your Unique Needs</span>
      </div>
-    <div className='bottom-container'>
-         <div className='cost-container'>
+    <div className='bottom-containerN'>
+         <div className='cost-containerN'>
          <img
                 src={Image9}
                 alt="cost"
@@ -54,7 +54,7 @@ function Learnmoreconstruction() {
                <div className='eco-friently'> Havana Designs </div>
                <div className='eco-friently-parah'>Where we build structures so stunning, even the buildings themselves pause to admire their own magnificence! </div>
          </div>
-         <div className='efficient-container'>
+         <div className='efficient-containerN'>
          <img
                 src={Image11}
                 alt="cost"
@@ -67,7 +67,7 @@ function Learnmoreconstruction() {
                <div className='eco-friently-parah'>Revitalize history with a modern twist! Our renovation services blend heritage charm with contemporary design, breathing new life into old buildings.</div>
          </div>
          
-         <div className='longlife-container'>
+         <div className='longlife-containerN'>
         
          <img
                 src={Image10}

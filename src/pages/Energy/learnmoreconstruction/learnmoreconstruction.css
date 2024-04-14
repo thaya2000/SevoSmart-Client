@@ -64,23 +64,29 @@
   }
   
 
-  .bottom-container{
+  .bottom-containerN{
     display:flex;
     width:100%;
     margin-top: 40px;
+    padding: 50px;
+   
     
 
   }
-  .cost-container,
-  .efficient-container,
-  .longlife-container{
+  .cost-containerN,
+  .efficient-containerN,
+  .longlife-containerN{
+    margin-left: 60px;
+    margin-right: 60px;
     border-radius: 15px;
-    width: 20%;
-    border:solid 1px rgb(153, 150, 150);
+    
     display: inline-block;
     margin-top: 20px;
-    padding:30px;
+    padding:20px;
     margin-bottom: 60px;
+    background-color: rgb(244, 244, 241);
+    width: 40%;
+    overflow: auto;
 
   }
 
@@ -139,8 +145,10 @@
    
    }
    .cons-image1 {
-    height: 250px;
-    width:300px;
+    height: 200px;
+    width:200px;
+    display :block;
+    margin: auto;
     transition: transform 0.3s ease;
   }
   
@@ -151,8 +159,10 @@
 
   .cons-image2 {
     transition: transform 0.3s ease;
-    width:300px;
-    height:250px;
+    width:200px;
+    height:200px;
+    display :block;
+    margin: auto;
   }
   
   .cons-image2:hover  {
@@ -161,9 +171,11 @@
 
   
   .learnmore-solar3 {
-    width:300px;
-    height:250px;
+    width:200px;
+    height:200px;
     transition: transform 0.3s ease;
+    display :block;
+    margin: auto;
   }
   
   .learnmore-solar3:hover {
@@ -199,7 +211,7 @@
      /* Decrease font size for smaller screens */
     }
   
-    .bottom-container {
+    .bottom-containerN {
       flex-direction: column; /* Stack containers vertically on smaller screens */
       align-items: center; /* Center items horizontally on smaller screens */
     }
@@ -210,15 +222,41 @@
       text-align: center; /* Center text on smaller screens */
     }
   
-    .cons-image1,
-    .cons-image2,
-    .learnmore-solar3 {
-      width: 80%; /* Set width for images on smaller screens */
-      height: 70%; /* Set height for images on smaller screens */
-      margin: 0 auto; /* Center the images horizontally within their containers */
-   
+    .cons-image1 {
+      
+      display :block;
+      margin: auto;
+      transition: transform 0.3s ease;
+    }
+    
+    .cons-image1:hover {
+      transform: scale(1.05); /* Increase the scale to zoom in */
+    }
+    
+  
+    .cons-image2 {
+      transition: transform 0.3s ease;
      
-      /* Adjust margin for smaller screens */
+      
+      display :block;
+      margin: auto;
+    }
+    
+    .cons-image2:hover  {
+      transform: scale(1.05); /* Increase the scale to zoom in */
+    }
+  
+    
+    .learnmore-solar3 {
+      
+      
+      transition: transform 0.3s ease;
+      display :block;
+      margin: auto;
+    }
+    
+    .learnmore-solar3:hover {
+      transform: scale(1.05); /* Increase the scale to zoom in */
     }
 
     .experienceB{
@@ -237,50 +275,226 @@
     .eco-friently{
       font-size: 16px;
     }
-    .cost-container,
-    .efficient-container,
-    .longlife-container {
-      width: 45%; /* Full width for benefit containers on smaller screens */
-      align-content: center;/* Remove left margin for smaller screens */
+    .cost-containerN,
+    .efficient-containerN,
+    .longlife-containerN{
+      width:60%;
+      padding: 20px;
+    
+      
     }
+
+
+
   }
   
 
-  @media only screen and (max-width: 1200px){
+ 
+
+ 
+  
+
+  @media only screen and (max-width: 950px){
+    
+  
     .cons-image1,
     .cons-image2,
     .learnmore-solar3 {
-      width: 200px; /* Set width for images on smaller screens */
-      height: 150px; /* Set height for images on smaller screens */
-      margin: 0 auto; 
-
+      width: 150px; /* Set width for images on smaller screens */
+     height: 150px;
+     object-fit: fill;
+     align-items: center;
+     margin-top: 20px;
+    }
+  .eco-friently{
+    font-size: 14px;
   }
-
-
+  .eco-friently-parah{
+    font-size: 15px;
+  }
+  
   .learnmore-solar {
     margin-left: 30px;
     width:350px;
     height:300px; /* Adjust margin for smaller screens */
   }
-
-
+  
+  
   .experienceAA {
     font-size: 24px; 
    /* Decrease font size for smaller screens */
   }
-
+  
   .experienceB{
     font-size: 14px;
     margin-top: 40px;
   }
   
-  .cost-container,
-    .efficient-container,
-    .longlife-container {
-      width: 45%; /* Full width for benefit containers on smaller screens */
-      align-content: center;/* Remove left margin for smaller screens */
+  .cost-containerN,
+    .efficient-containerN,
+    .longlife-containerN {
+     margin :30px;
+      padding: 5px;
+      flex: 1;
+     
     }
+    .eco-friently-parah{
+      font-size: 13px;
+    }
+  }
+  
+ 
+ 
+  
+  @media only screen and (max-width: 850px){
+   
+    .cons-image1,
+    .cons-image2,
+    .learnmore-solar3 {
+      width: 150px; /* Set width for images on smaller screens */
+     height: 150px;
+     object-fit: fill;
+     align-items: center;
+     margin-top: 20px;
+    }
+  .eco-friently-parah{
+    font-size: 13px;
+  }
+  
+  .learnmore-solar {
+    margin-left: 30px;
+    width:350px;
+    height:300px; /* Adjust margin for smaller screens */
+  }
+  
+  
+  .eco-friently{
+    font-size: 14px;
+  }
+  .experienceAA {
+    font-size: 24px; 
+   /* Decrease font size for smaller screens */
+  }
+  
+  .experienceB{
+    font-size: 14px;
+    margin-top: 40px;
+  }
+  
+  .cost-containerN,
+    .efficient-containerN,
+    .longlife-containerN {
+      margin:40px;
+      padding: 5px;
+      flex: 1;
+     
+    }
+  }
+
+@media only screen and (max-width: 1200px){
+ 
+
+
+
+
+.learnmore-solar {
+  margin-left: 30px;
+  width:350px;
+  height:300px; /* Adjust margin for smaller screens */
+}
+
+.eco-friently-parah{
+  font-size: 13px;
+}
+
+.experienceAA {
+  font-size: 24px; 
+ /* Decrease font size for smaller screens */
+}
+
+.experienceB{
+  font-size: 14px;
+  margin-top: 40px;
+}
+
+.cost-containerN,
+  .efficient-containerN,
+  .longlife-containerN {
+   
+    padding: 5px;
+    flex: 1;
+   
+  }
 }
 
 
+@media only screen and (max-width: 1050px){
+  
 
+
+.learnmore-solar {
+  margin-left: 30px;
+  width:350px;
+  height:300px; /* Adjust margin for smaller screens */
+}
+
+.eco-friently-parah{
+  font-size: 13px;
+}
+
+.experienceAA {
+  font-size: 24px; 
+ /* Decrease font size for smaller screens */
+}
+
+.experienceB{
+  font-size: 14px;
+  margin-top: 50px;
+}
+
+.cost-containerN,
+  .efficient-containerN,
+  .longlife-containerN {
+   margin:40px;
+    padding: 5px;
+    flex: 1;
+   
+  }
+}
+
+
+@media only screen and (max-width: 1300px){
+  
+
+
+
+
+.learnmore-solar {
+  margin-left: 30px;
+  width:350px;
+  height:300px; /* Adjust margin for smaller screens */
+}
+
+
+.experienceAA {
+  font-size: 24px; 
+ /* Decrease font size for smaller screens */
+}
+
+.experienceB{
+  font-size: 14px;
+  margin-top: 40px;
+}
+
+  .cost-containerN,
+  .efficient-containerN,
+  .longlife-containerN {
+  
+    width: 60%;
+    height:min-content;
+    padding: 20px;
+    flex: 1;
+   
+  }
+}
+ 
