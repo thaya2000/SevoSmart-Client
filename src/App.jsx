@@ -33,6 +33,7 @@ import ImageSliderConstruction from "./pages/Energy/learnmoreconstruction/Images
 import Learnmoreconstruction from "./pages/Energy/learnmoreconstruction/learnmoreconstruction.jsx";
 import NewsPage from "./pages/News/NewsPage.jsx";
 import NewsDetails from "./pages/News/NewsDetails.jsx";
+import ProductDetails from "./pages/Shop/ProductDetail.jsx";
 
 function App() {
   return (
@@ -70,6 +71,7 @@ function App() {
         <Route path="/edit-project/:id" element={<EditPastProject />} />
         <Route path="/news" element={<NewsPage />} />
         <Route path="/newspage/:id" element={<NewsDetails />} />
+        <Route path="/product-details" element={<ProductDetails />} />
         <Route
           path="/imagesliderconstruction"
           element={<ImageSliderConstruction />}

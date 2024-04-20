@@ -6,32 +6,27 @@ import image3 from "../../assets/footer_sample.jpg";
 import CartProduct from "../../component/Shop/CartProduct";
 
 const Cart = () => {
-  const products = [
-    {
-      cart_image: image1,
-      product_name: "Solar lights",
-      product_price: "7500",
-      product_quantity: "1",
-    },
-    {
-      cart_image: image2,
-      product_name: "Solar lights",
-      product_price: "7500",
-      product_quantity: "1",
-    },
-    {
-      cart_image: image3,
-      product_name: "Solar lights",
-      product_price: "7500",
-      product_quantity: "1",
-    },
-    {
-      cart_image: image3,
-      product_name: "Solar lights",
-      product_price: "7500",
-      product_quantity: "1",
-    },
-  ];
+
+
+  const [cartProducts, setCartProducts] = useState([]);
+
+
+  useEffect(() => {
+      loadCartProducts();
+  }, []);
+
+  const loadCartProducts = async () => {
+      try {
+          const result = await axios.get("https://sevosmarttech-efce83f08cbb.herokuapp.com/api/v1/user/cart_products/661b6fa3fd93f07beed415bd");
+          setCartProducts(result.data);
+          console.log(result.data);
+      } catch (error) {
+          console.error('Error loading Accessories:', error);
+      }
+  };
+
+  
+
   
   return (
     <div className="flex flex-col m-5 ">
@@ -40,7 +35,7 @@ const Cart = () => {
       </div>
       <div className="flex flex-wrap pt-20">
         <div className="flex flex-col justify-start pl-5 w-200">
-        {products.map((product, index) => (
+        {cartProducts.map((product, index) => (
           <div key={index}>
             <CartProduct {...product} />
           </div>
