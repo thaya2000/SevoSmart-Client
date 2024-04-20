@@ -38,6 +38,7 @@ import ProductDetails from "./pages/Shop/ProductDetail.jsx";
 function App() {
   return (
     <BrowserRouter>
+      <Toaster />
       <Navigation />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -85,6 +86,5 @@ function App() {
     </BrowserRouter>
   );
 }
-0;
 
 export default App;

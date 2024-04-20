@@ -20,16 +20,13 @@ export default function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post(
-        `http://localhost:8080/api/v1/auth/register`,
-        {
-          firstname,
-          lastname,
-          email,
-          role,
-          password,
-        }
-      );
+      const { data } = await axios.post(`/api/v1/auth/register`, {
+        firstname,
+        lastname,
+        email,
+        role,
+        password,
+      });
       console.log(data);
       if (data?.message) {
         console.log(data.message);
@@ -87,10 +84,7 @@ export default function Signup() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <div
-            className="submit-button-register "
-            onClick={handleSubmit}
-          >
+          <div className="submit-button-register " onClick={handleSubmit}>
             SignUp
           </div>
         </form>

@@ -2,7 +2,7 @@ import "./Partners.css";
 import React from "react";
 
 // Importing partner logos
-import abb_logo from "../../../assets/PartnerLogo/abb_logo.png";
+import abb_logo from "../../../assets/PartnerLogo/ABB_logo.png";
 import fronius_logo from "../../../assets/PartnerLogo/fronius_logo.png";
 import goodwe_logo from "../../../assets/PartnerLogo/goodwe_logo.png";
 import growatt_logo from "../../../assets/PartnerLogo/growatt_logo.webp";

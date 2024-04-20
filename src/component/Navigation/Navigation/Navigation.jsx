@@ -42,13 +42,13 @@ const Navigation = () => {
   return (
     <div className="Container">
       <div className="navigationBar">
-        <div className="logo w-full">
+        <div className="logo w-2/3 sm:w-full">
           <NavLink to="/">
             <Logo />
           </NavLink>
         </div>
         <div
-          className="navigationItems hidden lg:flex w-full"
+          className="navigationItems hidden lg:flex"
           onMouseLeave={handleButtonLeave}
         >
           {navItems.map((item, index) => (
@@ -61,7 +61,7 @@ const Navigation = () => {
             </div>
           ))}
         </div>
-        <div className="naviEnd w-full">
+        <div className="naviEnd w-1/3 sm:w-full">
           <div className="naviSearch">
             <UilSearch />
           </div>
