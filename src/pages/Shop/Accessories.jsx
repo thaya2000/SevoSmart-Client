@@ -50,9 +50,10 @@ const Accessories = () => {
             accessory_image={accessory.productImage}
             accessory_name={accessory.productName}
             accessory_price={accessory.price}
+            accessory_id={accessory.id}
+            accessory_description={accessory.description}
           />
 
-          
         ))}
       </div>
     </div>

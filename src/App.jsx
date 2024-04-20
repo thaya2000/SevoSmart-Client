@@ -72,7 +72,7 @@ function App() {
         <Route path="/edit-project/:id" element={<EditPastProject />} />
         <Route path="/news" element={<NewsPage />} />
         <Route path="/newspage/:id" element={<NewsDetails />} />
-        <Route path="/product-details" element={<ProductDetails />} />
+        <Route path="/product-details/:id" element={<ProductDetails />} />
         <Route
           path="/imagesliderconstruction"
           element={<ImageSliderConstruction />}
