@@ -22,12 +22,9 @@ export default function BillCalculator() {
     const fetchData = async () => {
       try {
         if (parseFloat(bill) > 150) {
-          const { data } = await axios.post(
-            `http://localhost:8083/bill/calculate`,
-            {
-              monthlyBill: parseFloat(bill),
-            }
-          );
+          const { data } = await axios.post(`/bill/calculate`, {
+            monthlyBill: parseFloat(bill),
+          });
           setUserRecommendation(data);
           selectedPackage != null && handlePackageSelect(selectedPackage);
         } else {
@@ -56,13 +53,10 @@ export default function BillCalculator() {
   const handlePackageSelect = async (value) => {
     try {
       setSelectedPackage(value);
-      const { data } = await axios.post(
-        `http://localhost:8083/bill/solar/benefits`,
-        {
-          monthlyBill: bill,
-          selectedSolarPower: value,
-        }
-      );
+      const { data } = await axios.post(`/bill/benefits`, {
+        monthlyBill: bill,
+        selectedSolarPower: value,
+      });
       console.log(data.earnMoney);
       setEarnMoney(data.earnMoney);
       console.log(data.saveMoney);
@@ -88,8 +82,8 @@ export default function BillCalculator() {
       {visible && (
         <>
           <div className="bill-calculator-container z-20">
-            <div className="bill-calculator flex flex-col ">
-              <div className="font-bold">
+            <div className="bill-calculator p-5 flex flex-col ">
+              <div className="font-bold text-center">
                 Embrace the Solar Panel that Fits Your Desires
               </div>
               <div className="border-2 p-2 rounded-lg bg-yellow-400 text-zinc-50 font-semibold">
@@ -98,7 +92,7 @@ export default function BillCalculator() {
               <div className="flex items-center justify-center m-5 p-1 w-4/5 border-b-2">
                 <input
                   type="text"
-                  className="bg-transparent border-none flex items-center justify-center text-center"
+                  className="bg-transparent border-none flex items-center justify-center text-center text-sm md:text-xl"
                   placeholder="Enter your last electricity Bill"
                   value={bill}
                   onChange={handleInputChange}
@@ -110,16 +104,20 @@ export default function BillCalculator() {
                   <div className="flex justify-center font-bold">
                     {userRecommendation.recommendedSolarPower.toFixed(2)} KW
                   </div>
-                  <div className="flex justify-center">Needed Solar Power</div>
+                  <div className="flex justify-center text-center">
+                    Needed Solar Power
+                  </div>
                 </div>
                 <div className="flex flex-col border-2 m-2 p-2">
                   <div className="flex justify-center font-bold">
                     {userRecommendation.unitPerMonth}
                   </div>
-                  <div className="flex justify-center">Used Unit Per month</div>
+                  <div className="flex justify-center text-center">
+                    Used Unit Per month
+                  </div>
                 </div>
               </div>
-              <div className="m-2">Select a Solar Package</div>
+              <div className="m-2 text-center">Select a Solar Package</div>
               <div className="flex flex-row">
                 <div
                   className={`flex justify-center m-1 p-1 border-2 w-20 cursor-pointer ${

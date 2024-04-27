@@ -2,7 +2,6 @@
   position: sticky;
   top: 0;
   left: 0;
-  height: 10vh;
   width: 100%;
   z-index: 10;
 }
@@ -15,16 +14,18 @@
   position: relative;
   flex-direction: row;
   width: 100vw;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
   background-color: #fffafa;
   transition: background-color 0.5s ease, height 0.5s ease;
-  height: 10vh;
   z-index: 2;
   webkit-backdrop-filter: blur(8px);
 }
 
 .logo {
   display: flex;
-  width: 33%;
   align-items: center;
   justify-content: flex-start;
 }
@@ -75,7 +76,6 @@
 
 .naviEnd {
   display: flex;
-  width: 33%;
   align-items: center;
   justify-content: flex-end;
 }

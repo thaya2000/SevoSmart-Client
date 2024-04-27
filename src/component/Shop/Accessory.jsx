@@ -1,40 +1,73 @@
 import React from "react";
+import { userAuth } from "../../context/authContext";
+import axios from "axios";
+import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-const Accessory = ({ accessory_image, accessory_name, accessory_price }) => {
+const Accessory = ({ accessory_image, accessory_name, accessory_price, accessory_id,accessory_description }) => {
+  const [auth, setAuth] = userAuth();
+  const navigate= useNavigate();
+  const data = { accessory_name: accessory_name, accessory_name:accessory_name,  accessory_price:accessory_price,accessory_image:accessory_image,accessory_description :accessory_description  };
+
+  const imgData = `data:image/jpg;base64,${accessory_image}`;
+
+  const addToCart = async () => {
+    try {
+      await axios.post(`/api/v1/user/addProductToCart/${accessory_id}/${auth.user.id}`);
+      toast.success("Product added to cart successfully");
+    } catch (error) {
+      console.error("Error adding product to cart:", error);
+      toast.error("Error adding product to cart. Please try again later.");
+    }
+  };
+
+  const navigateToProductDetails = () => {
+
+    // console.log("Accessory name:", accessory_name);
+    // console.log("Accessory price:", accessory_price);
+    // console.log("Accessory ID:", accessory_id);
+    // console.log(accessory_image);
+
+    navigate(`/product-details/${accessory_id}`, {
+      state: data
+    });
+  };
+
+
+
   return (
     <div className="flex flex-col items-center border-2 border-black rounded-2xl w-80">
-      <img
-        className="flex justify-self-center mt-2 py-3 h-60 w-60"
-        src={`data:image/jpeg;base64, ${accessory_image}`}
-        alt={accessory_name}
-      />
-      <div className="flex justify-items-center text-4xl font-bold py-3">
-        {accessory_name}
+      <div onClick={navigateToProductDetails}>
+        <img
+          className="flex justify-self-center mt-2 py-3 h-60 w-60"
+          src={imgData}
+          alt={accessory_name}
+        />
+        <div className="flex justify-items-center text-4xl font-bold py-3">
+          {accessory_name}
+        </div>
+        <div className="flex justify-items-center text-3xl font-bold text-red-600 py-3">
+          {accessory_price} LKR
+        </div>
       </div>
-      <div className="flex justify-items-center text-4xl font-bold py-3">
-        {accessory_price} LKR
-      </div>
-
-
       <div className="flex flex-row justify-center gap-4 items-center py-3">
-        <Link
-          to="/cart"
+        <button
+          onClick={addToCart}
           className="text-white bg-blue-900 hover:bg-blue-600 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm text-center w-32 h-10 mb-5"
           style={{ display: "flex", alignItems: "center", justifyContent: "center" }}
         >
           Add to Cart
-        </Link>
+        </button>
         <Link
-          to="/order-now"
+          onClick={addToCart}
+          to="/cart"
           className="text-white bg-yellow-900 hover:bg-yellow-600 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm text-center w-32 h-10 mb-5"
           style={{ display: "flex", alignItems: "center", justifyContent: "center" }}
         >
           Buy Now
         </Link>
       </div>
-
-
     </div>
   );
 };
