@@ -4,13 +4,20 @@ import { userAuth } from "../../../context/authContext";
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
+import {
+  DEFAULT_EMAIL,
+  DEFAULT_PASSWORD,
+  DEFAULT_ROLE,
+  DEFAULT_FIRSTNAME,
+  DEFAULT_LASTNAME,
+} from "../../../util/constants";
 
 export default function Signup() {
-  const [firstname, setFirstName] = useState("user_f");
-  const [lastname, setLastName] = useState("user_l");
-  const [email, setEmail] = useState("user@gmail.com");
-  const [role, setRole] = useState("USER");
-  const [password, setPassword] = useState("user1234");
+  const [firstname, setFirstName] = useState(DEFAULT_FIRSTNAME);
+  const [lastname, setLastName] = useState(DEFAULT_LASTNAME);
+  const [email, setEmail] = useState(DEFAULT_EMAIL);
+  const [role, setRole] = useState(DEFAULT_ROLE);
+  const [password, setPassword] = useState(DEFAULT_PASSWORD);
 
   // hook
   const [auth, setAuth] = userAuth();
@@ -87,10 +94,7 @@ export default function Signup() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <div
-            className="submit-button-register "
-            onClick={handleSubmit}
-          >
+          <div className="submit-button-register " onClick={handleSubmit}>
             SignUp
           </div>
         </form>
