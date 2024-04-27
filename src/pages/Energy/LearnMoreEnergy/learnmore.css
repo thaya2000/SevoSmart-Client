@@ -56,24 +56,16 @@
   .longlife-container{
     border-radius: 15px;
     width: 20%;
-    border:solid 1px rgb(153, 150, 150);
+     background-color: rgb(244, 244, 241);
     display: inline-block;
     margin-top: 20px;
     padding:30px;
     margin-bottom: 100px;
 
-  }
-  .cost-container{
-   margin-left:10%;
-  }
-  .efficient-container{
-    margin-left:10%;
 
+ 
   }
-  .longlife-container{
-    margin-left:10%;
-   
-  }
+ 
 
 
   .headof-benifits{
@@ -184,7 +176,11 @@
       text-align: center;
      
      }
-    
+     
+     .bottom-container{
+      flex-direction: column; /* Stack containers vertically on smaller screens */
+      align-items: center; /* Center items horizontally on smaller screens */
+    }
     
   }
 
@@ -197,8 +193,8 @@
   .learnmore-solar1,
   .learnmore-solar2,
   .learnmore-solar4{
-    width: 250px; /* Set width for images on smaller screens */
-    height: 200px; /* Set height for images on smaller screens */
+    width: 150px; /* Set width for images on smaller screens */
+    height: 150px; /* Set height for images on smaller screens */
     margin: 0 auto; 
 
 }
