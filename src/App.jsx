@@ -1,5 +1,5 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import "./App.css";
+import React, { useEffect } from "react";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Navigation from "./component/Navigation/Navigation/Navigation.jsx";
 import Home from "../src/pages/Home/Home.jsx";
 import SolarPanelLearnmore from "../src/pages/SolarPanel/SolarPanelLearnmore.jsx";
@@ -20,6 +20,7 @@ import AccountDetailsForm from "./pages/Energy/Energy/energy.jsx";
 import OrderSolarPanel from "./pages/Energy/OrderSolarPanel/oredrSolarPanel.jsx";
 import BillCalculation from "./pages/Energy/BillCalculation/billCalculation.jsx";
 import Learnmore from "./pages/Energy/LearnMoreEnergy/learnmore.jsx";
+import Learnmoreconstruction from "./pages/Construction/learnmoreconstruction/learnmoreconstruction.jsx";
 import ImageSlider from "./pages/Energy/LearnMoreEnergy/ImageSlider.jsx";
 import AdminPanel from "./pages/Admin/AdminPanel.jsx";
 import AddProduct from "./pages/Admin/AddProduct.jsx";
@@ -29,14 +30,24 @@ import PastProjects from "./pages/Admin/PastProjects.jsx";
 import AddProject from "./pages/Admin/AddProject.jsx";
 import Users from "./pages/Admin/Users.jsx";
 import EditPastProject from "./pages/Admin/EditPastProject.jsx";
-import ImageSliderConstruction from "./pages/Energy/learnmoreconstruction/Imagesliderconstruction.jsx";
-import Learnmoreconstruction from "./pages/Energy/learnmoreconstruction/learnmoreconstruction.jsx";
+import ImageSliderConstruction from "./pages/Construction/learnmoreconstruction/Imagesliderconstruction.jsx";
 import NewsPage from "./pages/News/NewsPage.jsx";
 import NewsDetails from "./pages/News/NewsDetails.jsx";
+
+function ScrollToTopOnRouteChange() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTopOnRouteChange />
       <Navigation />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -50,7 +61,7 @@ function App() {
         />
         <Route
           path="/construction-learnmore"
-          element={<ConstructionsLearnmore />}
+          element={<Learnmoreconstruction />}
         />
         <Route path="/test" element={<Test />} />
         <Route path="/loading" element={<Loading />} />
@@ -59,7 +70,7 @@ function App() {
         <Route path="/energy" element={<AccountDetailsForm />} />
         <Route path="/orderSolarPanel" element={<OrderSolarPanel />} />
         <Route path="/billCalculation" element={<BillCalculation />} />
-        <Route path="/learnmore" element={<Learnmore />} />
+        <Route path="/energy-learnmore" element={<Learnmore />} />
         <Route path="/admin-panel" element={<AdminPanel />} />
         <Route path="/add-product" element={<AddProduct />} />
         <Route path="/edit-product/:id" element={<EditProduct />} />
@@ -75,14 +86,14 @@ function App() {
           element={<ImageSliderConstruction />}
         />
         <Route
-          path="learnmoreconstruction"
+          path="/learnmoreconstruction"
           element={<Learnmoreconstruction />}
         />
       </Routes>
       <Footer />
+      <Toaster />
     </BrowserRouter>
   );
 }
-0;
 
 export default App;
