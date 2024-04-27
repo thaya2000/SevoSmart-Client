@@ -1,5 +1,5 @@
-export const DEFAULT_EMAIL = "user@gmail.com";
-export const DEFAULT_PASSWORD = "user1234";
-export const DEFAULT_FIRSTNAME = "user_f";
-export const DEFAULT_LASTNAME = "user_l";
-export const DEFAULT_ROLE = "USER";
+export const DEFAULT_EMAIL = "";
+export const DEFAULT_PASSWORD = "";
+export const DEFAULT_FIRSTNAME = "";
+export const DEFAULT_LASTNAME = "";
+export const DEFAULT_ROLE = "";
