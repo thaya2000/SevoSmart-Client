@@ -56,7 +56,7 @@ const Home = () => {
         image={SolarCoverImage}
         serviceTitle="Solar Panels"
         orderLink="/orderSolarPanel"
-        learnMoreLink="/learnmore"
+        learnMoreLink="/energy-learnmore"
       />
       <ProductIntroCard
         image={ConstructionCoverImage}
