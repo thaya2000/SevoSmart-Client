@@ -15,16 +15,16 @@ const ProductDetails = () => {
     return <div>No product data available</div>;
   }
 
-  const imgData = `data:image/jpg;base64,${data.accessory_image}`;
+  const imgData = `data:image/jpg;base64,${data}`;
 
   const addToCart = async () => {
-    try {
-      await axios.post(`/api/v1/user/addProductToCart/${id}/${auth.user.id}`);
-      toast.success("Product added to cart successfully");
-    } catch (error) {
-      console.error("Error adding product to cart:", error);
-      toast.error("Error adding product to cart. Please try again later.");
-    }
+    // try {
+    //   await axios.post(`/api/v1/user/addProductToCart/${id}/${auth.user.id}`);
+    //   toast.success("Product added to cart successfully");
+    // } catch (error) {
+    //   console.error("Error adding product to cart:", error);
+    //   toast.error("Error adding product to cart. Please try again later.");
+    // }
   };
 
   // const { accessory_image, accessory_name, accessory_price } = product;

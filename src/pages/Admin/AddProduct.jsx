@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 import toast from 'react-hot-toast';
+import { userAuth } from  "../../context/authContext"
 
 const AddProduct = () => {
   const [price, setPrice] = useState("");
@@ -9,7 +10,12 @@ const AddProduct = () => {
   const [quantity, setQuantity] = useState("");
   const [discount, setDiscount] = useState("");
   const [image, setImage] = useState(null);
+  const [category, setCategory] = useState(null); 
+  const [description, setDescription] = useState(null);
+  const [brand, setBrand] = useState(null); 
   const [imagePreview, setImagePreview] = useState(null); 
+
+  const [auth, setAuth] = userAuth();
 
   const navigate = useNavigate();
 
@@ -25,14 +31,17 @@ const AddProduct = () => {
     e.preventDefault();
     try {
       const productData = new FormData();
-      productData.append("name", name);
+      productData.append("productName", name);
       productData.append("quantity", quantity);
       productData.append("discount", discount);
       productData.append("price", price);
-      productData.append("image", image);
+      productData.append("productpic", image);  
+      productData.append("category", category);
+      productData.append("description", description);
+      productData.append("brand", brand);  
 
       const { data } = await axios.post(
-        "http://localhost:8080/api/v1/admin/product",
+        `https://sevosmarttech-efce83f08cbb.herokuapp.com/admin/addProduct/${auth.user.id}`,
         productData
       );
 
@@ -113,6 +122,45 @@ const AddProduct = () => {
             name="price"
             value={price}
             onChange={(e) => setPrice(e.target.value)}
+            className="shadow appearance-none border rounded w-full max-w-sm py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline md:w-3/4"
+            placeholder="Enter price"
+          />
+        </div>
+        <div className="mb-4 flex flex-col justify-center md:flex-row">
+          <label className="block text-white text-m font-bold mb-2 md:mb-0 md:w-1/4">
+            Category
+          </label>
+          <input
+            type="text"
+            name="category"
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+            className="shadow appearance-none border rounded w-full max-w-sm py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline md:w-3/4"
+            placeholder="Enter price"
+          />
+        </div>
+        <div className="mb-4 flex flex-col justify-center md:flex-row">
+          <label className="block text-white text-m font-bold mb-2 md:mb-0 md:w-1/4">
+            Brand
+          </label>
+          <input
+            type="text"
+            name="brand"
+            value={brand}
+            onChange={(e) => setBrand(e.target.value)}
+            className="shadow appearance-none border rounded w-full max-w-sm py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline md:w-3/4"
+            placeholder="Enter price"
+          />
+        </div>
+        <div className="mb-4 flex flex-col justify-center md:flex-row">
+          <label className="block text-white text-m font-bold mb-2 md:mb-0 md:w-1/4">
+            Description
+          </label>
+          <input
+            type="text"
+            name="description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
             className="shadow appearance-none border rounded w-full max-w-sm py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline md:w-3/4"
             placeholder="Enter price"
           />

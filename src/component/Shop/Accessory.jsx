@@ -14,6 +14,8 @@ const Accessory = ({ accessory_image, accessory_name, accessory_price, accessory
 
   const addToCart = async () => {
     try {
+      // console.log(accessory_id);
+      // console.log(auth.user.id);
       await axios.post(`/api/v1/user/addProductToCart/${accessory_id}/${auth.user.id}`);
       toast.success("Product added to cart successfully");
     } catch (error) {
