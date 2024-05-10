@@ -5,9 +5,11 @@ import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { FaUser, FaLock } from "react-icons/fa";
+import { DEFAULT_EMAIL, DEFAULT_PASSWORD } from "../../../util/constants";
+
 const Login = () => {
-  const [email, setEmail] = useState("user@gmail.com");
-  const [password, setPassword] = useState("user1234");
+  const [email, setEmail] = useState(DEFAULT_EMAIL);
+  const [password, setPassword] = useState(DEFAULT_PASSWORD);
 
   // hook
   const [auth, setAuth] = userAuth();
