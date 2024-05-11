@@ -176,7 +176,6 @@ const AddProduct = () => {
             className="py-2 px-3 w-full max-w-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline md:w-3/4"
           />
         </div>
-        {/* Display image preview */}
         {imagePreview && (
           <div className="mb-4 flex flex-col justify-center md:flex-row">
             <img src={imagePreview} alt="Product Preview" className="w-1/5 mx-auto" />

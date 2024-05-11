@@ -16,7 +16,7 @@ const Products = () => {
 
     const loadProducts = async () => {
         try {
-            const result = await axios.get("http://localhost:8080/api/v1/admin/products");
+            const result = await axios.get("https://sevosmarttech-efce83f08cbb.herokuapp.com/admin/allProduct");
             setProducts(result.data);
             generateSerialNumbers(result.data);
         } catch (error) {
@@ -34,7 +34,7 @@ const Products = () => {
 
     const handleDeleteProduct = async (id) => {
         try {
-            await axios.delete(`http://localhost:8080/api/v1/admin/product/${id}`);
+            await axios.delete(`https://sevosmarttech-efce83f08cbb.herokuapp.com/admin/deleteProduct/${id}`);
             toast.success("Product is successfully deleted.");
             loadProducts();
             setDeleteProductId(null);
@@ -54,15 +54,17 @@ const Products = () => {
             </Link>
 
             <div className="overflow-x-auto flex justify-center">
-                <table className="table-auto w-full max-w-4xl">
+                <table className="table-auto w-full">
                     <thead>
                         <tr className='text-white'>
                             <th className="px-4 py-2">Serial No</th>
-                            <th className="px-4 py-2">List Item</th>
+                            <th className="px-4 py-2">Product Name</th>
                             <th className="px-4 py-2">Image</th>
                             <th className="px-4 py-2">Quantity</th>
                             <th className="px-4 py-2">Discount</th>
                             <th className="px-4 py-2">Price</th>
+                            <th className="px-4 py-2">Brand</th>
+                            <th className="px-4 py-2">Category</th>
                             <th className="px-4 py-2">Actions</th>
                         </tr>
                     </thead>
@@ -70,15 +72,17 @@ const Products = () => {
                         {products.map(product => (
                             <tr key={product.id}>
                                 <td className="border px-4 py-2">{serialNumbers[product.id]}</td>
-                                <td className="border px-4 py-2">{product.name}</td>
+                                <td className="border px-4 py-2">{product.productName}</td>
                                 <td className="border px-4 py-2">
                                     <div className="flex flex-row justify-center">
-                                        <img src={`data:image/jpeg;base64, ${product.image}`} className="h-16 object-cover rounded-lg mx-2" style={{ width: 'auto' }} alt={`Product ${product.id}`} />
+                                        <img src={`data:image/jpeg;base64, ${product.productImage}`} className="h-16 object-cover rounded-lg mx-2" style={{ width: 'auto' }} alt={`Product ${product.id}`} />
                                     </div>
                                 </td>
                                 <td className="border px-4 py-2">{product.quantity}</td>
                                 <td className="border px-4 py-2">{product.discount}</td>
                                 <td className="border px-4 py-2">{product.price}</td>
+                                <td className="border px-4 py-2">{product.brand}</td>
+                                <td className="border px-4 py-2">{product.category}</td>
                                 <td className="border px-4 py-2">
                                     <div className='flex flex-row justify-center'>
                                         <Link

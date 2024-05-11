@@ -6,28 +6,32 @@ import toast from "react-hot-toast";
 const EditProduct = () => {
   const navigate = useNavigate();
   const { id } = useParams();
-  const [image, setImage] = useState(null);
+  const [productImage, setProductImage] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
 
   const [product, setProduct] = useState({
-    name: "",
-    image: "",
+    productName: "",
+    productImage: "",
     quantity: "",
     discount: "",
     price: "",
+    brand:"",
+    category:"",
     imagePreview: ""
   });
 
 
 
-  const { name, quantity, discount, price} = product;
+  const { productName, quantity, discount, price,brand,category} = product;
   useEffect(() => {
-    console.log("Name:", name);
+    console.log("Name:", productName);
     console.log("Quantity:", quantity);
     console.log("Discount:", discount);
     console.log("Price:", price);
-    console.log("Image:", image);
-  }, [name, quantity, discount, price, image]);
+    console.log("Brand:", brand);
+    console.log("Category:", category);
+    console.log("Image:", productImage);
+  }, [productName, quantity, discount, price, productImage,brand,category]);
 
   const onInputChange = (e) => {
     setProduct({ ...product, [e.target.name]: e.target.value });
@@ -35,14 +39,15 @@ const EditProduct = () => {
 
   useEffect(() => {
     loadProduct();
+    console.log(id);
   }, []);
 
   const loadProduct = async () => {
     try {
-      const result = await axios.get(`http://localhost:8080/api/v1/admin/product/${id}`);
+      const result = await axios.get(`https://sevosmarttech-efce83f08cbb.herokuapp.com/admin/product/${id}`);
       setProduct({
         ...result.data,
-        imagePreview: result.data.image
+        imagePreview: result.data.productImage
       });
     } catch (error) {
       console.error("Error loading product:", error);
@@ -53,17 +58,19 @@ const EditProduct = () => {
     e.preventDefault();
     try {
       const formData = new FormData();
-      formData.append('name', name);
+      formData.append('productName', productName);
       formData.append('quantity', quantity);
       formData.append('discount', discount);
       formData.append('price', price);
-      formData.append('image', image);
+      formData.append('brand', brand);
+      formData.append('category', category);
+      formData.append('productpic', productImage);
 
-      if (image) {
+      if (productImage) {
         const reader = new FileReader();
-        reader.readAsDataURL(image);
+        reader.readAsDataURL(productImage);
         reader.onload = () => {
-          formData.append('image', reader.result);
+          formData.append('productpic', reader.result);
           submitFormData(formData);
         };
       } else {
@@ -76,7 +83,8 @@ const EditProduct = () => {
 
   const submitFormData = async (formData) => {
     try {
-      await axios.put(`http://localhost:8080/api/v1/admin/product/${id}`, formData, {
+      console.log(id);
+      await axios.put(`https://sevosmarttech-efce83f08cbb.herokuapp.com/admin/updateProduct/${id}`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -92,7 +100,7 @@ const EditProduct = () => {
 
   const handleImageChange = (e) => {
     const selectedImage = e.target.files[0];
-    setImage(selectedImage);
+    setProductImage(selectedImage);
 
     // Generate image preview URL
     const reader = new FileReader();
@@ -115,10 +123,10 @@ const EditProduct = () => {
           <input
             type="text"
             name="name"
-            value={name}
+            value={productName}
             onChange={onInputChange}
             className="shadow appearance-none border rounded w-full max-w-sm py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline md:w-3/4"
-            placeholder="Enter product name"
+          
           />
         </div>
         <div className="mb-4 flex flex-col justify-center md:flex-row">
@@ -131,7 +139,7 @@ const EditProduct = () => {
             value={quantity}
             onChange={onInputChange}
             className="shadow appearance-none border rounded w-full max-w-sm py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline md:w-3/4"
-            placeholder="Enter quantity"
+         
           />
         </div>
         <div className="mb-4 flex flex-col justify-center md:flex-row">
@@ -144,7 +152,7 @@ const EditProduct = () => {
             value={discount}
             onChange={onInputChange}
             className="shadow appearance-none border rounded w-full max-w-sm py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline md:w-3/4"
-            placeholder="Enter discount"
+            
           />
         </div>
         <div className="mb-4 flex flex-col justify-center md:flex-row">
@@ -157,16 +165,45 @@ const EditProduct = () => {
             value={price}
             onChange={onInputChange}
             className="shadow appearance-none border rounded w-full max-w-sm py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline md:w-3/4"
-            placeholder="Enter price"
+           
           />
         </div>
+
+        <div className="mb-4 flex flex-col justify-center md:flex-row">
+          <label className="block text-white text-m font-bold mb-2 md:mb-0 md:w-1/4">
+            Brand
+          </label>
+          <input
+            type="text"
+            name="brand"
+            value={brand}
+            onChange={onInputChange}
+            className="shadow appearance-none border rounded w-full max-w-sm py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline md:w-3/4"
+           
+          />
+        </div>
+
+        <div className="mb-4 flex flex-col justify-center md:flex-row">
+          <label className="block text-white text-m font-bold mb-2 md:mb-0 md:w-1/4">
+            Price
+          </label>
+          <input
+            type="text"
+            name="category"
+            value={category}
+            onChange={onInputChange}
+            className="shadow appearance-none border rounded w-full max-w-sm py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline md:w-3/4"
+           
+          />
+        </div>
+
         <div className="mb-4 flex flex-col justify-center md:flex-row">
           <label className="block text-white text-m font-bold mb-2 md:mb-0 md:w-1/4">
             Product Image
           </label>
           <input
             type="file"
-            name="image"
+            name="productImage"
             onChange={handleImageChange}
             accept="image/*"
             className="py-2 px-3 w-full max-w-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline md:w-3/4"
