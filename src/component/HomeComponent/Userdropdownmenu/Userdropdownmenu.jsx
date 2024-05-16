@@ -1,5 +1,7 @@
 import React, { useState, useRef } from 'react';
 import "./Userdropdownmenu.css";
+import Home from '../../../pages/Home/Home';
+import { dropdownMenu } from '@nextui-org/react';
 
 const UserDropdown = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -76,7 +78,7 @@ const UserDropdown = () => {
           </div>
           <div className='logout-container'>
             <img width="20" height="20" src="https://img.icons8.com/ios-filled/50/FA5252/logout-rounded-left.png" alt="logout-rounded-left"/>
-            <button className="log-out" onClick={toggleMenu}>Log out</button>
+            <button className="log-out" onClick={dropdownMenu}>Log out</button>
           </div>
         </div>
       )}
