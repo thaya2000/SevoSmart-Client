@@ -11,7 +11,7 @@ const Product = ({ image, name }) => {
       <img className="energy-nav-product-image" src={image} alt="" />
       <div className="energy-nav-product-name">{name}</div>
       <div className="flex items-center justify-around w-6/10">
-        <Link to="/solar-learnmore">
+        <Link to="/energy-learnmore">
           <div className="energy-nav-button">Learn</div>
         </Link>
         <Link to="/orderSolarPanel">
