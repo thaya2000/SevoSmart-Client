@@ -55,11 +55,11 @@ jobs:
       - name: Deploy to Netlify
         id: netlify_deploy
         run: |
-          DEPLOY_OUTPUT=$(netlify deploy --prod --dir=dist --site ${{ secrets.NETLIFY_SITE_ID }} --auth ${{ secrets.NETLIFY_AUTH_TOKEN }})
+          DEPLOY_OUTPUT=$(netlify deploy --prod --dir=dist --site ${{ secrets.NETLIFY_SITE_ID }} --auth ${{ secrets.NETLIFY_API_TOKEN }})
           echo "::set-output name=url::$(echo "$DEPLOY_OUTPUT" | grep -oP 'Website URL: \K\S+')"
         env:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_API_TOKEN: ${{ secrets.NETLIFY_API_TOKEN }}
 
       - name: Output deployment URL
         run: echo "Deployment URL is ${{ steps.netlify_deploy.outputs.url }}"
