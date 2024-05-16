@@ -1,4 +1,4 @@
-name: Deploy website
+name: Deploy website to Netlify
 
 on:
   push:
@@ -12,29 +12,23 @@ jobs:
       - name: Repository Checkout
         uses: actions/checkout@v4
 
-      - name: Setup NodeJS
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: "npm"
 
       - name: Install Netlify CLI
-        run: npm install netlify-cli@17.10.1 -g
+        run: npm install netlify-cli -g
 
       - name: Install Dependencies
         run: npm ci
-
-      - name: Load Environment Variables
-        run: |
-          if [ "$GITHUB_REF_NAME" == "main" ]; then
-            cp .env.production $GITHUB_WORKSPACE/.env
-          fi
 
       - name: Build project
         run: npm run build
 
       - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: node-app
           path: dist
@@ -44,18 +38,28 @@ jobs:
     needs: build
     environment:
       name: production
-      url: ${{ steps.netlify_deploy.outputs.url }}
 
     steps:
       - name: Download artifact from build job
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: node-app
-          path: dist # Make sure this matches your build output directory
+          path: dist # Ensure this matches your build output directory
 
       - name: Deploy to Netlify
+        id: netlify_deploy
         run: |
-          netlify deploy --prod --dir=dist --site ${{ secrets.NETLIFY_SITE_ID }} --auth ${{ secrets.NETLIFY_API_TOKEN }}
+          DEPLOY_OUTPUT=$(netlify deploy --prod --dir=dist --site ${{ secrets.NETLIFY_SITE_ID }} --auth ${{ secrets.NETLIFY_AUTH_TOKEN }})
+          echo "DEPLOY_OUTPUT=$DEPLOY_OUTPUT" >> $GITHUB_ENV
+          echo "$DEPLOY_OUTPUT"
+          DEPLOY_URL=$(echo "$DEPLOY_OUTPUT" | grep -oP 'Website URL: \K\S+')
+          echo "NETLIFY_DEPLOY_URL=$DEPLOY_URL" >> $GITHUB_ENV
         env:
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_Interface }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+
+      - name: Output deployment URL
+        run: echo "Deployment URL is $NETLIFY_DEPLOY_URL"
+
+      - name: Set Environment URL
+        run: echo "URL=$NETLIFY_DEPLOY_URL" >> $GITHUB_ENV
