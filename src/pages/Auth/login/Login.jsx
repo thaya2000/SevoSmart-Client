@@ -4,12 +4,18 @@ import { userAuth } from "../../../context/authContext";
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { FaUser, FaLock } from "react-icons/fa";
+import { FaUser, FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
 import { DEFAULT_EMAIL, DEFAULT_PASSWORD } from "../../../util/constants";
+import { Link } from 'react-router-dom';
 
 const Login = () => {
   const [email, setEmail] = useState(DEFAULT_EMAIL);
   const [password, setPassword] = useState(DEFAULT_PASSWORD);
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   // hook
   const [auth, setAuth] = userAuth();
@@ -40,36 +46,42 @@ const Login = () => {
       toast.error("Login failed. Try again.");
     }
   };
+
   return (
     <div className="flex relative items-center justify-center w-100v h-100v">
       <div className="login-container">
         <div className="create-account">Login</div>
         <form onSubmit={handleSubmit} className="from-login">
-          <div className="user-input-container">
-            <input
-              type="text"
-              className="login-input"
-              placeholder="Enter your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <FaUser className="user-icon" />
+          <div className="signup-inputs">
+            <div className="user-input-container">
+              <input
+                type="text"
+                className="login-input"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <FaUser className="user-icon" />
+            </div>
+            <div className="password-input-container">
+              <input
+                type={showPassword ? "text" : "password"} 
+                className="login-input"
+                placeholder="Enter your password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              {showPassword ? (
+                <FaEyeSlash className="eye-icon" onClick={togglePasswordVisibility} />
+              ) : (
+                <FaEye className="eye-icon" onClick={togglePasswordVisibility} />
+              )}
+            </div>
           </div>
-          <div className="password-input-container">
-            <input
-              type="text"
-              className="login-input"
-              placeholder="Enter your password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <FaLock className="lock-icon" />
+          <div className="dont-have-account">
+            Don't have an account? <Link to="/register" className="link-style">Sign up</Link>
           </div>
-          <div
-            className="submit-button-login "
-            // type="submit"
-            onClick={handleSubmit}
-          >
+          <div className="submit-button-login" onClick={handleSubmit}>
             Login
           </div>
         </form>
