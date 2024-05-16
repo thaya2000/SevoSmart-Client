@@ -15,7 +15,7 @@ jobs:
       - name: Setup NodeJS
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 18.x
           cache: "npm"
 
       - name: Install Netlify CLI
@@ -31,8 +31,7 @@ jobs:
           fi
 
       - name: Build project
-        run: npm run hotfix-ensur
-        # Ensure your build script points to the correct output directory
+        run: npm run build
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
