@@ -1,0 +1,196 @@
+/* Style for the user dropdown container */
+.user-dropdown {
+    
+        position:absolute;
+        top: 80px; 
+        right: 400px; 
+      
+}
+
+
+.profile-picture {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-right: 0;
+    
+    
+}
+.profile-picture-dropdown{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-top: 10px;
+    margin-left: 30px;
+    cursor: pointer;
+}
+/* Style for the dropdown menu */
+.dropdown-menu {
+    margin-top: 20px;
+    width: 280px;
+    height:350px;
+    position: fixed; 
+    top: 50px; 
+    right: 20px; 
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    
+}
+.close-button{
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+/* Style for the dropdown menu items */
+.dropdown-menu ul {
+ 
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.ul-container{
+    margin-top: 20px;
+    height:150px;
+  
+    
+}
+.dropdown-menu ul li {
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.dropdown-menu ul li:hover {
+    background-color: #f5f5f5;
+}
+.profilename-container {
+    display: flex;
+    align-items:center;
+    
+  }
+.profile-name{
+   
+    margin-left: 15px;
+   
+}
+
+.profilename-container::after {
+    content: ''; /* Add content for the pseudo-element */
+    position: absolute; /* Set position absolute */
+    margin-top: 100px;
+    left: 10%; 
+    width: 80%; 
+    height: 1px; 
+    background-color: #ddcece; /* Set the color of the line */
+  }
+  .bag-container ul {
+    list-style-type: none; 
+    padding: 20px; 
+    
+  }
+  
+  .bag-container li {
+    display: flex; /* Use flexbox to display items in a row */
+    align-items: center; /* Center items vertically */
+  }
+  
+  .bag-container li img {
+    margin-right: 5px; 
+    margin-left: 20px;
+  }
+  
+ 
+
+  .ul-container::after {
+    content: ''; /* Add content for the pseudo-element */
+    position: absolute; /* Set position absolute */
+    margin-top: 20px;
+    left: 10%; 
+    width: 80%; 
+    height: 1px; 
+    margin-bottom: auto;
+    background-color: #ddcece; /* Set the color of the line */
+
+  }
+   .bag-containerA ul {
+    list-style-type: none; 
+    padding: 20px; 
+    
+  }
+  
+  .bag-containerA li {
+    display: flex; /* Use flexbox to display items in a row */
+    align-items: center; /* Center items vertically */
+  }
+  
+  .bag-containerA li img {
+    margin-right: 5px; 
+    margin-left: 20px;
+    
+  }
+  .bag-containerB ul {
+    list-style-type: none; 
+    padding: 20px; 
+    
+  }
+  
+  .bag-containerB li {
+    display: flex; /* Use flexbox to display items in a row */
+    align-items: center; /* Center items vertically */
+  }
+  
+  .bag-containerB li img {
+    margin-right: 5px; 
+    margin-left: 20px;
+  }
+
+  .bag-containerC ul {
+    list-style-type: none; 
+    padding: 20px; 
+    
+  }
+  
+  .bag-containerC li {
+    display: flex; /* Use flexbox to display items in a row */
+    align-items: center; /* Center items vertically */
+  }
+  
+  .bag-containerC li img {
+    margin-right: 5px; 
+    margin-left: 20px;
+
+  }
+  .log-out{
+    color: red;
+    size: 12px;
+    margin-left:5px;
+  }
+
+  .logout-container{
+    position:relative;
+    display: flex;
+    left:35%;
+    margin-top: 25px;
+    font-size: 14px;
+    cursor: pointer; 
+    width: fit-content;
+}
+
+.logout-container:hover {
+  background-color: rgb(234, 233, 233); 
+}
+.profilename-container {
+    position: relative;
+   
+  }
+  
+  .camera-icon {
+    position: absolute;
+    top: 45px; /* Adjust the value as needed */
+    left: 60px; /* Adjust the value as needed */
+    z-index: 1; /* Make sure the camera icon appears above the profile picture */
+  }
+  
