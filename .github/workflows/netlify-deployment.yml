@@ -1,4 +1,4 @@
-name: Deploy website to Netlify
+name: Deploy website
 
 on:
   push:
@@ -12,17 +12,23 @@ jobs:
       - name: Repository Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Setup NodeJS
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 18
           cache: "npm"
 
       - name: Install Netlify CLI
-        run: npm install netlify-cli -g
+        run: npm install netlify-cli@17.10.1 -g
 
       - name: Install Dependencies
         run: npm ci
+
+      - name: Load Environment Variables
+        run: |
+          if [ "$GITHUB_REF_NAME" == "main" ]; then
+            cp .env.production $GITHUB_WORKSPACE/.env
+          fi
 
       - name: Build project
         run: npm run build
@@ -36,8 +42,11 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build
+    env:
+      NETLIFY_DEPLOY_URL: ${{ secrets.NETLIFY_DEPLOY_URL }}
     environment:
       name: production
+      url: ${{ env.NETLIFY_DEPLOY_URL }}
 
     steps:
       - name: Download artifact from build job
@@ -47,13 +56,13 @@ jobs:
           path: dist # Ensure this matches your build output directory
 
       - name: Deploy to Netlify
-        id: netlify_deploy
         run: |
-          DEPLOY_OUTPUT=$(netlify deploy --prod --dir=dist --site ${{ secrets.NETLIFY_SITE_ID }} --auth ${{ secrets.NETLIFY_AUTH_TOKEN }})
+          netlify deploy --prod --dir=dist --site ${{ secrets.NETLIFY_SITE_ID }} --auth ${{ secrets.NETLIFY_API_TOKEN }}
           echo "DEPLOY_OUTPUT=$DEPLOY_OUTPUT" >> $GITHUB_ENV
           echo "$DEPLOY_OUTPUT"
           DEPLOY_URL=$(echo "$DEPLOY_OUTPUT" | grep -oP 'Website URL: \K\S+')
           echo "NETLIFY_DEPLOY_URL=$DEPLOY_URL" >> $GITHUB_ENV
+
         env:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
