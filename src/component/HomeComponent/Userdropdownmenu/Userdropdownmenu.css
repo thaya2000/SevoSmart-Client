@@ -193,4 +193,61 @@
     left: 60px; /* Adjust the value as needed */
     z-index: 1; /* Make sure the camera icon appears above the profile picture */
   }
+  @media (max-width: 767px) {
+    .profile-picture,
+    .profile-picture-dropdown {
+      width: 40px;
+      height: 40px;
+      margin-left: 10px;
+      margin-right: 0;
+     
+    }
   
+    .dropdown-menu {
+      top: 60px;
+      right: 10px;
+      width:fit-content;
+      height:fit-content;
+      
+      
+    }
+  
+    .profile-name {
+      font-size: 13px;
+      margin-left: 2px;
+      margin-right: 5px;
+    
+    }
+  
+    .log-out {
+      font-size: 12px;
+    }
+
+    .bag-containerA{
+        font-size: 12px;
+    }
+
+    .bag-containerB{
+        font-size: 12px;
+    }
+    .bag-containerC{
+        font-size: 12px;
+    }
+
+
+    .camera-icon {
+        position: absolute;
+        top: 34px; 
+        left: 40px; 
+        z-index: 1; 
+        width:15px;
+        height:15px;
+      }
+
+      .logout-container{
+
+        margin-top: 10px;
+        margin-bottom: 20px;
+
+      }
+  }
