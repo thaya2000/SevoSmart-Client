@@ -15,7 +15,7 @@ jobs:
       - name: Setup NodeJS
         uses: actions/setup-node@v4
         with:
-          node-version: 18.x
+          node-version: 20
           cache: "npm"
 
       - name: Install Netlify CLI
@@ -48,10 +48,11 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: node-app
+          path: dist # Make sure this matches your build output directory
 
       - name: Deploy to Netlify
         run: |
-          netlify deploy --prod --dir=./node-app --site ${{ secrets.NETLIFY_SITE_ID }} --auth ${{ secrets.NETLIFY_API_TOKEN }}
+          netlify deploy --prod --dir=dist --site ${{ secrets.NETLIFY_SITE_ID }} --auth ${{ secrets.NETLIFY_API_TOKEN }}
         env:
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_API_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_Interface }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
