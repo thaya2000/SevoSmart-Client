@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./Navigation.css";
-import { UilSearch, UilUserCircle } from "@iconscout/react-unicons";
+import { UilSearch } from "@iconscout/react-unicons";
 import NavEnergy from "../NavEnergy/NavEnergy.jsx";
 import NavConstruction from "../NavConstruction/NavConstruction.jsx";
 import NavShop from "../NavShop/NavShop.jsx";
@@ -13,15 +13,8 @@ import NavAccountMenu from "../NavAccountMenu/NavAccountMenu.jsx";
 
 const Navigation = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
-  const [activeProfile, setActiveProfile] = useState(false);
 
   const [auth, setAuth] = userAuth();
-  const navigate = useNavigate();
-  const logout = () => {
-    setAuth({ ...auth, user: null, token: "" });
-    localStorage.removeItem("auth");
-    navigate("/login");
-  };
 
   const handleButtonHover = (index) => {
     setActiveDropdown(index);
@@ -73,6 +66,7 @@ const Navigation = () => {
             ) : (
               <div className="flex flex-col">
                 <NavAccountMenu />
+                {/* <UserDropdown /> */}
               </div>
             )}
           </div>

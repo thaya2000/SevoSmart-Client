@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./Signup.css";
+import { Link } from 'react-router-dom';
 import { userAuth } from "../../../context/authContext";
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
@@ -51,10 +52,10 @@ export default function Signup() {
   };
 
   return (
-    <div className="flex relative items-center justify-center w-100v h-100v">
       <div className="signup-container">
         <div className="create-account-text">SignUp</div>
         <form onSubmit={handleSubmit} className="flex flex-col">
+          <div className="input-container"> 
           <input
             type="text"
             className="register-input"
@@ -91,11 +92,16 @@ export default function Signup() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+          </div>
+          <div className="login-line">
+           <span>Already have an account ?</span>
+           <Link to="/login" className="link-style">Login</Link>
+           </div>
           <div className="submit-button-register " onClick={handleSubmit}>
             SignUp
           </div>
         </form>
       </div>
-    </div>
+  
   );
 }

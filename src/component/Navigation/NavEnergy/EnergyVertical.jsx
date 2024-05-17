@@ -13,7 +13,7 @@ const Product = ({ image, name }) => {
       <img className="product-image" src={image} alt="" />
       <div className="name">{name}</div>
       <div className="button">
-        <Link to="/solar-learnmore">
+        <Link to="/learnmore">
           <button className="e-button-1">Learn</button>
         </Link>
         <Link to="/energy-order">
