@@ -29,7 +29,7 @@ const Cart = () => {
           const result = await axios.get(`/api/v1/user/cart_products/${auth.user.id}`);
           setCartProducts(result.data);
           console.log(result.data);
-          console.log(auth.user.id)
+          console.log("user id is:",auth.user.id)
       } catch (error) {
           console.error('Error loading Accessories:', error);
       }

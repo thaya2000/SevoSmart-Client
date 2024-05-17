@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import { userAuth } from "../../../context/authContext.jsx";
 import NavAccountMenu from "../NavAccountMenu/NavAccountMenu.jsx";
+import { FaCartShopping } from "react-icons/fa6";
 
 const Navigation = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
@@ -64,9 +65,11 @@ const Navigation = () => {
                 <div className="navLogin">Log in</div>
               </NavLink>
             ) : (
-              <div className="flex flex-col">
+              <div className="flex flex-row gap-x-1 ">
+                <NavLink to="/cart">
+                  <FaCartShopping size={32} />
+                </NavLink>
                 <NavAccountMenu />
-                {/* <UserDropdown /> */}
               </div>
             )}
           </div>

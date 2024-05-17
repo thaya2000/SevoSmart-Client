@@ -1,13 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 const AdminPanel = () => {
-    // Sample order data
-    const [orders, setOrders] = useState([
-        { id: 1, productName: 'Product 1', quantity: 2, username: 'User 1', phone: '123-456-7890', status: 'Pending', address: '123 Main St',email:'abcd@gmail.com' },
-        { id: 2, productName: 'Product 2', quantity: 1, username: 'User 2', phone: '987-654-3210', status: 'Shipped', address: '456 Elm St',email:'abcd@gmail.com' },
-        // Add more orders as needed
-    ]);
+    const [orders, setOrders] = useState([]);
+    const [serialNumbers, setSerialNumbers] = useState({});
+
+
+    useEffect(() => {
+        fetchOrders();
+    }, []);
+
+    const fetchOrders = async () => {
+        try {
+            const response = await axios.get('https://sevosmarttech-efce83f08cbb.herokuapp.com/api/v1/user/allOrders');
+            setOrders(response.data); // Assuming your API response is an array of order objects
+            generateSerialNumbers(response.data);
+        } catch (error) {
+            console.error('Error fetching orders:', error);
+        }
+    };
+    const generateSerialNumbers = (orders) => {
+        const serials = {};
+        orders.forEach((order, index) => {
+            serials[order.orderId] = index + 1;
+        });
+        setSerialNumbers(serials);
+    };
 
     return (
         <div className="flex h-screen">
@@ -31,29 +50,37 @@ const AdminPanel = () => {
                         <thead>
                             <tr className="bg-gray-200 text-gray-800">
                                 <th className="px-4 py-2">No</th>
-                                <th className="px-4 py-2">Username</th>
+                                <th className="px-4 py-2">Customer Name</th>
                                 <th className="px-4 py-2">Phone</th>
                                 <th className="px-4 py-2">Email</th>
                                 <th className="px-4 py-2">Address</th>
                                 <th className="px-4 py-2">Product Name</th>                        
                                 <th className="px-4 py-2">Quantity</th>          
                                 <th className="px-4 py-2">Status</th>
-                                
+                                <th className="px-4 py-2">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             {orders.map(order => (
-                                <tr key={order.id}>
-                                    <td className="border px-4 py-2">{order.id}</td>
-                                    <td className="border px-4 py-2">{order.username}</td>
-                                    <td className="border px-4 py-2">{order.phone}</td>
-                                    <td className="border px-4 py-2">{order.email}</td>
-                                    <td className="border px-4 py-2">{order.address}</td>
-                                    <td className="border px-4 py-2">{order.productName}</td>
-                                    <td className="border px-4 py-2">{order.quantity}</td>
-                                    <td className="border px-4 py-2">{order.status}</td>
-                                    
-                                    
+                                <tr key={order.orderId}>
+                                    <td className="border px-4 py-2">{serialNumbers[order.orderId]}</td>
+                                    <td className="border px-4 py-2">{order.orderDate}</td>
+                                    <td className="border px-4 py-2">{order.phoneNo}</td>
+                                    <td className="border px-4 py-2">{order.totalPrice}</td>
+                                    <td className="border px-4 py-2">{order.district}</td>
+                                    <td className="border px-4 py-2">{order.city}</td>
+                                    <td className="border px-4 py-2">{order.totalPrice}</td>
+                                    <td className="border px-4 py-2">{order.orderStatus}</td>
+                                    <td className="border px-4 py-2">
+                                    <div className='flex flex-row justify-center'>
+                                        <Link
+                                            to={`/order-details/${order.orderId}`}
+                                            className="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-4 mr-2 rounded"
+                                        >
+                                            View
+                                        </Link>
+                                    </div>
+                                    </td>
                                 </tr>
                             ))}
                         </tbody>
