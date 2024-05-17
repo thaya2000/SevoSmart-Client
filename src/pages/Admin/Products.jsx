@@ -19,6 +19,7 @@ const Products = () => {
             const result = await axios.get("https://sevosmarttech-efce83f08cbb.herokuapp.com/admin/allProduct");
             setProducts(result.data);
             generateSerialNumbers(result.data);
+            console.log(result.data.Products.productName)
         } catch (error) {
             console.error('Error loading products:', error);
         }

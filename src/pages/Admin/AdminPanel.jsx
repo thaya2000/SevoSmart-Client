@@ -51,12 +51,11 @@ const AdminPanel = () => {
                             <tr className="bg-gray-200 text-gray-800">
                                 <th className="px-4 py-2">No</th>
                                 <th className="px-4 py-2">Customer Name</th>
-                                <th className="px-4 py-2">Phone</th>
-                                <th className="px-4 py-2">Email</th>
-                                <th className="px-4 py-2">Address</th>
-                                <th className="px-4 py-2">Product Name</th>                        
-                                <th className="px-4 py-2">Quantity</th>          
+                                <th className="px-4 py-2">Order date</th>
+                                <th className="px-4 py-2">Phone No</th>
                                 <th className="px-4 py-2">Status</th>
+                                <th className="px-4 py-2">Order Amount</th>
+                                <th className="px-4 py-2">Address</th>      
                                 <th className="px-4 py-2">Actions</th>
                             </tr>
                         </thead>
@@ -64,13 +63,12 @@ const AdminPanel = () => {
                             {orders.map(order => (
                                 <tr key={order.orderId}>
                                     <td className="border px-4 py-2">{serialNumbers[order.orderId]}</td>
+                                    <td className="border px-4 py-2">{order.customerName}</td>
                                     <td className="border px-4 py-2">{order.orderDate}</td>
-                                    <td className="border px-4 py-2">{order.phoneNo}</td>
-                                    <td className="border px-4 py-2">{order.totalPrice}</td>
-                                    <td className="border px-4 py-2">{order.district}</td>
-                                    <td className="border px-4 py-2">{order.city}</td>
-                                    <td className="border px-4 py-2">{order.totalPrice}</td>
+                                    <td className="border px-4 py-2">{order.customerPhoneNo}</td>
                                     <td className="border px-4 py-2">{order.orderStatus}</td>
+                                    <td className="border px-4 py-2">{order.orderAmount}</td>
+                                    <td className="border px-4 py-2">{order.orderBillingAddress}</td>
                                     <td className="border px-4 py-2">
                                     <div className='flex flex-row justify-center'>
                                         <Link

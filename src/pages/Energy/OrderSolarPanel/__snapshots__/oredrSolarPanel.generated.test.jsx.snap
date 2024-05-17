@@ -1,0 +1,131 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<OrderSolarPanel> > should render component 1`] = `
+<DocumentFragment>
+  <div>
+    <div
+      class="image-container"
+    >
+      <img
+        alt=""
+        class="image"
+        src="/src/Images/S1.jpeg"
+      />
+      <div
+        class="main-containerA"
+      >
+        <div
+          class="upper-container"
+        >
+          <div
+            class="power-up"
+          >
+            Power Up Everything by Solar
+          </div>
+          <div
+            class="homeN"
+          >
+            Enter home Details
+          </div>
+          <div>
+            <label
+              for="home address"
+            >
+              Home Address
+            </label>
+            <input
+              id="home address"
+              name="address"
+              required=""
+              type="text"
+            />
+          </div>
+          <div>
+            <label
+              for="ebill"
+            >
+              Average electric bill required per month
+            </label>
+            <input
+              id="ebill"
+              name="ebill"
+              required=""
+              type="text"
+              value="LKR/month"
+            />
+          </div>
+          <div
+            class="account-details-formA"
+          >
+            <h2
+              class="cproductA"
+            >
+              Choose a product
+            </h2>
+            <span
+              class="help-text"
+            >
+              <a
+                href="/help-choose-product"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Help me choose the product
+              </a>
+            </span>
+            <div>
+              <img
+                alt="10 Kw Solar System Off Grid"
+                class="product-image"
+                src="/src/Images/S4.jpg"
+                style="width: 300px; height: auto;"
+              />
+              <p
+                class="product-name"
+              >
+                10 Kw Solar System Off Grid
+              </p>
+            </div>
+            <div>
+              <img
+                alt="5Kw Solar System Off Grid"
+                class="product-image"
+                src="/src/Images/S5.jpg"
+                style="width: 300px; height: auto;"
+              />
+              <p
+                class="product-name"
+              >
+                5 Kw Solar System Off Grid
+              </p>
+            </div>
+            <div>
+              <img
+                alt="3 Kw Solar System Off Grid"
+                class="product-image"
+                src="/src/Images/S6.jpg"
+                style="width: 300px; height: auto;"
+              />
+              <p
+                class="product-name"
+              >
+                3 Kw Solar System Off Grid
+              </p>
+            </div>
+            <div
+              class="agreement-statementO"
+            >
+              Panels for your existing roof with backup protection
+            </div>
+            <div
+              class="energy-order-buttonB"
+            >
+              Next
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
