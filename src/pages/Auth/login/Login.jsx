@@ -5,10 +5,12 @@ import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { FaUser, FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
-import { DEFAULT_EMAIL, DEFAULT_PASSWORD } from "../../../util/constants";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const Login = () => {
+  const DEFAULT_EMAIL = import.meta.env.VITE_APP_DEFAULT_EMAIL;
+  const DEFAULT_PASSWORD = import.meta.env.VITE_APP_DEFAULT_PASSWORD;
+
   const [email, setEmail] = useState(DEFAULT_EMAIL);
   const [password, setPassword] = useState(DEFAULT_PASSWORD);
   const [showPassword, setShowPassword] = useState(false);
@@ -65,21 +67,30 @@ const Login = () => {
             </div>
             <div className="password-input-container">
               <input
-                type={showPassword ? "text" : "password"} 
+                type={showPassword ? "text" : "password"}
                 className="login-input"
                 placeholder="Enter your password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
               {showPassword ? (
-                <FaEyeSlash className="eye-icon" onClick={togglePasswordVisibility} />
+                <FaEyeSlash
+                  className="eye-icon"
+                  onClick={togglePasswordVisibility}
+                />
               ) : (
-                <FaEye className="eye-icon" onClick={togglePasswordVisibility} />
+                <FaEye
+                  className="eye-icon"
+                  onClick={togglePasswordVisibility}
+                />
               )}
             </div>
           </div>
           <div className="dont-have-account">
-            Don't have an account? <Link to="/register" className="link-style">Sign up</Link>
+            Don't have an account?{" "}
+            <Link to="/register" className="link-style">
+              Sign up
+            </Link>
           </div>
           <div className="submit-button-login" onClick={handleSubmit}>
             Login
