@@ -34,8 +34,8 @@ const EditPastProject = () => {
       });
 
       // Generate image previews from base64 strings
-      const previews = projectData.Image.map(image => `data:image/jpeg;base64, ${image}`);
-      setImagePreviews(previews);
+      // const previews = projectData.Image.map(image => `data:image/jpeg;base64, ${image}`);
+      // setImagePreviews(previews);
 
     } catch (error) {
       console.error("Error loading project:", error);
