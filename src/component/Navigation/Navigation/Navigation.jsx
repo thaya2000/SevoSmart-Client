@@ -11,6 +11,7 @@ import { NavLink } from "react-router-dom";
 import { userAuth } from "../../../context/authContext.jsx";
 import NavAccountMenu from "../NavAccountMenu/NavAccountMenu.jsx";
 import { FaCartShopping } from "react-icons/fa6";
+import { IoCartOutline } from "react-icons/io5";
 
 const Navigation = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
@@ -57,7 +58,7 @@ const Navigation = () => {
         </div>
         <div className="naviEnd w-1/3 sm:w-full">
           <div className="naviSearch">
-            <UilSearch />
+            <UilSearch size="2rem" />
           </div>
           <div>
             {!auth.user ? (
@@ -67,9 +68,13 @@ const Navigation = () => {
             ) : (
               <div className="flex flex-row gap-x-1 ">
                 <NavLink to="/cart">
-                  <FaCartShopping size={32} />
+                  <div className="px-2">
+                    <IoCartOutline size="2rem" />
+                  </div>
                 </NavLink>
-                <NavAccountMenu />
+                <div>
+                  <NavAccountMenu />
+                </div>
               </div>
             )}
           </div>
