@@ -1,37 +1,47 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { userAuth } from "../../../context/authContext";
-import "./NavAccountMenu.css";
+import { useState, useRef } from "react";
+import "./Userdropdownmenu.css";
 import { dropdownMenu } from "@nextui-org/react";
 
-export default function NavAccountMenu() {
-  const [auth, setAuth] = userAuth();
-  const [activeProfile, setActiveProfile] = useState(false);
-
-  const navigate = useNavigate();
-  const logout = () => {
-    setAuth({ ...auth, user: null, token: "" });
-    localStorage.removeItem("auth");
-    navigate("/login");
-  };
+const UserDropdown = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [profilePicture, setProfilePicture] = useState(null);
+  const fileInputRef = useRef(null);
 
   const toggleMenu = () => {
-    setActiveProfile(!activeProfile);
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleImageUpload = () => {
+    fileInputRef.current.click();
+  };
+
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      setProfilePicture(URL.createObjectURL(file));
+    }
   };
 
   return (
-    <div>
+    <div className="user-dropdown">
       <div onClick={toggleMenu}>
-        <div className="naviAccount">
-          {auth.user.firstname.charAt(0).toUpperCase()}
-        </div>
+        <img
+          className="profile-picture"
+          src={profilePicture || "default_profile_picture_path"}
+          alt="Profile"
+        />
       </div>
-      {activeProfile && (
+      <input
+        ref={fileInputRef}
+        type="file"
+        accept="image/*"
+        onChange={handleFileChange}
+        style={{ display: "none" }}
+      />
+
+      {isMenuOpen && (
         <div className="dropdown-menu">
-          <button
-            className="flex w-full content-end justify-end p-3"
-            onClick={toggleMenu}
-          >
+          <button className="close-button" onClick={toggleMenu}>
             <img
               width="25"
               height="25"
@@ -39,11 +49,20 @@ export default function NavAccountMenu() {
               alt="cancel--v1"
             />
           </button>
-
-          <div className="profilename-container">
-            <span className="profile-name">
-              {auth.user.firstname + " " + auth.user.lastname}
-            </span>
+          <div className="profilename-container" onClick={handleImageUpload}>
+            <img
+              className="profile-picture-dropdown"
+              src={profilePicture || "default_profile_picture_path"}
+              alt="Profile"
+            />
+            <img
+              className="camera-icon"
+              width="20"
+              height="20"
+              src="https://img.icons8.com/ios-filled/50/737373/camera--v1.png"
+              alt="camera--v1"
+            />
+            <span className="profile-name">Kithurshika Kirushnan</span>
           </div>
 
           <div className="ul-container">
@@ -92,13 +111,7 @@ export default function NavAccountMenu() {
               src="https://img.icons8.com/ios-filled/50/FA5252/logout-rounded-left.png"
               alt="logout-rounded-left"
             />
-            <button
-              className="log-out"
-              onClick={() => {
-                dropdownMenu();
-                logout();
-              }}
-            >
+            <button className="log-out" onClick={dropdownMenu}>
               Log out
             </button>
           </div>
@@ -106,4 +119,6 @@ export default function NavAccountMenu() {
       )}
     </div>
   );
-}
+};
+
+export default UserDropdown;
