@@ -1,8 +1,8 @@
-import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { userAuth } from "../../../context/authContext";
 import "./NavAccountMenu.css";
+import { dropdownMenu } from "@nextui-org/react";
 
 export default function NavAccountMenu() {
   const [auth, setAuth] = userAuth();
@@ -15,42 +15,92 @@ export default function NavAccountMenu() {
     navigate("/login");
   };
 
-  const handleProfileHover = () => {
-    setActiveProfile(true);
-  };
-
-  const handleProfileLeave = () => {
-    setActiveProfile(false);
+  const toggleMenu = () => {
+    setActiveProfile(!activeProfile);
   };
 
   return (
     <div>
-      <div onMouseEnter={handleProfileHover} onMouseLeave={handleProfileLeave}>
+      <div onClick={toggleMenu}>
         <div className="naviAccount">
           {auth.user.firstname.charAt(0).toUpperCase()}
         </div>
       </div>
       {activeProfile && (
-        <div
-          className="account-menu-container"
-          onMouseEnter={handleProfileHover}
-          onMouseLeave={handleProfileLeave}
-        >
-          <div className="account-menu">
-            <NavLink to="/solar-learnmore">
-              <div className="account-menu-item">{auth.user.firstname}</div>
-            </NavLink>
-            <NavLink to="/solar-learnmore">
-              <div className="account-menu-item">Profile</div>
-            </NavLink>
-            <NavLink to="/solar-learnmore">
-              <div className="account-menu-item">Settings</div>
-            </NavLink>
-            <NavLink to="/login">
-              <div className="account-menu-item" onClick={logout}>
-                Log out
+        <div className="dropdown-menu">
+          <button
+            className="flex w-full content-end justify-end p-3"
+            onClick={toggleMenu}
+          >
+            <img
+              width="25"
+              height="25"
+              src="https://img.icons8.com/pastel-glyph/64/737373/cancel--v1.png"
+              alt="cancel--v1"
+            />
+          </button>
+
+          <div className="profilename-container">
+            <span className="profile-name">
+              {auth.user.firstname + " " + auth.user.lastname}
+            </span>
+          </div>
+
+          <div className="ul-container">
+            <ul className="list">
+              <div className="bag-containerA">
+                <a href="/order-summary">
+                  <li>
+                    <img
+                      width="20"
+                      height="20"
+                      src="https://img.icons8.com/ios-glyphs/30/737373/shopping-bag.png"
+                      alt="shopping-bag"
+                    />
+                    My orders
+                  </li>
+                </a>
               </div>
-            </NavLink>
+              <div className="bag-containerB">
+                <li>
+                  <img
+                    width="20"
+                    height="20"
+                    src="https://img.icons8.com/ios-filled/50/737373/like--v1.png"
+                    alt="like--v1"
+                  />
+                  Wishlist
+                </li>
+              </div>
+              <div className="bag-containerC">
+                <li>
+                  <img
+                    width="20"
+                    height="20"
+                    src="https://img.icons8.com/ios-filled/50/737373/settings.png"
+                    alt="settings"
+                  />
+                  Settings
+                </li>
+              </div>
+            </ul>
+          </div>
+          <div className="logout-container">
+            <img
+              width="20"
+              height="20"
+              src="https://img.icons8.com/ios-filled/50/FA5252/logout-rounded-left.png"
+              alt="logout-rounded-left"
+            />
+            <button
+              className="log-out"
+              onClick={() => {
+                dropdownMenu();
+                logout();
+              }}
+            >
+              Log out
+            </button>
           </div>
         </div>
       )}

@@ -1,11 +1,10 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Navigation from "./component/Navigation/Navigation/Navigation.jsx";
 import Home from "../src/pages/Home/Home.jsx";
 import SolarPanelLearnmore from "../src/pages/SolarPanel/SolarPanelLearnmore.jsx";
 import EnergyOrder from "../src/pages/Energy/EnergyOrder.jsx";
 import NewBuildingConsultation from "../src/pages/Construction/ConstructionConsultation.jsx";
-import ConstructionsLearnmore from "../src/pages/Construction/ConstructionLearnmore.jsx";
 import Test from "./pages/Test/Test.jsx";
 import Footer from "./component/Footer/Footer.jsx";
 import Signup from "./pages/Auth/signup/Signup.jsx";
@@ -15,13 +14,11 @@ import Loading from "./routes/Loading.jsx";
 import PrivateRoutes from "./routes/PrivateRoutes.jsx";
 import Accessories from "./pages/Shop/Accessories.jsx";
 import Cart from "./pages/Shop/Cart.jsx";
-import NavEnergy from "./component/Navigation/NavEnergy/NavEnergy.jsx";
 import AccountDetailsForm from "./pages/Energy/Energy/energy.jsx";
 import OrderSolarPanel from "./pages/Energy/OrderSolarPanel/oredrSolarPanel.jsx";
 import BillCalculation from "./pages/Energy/BillCalculation/billCalculation.jsx";
 import Learnmore from "./pages/Energy/LearnMoreEnergy/learnmore.jsx";
 import Learnmoreconstruction from "./pages/Construction/learnmoreconstruction/learnmoreconstruction.jsx";
-import ImageSlider from "./pages/Energy/LearnMoreEnergy/ImageSlider.jsx";
 import AdminPanel from "./pages/Admin/AdminPanel.jsx";
 import AddProduct from "./pages/Admin/AddProduct.jsx";
 import EditProduct from "./pages/Admin/EditProduct.jsx";
@@ -34,7 +31,6 @@ import ImageSliderConstruction from "./pages/Construction/learnmoreconstruction/
 import NewsPage from "./pages/News/NewsPage.jsx";
 import NewsDetails from "./pages/News/NewsDetails.jsx";
 import ProductDetails from "./pages/Shop/ProductDetail.jsx";
-import UserDropdown from "./component/HomeComponent/Userdropdownmenu/Userdropdownmenu.jsx";
 
 function ScrollToTopOnRouteChange() {
   const { pathname } = useLocation();
@@ -84,7 +80,6 @@ function App() {
         <Route path="/edit-project/:id" element={<EditPastProject />} />
         <Route path="/news" element={<NewsPage />} />
         <Route path="/newspage/:id" element={<NewsDetails />} />
-        <Route path="/userdropdownmenu" element={<UserDropdown/>}/>
         <Route path="/product-details/:id" element={<ProductDetails />} />
         <Route
           path="/imagesliderconstruction"
