@@ -31,12 +31,11 @@ import ImageSliderConstruction from "./pages/Construction/learnmoreconstruction/
 import NewsPage from "./pages/News/NewsPage.jsx";
 import NewsDetails from "./pages/News/NewsDetails.jsx";
 import ProductDetails from "./pages/Shop/ProductDetail.jsx";
-<<<<<<< HEAD
 import UserDropdown from "./component/HomeComponent/Userdropdownmenu/Userdropdownmenu.jsx";
-import Usersetting from "./component/HomeComponent/Usersetting/Usersetting.jsx";
-=======
+
+
 import OrderDetails from "./pages/Admin/OrderDetails.jsx";
->>>>>>> 2490123fcb84da40f957e3b9981f48bb6bb2ccc1
+import Setting from "./component/HomeComponent/Setting/setting.jsx";
 
 function ScrollToTopOnRouteChange() {
   const { pathname } = useLocation();
@@ -86,24 +85,19 @@ function App() {
         <Route path="/edit-project/:id" element={<EditPastProject />} />
         <Route path="/news" element={<NewsPage />} />
         <Route path="/newspage/:id" element={<NewsDetails />} />
-<<<<<<< HEAD
-        <Route path="/userdropdowmenu" element={<UserDropdown/>}/>
-=======
->>>>>>> 2490123fcb84da40f957e3b9981f48bb6bb2ccc1
+        <Route path="/userdropdownmenu" element={<UserDropdown/>}/>
         <Route path="/product-details/:id" element={<ProductDetails />} />
         {/* <Route path="/order-details/:id" element={<OrderDetails />} /> */}
         <Route
           path="/imagesliderconstruction"
           element={<ImageSliderConstruction />}
         />
+        <Route path="/setting" element={<Setting/>}/>
         <Route
           path="/learnmoreconstruction"
           element={<Learnmoreconstruction />}
         />
-        <Route
-          path="/usersetting"
-          element={<Usersetting/>}
-        />
+        
       </Routes>
       <Footer />
       <Toaster />
