@@ -1,33 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import { SlArrowDown } from "react-icons/sl";
 import axios from "axios";
 import Accessory from "../../component/Shop/Accessory";
-import image1 from "../../assets/construction.jpg";
-import image2 from "../../assets/solar.jpg";
-import image3 from "../../assets/footer_sample.jpg";
 
 const Accessories = () => {
-
-
-
   const [accessories, setAccessories] = useState([]);
 
-
   useEffect(() => {
-      loadAccessories();
+    loadAccessories();
   }, []);
 
   const loadAccessories = async () => {
-      try {
-          const result = await axios.get("https://sevosmarttech-efce83f08cbb.herokuapp.com/admin/allProduct");
-          setAccessories(result.data);
-          console.log(result.data);
-      } catch (error) {
-          console.error('Error loading Accessories:', error);
-      }
+    try {
+      const result = await axios.get("/admin/allProduct");
+      setAccessories(result.data);
+      console.log(result.data);
+    } catch (error) {
+      console.error("Error loading Accessories:", error);
+    }
   };
-
-
 
   return (
     <div className="flex flex-col mt-7">
@@ -44,7 +35,6 @@ const Accessories = () => {
       </div>
       <div className="flex flex-wrap justify-center gap-10 p-10">
         {accessories.map((accessory, index) => (
-        
           <Accessory
             key={index}
             accessory_image={accessory.productImage}
@@ -53,7 +43,6 @@ const Accessories = () => {
             accessory_id={accessory.id}
             accessory_description={accessory.description}
           />
-
         ))}
       </div>
     </div>
