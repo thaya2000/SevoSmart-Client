@@ -1,20 +1,34 @@
-import React from "react";
 import { userAuth } from "../../context/authContext";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
-const Accessory = ({ accessory_image, accessory_name, accessory_price, accessory_id,accessory_description }) => {
+const Accessory = ({
+  accessory_image,
+  accessory_name,
+  accessory_price,
+  accessory_id,
+  accessory_description,
+}) => {
   const [auth, setAuth] = userAuth();
-  const navigate= useNavigate();
-  const data = { accessory_name: accessory_name, accessory_name:accessory_name,  accessory_price:accessory_price,accessory_image:accessory_image,accessory_description :accessory_description  };
+  const navigate = useNavigate();
+  const data = {
+    accessory_name: accessory_name,
+    accessory_id: accessory_id,
+    accessory_price: accessory_price,
+    accessory_image: accessory_image,
+    accessory_description: accessory_description,
+  };
 
   const imgData = `data:image/jpg;base64,${accessory_image}`;
 
   const addToCart = async () => {
     try {
-      await axios.post(`/api/v1/user/addProductToCart/${accessory_id}/${auth.user.id}`);
+      await axios.post(
+        `/api/v1/user/addProductToCart/${accessory_id}/${auth.user.id}`
+      );
       toast.success("Product added to cart successfully");
     } catch (error) {
       console.error("Error adding product to cart:", error);
@@ -23,18 +37,15 @@ const Accessory = ({ accessory_image, accessory_name, accessory_price, accessory
   };
 
   const navigateToProductDetails = () => {
-
     // console.log("Accessory name:", accessory_name);
     // console.log("Accessory price:", accessory_price);
     // console.log("Accessory ID:", accessory_id);
     // console.log(accessory_image);
 
     navigate(`/product-details/${accessory_id}`, {
-      state: data
+      state: data,
     });
   };
-
-
 
   return (
     <div className="flex flex-col items-center border-2 border-black rounded-2xl w-80">
@@ -55,7 +66,11 @@ const Accessory = ({ accessory_image, accessory_name, accessory_price, accessory
         <button
           onClick={addToCart}
           className="text-white bg-blue-900 hover:bg-blue-600 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm text-center w-32 h-10 mb-5"
-          style={{ display: "flex", alignItems: "center", justifyContent: "center" }}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
         >
           Add to Cart
         </button>
@@ -63,13 +78,25 @@ const Accessory = ({ accessory_image, accessory_name, accessory_price, accessory
           onClick={addToCart}
           to="/cart"
           className="text-white bg-yellow-900 hover:bg-yellow-600 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm text-center w-32 h-10 mb-5"
-          style={{ display: "flex", alignItems: "center", justifyContent: "center" }}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
         >
           Buy Now
         </Link>
       </div>
     </div>
   );
+};
+
+Accessory.propTypes = {
+  accessory_image: PropTypes.string.isRequired,
+  accessory_name: PropTypes.string.isRequired,
+  accessory_price: PropTypes.number.isRequired,
+  accessory_id: PropTypes.string.isRequired,
+  accessory_description: PropTypes.string.isRequired,
 };
 
 export default Accessory;

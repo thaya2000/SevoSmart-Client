@@ -1,19 +1,18 @@
 import { useState } from "react";
 import "./Signup.css";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import { userAuth } from "../../../context/authContext";
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
-import {
-  DEFAULT_EMAIL,
-  DEFAULT_PASSWORD,
-  DEFAULT_ROLE,
-  DEFAULT_FIRSTNAME,
-  DEFAULT_LASTNAME,
-} from "../../../util/constants";
 
 export default function Signup() {
+  const DEFAULT_EMAIL = import.meta.env.VITE_APP_DEFAULT_EMAIL;
+  const DEFAULT_PASSWORD = import.meta.env.VITE_APP_DEFAULT_PASSWORD;
+  const DEFAULT_FIRSTNAME = import.meta.env.VITE_APP_DEFAULT_FIRSTNAME;
+  const DEFAULT_LASTNAME = import.meta.env.VITE_APP_DEFAULT_LASTNAME;
+  const DEFAULT_ROLE = import.meta.env.VITE_APP_DEFAULT_ROLE;
+
   const [firstname, setFirstName] = useState(DEFAULT_FIRSTNAME);
   const [lastname, setLastName] = useState(DEFAULT_LASTNAME);
   const [email, setEmail] = useState(DEFAULT_EMAIL);
@@ -52,10 +51,10 @@ export default function Signup() {
   };
 
   return (
-      <div className="signup-container">
-        <div className="create-account-text">SignUp</div>
-        <form onSubmit={handleSubmit} className="flex flex-col">
-          <div className="input-container"> 
+    <div className="signup-container">
+      <div className="create-account-text">SignUp</div>
+      <form onSubmit={handleSubmit} className="flex flex-col">
+        <div className="input-container">
           <input
             type="text"
             className="register-input"
@@ -92,16 +91,17 @@ export default function Signup() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          </div>
-          <div className="login-line">
-           <span>Already have an account ?</span>
-           <Link to="/login" className="link-style">Login</Link>
-           </div>
-          <div className="submit-button-register " onClick={handleSubmit}>
-            SignUp
-          </div>
-        </form>
-      </div>
-  
+        </div>
+        <div className="login-line">
+          <span>Already have an account ?</span>
+          <Link to="/login" className="link-style">
+            Login
+          </Link>
+        </div>
+        <div className="submit-button-register " onClick={handleSubmit}>
+          SignUp
+        </div>
+      </form>
+    </div>
   );
 }

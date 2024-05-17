@@ -10,11 +10,18 @@
   justify-content: flex-start;
 }
 
-.account-menu {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-left: 1rem;
+.dropdown-menu {
+  margin-top: 20px;
+  width: 280px;
+  height: 350px;
+  position: fixed;
+  top: 50px;
+  right: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1;
 }
 
 .naviAccount {
@@ -29,4 +36,181 @@
   margin-right: 1rem;
   border: solid #040e42 2px;
   font-weight: 700;
+}
+
+.profilename-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.profilename-container::after {
+  content: "";
+  position: absolute;
+  margin-top: 50px;
+  left: 10%;
+  width: 80%;
+  height: 1px;
+  background-color: #ddcece;
+}
+
+.ul-container {
+  margin-top: 20px;
+  height: 150px;
+}
+
+.profile-name {
+  margin-left: 15px;
+}
+
+.bag-container ul,
+.bag-containerA ul,
+.bag-containerB ul,
+.bag-containerC ul {
+  list-style-type: none;
+  padding: 20px;
+}
+
+.bag-container li,
+.bag-containerA li,
+.bag-containerB li,
+.bag-containerC li {
+  display: flex;
+  align-items: center;
+}
+
+.bag-container li img,
+.bag-containerA li img,
+.bag-containerB li img,
+.bag-containerC li img {
+  margin-right: 5px;
+  margin-left: 20px;
+}
+
+.ul-container::after {
+  content: "";
+  position: absolute;
+  margin-top: 20px;
+  left: 10%;
+  width: 80%;
+  height: 1px;
+  margin-bottom: auto;
+  background-color: #ddcece;
+}
+
+.log-out {
+  color: red;
+  size: 12px;
+  margin-left: 5px;
+}
+
+.logout-container {
+  position: relative;
+  display: flex;
+  left: 35%;
+  margin-top: 25px;
+  font-size: 14px;
+  cursor: pointer;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.logout-container:hover {
+  background-color: rgb(234, 233, 233);
+}
+
+.camera-icon {
+  position: absolute;
+  top: 45px;
+  left: 60px;
+  z-index: 1;
+}
+
+@media (max-width: 767px) {
+  .profile-picture,
+  .profile-picture-dropdown {
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+    margin-right: 0;
+  }
+
+  .dropdown-menu {
+    top: 60px;
+    right: 10px;
+    width: -moz-fit-content;
+    width: fit-content;
+    height: auto;
+  }
+
+  .profile-name {
+    font-size: 13px;
+    margin-left: 2px;
+    margin-right: 5px;
+  }
+
+  .log-out,
+  .bag-containerA,
+  .bag-containerB,
+  .bag-containerC {
+    font-size: 12px;
+  }
+
+  .camera-icon {
+    position: absolute;
+    top: 34px;
+    left: 40px;
+    z-index: 1;
+    width: 15px;
+    height: 15px;
+  }
+
+  .logout-container {
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+}
+
+.user-dropdown {
+  position: absolute;
+  top: 80px;
+  right: 400px;
+}
+
+.profile-picture {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-right: 0;
+}
+
+.profile-picture-dropdown {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-top: 10px;
+  margin-left: 30px;
+  cursor: pointer;
+}
+
+.close-button {
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.dropdown-menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-menu ul li {
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.dropdown-menu ul li:hover {
+  background-color: #f5f5f5;
 }

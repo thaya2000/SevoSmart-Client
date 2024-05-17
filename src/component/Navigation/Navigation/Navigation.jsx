@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./Navigation.css";
-import { UilSearch, UilUserCircle } from "@iconscout/react-unicons";
+import { UilSearch } from "@iconscout/react-unicons";
 import NavEnergy from "../NavEnergy/NavEnergy.jsx";
 import NavConstruction from "../NavConstruction/NavConstruction.jsx";
 import NavShop from "../NavShop/NavShop.jsx";
@@ -10,18 +10,13 @@ import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import { userAuth } from "../../../context/authContext.jsx";
 import NavAccountMenu from "../NavAccountMenu/NavAccountMenu.jsx";
+import { FaCartShopping } from "react-icons/fa6";
+import { IoCartOutline } from "react-icons/io5";
 
 const Navigation = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
-  const [activeProfile, setActiveProfile] = useState(false);
 
   const [auth, setAuth] = userAuth();
-  const navigate = useNavigate();
-  const logout = () => {
-    setAuth({ ...auth, user: null, token: "" });
-    localStorage.removeItem("auth");
-    navigate("/login");
-  };
 
   const handleButtonHover = (index) => {
     setActiveDropdown(index);
@@ -63,7 +58,7 @@ const Navigation = () => {
         </div>
         <div className="naviEnd w-1/3 sm:w-full">
           <div className="naviSearch">
-            <UilSearch />
+            <UilSearch size="2rem" />
           </div>
           <div>
             {!auth.user ? (
@@ -71,8 +66,15 @@ const Navigation = () => {
                 <div className="navLogin">Log in</div>
               </NavLink>
             ) : (
-              <div className="flex flex-col">
-                <NavAccountMenu />
+              <div className="flex flex-row gap-x-1 ">
+                <NavLink to="/cart">
+                  <div className="px-2">
+                    <IoCartOutline size="2rem" />
+                  </div>
+                </NavLink>
+                <div>
+                  <NavAccountMenu />
+                </div>
               </div>
             )}
           </div>
