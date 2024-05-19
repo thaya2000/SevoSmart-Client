@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import './setting.css'; // Optional: for styling
 
-function Setting() {
+function Passwordsetting() {
   const [profileImage, setProfileImage] = useState(null);
   const [imagePreview, setImagePreview] = useState('path-to-placeholder-image');
 
@@ -70,7 +69,6 @@ function Setting() {
               </li>
             </div>
             <div className="bag-containerC">
-            <a href="/passwordsetting">
               <li>
                 <img
                   width="20"
@@ -78,44 +76,30 @@ function Setting() {
                   src="https://img.icons8.com/ios-filled/50/737373/settings.png"
                   alt="settings"
                 />
-                 PasswordSettings
+                 Password Settings
               </li>
-              </a>
             </div>
           </ul>
         </nav>
       </div>
       <div className="main-content">
-        <h2 className="profile">Reset Profile</h2>
+        <h2 className="profile">Reset Password</h2>
         <form>
           <div className="form-group">
-            <label>First Name</label>
-            <input type="text" placeholder="First Name" />
+            <label>Current Password</label>
+            <input type="text" placeholder="Current password" />
           </div>
           <div className="form-group">
-            <label>Last Name</label>
-            <input type="text" placeholder="Last Name" />
+            <label>New Password</label>
+            <input type="text" placeholder="New Password" />
           </div>
-          <div className="form-group">
-  <label>Role</label>
-  <select>
-    <option value="customer">Customer</option>
-    <option value="admin">Admin</option>
-  </select>
-</div>
+          
 
           <div className="form-group">
-            <label>Contact Number</label>
-            <input type="text" placeholder="Contact Number" />
+            <label>Confirm Password</label>
+            <input type="text" placeholder="Confirm Password" />
           </div>
-          <div className="form-group">
-            <label>E-mail</label>
-            <input type="email" placeholder="E-mail" />
-          </div>
-          <div className="form-group">
-            <label>Address</label>
-            <input type="text" placeholder="User name" />
-          </div>
+          
           
          
           
@@ -126,4 +110,4 @@ function Setting() {
   );
 }
 
-export default Setting;
+export default Passwordsetting;

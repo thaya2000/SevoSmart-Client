@@ -36,6 +36,7 @@ import UserDropdown from "./component/HomeComponent/Userdropdownmenu/Userdropdow
 
 import OrderDetails from "./pages/Admin/OrderDetails.jsx";
 import Setting from "./component/HomeComponent/Setting/setting.jsx";
+import Passwordsetting from "./component/HomeComponent/Setting/Passwordsetting.jsx";
 
 function ScrollToTopOnRouteChange() {
   const { pathname } = useLocation();
@@ -97,7 +98,7 @@ function App() {
           path="/learnmoreconstruction"
           element={<Learnmoreconstruction />}
         />
-        
+        <Route path="/passwordsetting" element={<Passwordsetting/>}/>
       </Routes>
       <Footer />
       <Toaster />

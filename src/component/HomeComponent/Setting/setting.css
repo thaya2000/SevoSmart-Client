@@ -1,7 +1,7 @@
 .setting-container {
     display: flex;
     width: 100%;
-    height: 100vh;
+    height: 100%;
   }
   
   .sidebar {
@@ -91,6 +91,14 @@
     background-color: #f7f7f7;
   }
   
+  .form-group select {
+    width: 400;
+    padding: 10px;
+    border: 1px solid #727171;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: #f7f7f7;
+}
   .setting-submit {
     width:100px;
     height:40px;
@@ -111,4 +119,161 @@
   
   .Ul-order{
     margin-left: 40px;
+  }
+  @media screen and (max-width: 768px){
+    .setting-container {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+  }
+  
+  .sidebar {
+      width: 100%;
+      background-color: #f7f7f7;
+      border-right: none;
+      border-bottom: 1px solid #e0e0e0;
+      padding: 20px;
+      box-sizing: border-box;
+  }
+  
+  .profileMain {
+      text-align: center;
+      color: #060a56;
+      font-weight: bold;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+  }
+  
+  .profile-picture img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 0;
+      margin-bottom: 10px;
+  }
+  
+  .navigation ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 20px;
+  }
+  
+  .navigation li {
+      margin: 10px 0;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+  }
+  
+  .navigation li:hover,
+  .navigation .active {
+      background-color: #e0e0e0;
+  }
+  
+  .main-content {
+      width: 100%;
+      padding: 20px;
+      box-sizing: border-box;
+  }
+  
+  .profile {
+      color: #060a56;
+      font-size: 22px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
+  }
+  
+  .password-setting {
+      margin-top: 30px;
+      color: #060a56;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
+  }
+  
+  .form-group {
+      margin-bottom: 20px;
+  }
+  
+  .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      color: #7a7a7a;
+      font-size: 12px;
+  }
+  
+  .form-group input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #727171;
+      border-radius: 5px;
+      box-sizing: border-box;
+      background-color: #f7f7f7;
+      font-size: 12px;
+  }
+  
+  .form-group select {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #727171;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: #f7f7f7;
+}
+  .setting-submit {
+      width: 100%;
+      height: 40px;
+      border: #060a56 solid 2px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      color: #060a56;
+      transition: background-color 0.3s;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  
+  button:hover {
+      background-color: #c3c3c0;
+  }
+  
+  .Ul-order {
+      margin-left: 20px;
+  }
+  
+  /* Media query for small screens */
+  @media (max-width: 768px) {
+      .setting-container {
+          flex-direction: column;
+      }
+  
+      .sidebar {
+          width: 100%;
+          border-right: none;
+          border-bottom: 1px solid #e0e0e0;
+      }
+  
+      .main-content {
+          width: 100%;
+          padding: 20px;
+      }
+  
+      .form-group input ,.form-group select{
+          width: 80%;
+      }
+  
+      .setting-submit {
+          width: 20%;
+      }
+      .profile{
+        font-size: 16px;
+      }
+  }
+  
   }
