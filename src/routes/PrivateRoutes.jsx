@@ -6,7 +6,6 @@ import Loading from "./Loading";
 
 export default function PrivateRoutes() {
   const [auth, setAuth] = userAuth();
-  // state
   const [ok, setOk] = useState(false);
 
   useEffect(() => {

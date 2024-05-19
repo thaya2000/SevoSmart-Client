@@ -17,6 +17,7 @@ export default function Loading() {
     // cleanup
     return () => clearInterval(interval);
   }, [count]);
+
   return (
     <div className="flex items-center justify-center w-100v h-100v">
       <img src={Rhombus} alt="loading" />

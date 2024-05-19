@@ -91,6 +91,10 @@ function App() {
           path="/learnmoreconstruction"
           element={<Learnmoreconstruction />}
         />
+        <Route path="/user" element={<PrivateRoutes />}>
+          <Route path="accessories" element={<Accessories />} />
+          <Route path="cart" element={<Cart />} />
+        </Route>
       </Routes>
       <Footer />
       <Toaster />
