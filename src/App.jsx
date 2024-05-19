@@ -12,6 +12,7 @@ import Login from "./pages/Auth/login/Login.jsx";
 import { Toaster } from "react-hot-toast";
 import Loading from "./routes/Loading.jsx";
 import PrivateRoutes from "./routes/PrivateRoutes.jsx";
+import AdminRoutes from "./routes/AdminRoutes.jsx";
 import Accessories from "./pages/Shop/Accessories.jsx";
 import Cart from "./pages/Shop/Cart.jsx";
 import AccountDetailsForm from "./pages/Energy/Energy/energy.jsx";
@@ -94,6 +95,10 @@ function App() {
         <Route path="/user" element={<PrivateRoutes />}>
           <Route path="accessories" element={<Accessories />} />
           <Route path="cart" element={<Cart />} />
+        </Route>
+
+        <Route path="/admin" element={<AdminRoutes />}>
+          <Route path="admin-panel" element={<AdminPanel />} />
         </Route>
       </Routes>
       <Footer />
