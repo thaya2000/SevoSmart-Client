@@ -32,8 +32,7 @@ import NewsPage from "./pages/News/NewsPage.jsx";
 import NewsDetails from "./pages/News/NewsDetails.jsx";
 import ProductDetails from "./pages/Shop/ProductDetail.jsx";
 import UserDropdown from "./component/HomeComponent/Userdropdownmenu/Userdropdownmenu.jsx";
-
-
+// import Usersetting from "./component/HomeComponent/Usersetting/Usersetting.jsx";
 import OrderDetails from "./pages/Admin/OrderDetails.jsx";
 import Setting from "./component/HomeComponent/Setting/setting.jsx";
 import Passwordsetting from "./component/HomeComponent/Setting/Passwordsetting.jsx";
@@ -86,19 +85,23 @@ function App() {
         <Route path="/edit-project/:id" element={<EditPastProject />} />
         <Route path="/news" element={<NewsPage />} />
         <Route path="/newspage/:id" element={<NewsDetails />} />
-        <Route path="/userdropdownmenu" element={<UserDropdown/>}/>
+        <Route path="/userdropdownmenu" element={<UserDropdown />} />
         <Route path="/product-details/:id" element={<ProductDetails />} />
         {/* <Route path="/order-details/:id" element={<OrderDetails />} /> */}
         <Route
           path="/imagesliderconstruction"
           element={<ImageSliderConstruction />}
         />
-        <Route path="/setting" element={<Setting/>}/>
+        <Route path="/setting" element={<Setting />} />
         <Route
           path="/learnmoreconstruction"
           element={<Learnmoreconstruction />}
         />
+<<<<<<< HEAD
         <Route path="/passwordsetting" element={<Passwordsetting/>}/>
+=======
+        {/* <Route path="/usersetting" element={<Usersetting />} /> */}
+>>>>>>> 500a06a11aa1ce33b98f98332a194db6985e55a2
       </Routes>
       <Footer />
       <Toaster />
