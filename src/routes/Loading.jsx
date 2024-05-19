@@ -3,9 +3,7 @@ import { useEffect, useState } from "react";
 import Rhombus from "../assets/Loaders/Rhombus.gif";
 
 export default function Loading() {
-  // state
   const [count, setCount] = useState(3);
-  //hooks
   const navigate = useNavigate();
 
   useEffect(() => {

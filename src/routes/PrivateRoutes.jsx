@@ -10,16 +10,24 @@ export default function PrivateRoutes() {
 
   useEffect(() => {
     const authCheck = async () => {
-      const { status } = await axios.get(`/auth-check`);
-      console.log(status);
-      if (status === 200) {
-        setOk(true);
-      } else {
-        setOk(false);
+      if (auth?.token) {
+        try {
+          const { status } = await axios.get("/api/v1/auth/auth-check", {
+            headers: {
+              Authorization: `Bearer ${auth.token}`,
+            },
+          });
+          console.log(status);
+          setOk(status === 200);
+        } catch (error) {
+          console.log(error.response?.status || "Network error");
+          setOk(false);
+        }
       }
     };
 
-    if (auth?.token) authCheck();
+    authCheck();
   }, [auth?.token]);
+
   return ok ? <Outlet /> : <Loading />;
 }
