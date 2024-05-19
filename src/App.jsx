@@ -35,6 +35,9 @@ import NewsPage from "./pages/News/NewsPage.jsx";
 import NewsDetails from "./pages/News/NewsDetails.jsx";
 import ProductDetails from "./pages/Shop/ProductDetail.jsx";
 import OrderDetails from "./pages/Admin/OrderDetails.jsx";
+import News from "./pages/Admin/News.jsx";
+import AddNews from "./pages/Admin/AddNews.jsx";
+import EditNews from "./pages/Admin/EditNews.jsx";
 
 function ScrollToTopOnRouteChange() {
   const { pathname } = useLocation();
@@ -86,6 +89,11 @@ function App() {
         <Route path="/newspage/:id" element={<NewsDetails />} />
         <Route path="/product-details/:id" element={<ProductDetails />} />
         <Route path="/order-details/:orderNumber" element={<OrderDetails />} />
+        <Route path="/news-admin" element={<News />} />
+        <Route path="/edit-news/:id" element={<EditNews />} />
+        
+        
+
         <Route
           path="/imagesliderconstruction"
           element={<ImageSliderConstruction />}
