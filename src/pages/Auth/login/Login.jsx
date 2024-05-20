@@ -37,9 +37,10 @@ const Login = () => {
       } else {
         localStorage.setItem("auth", JSON.stringify(data));
         setAuth({ ...auth, token: data.token, user: data.user });
+        console.log(location.state);
         navigate(
-          location.state || `/`
-          // `/dashboard/${data?.user?.role === 1 ? "admin" : "user"}`
+          location.state?.from?.pathname ||
+            `/${data?.user?.role === "ADMIN" ? "" : ""}`
         );
         toast.success("Login successful");
       }

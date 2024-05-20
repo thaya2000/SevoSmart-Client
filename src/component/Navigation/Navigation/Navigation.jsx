@@ -81,7 +81,9 @@ const Navigation = () => {
         </div>
       </div>
       <div
-        className={`dropdown ${activeDropdown !== null ? "active" : ""}`}
+        className={`dropdown absolute ${
+          activeDropdown !== null ? "active" : ""
+        }`}
         onMouseEnter={() => handleButtonHover(activeDropdown)}
         onMouseLeave={handleButtonLeave}
         onClick={handleButtonLeave}
