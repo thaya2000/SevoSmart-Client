@@ -1,4 +1,5 @@
 import React from "react";
+import "./Cart.css";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import image1 from "../../assets/construction.jpg";
@@ -40,7 +41,7 @@ const Cart = () => {
   
   return (
     <div className="flex flex-col m-5 ">
-      <div className="flex justify-start pl-5 pt-5 sm:text-6xl font-medium text-4xl">
+      <div className="CardTittle">
         Cart
       </div>
       <div className="flex flex-wrap pt-20">

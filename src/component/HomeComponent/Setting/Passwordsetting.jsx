@@ -45,7 +45,7 @@ function Passwordsetting() {
               </a>
             </div>
             <div className="bag-containerA">
-              <a href="/order-summary">
+              <a href="/cart">
                 <li>
                   <img
                     width="20"
