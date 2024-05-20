@@ -16,6 +16,7 @@ const AdminPanel = () => {
             const response = await axios.get('https://sevosmarttech-efce83f08cbb.herokuapp.com/api/v1/user/allOrders');
             setOrders(response.data); // Assuming your API response is an array of order objects
             generateSerialNumbers(response.data);
+            console.log(response.data);
         } catch (error) {
             console.error('Error fetching orders:', error);
         }
@@ -23,7 +24,8 @@ const AdminPanel = () => {
     const generateSerialNumbers = (orders) => {
         const serials = {};
         orders.forEach((order, index) => {
-            serials[order.orderId] = index + 1;
+            serials[order.orderNumber] = index + 1;
+         
         });
         setSerialNumbers(serials);
     };
@@ -37,7 +39,7 @@ const AdminPanel = () => {
                     <li><Link to="/users">Users</Link></li>
                     <li><Link to="/products">Accessories</Link></li>
                     <li><Link to="/past-projects">Past Projects</Link></li>
-                    <li><Link to="/past-projects">News</Link></li>
+                    <li><Link to="/news-admin">News</Link></li>
                     <li><Link to="/logout">Logout</Link></li>
                 </ul>
             </div>
@@ -51,30 +53,29 @@ const AdminPanel = () => {
                             <tr className="bg-gray-200 text-gray-800">
                                 <th className="px-4 py-2">No</th>
                                 <th className="px-4 py-2">Customer Name</th>
-                                <th className="px-4 py-2">Phone</th>
-                                <th className="px-4 py-2">Email</th>
-                                <th className="px-4 py-2">Address</th>
-                                <th className="px-4 py-2">Product Name</th>                        
-                                <th className="px-4 py-2">Quantity</th>          
+                                <th className="px-4 py-2">Order date</th>
+                                <th className="px-4 py-2">Phone No</th>
                                 <th className="px-4 py-2">Status</th>
+                                <th className="px-4 py-2">Order Amount</th>
+                                <th className="px-4 py-2">Address</th>      
                                 <th className="px-4 py-2">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             {orders.map(order => (
-                                <tr key={order.orderId}>
-                                    <td className="border px-4 py-2">{serialNumbers[order.orderId]}</td>
+                                <tr key={order.orderNumber}>
+                                    <td className="border px-4 py-2">{serialNumbers[order.orderNumber]}</td>
+                                    <td className="border px-4 py-2">{order.customerName}</td>
                                     <td className="border px-4 py-2">{order.orderDate}</td>
-                                    <td className="border px-4 py-2">{order.phoneNo}</td>
-                                    <td className="border px-4 py-2">{order.totalPrice}</td>
-                                    <td className="border px-4 py-2">{order.district}</td>
-                                    <td className="border px-4 py-2">{order.city}</td>
-                                    <td className="border px-4 py-2">{order.totalPrice}</td>
+                                    <td className="border px-4 py-2">{order.customerPhoneNo}</td>
                                     <td className="border px-4 py-2">{order.orderStatus}</td>
+                                    <td className="border px-4 py-2">{order.orderAmount}</td>
+                                    <td className="border px-4 py-2">{order.orderBillingAddress}</td>
                                     <td className="border px-4 py-2">
                                     <div className='flex flex-row justify-center'>
                                         <Link
-                                            to={`/order-details/${order.orderId}`}
+
+                                            to={`/order-details/${order.orderNumber}`}
                                             className="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-4 mr-2 rounded"
                                         >
                                             View

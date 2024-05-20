@@ -40,7 +40,7 @@ const Login = () => {
         console.log(location.state);
         navigate(
           location.state?.from?.pathname ||
-            `/${data?.user?.role === "ADMIN" ? "" : ""}`
+            `/${data?.user?.role === "ADMIN" ? "admin/admin-panel" : ""}`
         );
         toast.success("Login successful");
       }

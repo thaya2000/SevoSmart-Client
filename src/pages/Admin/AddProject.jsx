@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 import axios from "axios";
 
 const AddProject = () => {
-    const [name, setName] = useState("");
+    const [projectName, setProjectName] = useState("");
     const [description, setDescription] = useState("");
     const [images, setImages] = useState([]);
     const [imagePreviews, setImagePreviews] = useState([]);
@@ -12,61 +12,59 @@ const AddProject = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        console.log("Name:", name);
+        console.log("Name:", projectName);
         console.log("Description:", description);
-        console.log("images:", images);
-    }, [name, description, images]);
+        console.log("Images:", images);
+    }, [projectName, description, images]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const PastProjectData = new FormData();
-            PastProjectData.append("name", name);
-            PastProjectData.append("description", description);
+            const formData = new FormData();
+            formData.append("projectName", projectName);
+            formData.append("description", description);
             for (let i = 0; i < images.length; i++) {
-                PastProjectData.append("images", images[i]); // Append each selected image file
+                formData.append("Image", images[i]); // Append each selected image file
             }
 
             const { data } = await axios.post(
-                "http://localhost:8080/api/v1/admin/pastproject",
-                PastProjectData
+                "https://sevosmarttech-efce83f08cbb.herokuapp.com/api/v1/admin/past-project",
+                formData,
+                {
+                    headers: {
+                        "Content-Type": "multipart/form-data"
+                    }
+                }
             );
             console.log(data);
             if (data?.error) {
-              toast.error(data.error);
+                toast.error(data.error);
             } else {
-              toast.success("Project is uploaded successfully");
-              navigate("/past-projects");
+                toast.success("Project uploaded successfully");
+                navigate("/past-projects");
             }
         } catch (err) {
-            console.log(err);
-      toast.error("Project upload failed. Try again.");
+            console.error(err);
+            toast.error("Project upload failed. Try again.");
         }
     };
 
     const handleImageChange = (e) => {
-        const selectedImages = e.target.files;
+        const selectedImages = Array.from(e.target.files);
         const imagePreviews = [];
-        const newImages = [];
 
-        // Loop through each selected image
-        for (let i = 0; i < selectedImages.length; i++) {
+        selectedImages.forEach((image) => {
             const reader = new FileReader();
-            const selectedImage = selectedImages[i];
-
-            // Read each image and push its data URL to the imagePreviews array
             reader.onload = () => {
                 imagePreviews.push(reader.result);
-                // If all images have been read, update the state with the array of previews
                 if (imagePreviews.length === selectedImages.length) {
                     setImagePreviews(imagePreviews);
                 }
             };
+            reader.readAsDataURL(image);
+        });
 
-            reader.readAsDataURL(selectedImage);
-            newImages.push(selectedImage); // Push the selected image to the newImages array
-        }
-        setImages(newImages); // Update the images state with the new array of images
+        setImages(selectedImages);
     };
 
     return (
@@ -75,7 +73,7 @@ const AddProject = () => {
             <form onSubmit={handleSubmit}>
                 <div className="flex flex-col mb-4">
                     <label className="text-white mb-2">Project Name</label>
-                    <input type="text" value={name} onChange={(e) => setName(e.target.value)} className="bg-white rounded-lg px-4 py-2" />
+                    <input type="text" value={projectName} onChange={(e) => setProjectName(e.target.value)} className="bg-white rounded-lg px-4 py-2" />
                 </div>
 
                 <div className="flex flex-col mb-4">
@@ -88,8 +86,8 @@ const AddProject = () => {
                     <input type="file" accept="image/*" multiple onChange={handleImageChange} className="mb-2" />
                 </div>
                 <div className="mb-4 flex flex-wrap justify-center">
-                    {imagePreviews && imagePreviews.map((preview, index) => (
-                        <img key={index} src={preview} alt={`Product Preview ${index + 1}`} className="w-1/5 mx-2 mb-2" />
+                    {imagePreviews.map((preview, index) => (
+                        <img key={index} src={preview} alt={`Project Preview ${index + 1}`} className="w-1/5 mx-2 mb-2" />
                     ))}
                 </div>
 
