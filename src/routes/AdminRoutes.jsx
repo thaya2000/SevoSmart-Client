@@ -4,7 +4,7 @@ import { userAuth } from "../context/authContext";
 import axios from "axios";
 import Loading from "./Loading";
 
-export default function PrivateRoutes() {
+export default function AdminRoutes() {
   const [auth, setAuth] = userAuth();
   const [ok, setOk] = useState(false);
 
@@ -12,7 +12,7 @@ export default function PrivateRoutes() {
     const authCheck = async () => {
       if (auth?.token) {
         try {
-          const { status } = await axios.get("/api/v1/auth/auth-check", {
+          const { status } = await axios.get("/api/v1/auth/admin-check", {
             headers: {
               Authorization: `Bearer ${auth.token}`,
             },

@@ -1,33 +1,47 @@
-import React, { useState, useEffect } from 'react';
-import { SlArrowDown } from "react-icons/sl";
-import axios from "axios";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchAccessories } from ".../../../../redux/actions/productActions";
 import Accessory from "../../component/Shop/Accessory";
-import image1 from "../../assets/construction.jpg";
-import image2 from "../../assets/solar.jpg";
-import image3 from "../../assets/footer_sample.jpg";
 
 const Accessories = () => {
-
-
-
-  const [accessories, setAccessories] = useState([]);
-
+  const dispatch = useDispatch();
+  const { accessories, loading, error, etag } = useSelector(
+    (state) => state.accessories
+  );
 
   useEffect(() => {
-      loadAccessories();
-  }, []);
+    console.log("persistance accessories", accessories);
+    console.log("persistance loading", loading);
+    console.log("persistance error", error);
+    console.log("persistance etag", etag);
 
-  const loadAccessories = async () => {
-      try {
-          const result = await axios.get("https://sevosmarttech-efce83f08cbb.herokuapp.com/admin/allProduct");
-          setAccessories(result.data);
-          console.log(result.data);
-      } catch (error) {
-          console.error('Error loading Accessories:', error);
-      }
-  };
+    const cachedAccessories = localStorage.getItem("accessories");
+    const cachedETag = localStorage.getItem("etag");
 
+    if (cachedAccessories && !loading) {
+      console.log("Using cached data");
+      dispatch({
+        type: "FETCH_ACCESSORIES_SUCCESS",
+        payload: JSON.parse(cachedAccessories),
+      });
+    }
 
+    console.log("Checking for updates with ETag:", cachedETag);
+    dispatch(fetchAccessories(cachedETag));
+  }, [dispatch, accessories, error, etag, loading]);
+
+  useEffect(() => {
+    if (
+      accessories.length > 0 &&
+      (!localStorage.getItem("etag") || localStorage.getItem("etag") !== etag)
+    ) {
+      console.log("Updating local storage with new data and ETag");
+      console.log("test accessories", accessories);
+      console.log("test etag", etag);
+      localStorage.setItem("accessories", JSON.stringify(accessories));
+      localStorage.setItem("etag", etag);
+    }
+  }, [accessories, etag]);
 
   return (
     <div className="flex flex-col mt-7">
@@ -35,25 +49,19 @@ const Accessories = () => {
         <div className="flex pl-5 sm:text-5xl sm:font-semibold text-2xl font-medium">
           Accessories
         </div>
-        <div className="flex flex-row justify-between gap-x-3 items-center pr-5">
-          <div className="flex sm:text-2xl text-lg font-light">Browse all</div>
-          <div className="flex">
-            <SlArrowDown />
-          </div>
-        </div>
       </div>
+      {/* {loading && <p>Loading...</p>}
+      {error && <p>Error: {error}</p>} */}
       <div className="flex flex-wrap justify-center gap-10 p-10">
-        {accessories.map((accessory, index) => (
-        
+        {accessories.map((accessory) => (
           <Accessory
-            key={index}
+            key={accessory.id}
             accessory_image={accessory.productImage}
             accessory_name={accessory.productName}
             accessory_price={accessory.price}
             accessory_id={accessory.id}
             accessory_description={accessory.description}
           />
-
         ))}
       </div>
     </div>

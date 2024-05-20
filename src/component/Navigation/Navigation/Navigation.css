@@ -7,11 +7,11 @@
 }
 
 .navigationBar {
+  position: sticky;
   display: flex;
   border: 1px solid #5b5b6c;
   align-items: center;
   justify-content: center;
-  position: relative;
   flex-direction: row;
   width: 100vw;
   padding-top: 0.5rem;

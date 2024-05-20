@@ -10,7 +10,7 @@ const AuthProvider = ({ children }) => {
   });
 
   // axios config
-  console.log(import.meta.env.VITE_APP_API);
+  // console.log(import.meta.env.VITE_APP_API);
   axios.defaults.baseURL = import.meta.env.VITE_APP_API;
   axios.defaults.headers.common["Authorization"] = auth?.token;
 
