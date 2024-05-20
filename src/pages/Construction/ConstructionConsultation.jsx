@@ -1,18 +1,27 @@
-import React, { useState, useRef, useEffect } from "react";
-import { BsCalendarDate } from "react-icons/bs";
+import { useState, useEffect } from "react";
 import { TiTick } from "react-icons/ti";
 import { FaRegFolderClosed } from "react-icons/fa6";
 import axios from "axios";
-import DatePicker from "react-datepicker";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import "react-datepicker/dist/react-datepicker.css";
 
 const NewBuildingConsultation = () => {
-  const [firstName, setFirstName] = useState("user_f");
-  const [lastName, setLastName] = useState("user_l");
-  const [email, setEmail] = useState("thevarasathayanan@gmail.com");
-  const [phoneNo, setPhoneNo] = useState("1234567890");
+  const { name } = useParams();
+  const [loading, setLoading] = useState(false);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phoneNo, setPhoneNo] = useState("");
+  const [address, setAddress] = useState("");
+  const [category, setCategory] = useState("Constuction");
+  // const [chooseProduct, setChooseProduct] = useState(
+  //   name || "New Building Consultation"
+  // );
+  const [chooseProduct, setChooseProduct] = useState(name);
+  const [message, setMessage] = useState("");
+
   const [attachments, setAttachements] = useState(null);
 
   const navigate = useNavigate();
@@ -23,26 +32,48 @@ const NewBuildingConsultation = () => {
     console.log("Email:", email);
     console.log("Phone Number:", phoneNo);
     console.log("attachments:", attachments);
-  }, [firstName, lastName, email, phoneNo, attachments]);
+    console.log("Address:", address);
+    console.log("Message:", message);
+    console.log("Category:", category);
+    console.log("Choose Product:", chooseProduct);
+    setChooseProduct(name);
+  }, [
+    firstName,
+    lastName,
+    email,
+    phoneNo,
+    attachments,
+    address,
+    message,
+    category,
+    chooseProduct,
+    name,
+  ]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const consultantData = new FormData();
       consultantData.append("firstName", firstName);
       consultantData.append("lastName", lastName);
       consultantData.append("email", email);
       consultantData.append("phoneNo", phoneNo);
+      consultantData.append("address", address);
+      consultantData.append("category", category);
+      consultantData.append("chooseProduct", chooseProduct);
+      consultantData.append("message", message);
       for (let i = 0; i < attachments.length; i++) {
         consultantData.append("attachments", attachments[i]);
       }
 
       const { data } = await axios.post("/admin/notification", consultantData);
       console.log(data);
+      setLoading(false);
       if (data?.error) {
         toast.error(data.error);
       } else {
-        toast.success(`Document is uploaded successfully`);
+        toast.success(`Consultation is uploaded successfully`);
         navigate("/");
       }
     } catch (err) {
@@ -53,8 +84,13 @@ const NewBuildingConsultation = () => {
 
   return (
     <div>
+      {loading && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40">
+          <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+        </div>
+      )}
       <form onSubmit={handleSubmit}>
-        <div className="flex flex-col items-center gap-5 py-[100px]">
+        <div className="flex flex-col items-center gap-5 py-[25px]">
           <div className="flex flex-col sm:flex-row sm:justify-center gap-8">
             <div className="flex flex-col w-[250px]">
               <h1 className="text-3xl font-medium">
@@ -127,6 +163,39 @@ const NewBuildingConsultation = () => {
                 />
               </div>
               {/* <p className="text-red-700">{formErrors.phoneno}</p> */}
+
+              <div className="flex flex-col mt-2">
+                <text className="font-medium text-sm">Address</text>
+                <input
+                  className="h-7 pl-[4px] rounded-md bg-[#D9D9D9] "
+                  type="text"
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
+                  name="address"
+                />
+              </div>
+
+              <div className="flex flex-col mt-2">
+                <text className="font-medium text-sm">Choose Construction</text>
+                <input
+                  className="h-7 pl-[4px] rounded-md bg-[#D9D9D9] "
+                  type="text"
+                  value={chooseProduct}
+                  onChange={(e) => setChooseProduct(e.target.value)}
+                  name="message"
+                />
+              </div>
+
+              <div className="flex flex-col mt-2">
+                <text className="font-medium text-sm">message</text>
+                <input
+                  className="h-7 pl-[4px] rounded-md bg-[#D9D9D9] "
+                  type="text"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  name="message"
+                />
+              </div>
             </div>
           </div>
           <div className="flex flex-col sm:flex-row gap-8">

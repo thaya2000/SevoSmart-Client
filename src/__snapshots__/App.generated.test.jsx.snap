@@ -836,7 +836,7 @@ exports[`<App> > should render component 1`] = `
           class="service__button-container"
         >
           <a
-            href="/new-building-consultation"
+            href="/guest/new-building-consultation"
           >
             <div
               class="service__button-left"
