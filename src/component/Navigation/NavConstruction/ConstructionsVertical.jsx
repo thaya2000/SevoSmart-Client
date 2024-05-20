@@ -53,7 +53,7 @@ const ConstructionsVertical = () => {
 
       <div className="options-vertical">
         <div className="list-vertical">
-          <Link to="/new-building-consultation">
+          <Link to="/guest/new-building-consultation">
             <span className="c-span">Schedule a Consultation</span>
           </Link>
 

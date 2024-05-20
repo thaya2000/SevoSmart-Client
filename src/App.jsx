@@ -64,7 +64,7 @@ function App() {
         <Route path="/solar-learnmore" element={<SolarPanelLearnmore />} />
         <Route path="/energy-order" element={<EnergyOrder />} />
         <Route
-          path="/new-building-consultation"
+          path="/guest/new-building-consultation/:name"
           element={<NewBuildingConsultation />}
         />
         <Route
@@ -75,8 +75,11 @@ function App() {
         <Route path="/loading" element={<Loading />} />
         <Route path="/accessories" element={<Accessories />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/energy" element={<AccountDetailsForm />} />
-        <Route path="/orderSolarPanel" element={<OrderSolarPanel />} />
+        <Route
+          path="/guest/solar/consultation-guest-details"
+          element={<AccountDetailsForm />}
+        />
+        <Route path="guest/solar/consultation" element={<OrderSolarPanel />} />
         <Route path="/billCalculation" element={<BillCalculation />} />
         <Route path="/energy-learnmore" element={<Learnmore />} />
         <Route path="/admin-panel" element={<AdminPanel />} />
