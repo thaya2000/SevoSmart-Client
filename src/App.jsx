@@ -90,6 +90,7 @@ function App() {
         <Route path="/product-details/:id" element={<ProductDetails />} />
         <Route path="/order-details/:orderNumber" element={<OrderDetails />} />
         <Route path="/news-admin" element={<News />} />
+        <Route path="/add-news" element={<AddNews />} />
         <Route path="/edit-news/:id" element={<EditNews />} />
         
         
