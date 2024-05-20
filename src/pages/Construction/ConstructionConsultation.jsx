@@ -37,10 +37,7 @@ const NewBuildingConsultation = () => {
         consultantData.append("attachments", attachments[i]);
       }
 
-      const { data } = await axios.post(
-        "http://localhost:8083/person",
-        consultantData
-      );
+      const { data } = await axios.post("/admin/notification", consultantData);
       console.log(data);
       if (data?.error) {
         toast.error(data.error);
