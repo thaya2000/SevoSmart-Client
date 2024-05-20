@@ -1,0 +1,171 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<BillCalculation> > should render component 1`] = `
+<DocumentFragment>
+  <div>
+    <div
+      class="img-container"
+    >
+      <div>
+        <div
+          class="billhead"
+        >
+          Average bill of your home
+        </div>
+        <div
+          class="square1"
+        />
+        <span
+          class="text1"
+        >
+          Your electric bill
+        </span>
+        <div
+          class="square2"
+        />
+        <span
+          class="text2"
+        >
+          Solar payment
+        </span>
+        <div
+          class="container"
+        >
+          <div
+            class="A-container"
+          >
+            <span
+              class="text3"
+              style="display: flex; align-items: center;"
+            >
+              15000 lkr /month 
+              <br />
+              without solar
+            </span>
+            <div
+              class="square3"
+            />
+          </div>
+          <div
+            class="B-container"
+          >
+            <span
+              class="text4"
+              style="display: flex; align-items: center;"
+            >
+              1500 lkr /month 
+              <br />
+              with solar
+            </span>
+            <div
+              class="square4"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="main-container"
+      >
+        <div
+          class="upper-container"
+        >
+          <div
+            class="power"
+          >
+            Your Home
+          </div>
+          <div
+            class="agreement-statementA"
+          >
+            Produce clean energy with the lowest cost solar panels, 
+            <br />
+            price match guaranteed
+          </div>
+          <div
+            class="M-container"
+          >
+            <div
+              class="c-container"
+            >
+              <img
+                alt="3 Kw Solar System Off Grid"
+                class="product-image"
+                src="/src/Images/S7.jpg"
+                style="width: 150px; height: auto;"
+              />
+            </div>
+            <div
+              class="D-container"
+            >
+              <span
+                class="agreement-statement"
+              >
+                1500 Homes in Trincomalee
+                <br />
+                have solar
+                <br />
+                100/2, Green Road ,
+                <br />
+                Trincomalee, SriLanka.
+              </span>
+            </div>
+          </div>
+          <div>
+            <span
+              class="text5"
+            >
+              Solar Panels 
+              <br />
+               produce Green Energy
+            </span>
+          </div>
+          <div
+            class="E-container"
+          >
+            <span
+              class="text6"
+            >
+              Meet current needs
+            </span>
+            <span
+              class="your-amount"
+            >
+              2,500,000 lkr
+            </span>
+            <br />
+            <span
+              class="text7"
+            >
+              4 kW solar
+            </span>
+            <ul
+              class="bullet-points"
+            >
+              <li>
+                6,111 kWh /yr Solar Production
+              </li>
+              <li>
+                125% Energy Offset
+              </li>
+            </ul>
+          </div>
+          <div>
+            <span
+              class="text8"
+            >
+              Order your system
+            </span>
+          </div>
+          <div>
+            <div
+              class="energy-order-buttonA"
+            >
+              continue to order
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

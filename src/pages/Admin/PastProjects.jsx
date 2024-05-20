@@ -1,14 +1,10 @@
-import React, { useState,useEffect } from 'react';
-import { Link,useParams } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useParams } from 'react-router-dom';
 import axios from "axios";
 import toast from "react-hot-toast";
-import image1 from "../../assets/construction.jpg";
-import image2 from "../../assets/solar.jpg";
-import image3 from "../../assets/footer_sample.jpg";
 
 const PastProjects = () => {
-
-    const [PastProjects, setPastProjects] = useState([]);
+    const [pastProjects, setPastProjects] = useState([]);
     const [deletePastProjectId, setDeletePastProjectId] = useState(null);
     const [serialNumbers, setSerialNumbers] = useState({});
 
@@ -20,7 +16,8 @@ const PastProjects = () => {
 
     const loadPastProjects = async () => {
         try {
-            const result = await axios.get("http://localhost:8080/api/v1/admin/pastprojects");
+            const result = await axios.get("https://sevosmarttech-efce83f08cbb.herokuapp.com/api/v1/admin/past-projects");
+            console.log('Loaded projects:', result.data);  // Log loaded projects
             setPastProjects(result.data);
             generateSerialNumbers(result.data);
         } catch (error) {
@@ -28,24 +25,25 @@ const PastProjects = () => {
         }
     };
 
-    const generateSerialNumbers = (PastProjects) => {
+    const generateSerialNumbers = (pastProjects) => {
         const serials = {};
-        PastProjects.forEach((PastProject, index) => {
-            serials[PastProject.id] = index + 1;
+        pastProjects.forEach((pastProject, index) => {
+            serials[pastProject.projectId] = index + 1;
         });
         setSerialNumbers(serials);
     };
 
     const handleDeletePastProject = async (id) => {
         try {
-            await axios.delete(`http://localhost:8080/api/v1/admin/pastproject/${id}`);
+            await axios.delete(`https://sevosmarttech-efce83f08cbb.herokuapp.com/api/v1/admin/past-project/${id}`);
             toast.success("Past project is successfully deleted.");
             loadPastProjects();
             setDeletePastProjectId(null);
         } catch (error) {
-            toast.error('Error deleting Past project:', error);
+            toast.error('Error deleting past project:', error);
         }
     };
+
     return (
         <div className="p-8 bg-indigo-950">
             <h1 className="text-6xl font-medium mb-4 text-white">Past Projects</h1>
@@ -71,32 +69,37 @@ const PastProjects = () => {
                         </tr>
                     </thead>
                     <tbody className='text-white'>
-                        {PastProjects.map(project => (
-                            <tr key={project.id} className="bg-gray-700">
-                                <td className="border px-4 py-2">{serialNumbers[project.id]}</td>
-                                <td className="border px-4 py-2">{project.name}</td>
+                        {pastProjects.map(project => (
+                            <tr key={project.projectId} className="bg-gray-700">
+                                <td className="border px-4 py-2">{serialNumbers[project.projectId]}</td>
+                                <td className="border px-4 py-2">{project.projectName}</td>
                                 <td className="border px-4 py-2">
                                     <div className="flex flex-wrap justify-center">
-                                        {project.images.map((image, index) => (
-                                            <img key={index} src={`data:image/jpeg;base64, ${image}`} alt={`Project ${index + 1}`} className="h-16 object-cover rounded-lg m-2" style={{ width: 'auto' }} />
-                                        ))}
+                                        {Array.isArray(project.projectImages) && project.projectImages.length > 0 ? (
+                                            project.projectImages.map((imageData, index) => (
+                                                <img key={index} src={`data:image/jpeg;base64,${imageData}`} alt={`Project ${index + 1}`} className="h-16 object-cover rounded-lg m-2" style={{ width: 'auto' }} />
+                                            ))
+                                        ) : (
+                                            <span>No images available</span>
+                                        )}
                                     </div>
                                 </td>
-                                <td className="border px-4 py-2" >{project.description}</td>
+
+                                <td className="border px-4 py-2">{project.description}</td>
                                 <td className="border px-4 py-2">
                                     <div className='flex flex-row justify-center'>
-                                    <Link
-                                        to={`/edit-project/${project.id}`}
-                                        className="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-4 mr-2 rounded"
-                                    >
-                                        Edit
-                                    </Link>
-                                    <Link
-                                        className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-4 rounded"
-                                        onClick={() => setDeletePastProjectId(project.id)}
-                                    >
-                                        Delete
-                                    </Link>
+                                        <Link
+                                            to={`/edit-project/${project.projectId}`}
+                                            className="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-4 mr-2 rounded"
+                                        >
+                                            Edit
+                                        </Link>
+                                        <button
+                                            className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-4 rounded"
+                                            onClick={() => setDeletePastProjectId(project.projectId)}
+                                        >
+                                            Delete
+                                        </button>
                                     </div>
                                 </td>
                             </tr>
@@ -152,8 +155,6 @@ const PastProjects = () => {
                     </div>
                 </div>
             )}
-
-
         </div>
     );
 };

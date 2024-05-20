@@ -1,0 +1,58 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<Signup> > should render component 1`] = `
+<DocumentFragment>
+  <div
+    class="flex relative items-center justify-center w-100v h-100v"
+  >
+    <div
+      class="signup-container"
+    >
+      <div
+        class="create-account-text"
+      >
+        SignUp
+      </div>
+      <form
+        class="flex flex-col"
+      >
+        <input
+          class="register-input"
+          placeholder="Enter your first name"
+          type="text"
+          value="John"
+        />
+        <input
+          class="register-input"
+          placeholder="Enter your last name"
+          type="text"
+          value="Doe"
+        />
+        <input
+          class="register-input"
+          placeholder="Enter your email"
+          type="text"
+          value="default@example.com"
+        />
+        <input
+          class="register-input"
+          placeholder="Enter your role"
+          type="text"
+          value="user"
+        />
+        <input
+          class="register-input"
+          placeholder="Enter your password"
+          type="text"
+          value="defaultPassword"
+        />
+        <div
+          class="submit-button-register "
+        >
+          SignUp
+        </div>
+      </form>
+    </div>
+  </div>
+</DocumentFragment>
+`;

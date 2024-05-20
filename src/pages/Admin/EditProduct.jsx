@@ -122,7 +122,7 @@ const EditProduct = () => {
           </label>
           <input
             type="text"
-            name="name"
+            name="productName"
             value={productName}
             onChange={onInputChange}
             className="shadow appearance-none border rounded w-full max-w-sm py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline md:w-3/4"

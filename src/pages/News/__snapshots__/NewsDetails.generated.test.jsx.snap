@@ -1,0 +1,11 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<NewsDetails> > should render component 1`] = `
+<DocumentFragment>
+  <div
+    class="news-details"
+  >
+    News not found
+  </div>
+</DocumentFragment>
+`;

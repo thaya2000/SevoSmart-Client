@@ -37,6 +37,9 @@ import UserDropdown from "./component/HomeComponent/Userdropdownmenu/Userdropdow
 import OrderDetails from "./pages/Admin/OrderDetails.jsx";
 import Setting from "./component/HomeComponent/Setting/setting.jsx";
 import Passwordsetting from "./component/HomeComponent/Setting/Passwordsetting.jsx";
+import News from "./pages/Admin/News.jsx";
+import AddNews from "./pages/Admin/AddNews.jsx";
+import EditNews from "./pages/Admin/EditNews.jsx";
 
 function ScrollToTopOnRouteChange() {
   const { pathname } = useLocation();
@@ -88,7 +91,11 @@ function App() {
         <Route path="/newspage/:id" element={<NewsDetails />} />
         <Route path="/userdropdownmenu" element={<UserDropdown />} />
         <Route path="/product-details/:id" element={<ProductDetails />} />
-        {/* <Route path="/order-details/:id" element={<OrderDetails />} /> */}
+        <Route path="/order-details/:orderNumber" element={<OrderDetails />} />
+        <Route path="/news-admin" element={<News />} />
+        <Route path="/add-news" element={<AddNews />} />
+        <Route path="/edit-news/:id" element={<EditNews />} />
+
         <Route
           path="/imagesliderconstruction"
           element={<ImageSliderConstruction />}

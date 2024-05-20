@@ -1,70 +1,87 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-// import orderData from './orderData'; // Sample order data with product images
+import { useParams, Link } from 'react-router-dom';
+import axios from 'axios';
 
 const OrderDetails = () => {
-    const [order, setOrder] = useState([]);
+  const { orderNumber } = useParams();
+  const [order, setOrder] = useState(null);
+  const [error, setError] = useState(null);
 
-
-    useEffect(() => {
-        fetchOrders();
-    }, []);
-
-    const fetchOrders = async () => {
-        try {
-            const response = await axios.get('https://sevosmarttech-efce83f08cbb.herokuapp.com/api/v1/user/allOrders');
-            setOrder(response.data); // Assuming your API response is an array of order objects
-           
-        } catch (error) {
-            console.error('Error fetching orders:', error);
-        }
+  useEffect(() => {
+    const fetchOrderDetails = async () => {
+      try {
+        const response = await axios.get(`https://sevosmarttech-efce83f08cbb.herokuapp.com/api/v1/user/order/${orderNumber}`);
+        setOrder(response.data);
+        setError(null); // Clear any previous errors
+      } catch (error) {
+        console.error('Error fetching order details:', error);
+        setError(error.message); // Set the error message
+      }
     };
-//   const { orderId } = useParams(); // Assuming orderId is passed as a URL parameter
-//   const order = orderData.find(order => order.orderId === parseInt(orderId)); // Find the order with the provided orderId
+
+    fetchOrderDetails();
+  }, [orderNumber]);
+
+  if (error) {
+    return (
+      <div className="text-red-500">Error: {error}</div>
+    );
+  }
 
   if (!order) {
-    return <div>Order not found</div>;
+    return (
+      <div className="text-gray-500">Loading...</div>
+    );
   }
 
   return (
-    <div className="container mx-auto mt-8">
-      <h1 className="text-3xl font-semibold mb-4">Order Details</h1>
-      <div className="bg-white shadow-md rounded-lg overflow-hidden">
-        <div className="p-6">
-          <div className="flex justify-between items-center">
-            <div>
-              <p className="text-lg font-semibold text-gray-800">Order Date: {order.orderDate}</p>
-              <p className="text-gray-600">Order ID: {order.orderId}</p>
-            </div>
-            <p className="text-lg font-semibold text-gray-800">{order.orderStatus}</p>
-          </div>
-          <hr className="my-4" />
-          <div>
-            <p className="text-lg font-semibold text-gray-800 mb-2">Shipping Address</p>
-            <p>{order.addressLineOne}</p>
-            <p>{order.addressLineTwo}</p>
-            <p>{order.city}, {order.district}</p>
-            <p>Phone: {order.phoneNo}</p>
-          </div>
-          <hr className="my-4" />
-          <div>
-            <p className="text-lg font-semibold text-gray-800 mb-2">Ordered Products</p>
-            {order.products.map(product => (
-              <div key={product.productId} className="flex items-center border-b py-4">
-                <img src={product.image} alt={product.name} className="w-16 h-16 mr-4" />
+    <div className="p-8 bg-indigo-950 text-white">
+      <h1 className="text-4xl font-medium mb-8 flex justify-center">Order Details</h1>
+      <div className="mb-6">
+        <strong className="text-xl text-gray-300">Order Number:</strong>
+        <span className="text-xl text-gray-100 ml-2">{order.orderNumber}</span>
+      </div>
+      <div className="mb-6">
+        <strong className="text-xl text-gray-300">Customer Name:</strong>
+        <span className="text-xl text-gray-100 ml-2">{order.orderCustomerName}</span>
+      </div>
+      <div className="mb-6">
+        <strong className="text-xl text-gray-300">Order Date:</strong>
+        <span className="text-xl text-gray-100 ml-2">{order.orderDate}</span>
+      </div>
+      <div className="mb-6">
+        <strong className="text-xl text-gray-300">Status:</strong>
+        <span className="text-xl text-gray-100 ml-2">{order.orderStatus}</span>
+      </div>
+      <div className="mb-6">
+        <strong className="text-xl text-gray-300">Order Amount:</strong>
+        <span className="text-xl text-gray-100 ml-2">{order.orderAmount}</span>
+      </div>
+      <div className="mb-6">
+        <strong className="text-xl text-gray-300">Billing Address:</strong>
+        <span className="text-xl text-gray-100 ml-2">{order.orderBillingAddress}</span>
+      </div>
+      <div className="mb-6">
+        <strong className="text-xl text-gray-300">Products:</strong>
+        <ul className="list-disc list-inside">
+          {order.products.map((product, index) => (
+            <li key={index} className="mb-2">
+              <div><strong className="text-gray-300">Name:</strong> {product.productName}</div>
+              <div><strong className="text-gray-300">Quantity:</strong> {product.productQuantity}</div>
+              {product.productImage && (
                 <div>
-                  <p className="text-lg font-semibold text-gray-800">{product.name}</p>
-                  <p className="text-gray-600">Quantity: {product.quantity}</p>
+                  <strong className="text-gray-300">Image:</strong>
+                  <img src={`data:image/jpeg;base64,${product.productImage}`} alt={product.productName} className="w-40 mt-2"/>
                 </div>
-              </div>
-            ))}
-          </div>
-          <hr className="my-4" />
-          <div className="flex justify-between">
-            <p className="text-lg font-semibold text-gray-800">Shipping Cost: ${order.shippingCost}</p>
-            <p className="text-lg font-semibold text-gray-800">Total Price: ${order.totalPrice}</p>
-          </div>
-        </div>
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="flex justify-center">
+        <Link to="/admin-panel" className="bg-cyan-300 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+          Back to Admin Panel
+        </Link>
       </div>
     </div>
   );

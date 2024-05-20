@@ -1,0 +1,54 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<Login> > should render component 1`] = `
+<DocumentFragment>
+  <div
+    class="flex relative items-center justify-center w-100v h-100v"
+  >
+    <div
+      class="login-container"
+    >
+      <div
+        class="create-account"
+      >
+        Login
+      </div>
+      <form
+        class="from-login"
+      >
+        <div
+          class="user-input-container"
+        >
+          <input
+            class="login-input"
+            placeholder="Enter your email"
+            type="text"
+            value="example@example.com"
+          />
+          <div>
+            FaUser Icon
+          </div>
+        </div>
+        <div
+          class="password-input-container"
+        >
+          <input
+            class="login-input"
+            placeholder="Enter your password"
+            type="text"
+            value="password"
+          />
+          <div>
+            FaLock Icon
+          </div>
+        </div>
+        <div
+          class="submit-button-login "
+        >
+          Login
+        </div>
+      </form>
+    </div>
+  </div>
+</DocumentFragment>
+`;
