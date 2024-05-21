@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import React from "react";
 import "./Cart.css";
-=======
->>>>>>> 7ea6fe63c48c13b2117797a1758562e960a75292
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import CartProduct from "../../component/Shop/CartProduct";
@@ -42,9 +38,7 @@ const Cart = () => {
           <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
         </div>
       )}
-      <div className="CardTittle">
-        Cart
-      </div>
+      <div className="CardTittle">Cart</div>
       <div className="flex flex-wrap pt-20">
         <div className="flex flex-col justify-start pl-5 w-200">
           {cartProducts.map((cartProduct, index) => (
