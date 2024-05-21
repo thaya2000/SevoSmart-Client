@@ -1,0 +1,31 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<Home> > should render component 1`] = `
+<DocumentFragment>
+  <div
+    class="home "
+  >
+    <div
+      class="intro grid grid-cols-1 xl:grid-cols-2"
+    >
+      <div
+        class="grid sm:grid-rows-2"
+      >
+        <div
+          class="flex "
+        />
+        <div
+          class="flex justify-center items-center w-full"
+        />
+      </div>
+      <div
+        class="introImage w-full"
+      />
+    </div>
+    <div
+      class="flex w-full relative"
+    />
+    <div />
+  </div>
+</DocumentFragment>
+`;

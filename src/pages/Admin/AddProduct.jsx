@@ -1,19 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import toast from 'react-hot-toast';
-import { userAuth } from  "../../context/authContext"
+import toast from "react-hot-toast";
+import { userAuth } from "../../context/authContext";
 
 const AddProduct = () => {
+  const [loading, setLoading] = useState(false);
   const [price, setPrice] = useState("");
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState("");
   const [discount, setDiscount] = useState("");
   const [image, setImage] = useState(null);
-  const [category, setCategory] = useState(null); 
+  const [category, setCategory] = useState(null);
   const [description, setDescription] = useState(null);
-  const [brand, setBrand] = useState(null); 
-  const [imagePreview, setImagePreview] = useState(null); 
+  const [brand, setBrand] = useState(null);
+  const [imagePreview, setImagePreview] = useState(null);
 
   const [auth, setAuth] = userAuth();
 
@@ -29,28 +30,31 @@ const AddProduct = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const productData = new FormData();
       productData.append("productName", name);
       productData.append("quantity", quantity);
       productData.append("discount", discount);
       productData.append("price", price);
-      productData.append("productpic", image);  
+      productData.append("productpic", image);
       productData.append("category", category);
       productData.append("description", description);
-      productData.append("brand", brand);  
+      productData.append("brand", brand);
 
       const { data } = await axios.post(
-        `https://sevosmarttech-efce83f08cbb.herokuapp.com/admin/addProduct/${auth.user.id}`,
+        `/admin/addProduct/${auth.user.id}`,
         productData
       );
+
+      setLoading(false);
 
       console.log(data);
       if (data?.error) {
         toast.error(data.error);
       } else {
         toast.success("Product is successfully added.");
-        navigate("/products");
+        navigate("/admin/products");
       }
     } catch (err) {
       console.log(err);
@@ -72,7 +76,14 @@ const AddProduct = () => {
 
   return (
     <div className="p-8 bg-indigo-950">
-      <h1 className="text-4xl font-medium mb-8 text-white flex justify-center">Add Product</h1>
+      {loading && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40">
+          <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+        </div>
+      )}
+      <h1 className="text-4xl font-medium mb-8 text-white flex justify-center">
+        Add Product
+      </h1>
       <form onSubmit={handleSubmit}>
         <div className="mb-4 flex flex-col justify-center md:flex-row">
           <label className="block text-white text-m font-bold mb-2 md:mb-0 md:w-1/4">
@@ -178,7 +189,11 @@ const AddProduct = () => {
         </div>
         {imagePreview && (
           <div className="mb-4 flex flex-col justify-center md:flex-row">
-            <img src={imagePreview} alt="Product Preview" className="w-1/5 mx-auto" />
+            <img
+              src={imagePreview}
+              alt="Product Preview"
+              className="w-1/5 mx-auto"
+            />
           </div>
         )}
         <div className="my-8 flex justify-center">
