@@ -49,7 +49,7 @@ export default function NavAccountMenu() {
           <div className="ul-container">
             <ul className="list">
               <div className="bag-containerA">
-                <a href="/order-summary">
+                <a href="/cart">
                   <li>
                     <img
                       width="20"
@@ -73,6 +73,7 @@ export default function NavAccountMenu() {
                 </li>
               </div>
               <div className="bag-containerC">
+              <a href="/setting">
                 <li>
                   <img
                     width="20"
@@ -82,6 +83,7 @@ export default function NavAccountMenu() {
                   />
                   Settings
                 </li>
+                </a>
               </div>
             </ul>
           </div>

@@ -68,7 +68,7 @@ const UserDropdown = () => {
           <div className="ul-container">
             <ul className="list">
               <div className="bag-containerA">
-                <a href="/order-summary">
+                <a href="/cart">
                   <li>
                     <img
                       width="20"
