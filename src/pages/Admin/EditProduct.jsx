@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import axios from "axios";
 import toast from "react-hot-toast";
 
 const EditProduct = () => {
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { id } = useParams();
   const [productImage, setProductImage] = useState(null);
@@ -15,14 +16,12 @@ const EditProduct = () => {
     quantity: "",
     discount: "",
     price: "",
-    brand:"",
-    category:"",
-    imagePreview: ""
+    brand: "",
+    category: "",
+    imagePreview: "",
   });
 
-
-
-  const { productName, quantity, discount, price,brand,category} = product;
+  const { productName, quantity, discount, price, brand, category } = product;
   useEffect(() => {
     console.log("Name:", productName);
     console.log("Quantity:", quantity);
@@ -31,7 +30,7 @@ const EditProduct = () => {
     console.log("Brand:", brand);
     console.log("Category:", category);
     console.log("Image:", productImage);
-  }, [productName, quantity, discount, price, productImage,brand,category]);
+  }, [productName, quantity, discount, price, productImage, brand, category]);
 
   const onInputChange = (e) => {
     setProduct({ ...product, [e.target.name]: e.target.value });
@@ -43,34 +42,38 @@ const EditProduct = () => {
   }, []);
 
   const loadProduct = async () => {
+    setLoading(true);
     try {
-      const result = await axios.get(`https://sevosmarttech-efce83f08cbb.herokuapp.com/admin/product/${id}`);
+      const result = await axios.get(
+        `https://sevosmarttech-efce83f08cbb.herokuapp.com/admin/product/${id}`
+      );
+      setLoading(false);
       setProduct({
         ...result.data,
-        imagePreview: result.data.productImage
+        imagePreview: result.data.productImage,
       });
     } catch (error) {
       console.error("Error loading product:", error);
     }
   };
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const formData = new FormData();
-      formData.append('productName', productName);
-      formData.append('quantity', quantity);
-      formData.append('discount', discount);
-      formData.append('price', price);
-      formData.append('brand', brand);
-      formData.append('category', category);
-      formData.append('productpic', productImage);
+      formData.append("productName", productName);
+      formData.append("quantity", quantity);
+      formData.append("discount", discount);
+      formData.append("price", price);
+      formData.append("brand", brand);
+      formData.append("category", category);
+      formData.append("productpic", productImage);
 
       if (productImage) {
         const reader = new FileReader();
         reader.readAsDataURL(productImage);
         reader.onload = () => {
-          formData.append('productpic', reader.result);
+          formData.append("productpic", reader.result);
           submitFormData(formData);
         };
       } else {
@@ -82,21 +85,22 @@ const EditProduct = () => {
   };
 
   const submitFormData = async (formData) => {
+    setLoading(true);
     try {
       console.log(id);
-      await axios.put(`https://sevosmarttech-efce83f08cbb.herokuapp.com/admin/updateProduct/${id}`, formData, {
+      await axios.put(`/admin/updateProduct/${id}`, formData, {
         headers: {
-          'Content-Type': 'multipart/form-data',
+          "Content-Type": "multipart/form-data",
         },
       });
+      setLoading(false);
       toast.success("Product is successfully updated.");
-      navigate("/products");
+      navigate("/admin/products");
     } catch (err) {
       console.log(err);
       toast.error("Product update failed. Try again.");
     }
   };
-
 
   const handleImageChange = (e) => {
     const selectedImage = e.target.files[0];
@@ -109,24 +113,28 @@ const EditProduct = () => {
     };
     reader.readAsDataURL(selectedImage);
   };
-  
-  
 
   return (
     <div className="p-8 bg-indigo-950">
-      <h1 className="text-4xl font-medium mb-8 text-white flex justify-center">Edit Product</h1>
+      {loading && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40">
+          <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+        </div>
+      )}
+      <h1 className="text-4xl font-medium mb-8 text-white flex justify-center">
+        Edit Product
+      </h1>
       <form onSubmit={handleSubmit}>
-      <div className="mb-4 flex flex-col justify-center md:flex-row">
+        <div className="mb-4 flex flex-col justify-center md:flex-row">
           <label className="block text-white text-m font-bold mb-2 md:mb-0 md:w-1/4">
             Product Name
           </label>
           <input
             type="text"
-            name="name"
+            name="productName"
             value={productName}
             onChange={onInputChange}
             className="shadow appearance-none border rounded w-full max-w-sm py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline md:w-3/4"
-          
           />
         </div>
         <div className="mb-4 flex flex-col justify-center md:flex-row">
@@ -139,7 +147,6 @@ const EditProduct = () => {
             value={quantity}
             onChange={onInputChange}
             className="shadow appearance-none border rounded w-full max-w-sm py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline md:w-3/4"
-         
           />
         </div>
         <div className="mb-4 flex flex-col justify-center md:flex-row">
@@ -152,7 +159,6 @@ const EditProduct = () => {
             value={discount}
             onChange={onInputChange}
             className="shadow appearance-none border rounded w-full max-w-sm py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline md:w-3/4"
-            
           />
         </div>
         <div className="mb-4 flex flex-col justify-center md:flex-row">
@@ -165,7 +171,6 @@ const EditProduct = () => {
             value={price}
             onChange={onInputChange}
             className="shadow appearance-none border rounded w-full max-w-sm py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline md:w-3/4"
-           
           />
         </div>
 
@@ -179,7 +184,6 @@ const EditProduct = () => {
             value={brand}
             onChange={onInputChange}
             className="shadow appearance-none border rounded w-full max-w-sm py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline md:w-3/4"
-           
           />
         </div>
 
@@ -193,7 +197,6 @@ const EditProduct = () => {
             value={category}
             onChange={onInputChange}
             className="shadow appearance-none border rounded w-full max-w-sm py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline md:w-3/4"
-           
           />
         </div>
 

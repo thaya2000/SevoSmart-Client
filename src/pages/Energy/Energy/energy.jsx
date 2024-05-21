@@ -106,7 +106,7 @@ function AccountDetailsForm() {
                 />
               </div>
 
-              <div>
+              {/* <div>
                 <label htmlFor="confirmEmail">Confirm Email Address</label>
                 <input
                   type="email"
@@ -116,7 +116,7 @@ function AccountDetailsForm() {
                   onChange={handleChange}
                   required
                 />
-              </div>
+              </div> */}
 
               <div>
                 <label htmlFor="phoneNumber">Phone Number</label>
@@ -130,13 +130,13 @@ function AccountDetailsForm() {
                 />
               </div>
 
-              <div className="agreement-statement">
+              {/* <div className="agreement-statement">
                 By entering my account details above, I agree to be contacted
                 about Sevo Smart products, including through automated calls or
                 texts. This is not a condition of purchase.
               </div>
 
-              {/* Card Details */}
+              
               <div>
                 <div className="Enter-card">Enter Card Details</div>
                 <label htmlFor="nameOnCard">Name on Card</label>
@@ -184,7 +184,7 @@ function AccountDetailsForm() {
                   onChange={handleChange}
                   required
                 />
-              </div>
+              </div> */}
 
               {/* <button className='energy-order-button' type="submit">Submit</button> */}
               <div className="energy-order-buttonA">Submit</div>

@@ -37,6 +37,9 @@ import UserDropdown from "./component/HomeComponent/Userdropdownmenu/Userdropdow
 import OrderDetails from "./pages/Admin/OrderDetails.jsx";
 import Setting from "./component/HomeComponent/Setting/setting.jsx";
 import Passwordsetting from "./component/HomeComponent/Setting/Passwordsetting.jsx";
+import News from "./pages/Admin/News.jsx";
+import AddNews from "./pages/Admin/AddNews.jsx";
+import EditNews from "./pages/Admin/EditNews.jsx";
 
 function ScrollToTopOnRouteChange() {
   const { pathname } = useLocation();
@@ -61,7 +64,11 @@ function App() {
         <Route path="/solar-learnmore" element={<SolarPanelLearnmore />} />
         <Route path="/energy-order" element={<EnergyOrder />} />
         <Route
-          path="/new-building-consultation"
+          path="/guest/new-building-consultation/:name"
+          element={<NewBuildingConsultation />}
+        />
+        <Route
+          path="/guest/new-building-consultation/"
           element={<NewBuildingConsultation />}
         />
         <Route
@@ -72,14 +79,16 @@ function App() {
         <Route path="/loading" element={<Loading />} />
         <Route path="/accessories" element={<Accessories />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/energy" element={<AccountDetailsForm />} />
-        <Route path="/orderSolarPanel" element={<OrderSolarPanel />} />
+        <Route
+          path="/guest/solar/consultation-guest-details"
+          element={<AccountDetailsForm />}
+        />
+        <Route path="guest/solar/consultation" element={<OrderSolarPanel />} />
         <Route path="/billCalculation" element={<BillCalculation />} />
         <Route path="/energy-learnmore" element={<Learnmore />} />
         <Route path="/admin-panel" element={<AdminPanel />} />
         <Route path="/add-product" element={<AddProduct />} />
-        <Route path="/edit-product/:id" element={<EditProduct />} />
-        <Route path="/products" element={<Products />} />
+
         <Route path="/past-projects" element={<PastProjects />} />
         <Route path="/add-project" element={<AddProject />} />
         <Route path="/users" element={<Users />} />
@@ -88,7 +97,10 @@ function App() {
         <Route path="/newspage/:id" element={<NewsDetails />} />
         <Route path="/userdropdownmenu" element={<UserDropdown />} />
         <Route path="/product-details/:id" element={<ProductDetails />} />
-        {/* <Route path="/order-details/:id" element={<OrderDetails />} /> */}
+        <Route path="/news-admin" element={<News />} />
+        <Route path="/add-news" element={<AddNews />} />
+        <Route path="/edit-news/:id" element={<EditNews />} />
+
         <Route
           path="/imagesliderconstruction"
           element={<ImageSliderConstruction />}
@@ -98,7 +110,9 @@ function App() {
           path="/learnmoreconstruction"
           element={<Learnmoreconstruction />}
         />
+
         <Route path="/passwordsetting" element={<Passwordsetting />} />
+
         <Route path="/user" element={<PrivateRoutes />}>
           <Route path="accessories" element={<Accessories />} />
           <Route path="cart" element={<Cart />} />
@@ -106,6 +120,9 @@ function App() {
 
         <Route path="/admin" element={<AdminRoutes />}>
           <Route path="admin-panel" element={<AdminPanel />} />
+          <Route path="order-details/:orderNumber" element={<OrderDetails />} />
+          <Route path="products" element={<Products />} />
+          <Route path="edit-product/:id" element={<EditProduct />} />
         </Route>
         <Route path="/passwordsetting" element={<Passwordsetting />} />
         <Route path="/usersetting" element={<Setting />} />

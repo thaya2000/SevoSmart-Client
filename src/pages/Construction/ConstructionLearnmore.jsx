@@ -13,7 +13,7 @@ const ConstructionsLearnmore = () => {
       <div className="Ccontent01">
         <div className="Construction-title">
           <span>Construction</span>
-          <Link to="/new-building-consultation">
+          <Link to="/guest/new-building-consultation">
             <div className="bg-black text-white w-32 h-8 rounded-full border-none cursor-pointer">
               Book now
             </div>
