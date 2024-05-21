@@ -5,6 +5,7 @@ import { userAuth } from "../../context/authContext";
 import axios from "axios";
 
 const Cart = () => {
+  const [loading, setLoading] = useState(false);
   const [cartProducts, setCartProducts] = useState([]);
   const [auth, setAuth] = userAuth();
 
@@ -15,11 +16,13 @@ const Cart = () => {
   }, [auth]);
 
   const loadCartProducts = async () => {
+    setLoading(true);
     try {
       const result = await axios.get(
         `/api/v1/user/cart_products/${auth.user.id}`
       );
       setCartProducts(result.data);
+      setLoading(false);
       console.log(result.data);
       console.log("user id is:", auth.user.id);
     } catch (error) {
@@ -29,6 +32,11 @@ const Cart = () => {
 
   return (
     <div className="flex flex-col m-5 ">
+      {loading && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40">
+          <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+        </div>
+      )}
       <div className="flex justify-start pl-5 pt-5 sm:text-6xl font-medium text-4xl">
         Cart
       </div>

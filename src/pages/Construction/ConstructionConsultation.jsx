@@ -16,10 +16,10 @@ const NewBuildingConsultation = () => {
   const [phoneNo, setPhoneNo] = useState("");
   const [address, setAddress] = useState("");
   const [category, setCategory] = useState("Constuction");
-  // const [chooseProduct, setChooseProduct] = useState(
-  //   name || "New Building Consultation"
-  // );
-  const [chooseProduct, setChooseProduct] = useState(name);
+  const [chooseProduct, setChooseProduct] = useState(
+    name || "New Building Consultation"
+  );
+  // const [chooseProduct, setChooseProduct] = useState(name);
   const [message, setMessage] = useState("");
 
   const [attachments, setAttachements] = useState(null);
