@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 
 import React from "react";
+=======
+>>>>>>> 9b510f5e6bea69036dc821db8bbca56ff65d0f34
 import "./Cart.css";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -8,6 +11,7 @@ import { userAuth } from "../../context/authContext";
 import axios from "axios";
 
 const Cart = () => {
+  const [loading, setLoading] = useState(false);
   const [cartProducts, setCartProducts] = useState([]);
   const [auth, setAuth] = userAuth();
 
@@ -18,11 +22,13 @@ const Cart = () => {
   }, [auth]);
 
   const loadCartProducts = async () => {
+    setLoading(true);
     try {
       const result = await axios.get(
         `/api/v1/user/cart_products/${auth.user.id}`
       );
       setCartProducts(result.data);
+      setLoading(false);
       console.log(result.data);
       console.log("user id is:", auth.user.id);
     } catch (error) {
@@ -32,9 +38,12 @@ const Cart = () => {
 
   return (
     <div className="flex flex-col m-5 ">
-      <div className="CardTittle">
-        Cart
-      </div>
+      {loading && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40">
+          <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+        </div>
+      )}
+      <div className="CardTittle">Cart</div>
       <div className="flex flex-wrap pt-20">
         <div className="flex flex-col justify-start pl-5 w-200">
           {cartProducts.map((cartProduct, index) => (

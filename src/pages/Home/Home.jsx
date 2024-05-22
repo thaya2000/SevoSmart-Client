@@ -55,13 +55,13 @@ const Home = () => {
       <ProductIntroCard
         image={SolarCoverImage}
         serviceTitle="Solar Panels"
-        orderLink="/orderSolarPanel"
+        orderLink="guest/solar/consultation"
         learnMoreLink="/energy-learnmore"
       />
       <ProductIntroCard
         image={ConstructionCoverImage}
         serviceTitle="Constructions"
-        orderLink="/new-building-consultation"
+        orderLink="/guest/new-building-consultation"
         learnMoreLink="/construction-learnmore"
         textColor="#ffffff"
       />

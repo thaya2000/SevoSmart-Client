@@ -1,0 +1,187 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<AccountDetailsForm> > should render component 1`] = `
+<DocumentFragment>
+  <div>
+    <div
+      class="image-container"
+    >
+      <img
+        alt=""
+        class="image"
+        src="/src/Images/S1.jpeg"
+      />
+      <div
+        class="main-container"
+      >
+        <div
+          class="upper-container"
+        >
+          <div
+            class="order-summery"
+          >
+            Order Summary
+          </div>
+          <div
+            class="price"
+          >
+            Final Price will be provided when your system design is complete
+          </div>
+        </div>
+        <div
+          class="account-details-form"
+        >
+          <div
+            class="Enter-account"
+          >
+            Enter Account Details
+          </div>
+          <form>
+            <div>
+              <label
+                for="firstName"
+              >
+                First Name
+              </label>
+              <input
+                id="firstName"
+                name="firstName"
+                required=""
+                type="text"
+                value=""
+              />
+            </div>
+            <div>
+              <label
+                for="lastName"
+              >
+                Last Name
+              </label>
+              <input
+                id="lastName"
+                name="lastName"
+                required=""
+                type="text"
+                value=""
+              />
+            </div>
+            <div>
+              <label
+                for="email"
+              >
+                Email Address
+              </label>
+              <input
+                id="email"
+                name="email"
+                required=""
+                type="email"
+                value=""
+              />
+            </div>
+            <div>
+              <label
+                for="confirmEmail"
+              >
+                Confirm Email Address
+              </label>
+              <input
+                id="confirmEmail"
+                name="confirmEmail"
+                required=""
+                type="email"
+                value=""
+              />
+            </div>
+            <div>
+              <label
+                for="phoneNumber"
+              >
+                Phone Number
+              </label>
+              <input
+                id="phoneNumber"
+                name="phoneNumber"
+                required=""
+                type="tel"
+                value=""
+              />
+            </div>
+            <div
+              class="agreement-statement"
+            >
+              By entering my account details above, I agree to be contacted about Sevo Smart products, including through automated calls or texts. This is not a condition of purchase.
+            </div>
+            <div>
+              <div
+                class="Enter-card"
+              >
+                Enter Card Details
+              </div>
+              <label
+                for="nameOnCard"
+              >
+                Name on Card
+              </label>
+              <input
+                id="nameOnCard"
+                name="nameOnCard"
+                required=""
+                type="text"
+                value=""
+              />
+            </div>
+            <div>
+              <label
+                for="cardNumber"
+              >
+                Card Number
+              </label>
+              <input
+                id="cardNumber"
+                name="cardNumber"
+                required=""
+                type="text"
+                value=""
+              />
+            </div>
+            <div>
+              <label
+                for="expirationMonth"
+              >
+                Expiration Month
+              </label>
+              <input
+                id="expirationMonth"
+                name="expirationMonth"
+                required=""
+                type="text"
+                value=""
+              />
+            </div>
+            <div>
+              <label
+                for="expirationYear"
+              >
+                Expiration Year
+              </label>
+              <input
+                id="expirationYear"
+                name="expirationYear"
+                required=""
+                type="text"
+                value=""
+              />
+            </div>
+            <div
+              class="energy-order-buttonA"
+            >
+              Submit
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
