@@ -97,10 +97,8 @@ function App() {
         <Route
           path="/learnmoreconstruction"
           element={<Learnmoreconstruction />}
-        />
-<<<<<<< HEAD
-        <Route path="/passwordsetting" element={<Passwordsetting/>}/>
-=======
+        />        <Route path="/passwordsetting" element={<Passwordsetting/>}/>
+
         <Route path="/user" element={<PrivateRoutes />}>
           <Route path="accessories" element={<Accessories />} />
           <Route path="cart" element={<Cart />} />
@@ -111,7 +109,7 @@ function App() {
         </Route>
         <Route path="/passwordsetting" element={<Passwordsetting />} />
         <Route path="/usersetting" element={<Setting />} />
->>>>>>> 7ea6fe63c48c13b2117797a1758562e960a75292
+
       </Routes>
       <Footer />
       <Toaster />

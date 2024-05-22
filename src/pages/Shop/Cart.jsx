@@ -1,8 +1,6 @@
-<<<<<<< HEAD
+
 import React from "react";
 import "./Cart.css";
-=======
->>>>>>> 7ea6fe63c48c13b2117797a1758562e960a75292
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import CartProduct from "../../component/Shop/CartProduct";
