@@ -1,8 +1,20 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+import toast from 'react-hot-toast';
+import './setting.css'; // Optional: for styling
+import { userAuth } from '../../../context/authContext';
 
 function Passwordsetting() {
+  const [auth, setAuth] = userAuth();
   const [profileImage, setProfileImage] = useState(null);
   const [imagePreview, setImagePreview] = useState('path-to-placeholder-image');
+  const [formData, setFormData] = useState({
+    oldPassword: '',
+    newPassword: '',
+    confirmPassword: '',
+  });
+
+  const { oldPassword, newPassword, confirmPassword } = formData;
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -14,6 +26,33 @@ function Passwordsetting() {
 
   const triggerFileInput = () => {
     document.getElementById('fileInput').click();
+  };
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (newPassword !== confirmPassword) {
+      toast.error('New password and confirm password do not match.');
+      return;
+    }
+    try {
+      const response = await axios.put(`https://sevosmarttech-efce83f08cbb.herokuapp.com/api/v1/auth/users/password/${auth.user.id}`, {
+        oldPassword,
+        newPassword,
+      });
+
+      if (response.status === 200) {
+        toast.success('Password updated successfully.');
+      } else {
+        toast.error('Failed to update password.');
+      }
+    } catch (error) {
+      console.error('Error updating password:', error);
+      toast.error('Failed to update password.');
+    }
   };
 
   return (
@@ -36,10 +75,10 @@ function Passwordsetting() {
         </div>
         <nav className="navigation">
           <ul className='Ul-order'>
-          <div className="bag-containerA">
-              <a href="">
+            <div className="bag-containerA">
+              <a href="/setting">
                 <li>
-                <img width="20" height="20" src="https://img.icons8.com/tiny-glyph/16/737373/user-male-circle.png" alt="user-male-circle"/>
+                  <img width="20" height="20" src="https://img.icons8.com/tiny-glyph/16/737373/user-male-circle.png" alt="user-male-circle"/>
                   Account
                 </li>
               </a>
@@ -84,25 +123,19 @@ function Passwordsetting() {
       </div>
       <div className="main-content">
         <h2 className="profile">Reset Password</h2>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label>Current Password</label>
-            <input type="text" placeholder="Current password" />
+            <input type="password" name="oldPassword" value={oldPassword} onChange={handleChange} placeholder="Current password" />
           </div>
           <div className="form-group">
             <label>New Password</label>
-            <input type="text" placeholder="New Password" />
+            <input type="password" name="newPassword" value={newPassword} onChange={handleChange} placeholder="New Password" />
           </div>
-          
-
           <div className="form-group">
             <label>Confirm Password</label>
-            <input type="text" placeholder="Confirm Password" />
+            <input type="password" name="confirmPassword" value={confirmPassword} onChange={handleChange} placeholder="Confirm Password" />
           </div>
-          
-          
-         
-          
           <button type="submit" className='setting-submit'>Save</button>
         </form>
       </div>
