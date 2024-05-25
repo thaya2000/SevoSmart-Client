@@ -6,7 +6,7 @@ import accessoriesReducer from "../reducers/accessoriesReducer";
 const accessoriesPersistConfig = {
   key: "accessories",
   storage,
-  whitelist: ["accessories", "etag"], // Ensure to persist both accessories and etag
+  whitelist: ["accessories", "etag"],
 };
 
 const persistedReducer = persistReducer(

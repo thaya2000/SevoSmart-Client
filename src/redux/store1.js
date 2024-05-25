@@ -1,7 +1,7 @@
 // store.js
 
 import { configureStore } from "@reduxjs/toolkit";
-import accessoriesReducer from "../reducers/accessoriesReducer";
+import accessoriesReducer from "./reducers/accessoriesReducer";
 
 const rootReducer = {
   accessories: accessoriesReducer, // Make sure the key matches how you use it in useSelector

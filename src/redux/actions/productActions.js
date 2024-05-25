@@ -28,9 +28,7 @@ export const fetchAccessories = (etag) => {
   return (dispatch) => {
     dispatch(fetchAccessoriesRequest());
     const headers = etag ? { "If-None-Match": etag } : {};
-
     console.log("fetching happing");
-
     axios
       .get("/admin/allProduct", { headers })
       .then((response) => {
