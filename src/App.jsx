@@ -68,6 +68,10 @@ function App() {
           element={<NewBuildingConsultation />}
         />
         <Route
+          path="/guest/new-building-consultation/"
+          element={<NewBuildingConsultation />}
+        />
+        <Route
           path="/construction-learnmore"
           element={<Learnmoreconstruction />}
         />
@@ -84,8 +88,7 @@ function App() {
         <Route path="/energy-learnmore" element={<Learnmore />} />
         <Route path="/admin-panel" element={<AdminPanel />} />
         <Route path="/add-product" element={<AddProduct />} />
-        <Route path="/edit-product/:id" element={<EditProduct />} />
-        <Route path="/products" element={<Products />} />
+
         <Route path="/past-projects" element={<PastProjects />} />
         <Route path="/add-project" element={<AddProject />} />
         <Route path="/users" element={<Users />} />
@@ -94,7 +97,6 @@ function App() {
         <Route path="/newspage/:id" element={<NewsDetails />} />
         <Route path="/userdropdownmenu" element={<UserDropdown />} />
         <Route path="/product-details/:id" element={<ProductDetails />} />
-        <Route path="/order-details/:orderNumber" element={<OrderDetails />} />
         <Route path="/news-admin" element={<News />} />
         <Route path="/add-news" element={<AddNews />} />
         <Route path="/edit-news/:id" element={<EditNews />} />
@@ -108,6 +110,9 @@ function App() {
           path="/learnmoreconstruction"
           element={<Learnmoreconstruction />}
         />
+
+        <Route path="/passwordsetting" element={<Passwordsetting />} />
+
         <Route path="/user" element={<PrivateRoutes />}>
           <Route path="accessories" element={<Accessories />} />
           <Route path="cart" element={<Cart />} />
@@ -115,6 +120,9 @@ function App() {
 
         <Route path="/admin" element={<AdminRoutes />}>
           <Route path="admin-panel" element={<AdminPanel />} />
+          <Route path="order-details/:orderNumber" element={<OrderDetails />} />
+          <Route path="products" element={<Products />} />
+          <Route path="edit-product/:id" element={<EditProduct />} />
         </Route>
         <Route path="/passwordsetting" element={<Passwordsetting />} />
         <Route path="/usersetting" element={<Setting />} />

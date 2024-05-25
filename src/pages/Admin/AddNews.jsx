@@ -26,7 +26,7 @@ const AddNews = () => {
             formData.append("newsContent", newsContent);
             formData.append("newsPublishDate", newsPublishDate);
             if (image) {
-                formData.append("Image", image); // Append the selected image file
+                formData.append("Image", image); 
             }
 
             const { data } = await axios.post(

@@ -8,6 +8,7 @@ import { FaUser, FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Login = () => {
+  const [loading, setLoading] = useState(false);
   const DEFAULT_EMAIL = import.meta.env.VITE_APP_DEFAULT_EMAIL;
   const DEFAULT_PASSWORD = import.meta.env.VITE_APP_DEFAULT_PASSWORD;
 
@@ -26,12 +27,14 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const { data } = await axios.post(`/api/v1/auth/authenticate`, {
         email,
         password,
       });
       console.log(data);
+      setLoading(false);
       if (data?.message) {
         toast.error(data.message);
       } else {
@@ -52,6 +55,11 @@ const Login = () => {
 
   return (
     <div className="flex relative items-center justify-center w-100v h-100v">
+      {loading && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40">
+          <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+        </div>
+      )}
       <div className="login-container">
         <div className="create-account">Login</div>
         <form onSubmit={handleSubmit} className="from-login">
