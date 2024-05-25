@@ -1,78 +1,88 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-import toast from 'react-hot-toast';
-import './setting.css'; 
-import { userAuth } from '../../../context/authContext';
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
+import "./setting.css";
+import { userAuth } from "../../../context/authContext";
 
 const Setting = () => {
-  const { auth, setAuth } = userAuth
-
-  const [user, setUser] = useState({
-    firstname: '',
-    lastname: '',
-    email: '',
-  });
-
-  const { firstname, lastname, email } = user;
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+  const [auth, setAuth] = userAuth();
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [email, setEmail] = useState("");
 
   useEffect(() => {
     if (auth && auth.user && auth.user.id) {
-      console.log(auth.user.id);
-      loadUser();
+      setFirstname(auth.user.firstname);
+      setLastname(auth.user.lastname);
+      setEmail(auth.user.email);
     }
   }, [auth]);
 
-  const loadUser = async () => {
-    try {
-      console.log(auth.user.id);
-      const response = await axios.get(`https://sevosmarttech-efce83f08cbb.herokuapp.com/api/v1/auth/users/${auth.user.id}`);
-      setUser(response.data);
-      console.log(response.data);
-    } catch (error) {
-      console.error('Error loading user data:', error);
-      toast.error('Failed to load user data.');
-    }
-  };
-
-  const handleChange = (e) => {
-    setUser({ ...user, [e.target.name]: e.target.value });
-  };
-
   const handleSubmit = async (e) => {
+    setLoading(true);
     e.preventDefault();
     try {
-      const response = await axios.put(`https://sevosmarttech-efce83f08cbb.herokuapp.com/api/v1/auth/users/${auth.user.id}`, {
-        firstname,
-        lastname,
-        email,
-      });
-
+      const response = await axios.put(
+        `https://sevosmarttech-efce83f08cbb.herokuapp.com/api/v1/auth/users/${auth.user.id}`,
+        {
+          firstname,
+          lastname,
+          email,
+        }
+      );
+      setLoading(false);
       if (response.status === 200) {
-        toast.success('Profile updated successfully.');
+        toast.success("Profile updated successfully.");
+        setAuth((prevAuth) => {
+          const updatedAuth = {
+            ...prevAuth,
+            user: {
+              ...prevAuth.user,
+              firstname: firstname,
+              lastname: lastname,
+              email: email,
+            },
+          };
+          localStorage.setItem("auth", JSON.stringify(updatedAuth));
+          return updatedAuth;
+        });
+        navigate("/");
       } else {
-        toast.error('Failed to update profile.');
+        toast.error("Failed to update profile.");
       }
     } catch (error) {
-      console.error('Error updating profile:', error);
-      toast.error('Failed to update profile.');
+      console.error("Error updating profile:", error);
+      toast.error("Failed to update profile.");
     }
   };
 
   return (
     <div className="setting-container">
+      {loading && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40">
+          <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+        </div>
+      )}
       <div className="sidebar">
         <div className="profileMain">
           <div className="profilename">
-            <span>Kithurshika Kirushnan</span>
+            <span>{auth?.user?.firstname + " " + auth?.user?.lastname}</span>
           </div>
         </div>
         <nav className="navigation">
-          <ul className='Ul-order'>
+          <ul className="Ul-order">
             <div className="bag-containerA">
               <a href="">
                 <li>
-                  <img width="20" height="20" src="https://img.icons8.com/tiny-glyph/16/737373/user-male-circle.png" alt="user-male-circle"/>
+                  <img
+                    width="20"
+                    height="20"
+                    src="https://img.icons8.com/tiny-glyph/16/737373/user-male-circle.png"
+                    alt="user-male-circle"
+                  />
                   Account
                 </li>
               </a>
@@ -122,17 +132,34 @@ const Setting = () => {
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label>First Name</label>
-            <input type="text" name="firstname" value={firstname} onChange={handleChange} />
+            <input
+              type="text"
+              name="firstname"
+              value={firstname}
+              onChange={(e) => setFirstname(e.target.value)}
+            />
           </div>
           <div className="form-group">
             <label>Last Name</label>
-            <input type="text" name="lastname" value={lastname} onChange={handleChange} />
+            <input
+              type="text"
+              name="lastname"
+              value={lastname}
+              onChange={(e) => setLastname(e.target.value)}
+            />
           </div>
           <div className="form-group">
             <label>E-mail</label>
-            <input type="email" name="email" value={email} onChange={handleChange} />
+            <input
+              type="email"
+              name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
           </div>
-          <button type="submit" className='setting-submit'>Save</button>
+          <button type="submit" className="setting-submit">
+            Save
+          </button>
         </form>
       </div>
     </div>
