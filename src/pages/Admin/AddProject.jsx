@@ -68,21 +68,21 @@ const AddProject = () => {
     };
 
     return (
-        <div className="p-8 bg-indigo-950">
-            <h1 className="text-6xl font-medium mb-4 text-white">Add Project</h1>
+        <div className="p-8 bg-white">
+            <h1 className="text-6xl font-medium mb-4 text-blue-900">Add Project</h1>
             <form onSubmit={handleSubmit}>
                 <div className="flex flex-col mb-4">
-                    <label className="text-white mb-2">Project Name</label>
+                    <label className="text-blue-900 mb-2">Project Name</label>
                     <input type="text" value={projectName} onChange={(e) => setProjectName(e.target.value)} className="bg-white rounded-lg px-4 py-2" />
                 </div>
 
                 <div className="flex flex-col mb-4">
-                    <label className="text-white mb-2">Project Description</label>
+                    <label className="text-blue-900 mb-2">Project Description</label>
                     <textarea value={description} onChange={(e) => setDescription(e.target.value)} className="bg-white rounded-lg px-4 py-2" />
                 </div>
 
                 <div className="flex flex-col mb-4">
-                    <label className="text-white mb-2">Project Images</label>
+                    <label className="text-blue-900 mb-2">Project Images</label>
                     <input type="file" accept="image/*" multiple onChange={handleImageChange} className="mb-2" />
                 </div>
                 <div className="mb-4 flex flex-wrap justify-center">
@@ -91,7 +91,7 @@ const AddProject = () => {
                     ))}
                 </div>
 
-                <button className="bg-blue-700 hover:bg-blue-800 text-white font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none">
+                <button className="bg-red-700 hover:bg-grey text-white font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none">
                     Add Project
                 </button>
             </form>

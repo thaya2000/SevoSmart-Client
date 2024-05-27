@@ -59,7 +59,7 @@ const AdminPanel = () => {
         </ul>
       </div>
 
-      {/* Right Content */}
+      
       <div className="flex-1 p-4 overflow-y-auto">
         <h2 className="text-2xl font-bold mb-4">Order Details</h2>
         <div className="overflow-x-auto">

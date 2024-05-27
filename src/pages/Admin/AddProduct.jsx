@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { userAuth } from "../../context/authContext";
@@ -11,9 +11,9 @@ const AddProduct = () => {
   const [quantity, setQuantity] = useState("");
   const [discount, setDiscount] = useState("");
   const [image, setImage] = useState(null);
-  const [category, setCategory] = useState(null);
-  const [description, setDescription] = useState(null);
-  const [brand, setBrand] = useState(null);
+  const [category, setCategory] = useState("");
+  const [description, setDescription] = useState("");
+  const [brand, setBrand] = useState("");
   const [imagePreview, setImagePreview] = useState(null);
 
   const [auth, setAuth] = userAuth();
@@ -75,133 +75,155 @@ const AddProduct = () => {
   };
 
   return (
-    <div className="p-8 bg-indigo-950">
-      {loading && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40">
-          <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
-        </div>
-      )}
-      <h1 className="text-4xl font-medium mb-8 text-white flex justify-center">
-        Add Product
-      </h1>
-      <form onSubmit={handleSubmit}>
-        <div className="mb-4 flex flex-col justify-center md:flex-row">
-          <label className="block text-white text-m font-bold mb-2 md:mb-0 md:w-1/4">
-            Product Name
-          </label>
-          <input
-            type="text"
-            name="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            className="shadow appearance-none border rounded w-full max-w-sm py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline md:w-3/4"
-            placeholder="Enter product name"
-          />
-        </div>
-        <div className="mb-4 flex flex-col justify-center md:flex-row">
-          <label className="block text-white text-m font-bold mb-2 md:mb-0 md:w-1/4">
-            Quantity
-          </label>
-          <input
-            type="text"
-            name="quantity"
-            value={quantity}
-            onChange={(e) => setQuantity(e.target.value)}
-            className="shadow appearance-none border rounded w-full max-w-sm py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline md:w-3/4"
-            placeholder="Enter quantity"
-          />
-        </div>
-        <div className="mb-4 flex flex-col justify-center md:flex-row">
-          <label className="block text-white text-m font-bold mb-2 md:mb-0 md:w-1/4">
-            Discount
-          </label>
-          <input
-            type="text"
-            name="discount"
-            value={discount}
-            onChange={(e) => setDiscount(e.target.value)}
-            className="shadow appearance-none border rounded w-full max-w-sm py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline md:w-3/4"
-            placeholder="Enter discount"
-          />
-        </div>
-        <div className="mb-4 flex flex-col justify-center md:flex-row">
-          <label className="block text-white text-m font-bold mb-2 md:mb-0 md:w-1/4">
-            Price
-          </label>
-          <input
-            type="text"
-            name="price"
-            value={price}
-            onChange={(e) => setPrice(e.target.value)}
-            className="shadow appearance-none border rounded w-full max-w-sm py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline md:w-3/4"
-            placeholder="Enter price"
-          />
-        </div>
-        <div className="mb-4 flex flex-col justify-center md:flex-row">
-          <label className="block text-white text-m font-bold mb-2 md:mb-0 md:w-1/4">
-            Category
-          </label>
-          <input
-            type="text"
-            name="category"
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-            className="shadow appearance-none border rounded w-full max-w-sm py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline md:w-3/4"
-            placeholder="Enter price"
-          />
-        </div>
-        <div className="mb-4 flex flex-col justify-center md:flex-row">
-          <label className="block text-white text-m font-bold mb-2 md:mb-0 md:w-1/4">
-            Brand
-          </label>
-          <input
-            type="text"
-            name="brand"
-            value={brand}
-            onChange={(e) => setBrand(e.target.value)}
-            className="shadow appearance-none border rounded w-full max-w-sm py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline md:w-3/4"
-            placeholder="Enter price"
-          />
-        </div>
-        <div className="mb-4 flex flex-col justify-center md:flex-row">
-          <label className="block text-white text-m font-bold mb-2 md:mb-0 md:w-1/4">
-            Description
-          </label>
-          <input
-            type="text"
-            name="description"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            className="shadow appearance-none border rounded w-full max-w-sm py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline md:w-3/4"
-            placeholder="Enter price"
-          />
-        </div>
-        <div className="mb-4 flex flex-col justify-center md:flex-row">
-          <label className="block text-white text-m font-bold mb-2 md:mb-0 md:w-1/4">
-            Product Image
-          </label>
-          <input
-            type="file"
-            name="image"
-            onChange={handleImageChange}
-            className="py-2 px-3 w-full max-w-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline md:w-3/4"
-          />
-        </div>
-        {imagePreview && (
-          <div className="mb-4 flex flex-col justify-center md:flex-row">
-            <img
-              src={imagePreview}
-              alt="Product Preview"
-              className="w-1/5 mx-auto"
-            />
+    <div className="flex">
+      <div className="bg-gray-800 w-64 p-4 text-white">
+        <h2 className="text-2xl font-bold mb-4">Admin Panel</h2>
+        <ul className="space-y-4">
+          <li>
+            <Link to="/users">Users</Link>
+          </li>
+          <li>
+            <Link to="/admin/products">Accessories</Link>
+          </li>
+          <li>
+            <Link to="/past-projects">Past Projects</Link>
+          </li>
+          <li>
+            <Link to="/news-admin">News</Link>
+          </li>
+          <li>
+            <Link to="/logout">Logout</Link>
+          </li>
+        </ul>
+      </div>
+      <div className="p-8 bg-white flex-1">
+        {loading && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40">
+            <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
           </div>
         )}
-        <div className="my-8 flex justify-center">
-          <button className="bg-cyan-300 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-            Add Product
-          </button>
-        </div>
-      </form>
+         <h1 className="text-4xl font-medium mb-8 text-blue-900 flex justify-center">
+          Add Product
+        </h1>
+        <form onSubmit={handleSubmit}>
+          <div className="mb-6 flex flex-col justify-center md:flex-row">
+            <label className="block text-blue-900 text-m font-bold mb-1 md:mb-0 md:w-1/4">
+              Product Name
+            </label>
+            <input
+              type="text"
+              name="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="shadow appearance-none border rounded w-full max-w-sm py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline md:w-3/4 mt-1"
+              placeholder="Enter product name"
+            />
+          </div>
+          <div className="mb-6 flex flex-col justify-center md:flex-row">
+            <label className="block text-blue-900 text-m font-bold mb-1 md:mb-0 md:w-1/4">
+              Quantity
+            </label>
+            <input
+              type="text"
+              name="quantity"
+              value={quantity}
+              onChange={(e) => setQuantity(e.target.value)}
+              className="shadow appearance-none border rounded w-full max-w-sm py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline md:w-3/4 mt-1"
+              placeholder="Enter quantity"
+            />
+          </div>
+          <div className="mb-6 flex flex-col justify-center md:flex-row">
+            <label className="block text-blue-900 text-m font-bold mb-1 md:mb-0 md:w-1/4">
+              Discount
+            </label>
+            <input
+              type="text"
+              name="discount"
+              value={discount}
+              onChange={(e) => setDiscount(e.target.value)}
+              className="shadow appearance-none border rounded w-full max-w-sm py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline md:w-3/4 mt-1"
+              placeholder="Enter discount"
+            />
+          </div>
+          <div className="mb-6 flex flex-col justify-center md:flex-row">
+            <label className="block text-blue-900 text-m font-bold mb-1 md:mb-0 md:w-1/4">
+              Price
+            </label>
+            <input
+              type="text"
+              name="price"
+              value={price}
+              onChange={(e) => setPrice(e.target.value)}
+              className="shadow appearance-none border rounded w-full max-w-sm py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline md:w-3/4 mt-1"
+              placeholder="Enter price"
+            />
+          </div>
+          <div className="mb-6 flex flex-col justify-center md:flex-row">
+            <label className="block text-blue-900 text-m font-bold mb-1 md:mb-0 md:w-1/4">
+              Category
+            </label>
+            <input
+              type="text"
+              name="category"
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+              className="shadow appearance-none border rounded w-full max-w-sm py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline md:w-3/4 mt-1"
+              placeholder="Enter category"
+            />
+          </div>
+          <div className="mb-6 flex flex-col justify-center md:flex-row">
+            <label className="block text-blue-900 text-m font-bold mb-1 md:mb-0 md:w-1/4">
+              Brand
+            </label>
+            <input
+              type="text"
+              name="brand"
+              value={brand}
+              onChange={(e) => setBrand(e.target.value)}
+              className="shadow appearance-none border rounded w-full max-w-sm py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline md:w-3/4 mt-1"
+              placeholder="Enter brand"
+            />
+          </div>
+          <div className="mb-6 flex flex-col justify-center md:flex-row">
+            <label className="block text-blue-900 text-m font-bold mb-1 md:mb-0 md:w-1/4">
+              Description
+            </label>
+            <input
+              type="text"
+              name="description"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              className="shadow appearance-none border rounded w-full max-w-sm py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline md:w-3/4 mt-1"
+              placeholder="Enter description"
+            />
+          </div>
+          <div className="mb-6 flex flex-col justify-center md:flex-row">
+            <label className="block text-blue-900 text-m font-bold mb-1 md:mb-0 md:w-1/4">
+              Product Image
+            </label>
+            <input
+              type="file"
+              name="image"
+              onChange={handleImageChange}
+              className="py-2 px-3 w-full max-w-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline md:w-3/4 mt-1"
+            />
+          </div>
+          {imagePreview && (
+            <div className="mb-6 flex flex-col justify-center md:flex-row">
+              <img
+                src={imagePreview}
+                alt="Product Preview"
+                className="w-1/5 mx-auto"
+              />
+            </div>
+          )}
+          <div className="my-8 flex justify-center">
+            <button className="bg-red-700 hover:bg-grey-700 text-white font-bold py-2 px-4 rounded">
+              Add Product
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
