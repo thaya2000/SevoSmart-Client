@@ -109,13 +109,8 @@ function App() {
         <Route
           path="/learnmoreconstruction"
           element={<Learnmoreconstruction />}
-<<<<<<< HEAD
-        />        <Route path="/passwordsetting" element={<Passwordsetting/>}/>
-=======
         />
-
         <Route path="/passwordsetting" element={<Passwordsetting />} />
->>>>>>> 9b510f5e6bea69036dc821db8bbca56ff65d0f34
 
         <Route path="/user" element={<PrivateRoutes />}>
           <Route path="accessories" element={<Accessories />} />
@@ -130,10 +125,6 @@ function App() {
         </Route>
         <Route path="/passwordsetting" element={<Passwordsetting />} />
         <Route path="/usersetting" element={<Setting />} />
-<<<<<<< HEAD
-
-=======
->>>>>>> 9b510f5e6bea69036dc821db8bbca56ff65d0f34
       </Routes>
       <Footer />
       <Toaster />
