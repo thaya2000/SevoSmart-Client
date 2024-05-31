@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { userAuth } from "../../context/authContext";
+import "./AddProduct.css"; // Make sure to import your CSS file
 
 const AddProduct = () => {
   const [loading, setLoading] = useState(false);
@@ -75,8 +76,8 @@ const AddProduct = () => {
   };
 
   return (
-    <div className="flex">
-      <div className="bg-gray-800 w-64 p-4 text-white">
+    <div className="admin-panel">
+      <div className="admin-sidebar">
         <h2 className="text-2xl font-bold mb-4">Admin Panel</h2>
         <ul className="space-y-4">
           <li>
@@ -96,15 +97,13 @@ const AddProduct = () => {
           </li>
         </ul>
       </div>
-      <div className="p-8 bg-white flex-1">
+      <div className="admin-content">
         {loading && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40">
             <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
           </div>
         )}
-         <h1 className="text-4xl font-medium mb-8 text-blue-900 flex justify-center">
-          Add Product
-        </h1>
+        <h1 className="admin-tableh">Add Product</h1>
         <form onSubmit={handleSubmit}>
           <div className="mb-6 flex flex-col justify-center md:flex-row">
             <label className="block text-blue-900 text-m font-bold mb-1 md:mb-0 md:w-1/4">
