@@ -115,7 +115,6 @@ function App() {
           path="/learnmoreconstruction"
           element={<Learnmoreconstruction />}
         />
-
         <Route path="/passwordsetting" element={<Passwordsetting />} />
 
         {/* <Route path="/user" element={<PrivateRoutes />}>
