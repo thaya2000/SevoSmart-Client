@@ -33,11 +33,11 @@ import NewsPage from "./pages/News/NewsPage.jsx";
 import NewsDetails from "./pages/News/NewsDetails.jsx";
 import ProductDetails from "./pages/Shop/ProductDetail.jsx";
 import UserDropdown from "./component/HomeComponent/Userdropdownmenu/Userdropdownmenu.jsx";
-// import Usersetting from "./component/HomeComponent/Usersetting/Usersetting.jsx";
 import OrderDetails from "./pages/Admin/OrderDetails.jsx";
 import Setting from "./component/HomeComponent/Setting/setting.jsx";
 import Passwordsetting from "./component/HomeComponent/Setting/Passwordsetting.jsx";
 import EditNews from "./pages/Admin/EditNews.jsx";
+import GuestRoutes from "./routes/GuestRoutes.jsx";
 
 function ScrollToTopOnRouteChange() {
   const { pathname } = useLocation();
@@ -56,9 +56,14 @@ function App() {
       <ScrollToTopOnRouteChange />
       <Navigation />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/admin/*" element={<AdminRoutes />} />
+        <Route path="/user/*" element={<PrivateRoutes />} />
+        <Route path="/*" element={<GuestRoutes />} />
+
+        {/* <Route path="/" element={<Home />} />
         <Route path="/register" element={<Signup />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login />} /> */}
+
         <Route path="/solar-learnmore" element={<SolarPanelLearnmore />} />
         <Route path="/energy-order" element={<EnergyOrder />} />
         <Route
@@ -100,21 +105,31 @@ function App() {
           element={<Learnmoreconstruction />}
         />        <Route path="/passwordsetting" element={<Passwordsetting/>}/>
 
-        <Route path="/user" element={<PrivateRoutes />}>
+        {/* <Route path="/user" element={<PrivateRoutes />}>
           <Route path="accessories" element={<Accessories />} />
           <Route path="cart" element={<Cart />} />
+<<<<<<< HEAD
         </Route>
         <Route path="/newsedit/:id" elememt={<EditNews/>}/>
         <Route path="/admin" element={<AdminRoutes />}>
           <Route path="admin-panel" element={<AdminPanel />} />
         </Route>
+=======
+        </Route> */}
+
+        {/* <Route path="/admin" element={<AdminRoutes />}>
+          <Route path="admin-panel" element={<AdminPanel />} />
+          <Route path="order-details/:orderNumber" element={<OrderDetails />} />
+          <Route path="products" element={<Products />} />
+          <Route path="edit-product/:id" element={<EditProduct />} />
+        </Route> */}
+>>>>>>> 1e9f582e138d789e6eca27286b8da623e79dacb0
         <Route path="/passwordsetting" element={<Passwordsetting />} />
         <Route path="/usersetting" element={<Setting />} />
         
 
       </Routes>
       <Footer />
-      <Toaster />
     </BrowserRouter>
   );
 }

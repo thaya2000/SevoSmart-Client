@@ -1,21 +1,88 @@
-import React from 'react';
-import './setting.css'; // Optional: for styling
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
+import "./setting.css";
+import { userAuth } from "../../../context/authContext";
 
-function Setting() {
+const Setting = () => {
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+  const [auth, setAuth] = userAuth();
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [email, setEmail] = useState("");
+
+  useEffect(() => {
+    if (auth && auth.user && auth.user.id) {
+      setFirstname(auth.user.firstname);
+      setLastname(auth.user.lastname);
+      setEmail(auth.user.email);
+    }
+  }, [auth]);
+
+  const handleSubmit = async (e) => {
+    setLoading(true);
+    e.preventDefault();
+    try {
+      const response = await axios.put(
+        `https://sevosmarttech-efce83f08cbb.herokuapp.com/api/v1/auth/users/${auth.user.id}`,
+        {
+          firstname,
+          lastname,
+          email,
+        }
+      );
+      setLoading(false);
+      if (response.status === 200) {
+        toast.success("Profile updated successfully.");
+        setAuth((prevAuth) => {
+          const updatedAuth = {
+            ...prevAuth,
+            user: {
+              ...prevAuth.user,
+              firstname: firstname,
+              lastname: lastname,
+              email: email,
+            },
+          };
+          localStorage.setItem("auth", JSON.stringify(updatedAuth));
+          return updatedAuth;
+        });
+        navigate("/");
+      } else {
+        toast.error("Failed to update profile.");
+      }
+    } catch (error) {
+      console.error("Error updating profile:", error);
+      toast.error("Failed to update profile.");
+    }
+  };
+
   return (
     <div className="setting-container">
+      {loading && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40">
+          <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+        </div>
+      )}
       <div className="sidebar">
         <div className="profileMain">
           <div className="profilename">
-            <span>Kithurshika Kirushnan</span>
+            <span>{auth?.user?.firstname + " " + auth?.user?.lastname}</span>
           </div>
         </div>
         <nav className="navigation">
-          <ul className='Ul-order'>
+          <ul className="Ul-order">
             <div className="bag-containerA">
               <a href="">
                 <li>
-                  <img width="20" height="20" src="https://img.icons8.com/tiny-glyph/16/737373/user-male-circle.png" alt="user-male-circle"/>
+                  <img
+                    width="20"
+                    height="20"
+                    src="https://img.icons8.com/tiny-glyph/16/737373/user-male-circle.png"
+                    alt="user-male-circle"
+                  />
                   Account
                 </li>
               </a>
@@ -62,33 +129,41 @@ function Setting() {
       </div>
       <div className="main-content">
         <h2 className="profile">Reset Profile</h2>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label>First Name</label>
-            <input type="text" placeholder="First Name" />
+            <input
+              type="text"
+              name="firstname"
+              value={firstname}
+              onChange={(e) => setFirstname(e.target.value)}
+            />
           </div>
           <div className="form-group">
             <label>Last Name</label>
-            <input type="text" placeholder="Last Name" />
-          </div>
-         
-          <div className="form-group">
-            <label>Contact Number</label>
-            <input type="text" placeholder="Contact Number" />
+            <input
+              type="text"
+              name="lastname"
+              value={lastname}
+              onChange={(e) => setLastname(e.target.value)}
+            />
           </div>
           <div className="form-group">
             <label>E-mail</label>
-            <input type="email" placeholder="E-mail" />
+            <input
+              type="email"
+              name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
           </div>
-          <div className="form-group">
-            <label>Address</label>
-            <input type="text" placeholder="Address" />
-          </div>
-          <button type="submit" className='setting-submit'>Save</button>
+          <button type="submit" className="setting-submit">
+            Save
+          </button>
         </form>
       </div>
     </div>
   );
-}
+};
 
 export default Setting;
