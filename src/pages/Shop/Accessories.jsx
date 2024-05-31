@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAccessories } from "../../redux/actions/accessoriesActions";
 import Accessory from "../../component/Shop/Accessory";
@@ -9,11 +9,15 @@ const Accessories = () => {
     (state) => state.accessories
   );
 
+  const isFirstRender = useRef(true);
   useEffect(() => {
-    console.log("Checking for updates...");
-    console.log("Checking for updates with ETag:", etag);
-    dispatch(fetchAccessories(etag));
-  }, [dispatch, etag]);
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      console.log("Checking for updates...");
+      console.log("Checking for updates with ETag:", etag);
+      dispatch(fetchAccessories(etag));
+    }
+  }, [etag, dispatch]);
 
   if (error) return <p>Error: {error}</p>;
 
