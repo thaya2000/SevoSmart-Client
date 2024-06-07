@@ -59,11 +59,9 @@ function App() {
         <Route path="/admin/*" element={<AdminRoutes />} />
         <Route path="/user/*" element={<PrivateRoutes />} />
         <Route path="/*" element={<GuestRoutes />} />
-
         {/* <Route path="/" element={<Home />} />
         <Route path="/register" element={<Signup />} />
         <Route path="/login" element={<Login />} /> */}
-
         <Route path="/solar-learnmore" element={<SolarPanelLearnmore />} />
         <Route path="/energy-order" element={<EnergyOrder />} />
         <Route
@@ -103,31 +101,25 @@ function App() {
         <Route
           path="/learnmoreconstruction"
           element={<Learnmoreconstruction />}
-        />        <Route path="/passwordsetting" element={<Passwordsetting/>}/>
-
+        />{" "}
+        <Route path="/passwordsetting" element={<Passwordsetting />} />
         {/* <Route path="/user" element={<PrivateRoutes />}>
           <Route path="accessories" element={<Accessories />} />
           <Route path="cart" element={<Cart />} />
-<<<<<<< HEAD
         </Route>
         <Route path="/newsedit/:id" elememt={<EditNews/>}/>
         <Route path="/admin" element={<AdminRoutes />}>
           <Route path="admin-panel" element={<AdminPanel />} />
         </Route>
-=======
         </Route> */}
-
         {/* <Route path="/admin" element={<AdminRoutes />}>
           <Route path="admin-panel" element={<AdminPanel />} />
           <Route path="order-details/:orderNumber" element={<OrderDetails />} />
           <Route path="products" element={<Products />} />
           <Route path="edit-product/:id" element={<EditProduct />} />
         </Route> */}
->>>>>>> 1e9f582e138d789e6eca27286b8da623e79dacb0
         <Route path="/passwordsetting" element={<Passwordsetting />} />
         <Route path="/usersetting" element={<Setting />} />
-        
-
       </Routes>
       <Footer />
     </BrowserRouter>
