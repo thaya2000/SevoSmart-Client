@@ -21,10 +21,13 @@ export default function NavAccountMenu() {
 
   return (
     <div>
-      <div onClick={toggleMenu}>
-        <div className="naviAccount">
-          {auth.user.firstname.charAt(0).toUpperCase()}
-        </div>
+      <div className="hamburger-menu" onClick={toggleMenu}>
+        <img
+          width="25"
+          height="25"
+          src="https://img.icons8.com/ios-filled/50/737373/menu--v1.png"
+          alt="menu"
+        />
       </div>
       {activeProfile && (
         <div className="dropdown-menu">
@@ -73,16 +76,16 @@ export default function NavAccountMenu() {
                 </li>
               </div>
               <div className="bag-containerC">
-              <a href="/setting">
-                <li>
-                  <img
-                    width="20"
-                    height="20"
-                    src="https://img.icons8.com/ios-filled/50/737373/settings.png"
-                    alt="settings"
-                  />
-                  Settings
-                </li>
+                <a href="/setting">
+                  <li>
+                    <img
+                      width="20"
+                      height="20"
+                      src="https://img.icons8.com/ios-filled/50/737373/settings.png"
+                      alt="settings"
+                    />
+                    Settings
+                  </li>
                 </a>
               </div>
             </ul>
