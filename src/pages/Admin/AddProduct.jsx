@@ -77,7 +77,7 @@ const AddProduct = () => {
 
   return (
     <div className="admin-panel">
-      <div className="admin-sidebar">
+      <div className="admin-sidebar bg-gray-800 w-100% p-4 text-white">
         <h2 className="text-2xl font-bold mb-4">Admin Panel</h2>
         <ul className="space-y-4">
           <li>

@@ -38,6 +38,7 @@ import Setting from "./component/HomeComponent/Setting/setting.jsx";
 import Passwordsetting from "./component/HomeComponent/Setting/Passwordsetting.jsx";
 import EditNews from "./pages/Admin/EditNews.jsx";
 import GuestRoutes from "./routes/GuestRoutes.jsx";
+import CartProduct from "./component/Shop/CartProduct.jsx";
 
 function ScrollToTopOnRouteChange() {
   const { pathname } = useLocation();

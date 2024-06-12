@@ -47,7 +47,7 @@ const PastProjects = () => {
     return (
         <div className="admin-panelflex h-screen">
       
-      <div className=" admin-sidebar bg-gray-800 w-64 p-4 text-white">
+      <div className=" admin-sidebar bg-gray-800 w-100% p-4 text-white">
         <h2 className="text-2xl font-bold mb-4">Admin Panel</h2>
         <ul className="space-y-4">
           <li>

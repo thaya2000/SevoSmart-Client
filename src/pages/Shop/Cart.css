@@ -1,4 +1,98 @@
-.CardTittle{
-    font-size: 38px;
-    margin-right: 50px;
+.CardTittleContainer {
+    margin-right: 50px; 
+}
+
+.CardTittle {
+    font-size: 24px;
+    color: white;
+    background-color: rgb(11, 11, 61); 
+    border-radius: 15px;
+    padding: 10px; 
+    padding-left: 30px;
+    padding-right: 30px;
+    display: inline-block; 
+    margin: 50px; 
+}
+
+.Ordersummery-container {
+    background-color: rgb(235, 233, 233);
+    width:400px;
+    border-radius: 10px;
+    border-style: double;
+    border-color: rgb(222, 221, 221);
+    border-width: 2px;
+    top: 10px; /* Align the top of the container to the top of the page */
+   
+   
+}
+
+.ordersummery{
+    font-size: 26px;
+    font-weight:500;
+    text-align: center;
+    margin-top: 30px;
+    text-decoration: underline;
+    text-underline-offset: 10px;
+}
+.shipping{
+    font-size: 24px;
+    font-weight:400;
+    margin-top: 10px;
+}
+.total{
+    font-size: 25px;
+    font-weight:500;
+    margin-top: 10px; 
+}
+
+@media (max-width: 768px) {
+    .CardTittleContainer {
+        margin-right: 20px; 
+    }
+    
+    .CardTittle {
+        font-size: 16px;
+        color: white;
+        background-color: rgb(11, 11, 61); 
+        border-radius: 15px;
+        padding: 10px; 
+        padding-left: 12px;
+        padding-right: 12px;
+        display: inline-block; 
+        margin: 50px; 
+    }
+    
+    .Ordersummery-container {
+        background-color: rgb(235, 233, 233);
+        width:300px;
+        border-radius: 10px;
+        border-style: double;
+        border-color: rgb(222, 221, 221);
+        border-width: 2px;
+        top: 10px; /* Align the top of the container to the top of the page */
+       
+       
+    }
+    
+    .ordersummery{
+        font-size: 16px;
+        font-weight:500;
+        text-align: center;
+        margin-top: 10px;
+        text-decoration: underline;
+        text-underline-offset: 10px;
+    }
+    .shipping{
+        font-size: 15px;
+        font-weight:400;
+        margin-top: 5px;
+    }
+    .total{
+        font-size: 14px;
+        font-weight:500;
+        margin-top: 0px; 
+    }
+    .blue-button {
+        width:fit-content;
+    }
 }
