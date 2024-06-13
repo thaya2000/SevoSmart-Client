@@ -12,4 +12,24 @@
     font-weight: bold;
   }
   
+
+  @media (max-width: 768px) {
+    .container-sheduletime {
+        
+        margin-top: 50px;
+        margin-left:20px;
+        width:350px;
+      }
+      
+      .container-form {
+        margin-left:  20px; 
+        margin-top: 50px;
+        width:300px;
+      }
+
+
+      .fileupload-container{
+        width:350px;
+      }
+  }
   

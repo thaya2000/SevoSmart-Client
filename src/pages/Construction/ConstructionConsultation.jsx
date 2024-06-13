@@ -117,7 +117,7 @@ const NewBuildingConsultation = () => {
                   meticulously scheduling every phase of your project
                 </p>
               </div>
-              <div className="flex flex-col mt-4 w-[450px] ">
+              <div className=" fileupload-container flex flex-col mt-4 w-[450px] ">
               <p className="mt-2 pr-4 ml-1" style={{ fontWeight: 'bold' }}>
   Do you have any plans already?{" "}
   <a href="#">
