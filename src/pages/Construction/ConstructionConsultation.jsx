@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import "react-datepicker/dist/react-datepicker.css";
+import "./ConstructionConsultation.css";
 
 const NewBuildingConsultation = () => {
   const { name } = useParams();
@@ -92,7 +93,7 @@ const NewBuildingConsultation = () => {
       <form onSubmit={handleSubmit}>
         <div className="flex flex-col items-center gap-5 py-[25px]">
           <div className="flex flex-col sm:flex-row sm:justify-center gap-8">
-            <div className="flex flex-col w-[250px]">
+            <div className="container-sheduletime flex flex-col w-[450px]">
               <h1 className="text-3xl font-medium">
                 Schedule your time & Connect with us
               </h1>
@@ -116,9 +117,37 @@ const NewBuildingConsultation = () => {
                   meticulously scheduling every phase of your project
                 </p>
               </div>
+              <div className="flex flex-col mt-4 w-[450px] ">
+              <p className="mt-2 pr-4 ml-1" style={{ fontWeight: 'bold' }}>
+  Do you have any plans already?{" "}
+  <a href="#">
+    <span className="hover:cursor-pointer py-4 text-[#0569FF]">
+      Submit
+    </span>
+  </a>{" "}
+  your documents here
+</p>
+
+              <div className="mt-2 ml-6">
+                <label
+                  htmlFor="file-input"
+                  className="flex items-center mb-2 hover:cursor-pointer"
+                >
+                  <FaRegFolderClosed size={30} />
+                </label>
+                <input
+  className="pl-2 h-9 w-60 mx-auto rounded-md bg-[#D9D9D9] text-center"
+  type="file"
+  multiple
+  name="attachments"
+  onChange={(e) => setAttachements(e.target.files)}
+/>
+
+              </div>
+            </div>
             </div>
 
-            <div className="flex flex-col mt-[50px] w-[250px] mx-[3px]">
+            <div className=" container-form flex flex-col mt-[50px] w-[300px] mx-[3px] item-center">
               <div className="flex flex-col  ">
                 <text className="font-medium text-sm">First Name</text>
                 <input
@@ -196,41 +225,18 @@ const NewBuildingConsultation = () => {
                   name="message"
                 />
               </div>
-            </div>
-          </div>
-          <div className="flex flex-col sm:flex-row gap-8">
-            <div className="flex flex-col w-[250px]">
-              <p className="mt-2 pr-4 ml-1">
-                Do you have any plans already?{" "}
-                <a href="#">
-                  <span className="hover:cursor-pointer py-4 text-[#0569FF]">
-                    Submit
-                  </span>
-                </a>{" "}
-                your documents here
-              </p>
-              <div className="mt-2 ml-6">
-                <label
-                  htmlFor="file-input"
-                  className="flex items-center mb-2 hover:cursor-pointer"
-                >
-                  <FaRegFolderClosed size={30} />
-                </label>
-                <input
-                  className="pl-[4px] h-7 rounded-md bg-[#D9D9D9]"
-                  type="file"
-                  multiple
-                  name="attachments"
-                  onChange={(e) => setAttachements(e.target.files)}
-                />
-              </div>
-            </div>
 
-            <div className="flex flex-col w-[250px] mx-[3px] justify-center cursor-pointer">
-              <button className="bg-[#334BA1] mt-3 rounded-full h-7 flex justify-center">
+              <div className="flex flex-col w-[250px] mx-[3px] mt-2 justify-center cursor-pointer">
+              <button className=" text-white bg-[#334BA1] mt-3 ml-8 rounded-full h-7 w-42 flex justify-center">
                 Submit
               </button>
             </div>
+            </div>
+          </div>
+          <div className="flex flex-col sm:flex-row gap-8">
+            
+
+           
           </div>
         </div>
       </form>
