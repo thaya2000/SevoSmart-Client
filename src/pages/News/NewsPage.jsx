@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './NewsPage.css';
+import axios from "axios";
 
 import image1 from '../../Images/NewsImages/im1.jpg';
 import image2 from '../../Images/NewsImages/im2.jpg';
@@ -23,20 +24,20 @@ const NewsPage = () => {
 
 
 
-  const [newsList] = useState([
-    { id: 1, title: "Welcome to our news channel in sevosmart", image: image1, content: "This is a sample paragraph. Read more to view the full news." },
-    { id: 2, title: "Welcome to our news channel in sevosmart", image: image2, content: "This is a sample paragraph. Read more to view the full news." },
-    { id: 3, title: "Welcome to our news channel in sevosmart", image: image3, content: "This is a sample paragraph. Read more to view the full news." },
-    { id: 4, title: "Welcome to our news channel in sevosmart", image: image4, content: "This is a sample paragraph. Read more to view the full news." },
-    { id: 5, title: "Welcome to our news channel in sevosmart", image: image5, content: "This is a sample paragraph. Read more to view the full news." },
-    { id: 6, title: "Welcome to our news channel in sevosmart", image: image6, content: "This is a sample paragraph. Read more to view the full news." },
-    { id: 7, title: "Welcome to our news channel in sevosmart", image: image7, content: "This is a sample paragraph. Read more to view the full news." },
-    { id: 8, title: "Welcome to our news channel in sevosmart", image: image8, content: "This is a sample paragraph. Read more to view the full news." },
-    { id: 9, title: "Welcome to our news channel in sevosmart", image: image9, content: "This is a sample paragraph. Read more to view the full news." },
-    { id: 10, title: "Welcome to our news channel in sevosmart", image: image10, content: "This is a sample paragraph. Read more to view the full news." },
-    { id: 11, title: "Welcome to our news channel in sevosmart", image: image11, content: "This is a sample paragraph. Read more to view the full news." },
-    { id: 12, title: "Welcome to our news channel in sevosmart", image: image12, content: "This is a sample paragraph. Read more to view the full news." },
-  ]);
+  // const [newsList] = useState([
+  //   { id: 1, title: "Welcome to our news channel in sevosmart", image: image1, content: "This is a sample paragraph. Read more to view the full news." },
+  //   { id: 2, title: "Welcome to our news channel in sevosmart", image: image2, content: "This is a sample paragraph. Read more to view the full news." },
+  //   { id: 3, title: "Welcome to our news channel in sevosmart", image: image3, content: "This is a sample paragraph. Read more to view the full news." },
+  //   { id: 4, title: "Welcome to our news channel in sevosmart", image: image4, content: "This is a sample paragraph. Read more to view the full news." },
+  //   { id: 5, title: "Welcome to our news channel in sevosmart", image: image5, content: "This is a sample paragraph. Read more to view the full news." },
+  //   { id: 6, title: "Welcome to our news channel in sevosmart", image: image6, content: "This is a sample paragraph. Read more to view the full news." },
+  //   { id: 7, title: "Welcome to our news channel in sevosmart", image: image7, content: "This is a sample paragraph. Read more to view the full news." },
+  //   { id: 8, title: "Welcome to our news channel in sevosmart", image: image8, content: "This is a sample paragraph. Read more to view the full news." },
+  //   { id: 9, title: "Welcome to our news channel in sevosmart", image: image9, content: "This is a sample paragraph. Read more to view the full news." },
+  //   { id: 10, title: "Welcome to our news channel in sevosmart", image: image10, content: "This is a sample paragraph. Read more to view the full news." },
+  //   { id: 11, title: "Welcome to our news channel in sevosmart", image: image11, content: "This is a sample paragraph. Read more to view the full news." },
+  //   { id: 12, title: "Welcome to our news channel in sevosmart", image: image12, content: "This is a sample paragraph. Read more to view the full news." },
+  // ]);
 
   const months = [
     "January", "February", "March", "April", "May", "June",
@@ -59,6 +60,24 @@ const NewsPage = () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+
+  const [newsList, setNewsList] = useState([]);
+
+
+    useEffect(() => {
+        loadNews();
+    }, []);
+
+    const loadNews = async () => {
+        try {
+            const result = await axios.get("https://sevosmarttech-efce83f08cbb.herokuapp.com/api/v1/admin/news");
+            console.log('Loaded projects:', result.data);  
+            setNewsList(result.data);
+        } catch (error) {
+            console.error('Error loading News:', error);
+        }
+    };
+
 
 
 
@@ -122,13 +141,13 @@ const NewsPage = () => {
         </div>
         <div className="feed-items-container">
           {newsList.map((news) => (
-            <div key={news.id} className="feed-item">
-              <Link to={{ pathname: `/newspage/${news.id}`, state: { news } }}>
-                <img src={news.image} alt={news.title} />
+            <div key={news.newsId} className="feed-item">
+              <Link to={{ pathname: `/newspage/${news.newsId}`, state: { news } }}>
+                <img src={`data:image/jpeg;base64,${news.newsImage}`} alt={news.newsTitle} />
               </Link>
-              <h2>{news.title}</h2>
-              <p>{news.content}</p>
-              <Link to={{ pathname: `/newspage/${news.id}`, state: { news } }}>
+              <h2>{news.newsTitle}</h2>
+              <p>{news.newsContent}</p>
+              <Link to={{ pathname: `/newspage/${news.newsId}`, state: { news } }}>
                 <button className="read-more">Read More</button>
               </Link>
             </div>

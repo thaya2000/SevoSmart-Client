@@ -12,33 +12,17 @@ const EditProduct = () => {
 
   const [product, setProduct] = useState({
     productName: "",
-    productImage: "",
     quantity: "",
     discount: "",
     price: "",
     brand: "",
     category: "",
-    imagePreview: "",
   });
 
   const { productName, quantity, discount, price, brand, category } = product;
-  useEffect(() => {
-    console.log("Name:", productName);
-    console.log("Quantity:", quantity);
-    console.log("Discount:", discount);
-    console.log("Price:", price);
-    console.log("Brand:", brand);
-    console.log("Category:", category);
-    console.log("Image:", productImage);
-  }, [productName, quantity, discount, price, productImage, brand, category]);
-
-  const onInputChange = (e) => {
-    setProduct({ ...product, [e.target.name]: e.target.value });
-  };
 
   useEffect(() => {
     loadProduct();
-    console.log(id);
   }, []);
 
   const loadProduct = async () => {
@@ -48,13 +32,28 @@ const EditProduct = () => {
         `https://sevosmarttech-efce83f08cbb.herokuapp.com/admin/product/${id}`
       );
       setLoading(false);
-      setProduct({
-        ...result.data,
-        imagePreview: result.data.productImage,
-      });
+      const productData = result.data;
+      setProduct(productData);
+      setImagePreview(productData.productImage);
     } catch (error) {
+      setLoading(false);
       console.error("Error loading product:", error);
     }
+  };
+
+  const onInputChange = (e) => {
+    setProduct({ ...product, [e.target.name]: e.target.value });
+  };
+
+  const handleImageChange = (e) => {
+    const selectedImage = e.target.files[0];
+    setProductImage(selectedImage);
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      setImagePreview(reader.result);
+    };
+    reader.readAsDataURL(selectedImage);
   };
 
   const handleSubmit = async (e) => {
@@ -67,28 +66,13 @@ const EditProduct = () => {
       formData.append("price", price);
       formData.append("brand", brand);
       formData.append("category", category);
-      formData.append("productpic", productImage);
 
       if (productImage) {
-        const reader = new FileReader();
-        reader.readAsDataURL(productImage);
-        reader.onload = () => {
-          formData.append("productpic", reader.result);
-          submitFormData(formData);
-        };
-      } else {
-        submitFormData(formData);
+        formData.append("productpic", productImage);
       }
-    } catch (err) {
-      console.log(err);
-    }
-  };
 
-  const submitFormData = async (formData) => {
-    setLoading(true);
-    try {
-      console.log(id);
-      await axios.put(`/admin/updateProduct/${id}`, formData, {
+      setLoading(true);
+      await axios.put(`https://sevosmarttech-efce83f08cbb.herokuapp.com/admin/updateProduct/${id}`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -97,21 +81,10 @@ const EditProduct = () => {
       toast.success("Product is successfully updated.");
       navigate("/admin/products");
     } catch (err) {
+      setLoading(false);
       console.log(err);
       toast.error("Product update failed. Try again.");
     }
-  };
-
-  const handleImageChange = (e) => {
-    const selectedImage = e.target.files[0];
-    setProductImage(selectedImage);
-
-    // Generate image preview URL
-    const reader = new FileReader();
-    reader.onload = () => {
-      setImagePreview(reader.result);
-    };
-    reader.readAsDataURL(selectedImage);
   };
 
   return (
@@ -173,7 +146,6 @@ const EditProduct = () => {
             className="shadow appearance-none border rounded w-full max-w-sm py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline md:w-3/4"
           />
         </div>
-
         <div className="mb-4 flex flex-col justify-center md:flex-row">
           <label className="block text-white text-m font-bold mb-2 md:mb-0 md:w-1/4">
             Brand
@@ -186,10 +158,9 @@ const EditProduct = () => {
             className="shadow appearance-none border rounded w-full max-w-sm py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline md:w-3/4"
           />
         </div>
-
         <div className="mb-4 flex flex-col justify-center md:flex-row">
           <label className="block text-white text-m font-bold mb-2 md:mb-0 md:w-1/4">
-            Price
+            Category
           </label>
           <input
             type="text"
@@ -199,7 +170,6 @@ const EditProduct = () => {
             className="shadow appearance-none border rounded w-full max-w-sm py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline md:w-3/4"
           />
         </div>
-
         <div className="mb-4 flex flex-col justify-center md:flex-row">
           <label className="block text-white text-m font-bold mb-2 md:mb-0 md:w-1/4">
             Product Image
