@@ -38,6 +38,8 @@ import Setting from "./component/HomeComponent/Setting/setting.jsx";
 import Passwordsetting from "./component/HomeComponent/Setting/Passwordsetting.jsx";
 import EditNews from "./pages/Admin/EditNews.jsx";
 import GuestRoutes from "./routes/GuestRoutes.jsx";
+import { useSelector } from "react-redux";
+import RambousLoader from "./routes/RambousLoader.jsx";
 
 function ScrollToTopOnRouteChange() {
   const { pathname } = useLocation();
@@ -50,6 +52,12 @@ function ScrollToTopOnRouteChange() {
 }
 
 function App() {
+  const loadingAuth = useSelector((state) => state.auth.loading);
+
+  if (loadingAuth) {
+    return <RambousLoader />;
+  }
+
   return (
     <BrowserRouter>
       <Toaster />

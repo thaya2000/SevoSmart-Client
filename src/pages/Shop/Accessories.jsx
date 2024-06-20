@@ -2,32 +2,33 @@ import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAccessories } from "../../redux/actions/accessoriesActions";
 import Accessory from "../../component/Shop/Accessory";
+import RambousLoader from "../../routes/RambousLoader";
 
 const Accessories = () => {
   const dispatch = useDispatch();
-  const { accessories, loading, error, etag } = useSelector(
+  const { accessories, loading, etag } = useSelector(
     (state) => state.accessories
   );
 
-  const isFirstRender = useRef(true);
-  useEffect(() => {
-    if (isFirstRender.current) {
-      isFirstRender.current = false;
-      console.log("Checking for updates...");
-      console.log("Checking for updates with ETag:", etag);
-      dispatch(fetchAccessories(etag));
-    }
-  }, [etag, dispatch]);
+  // const isFirstRender = useRef(true);
+  // useEffect(() => {
+  //   if (isFirstRender.current) {
+  //     isFirstRender.current = false;
+  //     dispatch(fetchAccessories(etag));
+  //   }
+  // }, [etag, dispatch]);
 
-  if (error) return <p>Error: {error}</p>;
+  useEffect(() => {
+    dispatch(fetchAccessories(etag));
+  }, []);
+
+  if (loading) return <RambousLoader />;
+
+  // if (error) return <p>Error: {error}</p>;
 
   return (
     <div className="flex flex-col mt-7">
-      {loading && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40">
-          <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
-        </div>
-      )}
+      {/* {loading && <RambousLoader />} */}
       <div className="flex flex-row justify-between border-b border-black pb-3">
         <div className="flex pl-5 sm:text-5xl sm:font-semibold text-2xl font-medium">
           Accessories

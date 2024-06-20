@@ -15,7 +15,7 @@ export default function BillCalculator() {
   const [saveMoney, setSaveMoney] = useState(null);
 
   useEffect(() => {
-    console.log(earnMoney);
+    // console.log(earnMoney);
   }, [earnMoney]);
 
   useEffect(() => {
