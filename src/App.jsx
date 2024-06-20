@@ -40,6 +40,7 @@ import EditNews from "./pages/Admin/EditNews.jsx";
 import GuestRoutes from "./routes/GuestRoutes.jsx";
 import { useSelector } from "react-redux";
 import RambousLoader from "./routes/RambousLoader.jsx";
+import CartProduct from "./component/Shop/CartProduct.jsx";
 
 function ScrollToTopOnRouteChange() {
   const { pathname } = useLocation();

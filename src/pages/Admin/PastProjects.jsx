@@ -45,22 +45,43 @@ const PastProjects = () => {
     };
 
     return (
-        <div className="p-8 bg-indigo-950">
-            <h1 className="text-6xl font-medium mb-4 text-white">Past Projects</h1>
+        <div className="admin-panelflex h-screen">
+      
+      <div className=" admin-sidebar bg-gray-800 w-100% p-4 text-white">
+        <h2 className="text-2xl font-bold mb-4">Admin Panel</h2>
+        <ul className="space-y-4">
+          <li>
+            <Link to="/users">Users</Link>
+          </li>
+          <li>
+            <Link to="/admin/products">Accessories</Link>
+          </li>
+          <li>
+            <Link to="/past-projects">Past Projects</Link>
+          </li>
+          <li>
+            <Link to="/news-admin">News</Link>
+          </li>
+          <li>
+            <Link to="/logout">Logout</Link>
+          </li>
+        </ul>
+      </div>
 
             <div className="my-4">
                 <Link
                     to="/add-project"
-                    className="bg-blue-700 hover:bg-blue-800 text-white font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none"
+                    className="add-project bg-red-700 hover:bg-blue-800 text-white font-medium rounded-lg text-sm px-5 py-2.5 me-10 mb-40 ml-10 mr-10 focus:outline-none"
                 >
                     Add Project
                 </Link>
             </div>
 
-            <div className="overflow-x-auto flex justify-center">
+            <div className="flex-1 p-4 overflow-y-auto">
+            <h className=" admin-tableh text-2xl font-bold mb-4">Past Projects</h>
                 <table className="w-full table-auto">
                     <thead>
-                        <tr className='text-white bg-gray-800'>
+                        <tr className='text-white '>
                             <th className="w-auto px-4 py-2 border">Serial No</th>
                             <th className="w-auto px-4 py-2 border">Project Name</th>
                             <th className="w-auto px-4 py-2 border">Project Images</th>
@@ -70,7 +91,7 @@ const PastProjects = () => {
                     </thead>
                     <tbody className='text-white'>
                         {pastProjects.map(project => (
-                            <tr key={project.projectId} className="bg-gray-700">
+                            <tr key={project.projectId} className="text">
                                 <td className="border px-4 py-2">{serialNumbers[project.projectId]}</td>
                                 <td className="border px-4 py-2">{project.projectName}</td>
                                 <td className="border px-4 py-2">
@@ -95,7 +116,7 @@ const PastProjects = () => {
                                             Edit
                                         </Link>
                                         <button
-                                            className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-4 rounded"
+                                            className="bg-red-700 hover:bg-red-700 text-white font-bold py-1 px-4 rounded"
                                             onClick={() => setDeletePastProjectId(project.projectId)}
                                         >
                                             Delete

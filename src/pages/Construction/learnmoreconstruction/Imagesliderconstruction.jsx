@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-
+import { Link } from 'react-router-dom';
 import "./Imagesliderconstruction.css";
 import image1 from "../../../Images/cons1.jpg";
 import image2 from "../../../Images/cons2.jpg";
@@ -57,7 +57,9 @@ const ImageSliderConstruction = () => {
             </span>
           </div>
 
-          <div className="learnmore-buttonB">Consult now</div>
+          <Link to="/new-building-consultation">
+            <div className="learnmore-buttonB">Consult now</div>
+        </Link>
         </div>
 
         <div>
