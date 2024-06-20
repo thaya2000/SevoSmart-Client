@@ -21,13 +21,16 @@ export default function NavAccountMenu() {
 
   return (
     <div>
-      <div className="hamburger-menu" onClick={toggleMenu}>
-        <img
+      <div onClick={toggleMenu}>
+        {/* <img
           width="25"
           height="25"
           src="https://img.icons8.com/ios-filled/50/737373/menu--v1.png"
           alt="menu"
-        />
+        /> */}
+        <div className="naviAccount">
+          {user && user.firstName ? user.firstName.charAt(0).toUpperCase() : ""}
+        </div>
       </div>
       {activeProfile && (
         <div className="dropdown-menu">
