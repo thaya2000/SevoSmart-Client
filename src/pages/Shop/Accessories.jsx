@@ -10,13 +10,13 @@ const Accessories = () => {
     (state) => state.accessories
   );
 
-  // const isFirstRender = useRef(true);
-  // useEffect(() => {
-  //   if (isFirstRender.current) {
-  //     isFirstRender.current = false;
-  //     dispatch(fetchAccessories(etag));
-  //   }
-  // }, [etag, dispatch]);
+  const isFirstRender = useRef(true);
+  useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      dispatch(fetchAccessories(etag));
+    }
+  }, [etag, dispatch]);
 
   useEffect(() => {
     dispatch(fetchAccessories(etag));
@@ -43,6 +43,7 @@ const Accessories = () => {
           <Accessory
             key={accessory.id}
             accessory_image={accessory.productImage}
+            accessory_image_url={accessory.productImageURL}
             accessory_name={accessory.productName}
             accessory_price={accessory.price}
             accessory_id={accessory.id}

@@ -73,7 +73,7 @@ const Users = () => {
             <h className=" admin-tableh text-2xl font-bold mb-4">Users</h>
                 <table className="table-auto w-full">
                     <thead>
-                        <tr className='text-white'>
+                        <tr className='text-black'>
                             <th className="px-4 py-2">No</th>
                             <th className="px-4 py-2">First Name</th>
                             <th className="px-4 py-2">Last Name</th>
@@ -82,7 +82,7 @@ const Users = () => {
                             <th className="px-4 py-2">Actions</th>
                         </tr>
                     </thead>
-                    <tbody className='text-white'>
+                    <tbody className='text-black'>
                         {allUsers.map(user => (
                             <tr key={user.id}>
                                 <td className="border px-4 py-2">{serialNumbers[user.id]}</td>

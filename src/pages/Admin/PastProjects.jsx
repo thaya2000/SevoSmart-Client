@@ -94,7 +94,7 @@ const PastProjects = () => {
             </h>
             <table className="w-full table-auto">
               <thead>
-                <tr className="text-white ">
+                <tr className="text-black">
                   <th className="w-auto px-4 py-2 border">Serial No</th>
                   <th className="w-auto px-4 py-2 border">Project Name</th>
                   <th className="w-auto px-4 py-2 border">Project Images</th>
@@ -104,7 +104,7 @@ const PastProjects = () => {
                   <th className="w-auto px-4 py-2 border">Actions</th>
                 </tr>
               </thead>
-              <tbody className="text-white">
+              <tbody className="text-black">
                 {pastProjects.map((project) => (
                   <tr key={project.projectId} className="text">
                     <td className="border px-4 py-2">
