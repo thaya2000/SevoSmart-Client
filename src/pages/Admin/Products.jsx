@@ -53,7 +53,28 @@ const Products = () => {
       {loading ? (
         <RambousLoader />
       ) : (
-        <div className="p-8 bg-indigo-950">
+        <div className="admin-panelflex h-screen">
+          <div className=" admin-sidebar bg-gray-800 w-100% p-4 text-white">
+            <h2 className="text-2xl font-bold mb-4">Admin Panel</h2>
+            <ul className="space-y-4">
+              <li>
+                <Link to="/users">Users</Link>
+              </li>
+              <li>
+                <Link to="/admin/products">Accessories</Link>
+              </li>
+              <li>
+                <Link to="/past-projects">Past Projects</Link>
+              </li>
+              <li>
+                <Link to="/news-admin">News</Link>
+              </li>
+              <li>
+                <Link to="/logout">Logout</Link>
+              </li>
+            </ul>
+          </div>
+          <div className="admin-table flex-1 p-4 overflow-y-auto">
           <h1 className="text-6xl font-medium mb-4 text-white">Accessories</h1>
           <Link
             to="/add-product"
@@ -65,7 +86,7 @@ const Products = () => {
           <div className="overflow-x-auto flex justify-center">
             <table className="table-auto w-full">
               <thead>
-                <tr className="text-white">
+                <tr className="text-black">
                   <th className="px-4 py-2">Serial No</th>
                   <th className="px-4 py-2">Product Name</th>
                   <th className="px-4 py-2">Image</th>
@@ -77,7 +98,7 @@ const Products = () => {
                   <th className="px-4 py-2">Actions</th>
                 </tr>
               </thead>
-              <tbody className="text-white">
+              <tbody className="text-black">
                 {products.map((product) => (
                   <tr key={product.id}>
                     <td className="border px-4 py-2">
@@ -192,6 +213,7 @@ const Products = () => {
               </div>
             </div>
           )}
+        </div>
         </div>
       )}
     </div>
