@@ -1,17 +1,17 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { userAuth } from "../../../context/authContext";
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../../../redux/slices/authSlice";
 import "./NavAccountMenu.css";
-import { dropdownMenu } from "@nextui-org/react";
 
 export default function NavAccountMenu() {
-  const [auth, setAuth] = userAuth();
+  const { user } = useSelector((state) => state.auth);
   const [activeProfile, setActiveProfile] = useState(false);
-
   const navigate = useNavigate();
-  const logout = () => {
-    setAuth({ ...auth, user: null, token: "" });
-    localStorage.removeItem("auth");
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    dispatch(logout());
     navigate("/login");
   };
 
@@ -21,13 +21,16 @@ export default function NavAccountMenu() {
 
   return (
     <div>
-      <div className="hamburger-menu" onClick={toggleMenu}>
-        <img
+      <div onClick={toggleMenu}>
+        {/* <img
           width="25"
           height="25"
           src="https://img.icons8.com/ios-filled/50/737373/menu--v1.png"
           alt="menu"
-        />
+        /> */}
+        <div className="naviAccount">
+          {user && user.firstName ? user.firstName.charAt(0).toUpperCase() : ""}
+        </div>
       </div>
       {activeProfile && (
         <div className="dropdown-menu">
@@ -45,7 +48,9 @@ export default function NavAccountMenu() {
 
           <div className="profilename-container">
             <span className="profile-name">
-              {auth.user.firstname + " " + auth.user.lastname}
+              {user && user.firstName && user.lastName
+                ? `${user.firstName} ${user.lastName}`
+                : ""}
             </span>
           </div>
 
@@ -97,13 +102,7 @@ export default function NavAccountMenu() {
               src="https://img.icons8.com/ios-filled/50/FA5252/logout-rounded-left.png"
               alt="logout-rounded-left"
             />
-            <button
-              className="log-out"
-              onClick={() => {
-                dropdownMenu();
-                logout();
-              }}
-            >
+            <button className="log-out" onClick={handleLogout}>
               Log out
             </button>
           </div>

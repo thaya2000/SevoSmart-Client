@@ -72,9 +72,15 @@ export default {
             transform: "scale(1)",
           },
         },
+        spin3D: {
+          "0%": { transform: "rotate3d(0.5, 0.5, 0.5, 0deg)" },
+          "100%": { transform: "rotate3d(0.5, 0.5, 0.5, 360deg)" },
+        },
       },
       animation: {
         "blink-scale": "blink-scale 2s ease-in-out infinite",
+        "spin-slow": "spin 3s linear infinite",
+        spin3D: "spin3D 3s linear infinite",
       },
     },
   },
