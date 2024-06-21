@@ -4,7 +4,7 @@
   }
   
   .container-form {
-    margin-left:  100px; 
+    margin-left:  150px; 
     margin-top: 50px;
   }
 
@@ -15,21 +15,15 @@
 
   @media (max-width: 768px) {
     .container-sheduletime {
-        
         margin-top: 50px;
-        margin-left:20px;
-        width:350px;
+        margin-left:0px;
+        width:300px;
       }
       
       .container-form {
-        margin-left:  20px; 
+        margin-left:  100px; 
         margin-top: 50px;
-        width:300px;
       }
 
-
-      .fileupload-container{
-        width:350px;
-      }
   }
   
