@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import "./AdminPanel.css";
 
 const AdminPanel = () => {
   const [loading, setLoading] = useState(false);
@@ -32,13 +33,13 @@ const AdminPanel = () => {
   };
 
   return (
-    <div className="flex h-screen">
+    <div className="admin-panelflex h-screen">
       {loading && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40">
           <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
         </div>
       )}
-      <div className="bg-gray-800 w-64 p-4 text-white">
+      <div className=" admin-sidebar bg-gray-800 w-64 p-4 text-white">
         <h2 className="text-2xl font-bold mb-4">Admin Panel</h2>
         <ul className="space-y-4">
           <li>
@@ -59,9 +60,9 @@ const AdminPanel = () => {
         </ul>
       </div>
 
-      {/* Right Content */}
-      <div className="flex-1 p-4 overflow-y-auto">
-        <h2 className="text-2xl font-bold mb-4">Order Details</h2>
+      
+      <div className=" admin-table  flex-1 p-4 overflow-y-auto">
+        <h className=" admin-tableh text-2xl font-bold mb-4">Order Details</h>
         <div className="overflow-x-auto">
           <table className="table-auto w-full">
             <thead>

@@ -84,7 +84,28 @@ const EditNews = () => {
   };
 
   return (
-    <div className="p-8 bg-indigo-950">
+    
+    <div className="p-8 bg-white">
+      <div className="bg-gray-800 w-64 p-4 text-white">
+        <h2 className="text-2xl font-bold mb-4">Admin Panel</h2>
+        <ul className="space-y-4">
+          <li>
+            <Link to="/users">Users</Link>
+          </li>
+          <li>
+            <Link to="/admin/products">Accessories</Link>
+          </li>
+          <li>
+            <Link to="/past-projects">Past Projects</Link>
+          </li>
+          <li>
+            <Link to="/news-admin">News</Link>
+          </li>
+          <li>
+            <Link to="/logout">Logout</Link>
+          </li>
+        </ul>
+      </div>
       <h1 className="text-4xl font-medium mb-8 text-white flex justify-center">Edit News</h1>
       <form onSubmit={handleSubmit}>
         <div className="mb-4 flex flex-col justify-center md:flex-row">

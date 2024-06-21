@@ -1,6 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchAccessories } from ".../../../../redux/actions/productActions";
+import { fetchAccessories } from "../../redux/actions/accessoriesActions";
 import Accessory from "../../component/Shop/Accessory";
 
 const Accessories = () => {
@@ -9,49 +9,30 @@ const Accessories = () => {
     (state) => state.accessories
   );
 
+  const isFirstRender = useRef(true);
   useEffect(() => {
-    console.log("persistance accessories", accessories);
-    console.log("persistance loading", loading);
-    console.log("persistance error", error);
-    console.log("persistance etag", etag);
-
-    const cachedAccessories = localStorage.getItem("accessories");
-    const cachedETag = localStorage.getItem("etag");
-
-    if (cachedAccessories && !loading) {
-      console.log("Using cached data");
-      dispatch({
-        type: "FETCH_ACCESSORIES_SUCCESS",
-        payload: JSON.parse(cachedAccessories),
-      });
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      console.log("Checking for updates...");
+      console.log("Checking for updates with ETag:", etag);
+      dispatch(fetchAccessories(etag));
     }
+  }, [etag, dispatch]);
 
-    console.log("Checking for updates with ETag:", cachedETag);
-    dispatch(fetchAccessories(cachedETag));
-  }, [dispatch, accessories, error, etag, loading]);
-
-  useEffect(() => {
-    if (
-      accessories.length > 0 &&
-      (!localStorage.getItem("etag") || localStorage.getItem("etag") !== etag)
-    ) {
-      console.log("Updating local storage with new data and ETag");
-      console.log("test accessories", accessories);
-      console.log("test etag", etag);
-      localStorage.setItem("accessories", JSON.stringify(accessories));
-      localStorage.setItem("etag", etag);
-    }
-  }, [accessories, etag]);
+  if (error) return <p>Error: {error}</p>;
 
   return (
     <div className="flex flex-col mt-7">
+      {loading && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40">
+          <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+        </div>
+      )}
       <div className="flex flex-row justify-between border-b border-black pb-3">
         <div className="flex pl-5 sm:text-5xl sm:font-semibold text-2xl font-medium">
           Accessories
         </div>
       </div>
-      {/* {loading && <p>Loading...</p>}
-      {error && <p>Error: {error}</p>} */}
       <div className="flex flex-wrap justify-center gap-10 p-10">
         {accessories.map((accessory) => (
           <Accessory

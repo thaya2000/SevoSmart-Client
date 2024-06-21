@@ -1,33 +1,16 @@
-import { useEffect, useState } from "react";
-import { Outlet } from "react-router-dom";
-import { userAuth } from "../context/authContext";
-import axios from "axios";
-import Loading from "./Loading";
+// PrivateRoutes.jsx
+import { Routes, Route } from "react-router-dom";
+import UserAuthCheck from "./UserAuthCheck.jsx";
+import Accessories from "../pages/Shop/Accessories.jsx";
+import Cart from "../pages/Shop/Cart.jsx";
 
 export default function PrivateRoutes() {
-  const [auth, setAuth] = userAuth();
-  const [ok, setOk] = useState(false);
-
-  useEffect(() => {
-    const authCheck = async () => {
-      if (auth?.token) {
-        try {
-          const { status } = await axios.get("/api/v1/auth/auth-check", {
-            headers: {
-              Authorization: `Bearer ${auth.token}`,
-            },
-          });
-          console.log(status);
-          setOk(status === 200);
-        } catch (error) {
-          console.log(error.response?.status || "Network error");
-          setOk(false);
-        }
-      }
-    };
-
-    authCheck();
-  }, [auth?.token]);
-
-  return ok ? <Outlet /> : <Loading />;
+  return (
+    <UserAuthCheck>
+      <Routes>
+        <Route path="accessories" element={<Accessories />} />
+        <Route path="cart" element={<Cart />} />
+      </Routes>
+    </UserAuthCheck>
+  );
 }

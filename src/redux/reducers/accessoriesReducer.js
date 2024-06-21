@@ -2,8 +2,9 @@ import {
   FETCH_ACCESSORIES_REQUEST,
   FETCH_ACCESSORIES_SUCCESS,
   FETCH_ACCESSORIES_FAILURE,
+  FETCH_ACCESSORIES_NOT_MODIFIED,
   SET_ETAG,
-} from "../actions/productActions";
+} from "../actions/accessoriesActions";
 
 const initialState = {
   loading: false,
@@ -32,7 +33,13 @@ const accessoriesReducer = (state = initialState, action) => {
         ...state,
         loading: false,
         accessories: [],
+        etag: null,
         error: action.payload,
+      };
+    case FETCH_ACCESSORIES_NOT_MODIFIED:
+      return {
+        ...state,
+        loading: false,
       };
     case SET_ETAG:
       return {

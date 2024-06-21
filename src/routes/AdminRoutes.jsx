@@ -1,33 +1,20 @@
-import { useEffect, useState } from "react";
-import { Outlet } from "react-router-dom";
-import { userAuth } from "../context/authContext";
-import axios from "axios";
-import Loading from "./Loading";
+// AdminRoutes.jsx
+import { Routes, Route } from "react-router-dom";
+import AdminPanel from "../pages/Admin/AdminPanel.jsx";
+import OrderDetails from "../pages/Admin/OrderDetails.jsx";
+import Products from "../pages/Admin/Products.jsx";
+import EditProduct from "../pages/Admin/EditProduct.jsx";
+import AdminAuthCheck from "./AdminAuthCheck.jsx";
 
 export default function AdminRoutes() {
-  const [auth, setAuth] = userAuth();
-  const [ok, setOk] = useState(false);
-
-  useEffect(() => {
-    const authCheck = async () => {
-      if (auth?.token) {
-        try {
-          const { status } = await axios.get("/api/v1/auth/admin-check", {
-            headers: {
-              Authorization: `Bearer ${auth.token}`,
-            },
-          });
-          console.log(status);
-          setOk(status === 200);
-        } catch (error) {
-          console.log(error.response?.status || "Network error");
-          setOk(false);
-        }
-      }
-    };
-
-    authCheck();
-  }, [auth?.token]);
-
-  return ok ? <Outlet /> : <Loading />;
+  return (
+    <AdminAuthCheck>
+      <Routes>
+        <Route path="admin-panel" element={<AdminPanel />} />
+        <Route path="order-details/:orderNumber" element={<OrderDetails />} />
+        <Route path="products" element={<Products />} />
+        <Route path="edit-product/:id" element={<EditProduct />} />
+      </Routes>
+    </AdminAuthCheck>
+  );
 }

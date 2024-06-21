@@ -1,3 +1,5 @@
+
+import React from "react";
 import "./Cart.css";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";

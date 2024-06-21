@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Rhombus from "../assets/Loaders/Rhombus.gif";
 
 export default function Loading() {
-  const [count, setCount] = useState(3);
+  const [count, setCount] = useState(10);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -11,11 +11,15 @@ export default function Loading() {
     const interval = setInterval(() => {
       setCount((currentCount) => --currentCount);
     }, 1000);
-    count === 0 && navigate("/login", { state: { from: location } });
 
-    // cleanup
     return () => clearInterval(interval);
-  }, [count]);
+  }, []);
+
+  useEffect(() => {
+    if (count === 0) {
+      navigate("/login", { state: { from: location } });
+    }
+  }, [count, navigate, location]);
 
   return (
     <div className="flex items-center justify-center w-100v h-100v">

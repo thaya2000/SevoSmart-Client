@@ -1,0 +1,139 @@
+/* AdminPanel.css */
+
+
+.admin-panelflex {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .admin-sidebar {
+    background-color: #2d3748;
+    width: 16rem;
+    padding: 1rem;
+    color: white;
+  }
+  
+  .admin-table {
+    flex: 1;
+    padding: 1rem;
+    overflow-y: auto;
+  }
+  
+  .table-auto {
+    width: 100%;
+  }
+  
+  .table-auto th,
+  .table-auto td {
+    padding: 0.5rem;
+    border: 1px solid #e2e8f0;
+  }
+  
+  .table-auto thead th {
+    background-color: #edf2f7;
+    color: #2d3748;
+  }
+  
+  .table-auto tbody tr:nth-child(even) {
+    background-color: #f7fafc;
+  }
+  
+  .fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  
+  .inset-0 {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  
+  .z-50 {
+    z-index: 50;
+  }
+  
+  .bg-black {
+    background-color: black;
+  }
+  
+  .bg-opacity-40 {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  
+  .w-16 {
+    width: 4rem;
+  }
+  
+  .h-16 {
+    height: 4rem;
+  }
+  
+  .border-4 {
+    border-width: 4px;
+  }
+  
+  .border-blue-500 {
+    border-color: #3b82f6;
+  }
+  
+  .border-t-transparent {
+    border-top-color: transparent;
+  }
+  
+  .rounded-full {
+    border-radius: 9999px;
+  }
+  
+  .animate-spin {
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  
+  @media (max-width: 768px) {
+    .admin-panelflex {
+      flex-direction: column;
+    }
+  
+    .admin-sidebar {
+      width: 100%;
+      padding: 0.5rem;
+      font-size: 0.8rem; 
+    }
+  
+    .admin-sidebar h2 {
+      font-size: 1.25rem; 
+    }
+  
+    .admin-sidebar ul li a {
+      font-size: 0.8rem; 
+    }
+    .admin-table {
+      padding: 0.5rem;
+      font-size: 0.8rem; 
+    }
+  
+    .admin-tableh {
+      font-size: 1rem; 
+      margin-top: 1rem;
+      font-weight: 700;
+    }
+  
+    .admin-table th,
+    .admin-table td {
+      font-size: 0.8rem; 
+    }
+  }
