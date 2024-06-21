@@ -11,6 +11,7 @@ import PastProject from "../../component/HomeComponent/PastProject/PastProject.j
 import BillCalculator from "../../component/HomeComponent/BillCalculator/BillCalculator.jsx";
 import OfferPanel from "../../component/HomeComponent/OfferPanel/OfferPanel/OfferPanel.jsx";
 
+
 const Home = () => {
   const images = [image1, image2, image3];
   const pastProjects = [
@@ -55,15 +56,17 @@ const Home = () => {
       <ProductIntroCard
         image={SolarCoverImage}
         serviceTitle="Solar Panels"
-        orderLink="guest/solar/consultation"
+        orderLink="/energy-order"
         learnMoreLink="/energy-learnmore"
+        buttonText="Order Now"
       />
       <ProductIntroCard
         image={ConstructionCoverImage}
         serviceTitle="Constructions"
-        orderLink="/guest/new-building-consultation"
+        orderLink="/new-building-consultation"
         learnMoreLink="/construction-learnmore"
         textColor="#ffffff"
+        buttonText="Consult Now"
       />
       <div>
         <BillCalculator />

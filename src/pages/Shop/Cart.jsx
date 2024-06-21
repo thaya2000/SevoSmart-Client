@@ -1,4 +1,3 @@
-
 import React from "react";
 import "./Cart.css";
 import { useState, useEffect } from "react";
@@ -6,28 +5,30 @@ import { Link } from "react-router-dom";
 import CartProduct from "../../component/Shop/CartProduct";
 import { userAuth } from "../../context/authContext";
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 const Cart = () => {
   const [loading, setLoading] = useState(false);
   const [cartProducts, setCartProducts] = useState([]);
   const [auth, setAuth] = userAuth();
+  const { user } = useSelector((state) => state.auth);
 
   useEffect(() => {
-    if (auth.user) {
+    if (user.userId) {
       loadCartProducts();
     }
-  }, [auth]);
+  }, [user]);
 
   const loadCartProducts = async () => {
     setLoading(true);
     try {
       const result = await axios.get(
-        `/api/v1/user/cart_products/${auth.user.id}`
+        `/api/v1/user/cart_products/${user.userId}`
       );
       setCartProducts(result.data);
       setLoading(false);
       console.log(result.data);
-      console.log("user id is:", auth.user.id);
+      console.log("user id is:", user.userId);
     } catch (error) {
       console.error("Error loading Accessories:", error);
     }
@@ -39,15 +40,18 @@ const Cart = () => {
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40">
           <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
         </div>
-      )}<div class="cardTittleContainer"><div className="CardTittle">Shopping Cart</div></div>
-      
+      )}
+      <div class="cardTittleContainer">
+        <div className="CardTittle">Shopping Cart</div>
+      </div>
+
       <div className=" Ordersummery-container ">
         <div className="Ordersummery-container">
           {cartProducts.map((cartProduct, index) => (
             // console.log(cartProduct.quantity)
             <CartProduct
               key={index}
-              cart_image={cartProduct.product.productImage}
+              cart_image_url={cartProduct.product.productImageURL}
               product_name={cartProduct.product.productName}
               product_price={cartProduct.product.price}
               product_quantity={cartProduct.quantity}
@@ -65,7 +69,6 @@ const Cart = () => {
             boxShadow: "4px 4px 100px 0px #69696933",
           }}
         >
-          
           <div className="ordersummery">Order Summary</div>
           <div className="flex flex-row justify-between text-3xl font-normal pt-7">
             <div className="shipping ">Shipping</div>
@@ -85,10 +88,9 @@ const Cart = () => {
               </button>
             </Link>
           </div>
-          </div>
         </div>
       </div>
-    
+    </div>
   );
 };
 
