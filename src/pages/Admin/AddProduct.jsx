@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { userAuth } from "../../context/authContext";
-import "./AddProduct.css"; // Make sure to import your CSS file
+import "./AddProduct.css";
 
 const AddProduct = () => {
   const [loading, setLoading] = useState(false);
@@ -16,6 +17,7 @@ const AddProduct = () => {
   const [description, setDescription] = useState("");
   const [brand, setBrand] = useState("");
   const [imagePreview, setImagePreview] = useState(null);
+  const { user } = useSelector((state) => state.auth);
 
   const [auth, setAuth] = userAuth();
 
@@ -27,6 +29,7 @@ const AddProduct = () => {
     console.log("Discount:", discount);
     console.log("Price:", price);
     console.log("Image:", image);
+    console.log("user :", user);
   }, [name, quantity, discount, price, image]);
 
   const handleSubmit = async (e) => {
@@ -44,7 +47,7 @@ const AddProduct = () => {
       productData.append("brand", brand);
 
       const { data } = await axios.post(
-        `/admin/addProduct/${auth.user.id}`,
+        `/admin/addProduct/${user.userId}`,
         productData
       );
 
@@ -59,6 +62,7 @@ const AddProduct = () => {
       }
     } catch (err) {
       console.log(err);
+      setLoading(false);
       toast.error("Product create failed. Try again.");
     }
   };
