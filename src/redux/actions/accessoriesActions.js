@@ -1,4 +1,6 @@
-import axios from "axios";
+// src/redux/actions/accessoriesActions.js
+import { fetchAccessoriesFromApi } from "../../services/accessoryServices";
+
 export const FETCH_ACCESSORIES_REQUEST = "FETCH_ACCESSORIES_REQUEST";
 export const FETCH_ACCESSORIES_SUCCESS = "FETCH_ACCESSORIES_SUCCESS";
 export const FETCH_ACCESSORIES_FAILURE = "FETCH_ACCESSORIES_FAILURE";
@@ -32,9 +34,7 @@ export const fetchAccessories = (etag) => {
   return (dispatch) => {
     console.log("Fetching accessories...");
     dispatch(fetchAccessoriesRequest());
-    const headers = etag ? { "If-None-Match": etag } : {};
-    axios
-      .get("/admin/allProduct", { headers })
+    fetchAccessoriesFromApi(etag)
       .then(({ status, data, headers }) => {
         const newETag = headers["etag"] || headers["ETag"];
         if (status === 200) {
@@ -60,3 +60,27 @@ export const fetchAccessories = (etag) => {
       });
   };
 };
+
+// export const fetchAccessories = (etag) => {
+// return async (dispatch) => {
+// dispatch(fetchAccessoriesRequest());
+// try {
+// const headers = etag ? { "If-None-Match": etag } : {};
+// const response = await axiosInstance.get("/admin/allProduct", {
+// headers,
+// });
+// const newETag = response.headers["etag"] || response.headers["ETag"];
+// if (response.status === 200) {
+// dispatch(fetchAccessoriesSuccess(response.data));
+// dispatch(setETag(newETag));
+// } else if (response.status === 304) {
+// dispatch(fetchAccessoriesNotModified());
+// }
+// } catch (error) {
+// const errorMsg = error.response
+// ? ${error.response.status} ${error.response.statusText}
+// : "Network error or server is unreachable";
+// dispatch(fetchAccessoriesFailure(errorMsg));
+// }
+// };
+// };

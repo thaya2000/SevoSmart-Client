@@ -1,39 +1,35 @@
-// UserAuthCheck.jsx
 import { useEffect, useState } from "react";
-import { userAuth } from "../context/authContext";
-import axios from "axios";
+import { useSelector } from "react-redux";
 import Loading from "./Loading";
 import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
 
 export default function UserAuthCheck({ children }) {
-  const [auth, setAuth] = userAuth();
-  const [ok, setOk] = useState(false);
+  const { token, role, loading } = useSelector((state) => state.auth);
+  const navigate = useNavigate();
+  const [isChecking, setIsChecking] = useState(true);
 
   useEffect(() => {
-    const authCheck = async () => {
-      if (auth?.token) {
-        try {
-          const { status } = await axios.get("/api/v1/auth/auth-check", {
-            headers: {
-              Authorization: `Bearer ${auth.token}`,
-            },
-          });
-          console.log(`Bearer ${auth.token}`);
-          setOk(status === 200);
-          console.log("userAuthCheck response : " + status);
-        } catch (error) {
-          console.log(error.response?.status || "Network error");
-          setOk(false);
-        }
+    if (!loading) {
+      if (!token || role !== "CUSTOMER") {
+        navigate("/login", { state: { from: window.location.pathname } });
+      } else {
+        setIsChecking(false);
       }
-    };
+    }
+  }, [token, role, loading, navigate]);
 
-    authCheck();
-  }, [auth?.token]);
+  if (isChecking) {
+    return <Loading />;
+  }
 
-  return ok ? children : <Loading />;
+  if (!token || role !== "CUSTOMER") {
+    return null;
+  }
+
+  return children;
 }
 
 UserAuthCheck.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.node.isRequired,
 };

@@ -17,7 +17,7 @@ function BillCalculation() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Combined Form submitted:", formData);
+    // console.log("Combined Form submitted:", formData);
   };
 
   return (

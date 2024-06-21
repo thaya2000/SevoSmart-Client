@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAccessories } from "../../redux/actions/accessoriesActions";
 import Accessory from "../../component/Shop/Accessory";
+import RambousLoader from "../../routes/RambousLoader";
 
 const Accessories = () => {
   const dispatch = useDispatch();
@@ -9,19 +10,21 @@ const Accessories = () => {
     (state) => state.accessories
   );
 
-  console.log("Accessories:", accessories);
+  // const isFirstRender = useRef(true);
+  // useEffect(() => {
+  //   if (isFirstRender.current) {
+  //     isFirstRender.current = false;
+  //     dispatch(fetchAccessories(etag));
+  //   }
+  // }, [etag, dispatch]);
 
-  const isFirstRender = useRef(true);
   useEffect(() => {
-    if (isFirstRender.current) {
-      isFirstRender.current = false;
-      console.log("Checking for updates...");
-      console.log("Checking for updates with ETag:", etag);
-      dispatch(fetchAccessories(etag));
-    }
-  }, [etag, dispatch]);
+    dispatch(fetchAccessories(etag));
+  }, []);
 
-  if (error) return <p>Error: {error}</p>;
+  if (loading) return <RambousLoader />;
+
+  // if (error) return <p>Error: {error}</p>;
 
   return (
     <div className="flex flex-col mt-7">
@@ -40,7 +43,6 @@ const Accessories = () => {
           <Accessory
             key={accessory.id}
             accessory_image={accessory.productImage}
-            accessory_image_url={accessory.productImageURL}
             accessory_name={accessory.productName}
             accessory_price={accessory.price}
             accessory_id={accessory.id}
