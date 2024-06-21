@@ -1,57 +1,43 @@
 import "./Login.css";
-import { useState } from "react";
-import { userAuth } from "../../../context/authContext";
-import { useNavigate, useLocation } from "react-router-dom";
-import axios from "axios";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "../../../redux/slices/authSlice";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import toast from "react-hot-toast";
 import { FaUser, FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link } from "react-router-dom";
 
 const Login = () => {
-  const [loading, setLoading] = useState(false);
   const DEFAULT_EMAIL = import.meta.env.VITE_APP_DEFAULT_EMAIL;
   const DEFAULT_PASSWORD = import.meta.env.VITE_APP_DEFAULT_PASSWORD;
-
   const [email, setEmail] = useState(DEFAULT_EMAIL);
   const [password, setPassword] = useState(DEFAULT_PASSWORD);
   const [showPassword, setShowPassword] = useState(false);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { loading, role } = useSelector((state) => state.auth);
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
 
-  // hook
-  const [auth, setAuth] = userAuth();
-  const navigate = useNavigate();
-  const location = useLocation();
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
-    try {
-      const { data } = await axios.post(`/api/v1/auth/authenticate`, {
-        email,
-        password,
-      });
-      console.log(data);
-      setLoading(false);
-      if (data?.message) {
-        toast.error(data.message);
-      } else {
-        localStorage.setItem("auth", JSON.stringify(data));
-        setAuth({ ...auth, token: data.token, user: data.user });
-        console.log(location.state);
-        navigate(
-          location.state?.from?.pathname ||
-            `/${data?.user?.role === "ADMIN" ? "admin/admin-panel" : ""}`
-        );
-        toast.success("Login successful");
-      }
-    } catch (err) {
-      console.log(err);
-      toast.error("Login failed. Try again.");
+    const resultAction = await dispatch(login({ email, password }));
+    if (login.fulfilled.match(resultAction)) {
+      toast.success("Login successful");
+    } else {
+      toast.error(resultAction.payload || resultAction.error.message);
     }
   };
+
+  useEffect(() => {
+    if (role) {
+      navigate(
+        location.state?.from || (role === "ADMIN" ? "/admin/admin-panel" : "/")
+      );
+    }
+  }, [role, navigate, location]);
 
   return (
     <div className="flex relative items-center justify-center w-100v h-100v">

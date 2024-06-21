@@ -7,6 +7,7 @@ import PropTypes from "prop-types";
 
 const Accessory = ({
   accessory_image,
+  accessory_image_url,
   accessory_name,
   accessory_price,
   accessory_id,
@@ -19,10 +20,11 @@ const Accessory = ({
     accessory_id: accessory_id,
     accessory_price: accessory_price,
     accessory_image: accessory_image,
+    accessory_image_url: accessory_image_url,
     accessory_description: accessory_description,
   };
 
-  const imgData = `data:image/jpg;base64,${accessory_image}`;
+  // const imgData = `data:image/jpg;base64,${accessory_image}`;
 
   const addToCart = async () => {
     try {
@@ -41,6 +43,7 @@ const Accessory = ({
     // console.log("Accessory price:", accessory_price);
     // console.log("Accessory ID:", accessory_id);
     // console.log(accessory_image);
+    console.log("Accessory image url:", accessory_image_url);
 
     navigate(`/product-details/${accessory_id}`, {
       state: data,
@@ -52,7 +55,7 @@ const Accessory = ({
       <div onClick={navigateToProductDetails}>
         <img
           className="flex justify-self-center mt-2 py-3 h-60 w-60"
-          src={imgData}
+          src={accessory_image_url}
           alt={accessory_name}
         />
         <div className="flex justify-items-center text-4xl font-bold py-3">
@@ -96,6 +99,7 @@ Accessory.propTypes = {
   accessory_name: PropTypes.string.isRequired,
   accessory_price: PropTypes.number.isRequired,
   accessory_id: PropTypes.string.isRequired,
+  accessory_image_url: PropTypes.string.isRequired,
   accessory_description: PropTypes.string.isRequired,
 };
 

@@ -39,10 +39,10 @@ const Cart = () => {
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40">
           <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
         </div>
-      )}
-      <div className="CardTittle">Cart</div>
-      <div className="flex flex-wrap pt-20">
-        <div className="flex flex-col justify-start pl-5 w-200">
+      )}<div class="cardTittleContainer"><div className="CardTittle">Shopping Cart</div></div>
+      
+      <div className=" Ordersummery-container ">
+        <div className="Ordersummery-container">
           {cartProducts.map((cartProduct, index) => (
             // console.log(cartProduct.quantity)
             <CartProduct
@@ -65,28 +65,30 @@ const Cart = () => {
             boxShadow: "4px 4px 100px 0px #69696933",
           }}
         >
-          <div className="flex text-4xl font-medium mt-5">Order Summary</div>
+          
+          <div className="ordersummery">Order Summary</div>
           <div className="flex flex-row justify-between text-3xl font-normal pt-7">
-            <div className="flex ">Shipping</div>
-            <div>free</div>
+            <div className="shipping ">Shipping</div>
+            <div className="shipping">free</div>
           </div>
           <div className="flex flex-row justify-between text-3xl font-medium pt-5">
-            <div className="flex ">Sub Total(lkr)</div>
-            <div>7500</div>
+            <div className="total ">Sub Total(lkr)</div>
+            <div className="total ">7500</div>
           </div>
           <div className="flex flex-row justify-center text-3xl font-medium py-5">
             <Link to="/check_out">
               <button
                 type="button"
-                className="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 h-8 w-60"
+                className=" blue-button text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 h-8 w-60"
               >
                 Check Out
               </button>
             </Link>
           </div>
+          </div>
         </div>
       </div>
-    </div>
+    
   );
 };
 

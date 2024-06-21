@@ -8,15 +8,14 @@ import NavDiscover from "../NavDiscover/NavDiscover.jsx";
 import Logo from "../Logo/Logo.jsx";
 import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
-import { userAuth } from "../../../context/authContext.jsx";
+import { useSelector } from "react-redux";
 import NavAccountMenu from "../NavAccountMenu/NavAccountMenu.jsx";
-import { FaCartShopping } from "react-icons/fa6";
 import { IoCartOutline } from "react-icons/io5";
 
 const Navigation = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
 
-  const [auth, setAuth] = userAuth();
+  const { user } = useSelector((state) => state.auth);
 
   const handleButtonHover = (index) => {
     setActiveDropdown(index);
@@ -61,7 +60,7 @@ const Navigation = () => {
             <UilSearch size="2rem" />
           </div>
           <div>
-            {!auth.user ? (
+            {!user ? (
               <NavLink to="/login">
                 <div className="navLogin">Log in</div>
               </NavLink>
