@@ -9,6 +9,8 @@ const Accessories = () => {
     (state) => state.accessories
   );
 
+  console.log("Accessories:", accessories);
+
   const isFirstRender = useRef(true);
   useEffect(() => {
     if (isFirstRender.current) {
@@ -38,6 +40,7 @@ const Accessories = () => {
           <Accessory
             key={accessory.id}
             accessory_image={accessory.productImage}
+            accessory_image_url={accessory.productImageURL}
             accessory_name={accessory.productName}
             accessory_price={accessory.price}
             accessory_id={accessory.id}

@@ -38,6 +38,7 @@ export const fetchAccessories = (etag) => {
       .then(({ status, data, headers }) => {
         const newETag = headers["etag"] || headers["ETag"];
         if (status === 200) {
+          console.log("data : ", data);
           dispatch(fetchAccessoriesSuccess(data));
           dispatch(setETag(newETag));
         } else if (status === 304) {
