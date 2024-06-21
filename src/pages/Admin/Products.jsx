@@ -108,7 +108,7 @@ const Products = () => {
                     <td className="border px-4 py-2">
                       <div className="flex flex-row justify-center">
                         <img
-                          src={`data:image/jpeg;base64, ${product.productImage}`}
+                          src={product.productImageURL}
                           className="h-16 object-cover rounded-lg mx-2"
                           style={{ width: "auto" }}
                           alt={`Product ${product.id}`}
