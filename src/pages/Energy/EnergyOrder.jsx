@@ -9,6 +9,7 @@ import { IoMdTime } from "react-icons/io";
 import "react-datepicker/dist/react-datepicker.css";
 import "react-time-picker/dist/TimePicker.css";
 import "react-clock/dist/Clock.css";
+import OrderSolarPanelImage from "./OrderSolarPanel/OrderSolarPanelImage";
 
 const EnergyOrder = () => {
   const initialValues = {
@@ -95,59 +96,109 @@ const EnergyOrder = () => {
     }
   };
 
-  return (
+  return  (
     <div>
-      <span className="mt-2 text-lg ml-2 mr-4"> Make a consultaion to choose suitable product</span>
+      <div className="bg-gray-100 p-4 rounded-md shadow-md mt-4 mb-4"> <span className="ml-50 text-lg text-blue-900 font-semibold">Schedule a consultation to select the right product</span> </div>
+    <div className="flex flex-wrap justify-center">
+      
+     
+      <div className="OrderSolarPanelImage-container w-[600px] ml-0 mr-30 mt-10"> <OrderSolarPanelImage /></div>
       <form onSubmit={handleSubmit}>
 
         <div className="flex flex-col items-center gap-5 py-[80px]">
           <div className="flex flex-col sm:flex-row gap-10">
-            <div className="flex flex-col w-[300px]">
-              <div className="flex flex-col  ">
-                <span className="font-medium text-sm mb-2">First Name</span>
-                <input
-                  className="h-7 pl-[4px] rounded-md bg-[#D9D9D9] "
-                  type="text"
-                  value={formValues.firstname}
-                  onChange={handleChange}
-                  name="firstname"
-                />
-              </div>
-              <p className="text-red-700">{formErrors.firstname}</p>
-              <div className="flex flex-col mt-3 ">
-                <text className="font-medium text-sm mb-2"> Last Name</text>
-                <input
-                  className="h-7 pl-[4px] rounded-md bg-[#D9D9D9] "
-                  type="text"
-                  value={formValues.lastname}
-                  onChange={handleChange}
-                  name="lastname"
-                />
-              </div>
-              <p className="text-red-700">{formErrors.lastname}</p>
-              <div className="flex flex-col mt-3">
-                <text className="font-medium text-sm mb-2">Email ID</text>
-                <input
-                  className="h-7 pl-[4px] rounded-md bg-[#D9D9D9] "
-                  type="text"
-                  value={formValues.email}
-                  onChange={handleChange}
-                  name="email"
-                />
-              </div>
-              <p className="text-red-700">{formErrors.email}</p>
-              <div className="flex flex-col mt-3">
-                <text className="font-medium text-sm mb-2">Phone No</text>
-                <input
-                  className="h-7 pl-[4px] rounded-md bg-[#D9D9D9] "
-                  type="text"
-                  value={formValues.phoneno}
-                  onChange={handleChange}
-                  name="phoneno"
-                />
-              </div>
-              <p className="text-red-700">{formErrors.phoneno}</p>
-            </div>
+          <div className="flex flex-col w-[300px]">
+  <div className="flex flex-col">
+    <span className="font-medium text-sm mb-2">First Name</span>
+    <input
+      className="h-7 pl-[4px] rounded-md bg-[#D9D9D9] w-full"
+      type="text"
+      value={formValues.firstname}
+      onChange={handleChange}
+      name="firstname"
+    />
+    <p className="text-red-700">{formErrors.firstname}</p>
+  </div>
+
+  <div className="flex flex-col mt-3">
+    <span className="font-medium text-sm mb-2">Last Name</span>
+    <input
+      className="h-7 pl-[4px] rounded-md bg-[#D9D9D9] w-full"
+      type="text"
+      value={formValues.lastname}
+      onChange={handleChange}
+      name="lastname"
+    />
+    <p className="text-red-700">{formErrors.lastname}</p>
+  </div>
+
+  <div className="flex flex-col mt-3">
+    <span className="font-medium text-sm mb-2">Email ID</span>
+    <input
+      className="h-7 pl-[4px] rounded-md bg-[#D9D9D9] w-full"
+      type="text"
+      value={formValues.email}
+      onChange={handleChange}
+      name="email"
+    />
+    <p className="text-red-700">{formErrors.email}</p>
+  </div>
+
+  <div className="flex flex-col mt-3">
+    <span className="font-medium text-sm mb-2">Phone No</span>
+    <input
+      className="h-7 pl-[4px] rounded-md bg-[#D9D9D9] w-full"
+      type="text"
+      value={formValues.phoneno}
+      onChange={handleChange}
+      name="phoneno"
+    />
+    <p className="text-red-700">{formErrors.phoneno}</p>
+  </div>
+
+  <div className="flex flex-col mt-3">
+    <span className="font-medium text-sm mb-2">Date</span>
+    <div className="flex justify-items-start items-center gap-3 h-7 border-gray-800">
+      <BsCalendarDate
+        size={30}
+        onClick={handleCalendarIconClick}
+        className="hover:cursor-pointer"
+      />
+      <DatePicker
+        name="date"
+        ref={datepickerRef}
+        selected={selectedDate}
+        onChange={(date) => {
+          setFormValues({ ...formValues, date });
+          setSelectedDate(date);
+        }}
+        dateFormat="dd/MM/yyyy"
+        filterDate={(date) => date.getDay() !== 6 && date.getDay() !== 0}
+        className="w-full"
+      />
+    </div>
+    <p className="text-red-700">{formErrors.date}</p>
+  </div>
+
+  <div className="flex flex-col mt-3">
+    <span className="font-medium text-sm mb-2">Time</span>
+    <input
+      value={formValues.time}
+      onChange={handleChange}
+      name="time"
+      disableClock="true"
+      placeholder="Time"
+      className="h-7 hover:cursor-pointer rounded-md bg-[#D9D9D9] w-full"
+      type="time"
+    />
+    <p className="text-red-700">{formErrors.time}</p>
+  </div>
+
+  <div className="bg-[#1d3a80] my-3 rounded-full h-7 flex items-center justify-center text-white hover:bg-gray-600 cursor-pointer transition-colors duration-200">
+    Submit
+  </div>
+</div>
+
 
             <div className="flex flex-col w-[250px] mx-[3px]">
               <p className="text-lg font-medium">Choose your product here</p>
@@ -214,57 +265,12 @@ const EnergyOrder = () => {
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-8">
-            <div className="flex flex-col w-[250px]">
-              <div className="flex flex-col gap-3 ">
-                <div className="flex justify-items-start items-center gap-3 h-7 border-gray-800">
-                  <BsCalendarDate
-                    size={30}
-                    onClick={handleCalendarIconClick}
-                    className="hover:cursor-pointer"
-                  />
-
-                  <DatePicker
-                    name="date"
-                    ref={datepickerRef}
-                    selected={selectedDate}
-                    onChange={(date) => {
-                      setFormValues({ ...formValues, date });
-                      setSelectedDate(date);
-                    }}
-                    dateFormat="dd/MM/yyyy"
-                    filterDate={(date) =>
-                      date.getDay() !== 6 && date.getDay() !== 0
-                    }
-                    className=""
-                  />
-                </div>
-                <p className="text-red-700">{formErrors.date}</p>
-
-                <div className="flex">
-                  <input
-                    value={formValues.time}
-                    onChange={handleChange}
-                    name="time"
-                    disableClock="true"
-                    placeholder="Time"
-                    className="h-7 hover:cursor-pointer rounded-md bg-[#D9D9D9]"
-                    type="time"
-                  />
-                </div>
-                <p className="text-red-700">{formErrors.time}</p>
-              </div>
-
-              <div className="bg-[#1d3a80] my-3 rounded-full h-7 flex items-center justify-center text-white hover:bg-gray-600 cursor-pointer transition-colors duration-200">
-             Submit
-              </div>
-
-            </div>
-            <div className="flex flex-col w-[250px] mx-[3px]"></div>
-          </div>
+          
         </div>
       </form>
+      </div>
     </div>
+    
   );
 };
 
