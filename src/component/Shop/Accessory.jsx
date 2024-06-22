@@ -4,6 +4,7 @@ import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import { useSelector } from "react-redux";
 
 const Accessory = ({
   accessory_image,
@@ -23,13 +24,14 @@ const Accessory = ({
     accessory_image_url: accessory_image_url,
     accessory_description: accessory_description,
   };
+  const { user } = useSelector((state) => state.auth);
 
   // const imgData = `data:image/jpg;base64,${accessory_image}`;
 
   const addToCart = async () => {
     try {
       await axios.post(
-        `/api/v1/user/addProductToCart/${accessory_id}/${auth.user.id}`
+        `/api/v1/user/addProductToCart/${accessory_id}/${user.userId}`
       );
       toast.success("Product added to cart successfully");
     } catch (error) {
@@ -37,6 +39,7 @@ const Accessory = ({
       toast.error("Error adding product to cart. Please try again later.");
     }
   };
+ 
 
   const navigateToProductDetails = () => {
     // console.log("Accessory name:", accessory_name);

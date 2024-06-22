@@ -11,6 +11,7 @@ import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import NavAccountMenu from "../NavAccountMenu/NavAccountMenu.jsx";
 import { IoCartOutline } from "react-icons/io5";
+import NewsPage from "../../../pages/News/NewsPage.jsx";
 
 const Navigation = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
@@ -31,6 +32,7 @@ const Navigation = () => {
     { label: "Shop", component: <NavShop /> },
     { label: "Discover", component: <NavDiscover /> },
     { label: "Support", component: <div></div> },
+  
   ];
 
   return (
