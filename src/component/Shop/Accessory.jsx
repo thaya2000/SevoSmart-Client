@@ -16,6 +16,7 @@ const Accessory = ({
 }) => {
   const [auth, setAuth] = userAuth();
   const navigate = useNavigate();
+  const { user } = useSelector((state) => state.auth);
   const data = {
     accessory_name: accessory_name,
     accessory_id: accessory_id,

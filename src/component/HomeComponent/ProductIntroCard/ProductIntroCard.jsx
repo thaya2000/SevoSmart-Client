@@ -7,6 +7,7 @@ const ProductIntroCard = ({
   orderLink,
   learnMoreLink,
   textColor = "#081c3a",
+  buttonText,
 }) => {
   return (
     <div className="service">
@@ -21,7 +22,7 @@ const ProductIntroCard = ({
         </div>
         <div className="service__button-container">
           <Link to={orderLink}>
-            <div className="service__button-left">Order now</div>
+            <div className="service__button-left">{buttonText}</div>
           </Link>
           <Link to={learnMoreLink}>
             <div className="service__button-right">Learn more</div>
@@ -33,3 +34,6 @@ const ProductIntroCard = ({
 };
 
 export default ProductIntroCard;
+<Link to="/new-building-consultation">
+            <div className="learnmore-buttonB">Consult now</div>
+        </Link>
