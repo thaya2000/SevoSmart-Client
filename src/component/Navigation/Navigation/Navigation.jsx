@@ -17,6 +17,7 @@ const Navigation = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
 
   const { user } = useSelector((state) => state.auth);
+  const navigate = useNavigate();
 
   const handleButtonHover = (index) => {
     setActiveDropdown(index);
@@ -25,13 +26,27 @@ const Navigation = () => {
   const handleButtonLeave = () => {
     setActiveDropdown(null);
   };
+  const handleNewsClick = () => {
+    navigate('/news');
+  };
+  const handleShopClick = () => {
+    navigate('/accessories');
+  };
+
+  const handleConstructionClick = () => {
+    navigate('/construction-learnmore');
+  };
+  const handleEnergyClick = () => {
+    navigate('/energy-learnmore');
+  };
 
   const navItems = [
-    { label: "Energy", component: <NavEnergy /> },
-    { label: "Construction", component: <NavConstruction /> },
-    { label: "Shop", component: <NavShop /> },
+    { label: "Energy", component: <NavEnergy />,onClick:handleEnergyClick },
+    { label: "Construction", component: <NavConstruction /> ,onClick:handleConstructionClick},
+    { label: "Shop", component: <NavShop />,onClick: handleShopClick },
     { label: "Discover", component: <NavDiscover /> },
     { label: "Support", component: <div></div> },
+    { label: "News", onClick: handleNewsClick }
   
   ];
 
@@ -52,6 +67,7 @@ const Navigation = () => {
               key={index}
               className="navibuttons"
               onMouseEnter={() => handleButtonHover(index)}
+              onClick={item.onClick}
             >
               {item.label}
             </div>

@@ -25,7 +25,6 @@ const Accessory = ({
     accessory_image_url: accessory_image_url,
     accessory_description: accessory_description,
   };
-  const { user } = useSelector((state) => state.auth);
 
   // const imgData = `data:image/jpg;base64,${accessory_image}`;
 
