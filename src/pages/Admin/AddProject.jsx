@@ -2,37 +2,38 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { userAuth } from "../../context/authContext";
+import { useSelector } from "react-redux";
 import "./AddProject.css"; // Make sure to import your CSS file
 
 const AddProject = () => {
   const [loading, setLoading] = useState(false);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [image, setImage] = useState(null);
-  const [imagePreview, setImagePreview] = useState(null);
-
-  const [auth, setAuth] = userAuth();
+  const [images, setImages] = useState([]);
+  const [imagePreviews, setImagePreviews] = useState([]);
+  const { user } = useSelector((state) => state.auth);
 
   const navigate = useNavigate();
 
   useEffect(() => {
     console.log("Title:", title);
     console.log("Description:", description);
-    console.log("Image:", image);
-  }, [title, description, image]);
+    console.log("Images:", images);
+  }, [title, description, images]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     try {
       const projectData = new FormData();
-      projectData.append("title", title);
+      projectData.append("projectName", title);
       projectData.append("description", description);
-      projectData.append("image", image);
+      images.forEach((image, index) => {
+        projectData.append(`Image`, image);
+      });
 
       const { data } = await axios.post(
-        `/admin/addProject/${auth.user.id}`,
+        "https://sevosmarttech-efce83f08cbb.herokuapp.com/api/v1/admin/past-project",
         projectData
       );
 
@@ -43,7 +44,7 @@ const AddProject = () => {
         toast.error(data.error);
       } else {
         toast.success("Project is successfully added.");
-        navigate("/admin/projects");
+        navigate("/past-projects");
       }
     } catch (err) {
       console.log(err);
@@ -52,15 +53,21 @@ const AddProject = () => {
   };
 
   const handleImageChange = (e) => {
-    const selectedImage = e.target.files[0];
-    setImage(selectedImage);
+    const selectedImages = Array.from(e.target.files);
+    setImages(selectedImages);
 
-    // Generate image preview URL
-    const reader = new FileReader();
-    reader.onload = () => {
-      setImagePreview(reader.result);
-    };
-    reader.readAsDataURL(selectedImage);
+    // Generate image previews
+    const previews = selectedImages.map((image) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(image);
+      return new Promise((resolve) => {
+        reader.onload = () => resolve(reader.result);
+      });
+    });
+
+    Promise.all(previews).then((imagesPreviews) => {
+      setImagePreviews(imagesPreviews);
+    });
   };
 
   return (
@@ -116,26 +123,32 @@ const AddProject = () => {
               onChange={(e) => setDescription(e.target.value)}
               className="shadow appearance-none border rounded w-full max-w-sm py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline md:w-3/4 mt-1 form-input"
               placeholder="Enter project description"
+              rows={8}
+              cols={50}
             ></textarea>
           </div>
           <div className="mb-6 flex flex-col justify-center md:flex-row">
             <label className="block text-blue-900 text-m font-bold mb-1 md:mb-0 md:w-1/4">
-              Project Image
+              Project Images
             </label>
             <input
               type="file"
-              name="image"
+              name="images"
+              multiple
               onChange={handleImageChange}
               className="py-2 px-3 w-full max-w-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline md:w-3/4 mt-1 form-input"
             />
           </div>
-          {imagePreview && (
-            <div className="mb-6 flex flex-col justify-center md:flex-row">
-              <img
-                src={imagePreview}
-                alt="Project Preview"
-                className="w-1/5 mx-auto"
-              />
+          {imagePreviews.length > 0 && (
+            <div className="mb-6 flex flex-wrap justify-center">
+              {imagePreviews.map((preview, index) => (
+                <img
+                  key={index}
+                  src={preview}
+                  alt={`Project Preview ${index + 1}`}
+                  className="w-1/5 mx-2 mb-4"
+                />
+              ))}
             </div>
           )}
           <div className="my-8 flex justify-center">
@@ -145,8 +158,8 @@ const AddProject = () => {
           </div>
         </form>
       </div>
-      </div>
-    );
+    </div>
+  );
 };
 
 export default AddProject;

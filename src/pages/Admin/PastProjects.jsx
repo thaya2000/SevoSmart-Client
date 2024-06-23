@@ -79,19 +79,21 @@ const PastProjects = () => {
             </ul>
           </div>
 
-          <div className="my-4">
-            <Link
-              to="/add-project"
-              className="add-project bg-red-700 hover:bg-blue-800 text-white font-medium rounded-lg text-sm px-5 py-2.5 me-10 mb-40 ml-10 mr-10 focus:outline-none"
-            >
-              Add Project
-            </Link>
-          </div>
-
           <div className="flex-1 p-4 overflow-y-auto">
-            <h className=" admin-tableh text-2xl font-bold mb-4">
+           <div className="flex flex-row justify-between">
+           <h className=" admin-tableh text-2xl font-bold mb-4">
               Past Projects
             </h>
+            <div className="my-4">
+              <Link
+                to="/add-project"
+                className="add-project bg-red-700 hover:bg-blue-800 text-white font-medium rounded-lg text-sm px-5 py-2.5 me-10 mb-40 ml-10 mr-10 focus:outline-none"
+              >
+                Add Project
+              </Link>
+            </div>
+           </div>
+
             <table className="w-full table-auto">
               <thead>
                 <tr className="text-black">
@@ -114,7 +116,7 @@ const PastProjects = () => {
                     <td className="border px-4 py-2">
                       <div className="flex flex-wrap justify-center">
                         {Array.isArray(project.projectImages) &&
-                        project.projectImages.length > 0 ? (
+                          project.projectImages.length > 0 ? (
                           project.projectImages.map((imageData, index) => (
                             <img
                               key={index}

@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
-import { IoIosArrowBack } from "react-icons/io";
-import { IoIosArrowForward } from "react-icons/io";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { TbSolarPanel2 } from "react-icons/tb";
 import { IoIosPeople } from "react-icons/io";
 import { BiSolidBuildingHouse } from "react-icons/bi";
@@ -12,13 +11,15 @@ export default function PastProject({ pastProjects }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex(
-        (prevIndex) => (prevIndex + 1) % pastProjects.length
-      );
-    }, 8000);
+    if (pastProjects.length > 0) {
+      const interval = setInterval(() => {
+        setCurrentImageIndex(
+          (prevIndex) => (prevIndex + 1) % pastProjects.length
+        );
+      }, 8000);
 
-    return () => clearInterval(interval);
+      return () => clearInterval(interval);
+    }
   }, [pastProjects.length]);
 
   const handleRightClick = () => {
@@ -31,6 +32,10 @@ export default function PastProject({ pastProjects }) {
     );
   };
 
+  if (pastProjects.length === 0) {
+    return <div></div>;
+  }
+
   return (
     <div className="past-project flex flex-col">
       <div className="grid grid-cols-1 lg:grid-cols-3 w-full relative p-5">
@@ -39,46 +44,47 @@ export default function PastProject({ pastProjects }) {
         </div>
         <div className="past-project-description col-span-2 flex items-center justify-center m-5 text-xl relative">
           <div className="flex items-center justify-center">
-            <p>
-              {
-                pastProjects[currentImageIndex % pastProjects.length]
-                  .description
-              }
-            </p>
+            <p>{pastProjects[currentImageIndex].description}</p>
           </div>
         </div>
       </div>
       <div className="flex items-center justify-around flex-row relative my-5 ">
-        <div className="cursor-pointer  border-2 mx-2 border-transparent hover:bg-slate-400 active:bg-slate-500 hover:rounded-full hover:border-solid  hover:border-2 hover:border-slate-800">
+        <div className="cursor-pointer border-2 mx-2 border-transparent hover:bg-slate-400 active:bg-slate-500 hover:rounded-full hover:border-solid hover:border-2 hover:border-slate-800">
           <IoIosArrowBack size="5rem" onClick={handleLeftClick} />
         </div>
+        {pastProjects.length > 2 && (
+          <div className="past-project-image hidden lg:flex h-40 w-64">
+            <img
+              src={`data:image/jpeg;base64,
+                ${pastProjects[(currentImageIndex + 2) % pastProjects.length]
+                  .image}`
+              }
+              alt={`Image ${(currentImageIndex + 2) % pastProjects.length}`}
+            />
+          </div>
+        )}
+        {pastProjects.length > 1 && (
+          <div className="past-project-image flex w-96 lg:h-48 lg:w-72">
+            <img
+              src={`data:image/jpeg;base64,
+                ${pastProjects[(currentImageIndex + 1) % pastProjects.length]
+                  .image}`
+              }
+              alt={`Image ${(currentImageIndex + 1) % pastProjects.length}`}
+            />
+          </div>
+        )}
         <div className="past-project-image hidden lg:flex h-40 w-64">
           <img
-            src={
-              pastProjects[(currentImageIndex + 2) % pastProjects.length].image
-            }
-            alt={`Image ${(currentImageIndex + 2) % pastProjects.length}`}
+            src={`data:image/jpeg;base64,${pastProjects[currentImageIndex].image}`}
+            alt={`Image ${currentImageIndex}`}
           />
         </div>
-        <div className="past-project-image flex  w-96 lg:h-48 lg:w-72">
-          <img
-            src={
-              pastProjects[(currentImageIndex + 1) % pastProjects.length].image
-            }
-            alt={`Image ${(currentImageIndex + 1) % pastProjects.length}`}
-          />
-        </div>
-        <div className="past-project-image hidden lg:flex h-40 w-64">
-          <img
-            src={pastProjects[currentImageIndex % pastProjects.length].image}
-            alt={`Image ${currentImageIndex % pastProjects.length}`}
-          />
-        </div>
-        <div className="cursor-pointer mx-2  border-2 border-transparent hover:bg-slate-400 active:bg-slate-500 hover:rounded-full hover:border-solid  hover:border-2 hover:border-slate-800">
+        <div className="cursor-pointer mx-2 border-2 border-transparent hover:bg-slate-400 active:bg-slate-500 hover:rounded-full hover:border-solid hover:border-2 hover:border-slate-800">
           <IoIosArrowForward size="5rem" onClick={handleRightClick} />
         </div>
       </div>
-      <div className="flex flex-row items-center justify-center  h-3/10 w-full  relative ">
+      <div className="flex flex-row items-center justify-center h-3/10 w-full relative ">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-center justify-items-center justify-around w-8/10 h-full">
           <PastProjectHistory
             projectName="Solar"
@@ -105,5 +111,11 @@ export default function PastProject({ pastProjects }) {
 }
 
 PastProject.propTypes = {
-  pastProjects: PropTypes.array.isRequired,
+  pastProjects: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      image: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+    })
+  ).isRequired,
 };

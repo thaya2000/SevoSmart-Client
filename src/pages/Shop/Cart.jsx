@@ -1,17 +1,17 @@
-import React from "react";
-import "./Cart.css";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import CartProduct from "../../component/Shop/CartProduct";
-import { userAuth } from "../../context/authContext";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import RambousLoader from "../../routes/RambousLoader";
+import "./Cart.css"; // Make sure to import the CSS file
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const [loading, setLoading] = useState(false);
   const [cartProducts, setCartProducts] = useState([]);
-  const [auth, setAuth] = userAuth();
   const { user } = useSelector((state) => state.auth);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (user.userId) {
@@ -23,73 +23,106 @@ const Cart = () => {
     setLoading(true);
     try {
       const result = await axios.get(
-        `/api/v1/user/cart_products/${user.userId}`
+        `https://sevosmarttech-efce83f08cbb.herokuapp.com/api/v1/user/cart_products/${user.userId}`
       );
       setCartProducts(result.data);
       setLoading(false);
-      console.log(result.data);
-      console.log("user id is:", user.userId);
     } catch (error) {
-      console.error("Error loading Accessories:", error);
+      console.error("Error loading cart products:", error);
+      setLoading(false);
+    }
+  };
+
+  const calculateSubtotal = () => {
+    return cartProducts.reduce((subtotal, cartProduct) => {
+      return subtotal + cartProduct.product.price * cartProduct.quantity;
+    }, 0);
+  };
+
+  const handleCheckout = () => {
+    navigate("/address");
+  };
+
+  const handleUpdateQuantity = async (index, newQuantity) => {
+    const updatedCartProducts = [...cartProducts];
+    updatedCartProducts[index].quantity = newQuantity;
+    setCartProducts(updatedCartProducts);
+
+    try {
+      await axios.put(
+        `https://sevosmarttech-efce83f08cbb.herokuapp.com/api/v1/user/cart_product_quantity/${user.userId}`,
+        {
+          productId: updatedCartProducts[index].product.productId,
+          quantity: newQuantity,
+        }
+      );
+    } catch (error) {
+      console.error("Error updating product quantity:", error);
     }
   };
 
   return (
-    <div className="flex flex-col m-5 ">
-      {loading && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40">
-          <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
-        </div>
-      )}
-      <div class="cardTittleContainer">
-        <div className="CardTittle">Shopping Cart</div>
-      </div>
+    <div className="container mx-auto py-8">
+      {loading ? (
+        <RambousLoader />
+      ) : (
+        <div className="flex flex-col mx-5">
+          <div className="cardTitleContainer text-center mb-8">
+            <h1 className="text-4xl font-bold">Shopping Cart</h1>
+          </div>
 
-      <div className=" Ordersummery-container ">
-        <div className="Ordersummery-container">
-          {cartProducts.map((cartProduct, index) => (
-            // console.log(cartProduct.quantity)
-            <CartProduct
-              key={index}
-              cart_image_url={cartProduct.product.productImageURL}
-              product_name={cartProduct.product.productName}
-              product_price={cartProduct.product.price}
-              product_quantity={cartProduct.quantity}
-            />
-          ))}
-        </div>
-        <div
-          className="flex flex-col justify-start px-8 m-auto h-80 w-85"
-          style={{
-            background:
-              "linear-gradient(180deg, rgba(239, 236, 236, 0) 50.38%, #FFFAFA 92.58%)",
-            border: "1px solid",
-            borderImageSource:
-              "linear-gradient(180deg, #FFFFFF 0%, rgba(167, 162, 162, 0.39) 101.77%)",
-            boxShadow: "4px 4px 100px 0px #69696933",
-          }}
-        >
-          <div className="ordersummery">Order Summary</div>
-          <div className="flex flex-row justify-between text-3xl font-normal pt-7">
-            <div className="shipping ">Shipping</div>
-            <div className="shipping">free</div>
+          <div className="orderSummaryContainer flex flex-col md:flex-row">
+            <div className="cartProducts flex-1">
+              {cartProducts.length > 0 ? (
+                cartProducts.map((cartProduct, index) => (
+                  <CartProduct
+                    key={index}
+                    cart_image_url={cartProduct.product.productImageURL}
+                    product_name={cartProduct.product.productName}
+                    product_price={cartProduct.product.price}
+                    product_quantity={cartProduct.quantity}
+                    onUpdateQuantity={(newQuantity) =>
+                      handleUpdateQuantity(index, newQuantity)
+                    }
+                  />
+                ))
+              ) : (
+                <div className="emptyCartMessage text-center text-2xl font-medium py-8">
+                  Your cart is empty. <Link to="/accessories" className="text-blue-500 hover:underline">Continue shopping</Link>
+                </div>
+              )}
+            </div>
+            <div className="orderSummary flex flex-col justify-start p-8 bg-white rounded-lg shadow-md md:ml-8 md:w-1/3 min-w-full md:min-w-[300px]">
+              <h2 className="text-3xl font-semibold mb-8">Order Summary</h2>
+              <div className="flex flex-row justify-between text-xl font-normal py-4">
+                <div className="shipping">Shipping</div>
+                <div className="shipping">Free</div>
+              </div>
+              <div className="flex flex-row justify-between text-xl font-medium py-4">
+                <div className="total">Subtotal (LKR)</div>
+                <div className="total">{calculateSubtotal().toFixed(2)}</div>
+              </div>
+              <div className="flex justify-center text-xl font-medium py-4">
+                <button
+                  type="button"
+                  onClick={handleCheckout}
+                  className="blue-button text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-lg px-6 py-3 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                >
+                  Checkout
+                </button>
+              </div>
+            </div>
           </div>
-          <div className="flex flex-row justify-between text-3xl font-medium pt-5">
-            <div className="total ">Sub Total(lkr)</div>
-            <div className="total ">7500</div>
-          </div>
-          <div className="flex flex-row justify-center text-3xl font-medium py-5">
-            <Link to="/check_out">
-              <button
-                type="button"
-                className=" blue-button text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 h-8 w-60"
-              >
-                Check Out
-              </button>
+          <div className="flex justify-center mt-8">
+            <Link
+              to="/accessories"
+              className="text-lg text-blue-500 hover:underline"
+            >
+              Continue Shopping
             </Link>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
