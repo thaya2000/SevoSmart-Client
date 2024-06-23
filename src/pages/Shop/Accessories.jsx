@@ -33,8 +33,8 @@ const Accessories = () => {
           <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
         </div>
       )}
-      <div className="flex flex-row justify-between border-b border-black pb-3">
-        <div className="flex pl-5 sm:text-5xl sm:font-semibold text-2xl font-medium">
+      <div className="bg-gray-100 p-4 rounded-md shadow-md mt-4 mb-4">
+        <div className="ml-100 text-3xl text-blue-900 font-semibold">
           Accessories
         </div>
       </div>
