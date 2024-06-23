@@ -53,10 +53,10 @@ const Accessory = ({
   };
 
   return (
-    <div className="flex flex-col items-center border-2 border-black rounded-2xl w-80">
+    <div className="bg-gray-200 p-4 rounded-md shadow-md w-70">
       <div onClick={navigateToProductDetails}>
         <img
-          className="flex justify-self-center mt-2 py-3 h-60 w-60"
+          className="flex ml-30px pt-30px py-3 h-60 w-60 rounded-20px"
           src={accessory_image_url}
           alt={accessory_name}
         />
