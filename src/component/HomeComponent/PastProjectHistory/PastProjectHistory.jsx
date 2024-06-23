@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import "./PastProjectHistory.css";
 
 export default function PastProjectHistory({
@@ -6,6 +7,24 @@ export default function PastProjectHistory({
   icon,
   color,
 }) {
+  const [currentCount, setCurrentCount] = useState(1);
+
+  useEffect(() => {
+    let currentNumber = 1;
+    const increment = Math.ceil(pastProjectNo / 100); // Adjust the speed of the countdown
+    const interval = setInterval(() => {
+      currentNumber += increment;
+      if (currentNumber >= pastProjectNo) {
+        clearInterval(interval);
+        setCurrentCount(pastProjectNo);
+      } else {
+        setCurrentCount(currentNumber);
+      }
+    }, 10); // Adjust the speed of the countdown
+
+    return () => clearInterval(interval);
+  }, [pastProjectNo]);
+
   return (
     <div className="past-project-history flex flex-col items-center justify-around m-5">
       <div className="flex items-center justify-center relative h-full w-7/12 ">
@@ -21,7 +40,7 @@ export default function PastProjectHistory({
               borderTopColor: color,
             }}
           >
-            {pastProjectNo}
+            {currentCount}
           </div>
         </div>
         <div className="absolute bottom-0 right-0">{icon}</div>
