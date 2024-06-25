@@ -53,14 +53,14 @@ const Accessory = ({
   };
 
   return (
-    <div className="bg-gray-200 p-4 rounded-md shadow-md w-70">
-      <div onClick={navigateToProductDetails}>
+    <div className="bg-gray-60 p-4 rounded-md shadow-md w-70 justify-center">
+      <div onClick={navigateToProductDetails} className="ml-30px">
         <img
-          className="flex ml-30px pt-30px py-3 h-60 w-60 rounded-20px"
+          className="flex  pt-30px py-3 h-60 w-60 rounded-20"
           src={accessory_image_url}
           alt={accessory_name}
         />
-        <div className="flex justify-items-center text-4xl font-bold py-3">
+        <div className="flex justify-items-center text-xl  py-3">
           {accessory_name}
         </div>
         <div className="flex justify-items-center text-3xl font-bold text-red-600 py-3">
