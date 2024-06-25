@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
 
 import './ImageSlider.css';
 import image1 from '../../../Images/solar1.jpg';
@@ -52,7 +53,10 @@ const ImageSlider = () => {
         <span>Embrace the boundless energy of the sun with our state-of-the-art <br/>solar panels,illuminating the path toward a<br/> greener,more radiant tomorrow</span>
         </div>
         
-      <div className='learnmore-buttonA'>Shop now</div>
+     
+        <Link to="/energy-order">
+            <div className="learnmore-buttonB">Order Now</div>
+        </Link>
     
       </div>
       
