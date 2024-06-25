@@ -1,40 +1,31 @@
-import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { useSelector } from "react-redux";
 import { userAuth } from "../../context/authContext";
 import "./AddProduct.css";
 
 const AddProduct = () => {
   const [loading, setLoading] = useState(false);
-  const [price, setPrice] = useState("");
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState("");
   const [discount, setDiscount] = useState("");
-  const [image, setImage] = useState(null);
+  const [price, setPrice] = useState("");
   const [category, setCategory] = useState("");
   const [description, setDescription] = useState("");
   const [brand, setBrand] = useState("");
+  const [image, setImage] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
+
   const { user } = useSelector((state) => state.auth);
-
-  const [auth, setAuth] = userAuth();
-
   const navigate = useNavigate();
-
-  useEffect(() => {
-    console.log("Name:", name);
-    console.log("Quantity:", quantity);
-    console.log("Discount:", discount);
-    console.log("Price:", price);
-    console.log("Image:", image);
-    console.log("user :", user);
-  }, [name, quantity, discount, price, image]);
+  const [auth, setAuth] = userAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+
     try {
       const productData = new FormData();
       productData.append("productName", name);
@@ -47,23 +38,21 @@ const AddProduct = () => {
       productData.append("brand", brand);
 
       const { data } = await axios.post(
-        `/admin/addProduct/${user.userId}`,
+        `https://sevosmarttech-efce83f08cbb.herokuapp.com/admin/addProduct/${user.userId}`,
         productData
       );
 
       setLoading(false);
-
-      console.log(data);
       if (data?.error) {
         toast.error(data.error);
       } else {
-        toast.success("Product is successfully added.");
-        navigate("/admin/products");
+        toast.success("Product added successfully.");
+        navigate("/products");
       }
-    } catch (err) {
-      console.log(err);
+    } catch (error) {
+      console.error("Error adding product:", error);
       setLoading(false);
-      toast.error("Product create failed. Try again.");
+      toast.error("Product creation failed. Please try again.");
     }
   };
 
@@ -71,7 +60,6 @@ const AddProduct = () => {
     const selectedImage = e.target.files[0];
     setImage(selectedImage);
 
-    // Generate image preview URL
     const reader = new FileReader();
     reader.onload = () => {
       setImagePreview(reader.result);
@@ -88,7 +76,7 @@ const AddProduct = () => {
             <Link to="/users">Users</Link>
           </li>
           <li>
-            <Link to="/admin/products">Accessories</Link>
+            <Link to="/products">Accessories</Link>
           </li>
           <li>
             <Link to="/past-projects">Past Projects</Link>
@@ -102,11 +90,6 @@ const AddProduct = () => {
         </ul>
       </div>
       <div className="admin-content">
-        {loading && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40">
-            <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
-          </div>
-        )}
         <h1 className="admin-tableh">Add Product</h1>
         <form onSubmit={handleSubmit}>
           <div className="mb-6 flex flex-col justify-center md:flex-row">
@@ -221,9 +204,17 @@ const AddProduct = () => {
             </div>
           )}
           <div className="my-8 flex justify-center">
-            <button className="bg-red-700 hover:bg-grey-700 text-white font-bold py-2 px-4 rounded">
-              Add Product
-            </button>
+                <button
+                  type="submit"
+                  className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
+                  disabled={loading}
+                >
+                  {loading ? (
+                    <div className="w-6 h-6 border-4 border-t-transparent border-white rounded-full animate-spin"></div>
+                  ) : (
+                    "Add Product"
+                  )}
+                </button>
           </div>
         </form>
       </div>

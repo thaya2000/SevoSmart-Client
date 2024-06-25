@@ -39,6 +39,7 @@ const Accessory = ({
       toast.error("Error adding product to cart. Please try again later.");
     }
   };
+ 
 
   const navigateToProductDetails = () => {
     // console.log("Accessory name:", accessory_name);

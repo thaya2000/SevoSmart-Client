@@ -1,162 +1,206 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import RambousLoader from "../../routes/RambousLoader";
 
-const EditPastProject = () => {
+const EditNews = () => {
   const navigate = useNavigate();
   const { id } = useParams();
+  const [loading, setLoading] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
-  const [project, setProject] = useState({
-    projectName: "",
-    description: "",
-    Image: [],
+  const [news, setNews] = useState({
+    newsTitle: "",
+    newsContent: "",
+    newsPublishDate: "",
+    Image: null,
   });
 
-  const [imagePreviews, setImagePreviews] = useState([]);
+  const [imagePreview, setImagePreview] = useState(""); // For displaying the image preview
 
-  const { projectName, description, Image } = project;
+  const { newsTitle, newsContent, newsPublishDate, Image } = news;
 
   useEffect(() => {
-    loadProject();
+    loadNews();
   }, []);
 
-  const loadProject = async () => {
+  const loadNews = async () => {
     try {
-      const result = await axios.get(`https://sevosmarttech-efce83f08cbb.herokuapp.com/api/v1/admin/past-project/${id}`);
-      const projectData = result.data;
-      console.log(id);
+      setLoading(true);
+      const result = await axios.get(`https://sevosmarttech-efce83f08cbb.herokuapp.com/api/v1/admin/news/${id}`);
+      setLoading(false);
+      const newsData = result.data;
 
-      setProject({
-        projectName: projectData.projectName,
-        description: projectData.description,
-        Image: projectData.Image || [], // Ensure Image is an array
+      setNews({
+        newsTitle: newsData.newsTitle,
+        newsContent: newsData.newsContent,
+        newsPublishDate: newsData.newsPublishDate,
+        Image: newsData.Image || null,
       });
 
-      // Generate image previews from base64 strings
-      // const previews = projectData.Image.map(image => `data:image/jpeg;base64, ${image}`);
-      // setImagePreviews(previews);
+      // Set image preview to the URL of the current image
+      if (newsData.Image) {
+        setImagePreview(`https://sevosmarttech-efce83f08cbb.herokuapp.com/${newsData.Image}`);
+      }
 
     } catch (error) {
-      console.error("Error loading project:", error);
+      setLoading(false);
+      console.error("Error loading news:", error);
     }
   };
 
   const onInputChange = (e) => {
-    setProject({ ...project, [e.target.name]: e.target.value });
+    setNews({ ...news, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setSubmitting(true);
     try {
       const formData = new FormData();
-      formData.append('projectName', projectName);
-      formData.append('description', description);
-      Image.forEach(image => formData.append('Image', image));
-      
-      await axios.put(`https://sevosmarttech-efce83f08cbb.herokuapp.com/api/v1/admin/past-project/${id}`, formData, {
+      formData.append('newsTitle', newsTitle);
+      formData.append('newsContent', newsContent);
+      formData.append('newsPublishDate', newsPublishDate);
+      if (Image) {
+        formData.append('Image', Image);
+      }
+
+      await axios.put(`https://sevosmarttech-efce83f08cbb.herokuapp.com/api/v1/admin/news/${id}`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
       });
-      toast.success("Project is successfully updated.");
-      navigate("/past-projects");
+
+      setSubmitting(false);
+      toast.success("News is successfully updated.");
+      navigate("/news-admin");
     } catch (err) {
       console.error(err);
-      toast.error("Project update failed. Try again.");
+      setSubmitting(false);
+      toast.error("News update failed. Try again.");
     }
   };
 
   const handleImageChange = (e) => {
-    const selectedImages = Array.from(e.target.files);
-    setProject({ ...project, Image: selectedImages });
+    const selectedImage = e.target.files[0];
+    setNews({ ...news, Image: selectedImage });
 
-    const previews = selectedImages.map(image => URL.createObjectURL(image));
-    setImagePreviews(previews);
+    const reader = new FileReader();
+    reader.onload = () => {
+      setImagePreview(reader.result);
+    };
+    reader.readAsDataURL(selectedImage);
   };
 
   return (
+    <div>
+      {loading && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40">
+          <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+        </div>
+      )}
+      {!loading && (
+        <div className="flex">
+          {/* Sidebar */}
+          <div className="bg-gray-800 w-64 p-4 text-white">
+            <h2 className="text-2xl font-bold mb-4">Admin Panel</h2>
+            <ul className="space-y-4">
+              <li><Link to="/users">Users</Link></li>
+              <li><Link to="/admin/products">Accessories</Link></li>
+              <li><Link to="/past-projects">Past Projects</Link></li>
+              <li><Link to="/news-admin">News</Link></li>
+              <li><Link to="/logout">Logout</Link></li>
+            </ul>
+          </div>
 
-    <div className="flex">
-      <div className="bg-gray-800 w-100% p-4 text-white">
-        <h2 className="text-2xl font-bold mb-4">Admin Panel</h2>
-        <ul className="space-y-4">
-          <li>
-            <Link to="/users">Users</Link>
-          </li>
-          <li>
-            <Link to="/admin/products">Accessories</Link>
-          </li>
-          <li>
-            <Link to="/past-projects">Past Projects</Link>
-          </li>
-          <li>
-            <Link to="/news-admin">News</Link>
-          </li>
-          <li>
-            <Link to="/logout">Logout</Link>
-          </li>
-        </ul>
-      </div>
-    <div className="p-8 bg-white flex-1">
-      <h1 className="text-4xl font-medium mb-8 text-blue-900 flex justify-center">Edit Past Project</h1>
-      <form onSubmit={handleSubmit}>
-        <div className="mb-4 flex flex-col justify-center md:flex-row">
-          <label className="block text-blue-900 text-m font-bold mb-4 md:mb-0 md:w-1/4">
-            Project Name
-          </label>
-          <input
-            type="text"
-            name="projectName"
-            value={projectName}
-            onChange={onInputChange}
-            className="shadow appearance-none border rounded w-full max-w-sm py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline md:w-3/4"
-          />
+          {/* Main Content */}
+          <div className="p-8 bg-white flex-1">
+            <h1 className="text-4xl font-medium mb-8 text-blue-900 flex justify-center">Edit News</h1>
+            <form onSubmit={handleSubmit}>
+              {/* News Title */}
+              <div className="mb-4 flex flex-col">
+                <label className="block text-blue-900 text-m font-bold mb-2">
+                  News Title
+                </label>
+                <input
+                  type="text"
+                  name="newsTitle"
+                  value={newsTitle}
+                  onChange={onInputChange}
+                  className="shadow appearance-none border rounded w-full max-w-lg py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                />
+              </div>
+
+              {/* Publish Date */}
+              <div className="mb-4 flex flex-col">
+                <label className="block text-blue-900 text-m font-bold mb-2">
+                  Publish Date
+                </label>
+                <input
+                  type="date"
+                  name="newsPublishDate"
+                  value={newsPublishDate}
+                  onChange={onInputChange}
+                  className="shadow appearance-none border rounded w-full max-w-lg py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                />
+              </div>
+
+              {/* News Content */}
+              <div className="mb-4 flex flex-col">
+                <label className="block text-blue-900 text-m font-bold mb-2">
+                  News Content
+                </label>
+                <textarea
+                  name="newsContent"
+                  value={newsContent}
+                  onChange={onInputChange}
+                  className="shadow appearance-none border rounded w-full max-w-lg py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  rows={8}
+                />
+              </div>
+
+              {/* News Image */}
+              <div className="mb-4 flex flex-col">
+                <label className="block text-blue-900 text-m font-bold mb-2">
+                  News Image
+                </label>
+                <input
+                  type="file"
+                  name="images"
+                  onChange={handleImageChange}
+                  accept="image/*"
+                  className="py-2 px-3 w-full max-w-lg text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                />
+              </div>
+
+              {/* Image Preview */}
+              {imagePreview && (
+                <div className="mb-4 flex justify-center">
+                  <img src={imagePreview} alt="News Preview" className="w-40 mx-2 mb-2" />
+                </div>
+              )}
+
+              {/* Submit Button */}
+              <div className="my-8 flex justify-center">
+                <button
+                  type="submit"
+                  className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ${submitting ? 'opacity-50 cursor-not-allowed' : ''}`}
+                  disabled={submitting}
+                >
+                  {submitting ? (
+                    <div className="w-6 h-6 border-4 border-t-transparent border-white rounded-full animate-spin"></div>
+                  ) : (
+                    "Update News"
+                  )}
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
-        <div className="mb-4 flex flex-col justify-center md:flex-row">
-          <label className="block text-blue-900 text-m font-bold mb-4 md:mb-0 md:w-1/4">
-            Project Description
-          </label>
-          <textarea
-            name="description"
-            value={description}
-            onChange={onInputChange}
-            className="shadow appearance-none border rounded w-full max-w-sm py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline md:w-3/4"
-            rows={8}
-            cols={50}
-          />
-        </div>
-        <div className="mb-4 flex flex-col justify-center md:flex-row">
-          <label className="block text-blue-900 text-m font-bold mb-4 md:mb-0 md:w-1/4">
-            Project Images
-          </label>
-          <input
-            type="file"
-            name="images"
-            onChange={handleImageChange}
-            multiple
-            accept="image/*"
-            className="py-2 px-3 w-full max-w-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline md:w-3/4"
-          />
-        </div>
-        <div className="mb-4 flex flex-wrap justify-center">
-          {imagePreviews && imagePreviews.map((preview, index) => (
-            <img key={index} src={preview} alt={`Project Preview ${index + 1}`} className="w-40 mx-2 mb-2" />
-          ))}
-        </div>
-        
-        <div className="my-8 flex justify-center">
-          <button
-            type="submit"
-            className="bg-red-700 hover:bg-grey text-white font-bold py-2 px-4 rounded"
-          >
-            Update Project
-          </button>
-        </div>
-      </form>
-    </div>
+      )}
     </div>
   );
 };
 
-export default EditPastProject;
+export default EditNews;

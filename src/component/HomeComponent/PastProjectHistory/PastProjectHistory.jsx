@@ -11,7 +11,7 @@ export default function PastProjectHistory({
 
   useEffect(() => {
     let currentNumber = 1;
-    const increment = Math.ceil(pastProjectNo / 100); // Adjust the speed of the countdown
+    const increment = Math.ceil(pastProjectNo / 50000); // Adjust the speed of the countdown
     const interval = setInterval(() => {
       currentNumber += increment;
       if (currentNumber >= pastProjectNo) {
