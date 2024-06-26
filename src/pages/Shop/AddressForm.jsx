@@ -55,10 +55,10 @@ const AddressForm = () => {
       </div>
           <h1 className="text-l text-black font-bold mb-4">Enter Delivery Address Details</h1>
           <div className="form-container bg-white  rounded-md shadow-md w-full max-w-lg">
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className="Form">
             <div className="form-content-container">
-  <div className="mb-4 ml-20 ">
-    <label htmlFor="addressLineOne" className="block text-l font-medium text-gray-700">
+  <div className="mb-4  ">
+    <label htmlFor="addressLineOne" className="label text-l font-medium text-gray-700">
       Address Line 1
     </label>
     <input
@@ -71,8 +71,8 @@ const AddressForm = () => {
       required
     />
   </div>
-  <div className="mb-4 ml-20">
-    <label htmlFor="addressLineTwo" className="block text-l font-medium text-gray-700">
+  <div className="mb-4 ">
+    <label htmlFor="addressLineTwo" className="label  text-l font-medium text-gray-700">
       Address Line 2
     </label>
     <input
@@ -84,8 +84,8 @@ const AddressForm = () => {
       className="form-container-input mt-1 p-1.5 max-w-xs w-full border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-l"
     />
   </div>
-  <div className="mb-4 ml-20">
-    <label htmlFor="city" className="block text-l font-medium text-gray-700">
+  <div className="mb-4 ">
+    <label htmlFor="city" className="label  text-l font-medium text-gray-700">
       City
     </label>
     <input
@@ -98,8 +98,8 @@ const AddressForm = () => {
       required
     />
   </div>
-  <div className="mb-4 ml-20">
-    <label htmlFor="district" className="block text-l font-medium text-gray-700">
+  <div className="mb-4 ">
+    <label htmlFor="district" className="label  text-l font-medium text-gray-700">
       District
     </label>
     <input
@@ -112,8 +112,8 @@ const AddressForm = () => {
       required
     />
   </div>
-  <div className="mb-4 ml-20">
-    <label htmlFor="phoneNo" className="block text-l font-medium text-gray-700">
+  <div className="mb-4">
+    <label htmlFor="phoneNo" className=" label text-l font-medium text-gray-700">
       Phone Number
     </label>
     <input
@@ -126,15 +126,18 @@ const AddressForm = () => {
       required
     />
   </div>
-  <div className=" mb-5 mt-10 flex justify-center  ">
-    <button
+ 
+  </div>
+  <div className=" submit-but mb-5 mt-10 flex justify-center  ">
+    
+   
+  <button
       type="submit"
       className="bg-blue-800 mb-10 hover:bg-blue-600 text-white py-2 px-4 rounded-lg text-l focus:outline-none"
     >
       Place Order
     </button>
-  </div>
-  </div>
+    </div>
 </form>
 </div>
 
