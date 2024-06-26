@@ -4,8 +4,10 @@ import { fetchAccessories } from "../../redux/actions/accessoriesActions";
 import Accessory from "../../component/Shop/Accessory";
 import RambousLoader from "../../routes/RambousLoader";
 
+
 const Accessories = () => {
   const dispatch = useDispatch();
+
   const { accessories, loading, error, etag } = useSelector(
     (state) => state.accessories
   );

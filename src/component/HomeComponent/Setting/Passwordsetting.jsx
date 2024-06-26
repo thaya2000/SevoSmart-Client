@@ -34,13 +34,33 @@ function Passwordsetting() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Check if any field is empty
+    if (!oldPassword || !newPassword || !confirmPassword) {
+      toast.error('Please fill in all fields.');
+      return;
+    }
+
+    // Check if new password and confirm password match
     if (newPassword !== confirmPassword) {
       toast.error('New password and confirm password do not match.');
       return;
     }
+
     try {
+      // Verify the old password
+      const verifyResponse = await axios.post(`https://sevosmarttech-efce83f08cbb.herokuapp.com/api/v1/auth/users/verify-password`, {
+        userId: auth.user.id,
+        password: oldPassword,
+      });
+
+      if (verifyResponse.status !== 200) {
+        toast.error('Incorrect current password.');
+        return;
+      }
+
+      // Update the password
       const response = await axios.put(`https://sevosmarttech-efce83f08cbb.herokuapp.com/api/v1/auth/users/password/${auth.user.id}`, {
-        oldPassword,
         newPassword,
       });
 

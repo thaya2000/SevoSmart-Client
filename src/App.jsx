@@ -41,6 +41,9 @@ import GuestRoutes from "./routes/GuestRoutes.jsx";
 import { useSelector } from "react-redux";
 import RambousLoader from "./routes/RambousLoader.jsx";
 import CartProduct from "./component/Shop/CartProduct.jsx";
+import News from "./pages/Admin/News.jsx";
+import AddNews from "./pages/Admin/AddNews.jsx";
+import AddressForm from "./pages/Shop/AddressForm.jsx";
 
 function ScrollToTopOnRouteChange() {
   const { pathname } = useLocation();
@@ -98,6 +101,9 @@ function App() {
         <Route path="/users" element={<Users />} />
         <Route path="/edit-project/:id" element={<EditPastProject />} />
         <Route path="/news" element={<NewsPage />} />
+        <Route path="/news-admin" element={<News/>} />
+        <Route path="/edit-news/:id" element={<EditNews/>} />
+        <Route path="/add-news" element={<AddNews/>} />
         <Route path="/newspage/:id" element={<NewsDetails />} />
         <Route path="/userdropdownmenu" element={<UserDropdown />} />
         <Route path="/product-details/:id" element={<ProductDetails />} />
@@ -129,6 +135,7 @@ function App() {
         </Route> */}
         <Route path="/passwordsetting" element={<Passwordsetting />} />
         <Route path="/usersetting" element={<Setting />} />
+        <Route path="/address" element={<AddressForm/>} />
       </Routes>
       <Footer />
     </BrowserRouter>
