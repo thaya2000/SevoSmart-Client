@@ -35,11 +35,34 @@ const AdminPanel = () => {
     setSerialNumbers(serials);
   };
 
+  const handleStatusChange = async (orderNumber, newStatus) => {
+    try {
+      setLoading(true);
+      const response = await axios.put(
+        `https://sevosmarttech-efce83f08cbb.herokuapp.com/api/v1/user/deliverOrder/${orderNumber}`
+      );
+      setLoading(false);
+      
+      if (response.status === 200) {
+        toast.success("Order Delivered.")
+        setOrders((prevOrders) =>
+          prevOrders.map((order) =>
+            order.orderNumber === orderNumber
+              ? { ...order, orderStatus: newStatus }
+              : order
+          )
+        );
+      }
+    } catch (error) {
+      console.error("Error updating order status:", error);
+    }
+  };
+
   return (
     <div>
       {loading ? (
         <RambousLoader />
-      ) : (  
+      ) : (
         <div className="admin-panelflex h-screen">
           <div className="admin-sidebar bg-gray-800 w-100% p-4 text-white">
             <h2 className="text-2xl font-bold mb-4">Admin Panel</h2>
@@ -91,7 +114,18 @@ const AdminPanel = () => {
                       <td className="border px-4 py-2">
                         {order.customerPhoneNo}
                       </td>
-                      <td className="border px-4 py-2">{order.orderStatus}</td>
+                      <td className="border px-4 py-2">
+                        <select
+                          value={order.orderStatus}
+                          onChange={(e) =>
+                            handleStatusChange(order.orderNumber, e.target.value)
+                          }
+                          className="bg-white border border-gray-300 text-gray-800 py-1 px-2 rounded"
+                        >
+                          <option value="PLACED">PLACED</option>
+                          <option value="DELIVERED">DELIVERED</option>
+                        </select>
+                      </td>
                       <td className="border px-4 py-2">{order.orderAmount}</td>
                       <td className="border px-4 py-2">
                         {order.orderBillingAddress}
