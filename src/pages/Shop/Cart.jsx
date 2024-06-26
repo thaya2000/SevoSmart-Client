@@ -1,21 +1,22 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import CartProduct from "../../component/Shop/CartProduct";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import RambousLoader from "../../routes/RambousLoader";
 import "./Cart.css"; // Make sure to import the CSS file
-import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const [loading, setLoading] = useState(false);
   const [cartProducts, setCartProducts] = useState([]);
+  const [selectedProducts, setSelectedProducts] = useState([]);
   const { user } = useSelector((state) => state.auth);
   const navigate = useNavigate();
 
   useEffect(() => {
     if (user.userId) {
       loadCartProducts();
+      console.log(cartProducts);
     }
   }, [user]);
 
@@ -26,7 +27,9 @@ const Cart = () => {
         `https://sevosmarttech-efce83f08cbb.herokuapp.com/api/v1/user/cart_products/${user.userId}`
       );
       setCartProducts(result.data);
+      setSelectedProducts(result.data.map(() => false)); // Initialize all products as not selected
       setLoading(false);
+      console.log(result.data );
     } catch (error) {
       console.error("Error loading cart products:", error);
       setLoading(false);
@@ -34,31 +37,30 @@ const Cart = () => {
   };
 
   const calculateSubtotal = () => {
-    return cartProducts.reduce((subtotal, cartProduct) => {
-      return subtotal + cartProduct.product.price * cartProduct.quantity;
+    return cartProducts.reduce((subtotal, cartProduct, index) => {
+      return selectedProducts[index]
+        ? subtotal + cartProduct.product.price * cartProduct.quantity
+        : subtotal;
     }, 0);
   };
 
   const handleCheckout = () => {
-    navigate("/address");
+    const selectedProductIds = cartProducts
+      .filter((_, index) => selectedProducts[index])
+      .map((cartProduct) => cartProduct.product.productId);
+    navigate("/address", { state: { selectedProductIds } });
   };
 
   const handleUpdateQuantity = async (index, newQuantity) => {
     const updatedCartProducts = [...cartProducts];
     updatedCartProducts[index].quantity = newQuantity;
     setCartProducts(updatedCartProducts);
+  };
 
-    try {
-      await axios.put(
-        `https://sevosmarttech-efce83f08cbb.herokuapp.com/api/v1/user/cart_product_quantity/${user.userId}`,
-        {
-          productId: updatedCartProducts[index].product.productId,
-          quantity: newQuantity,
-        }
-      );
-    } catch (error) {
-      console.error("Error updating product quantity:", error);
-    }
+  const handleToggleSelect = (index) => {
+    const updatedSelectedProducts = [...selectedProducts];
+    updatedSelectedProducts[index] = !updatedSelectedProducts[index];
+    setSelectedProducts(updatedSelectedProducts);
   };
 
   return (
@@ -81,14 +83,20 @@ const Cart = () => {
                     product_name={cartProduct.product.productName}
                     product_price={cartProduct.product.price}
                     product_quantity={cartProduct.quantity}
+                    product_id={cartProduct.product.id}
                     onUpdateQuantity={(newQuantity) =>
                       handleUpdateQuantity(index, newQuantity)
                     }
+                    onToggleSelect={() => handleToggleSelect(index)}
+                    isSelected={selectedProducts[index]}
                   />
                 ))
               ) : (
                 <div className="emptyCartMessage text-center text-2xl font-medium py-8">
-                  Your cart is empty. <Link to="/accessories" className="text-blue-500 hover:underline">Continue shopping</Link>
+                  Your cart is empty.{" "}
+                  <Link to="/accessories" className="text-blue-500 hover:underline">
+                    Continue shopping
+                  </Link>
                 </div>
               )}
             </div>
@@ -107,6 +115,7 @@ const Cart = () => {
                   type="button"
                   onClick={handleCheckout}
                   className="blue-button text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-lg px-6 py-3 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  disabled={selectedProducts.every((selected) => !selected)}
                 >
                   Checkout
                 </button>
