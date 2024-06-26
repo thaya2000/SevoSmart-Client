@@ -115,12 +115,12 @@ const PastProjects = () => {
                     <td className="border px-4 py-2">{project.projectName}</td>
                     <td className="border px-4 py-2">
                       <div className="flex flex-wrap justify-center">
-                        {Array.isArray(project.projectImages) &&
-                          project.projectImages.length > 0 ? (
-                          project.projectImages.map((imageData, index) => (
+                        {Array.isArray(project.productImageURL) &&
+                          project.productImageURL.length > 0 ? (
+                          project.productImageURL.map((imageData, index) => (
                             <img
                               key={index}
-                              src={`data:image/jpeg;base64,${imageData}`}
+                              src={imageData}
                               alt={`Project ${index + 1}`}
                               className="h-16 object-cover rounded-lg m-2"
                               style={{ width: "auto" }}
