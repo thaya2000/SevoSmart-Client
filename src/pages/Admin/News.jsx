@@ -87,7 +87,7 @@ const News = () => {
                             <div className="my-4">
                                 <Link
                                     to="/add-news"
-                                    className="bg-blue-700 hover:bg-blue-800 text-white font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none"
+                                    className="bg-red-700 hover:bg-blue-800 text-white font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none"
                                 >
                                     Add News
                                 </Link>

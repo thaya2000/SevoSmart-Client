@@ -88,15 +88,21 @@ const Products = () => {
             </ul>
           </div>
           <div className="admin-table flex-1 p-4 overflow-y-auto">
-            <h1 className="text-6xl font-medium mb-4 text-white">Accessories</h1>
-            <Link
-              to="/add-product"
-              className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-3 me-2 my-5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-            >
-              Add Accessories
-            </Link>
-
-            <div className="overflow-x-auto flex justify-center">
+          <div className="flex flex-row justify-between">
+           <h className=" admin-tableh text-2xl font-bold mb-4">
+           Accessories
+            </h>
+            <div className="my-4">
+              <Link
+                to="/add-product"
+                className="add-project bg-red-700 hover:bg-blue-800 text-white font-medium rounded-lg text-sm px-5 py-2.5 me-10 mb-40 ml-10 mr-10 focus:outline-none"
+              >
+               Add Accessories
+              </Link>
+            </div>
+           </div>
+      
+            <div className="overflow-x-auto flex justify-center mt-10">
               <table className="table-auto w-full">
                 <thead>
                   <tr className="text-black">
