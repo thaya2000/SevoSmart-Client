@@ -12,7 +12,7 @@ const CartProduct = ({
   onUpdateQuantity,
   onToggleSelect,
   isSelected,
-  onProductRemove,
+  onRemoveProduct,
 }) => {
   const [quantity, setQuantity] = useState(product_quantity);
   const [totalPrice, setTotalPrice] = useState(product_price * product_quantity);
@@ -35,7 +35,7 @@ const CartProduct = ({
           quantity: newQuantity,
         }
       );
-      toast.success("product quantity increased");
+      toast.success("Product quantity increased");
     } catch (error) {
       console.error("Error increasing product quantity:", error);
       toast.error("Error increasing product quantity");
@@ -55,6 +55,7 @@ const CartProduct = ({
             quantity: newQuantity,
           }
         );
+        toast.success("Product quantity decreased");
       } catch (error) {
         console.error("Error decreasing product quantity:", error);
         toast.error("Error decreasing product quantity");
@@ -71,14 +72,12 @@ const CartProduct = ({
       await axios.delete(
         `https://sevosmarttech-efce83f08cbb.herokuapp.com/api/v1/user/deleteProductFromCartById/${product_id}/${user.userId}`
       );
-      
       toast.success("Product successfully removed from cart.");
-      onProductRemove(product_id);
+      onRemoveProduct(product_id);
       setShowDeleteConfirmation(false);
     } catch (error) {
       toast.error("Error removing product from cart:", error);
-      console.log(product_id);
-      console.log(user.userId);
+      console.error("Error removing product from cart:", error);
     }
   };
 
@@ -90,13 +89,13 @@ const CartProduct = ({
     <div className="flex sm:flex-row flex-col bg-slate-200 rounded-lg shadow-md p-5 mb-5 items-center">
       <input
         type="checkbox"
-        className="mx-1 h-10 w-10"
+        className="mx-3 h-7 w-7"
         checked={isSelected}
         onChange={handleToggleSelect}
         style={{ transform: "scale(2)" }}
       />
 
-      <img className="flex mx-1 h-40 w-40" src={cart_image_url} alt={product_name} />
+      <img className="flex mx-3 h-40 w-40" src={cart_image_url} alt={product_name} />
       <div className="flex flex-col ml-10 justify-items-start w-full">
         <div className="flex flex-row justify-between text-3xl font-normal pt-5 w-full">
           <div className="flex flex-row">{product_name}</div>
