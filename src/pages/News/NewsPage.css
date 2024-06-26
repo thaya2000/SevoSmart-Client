@@ -1,10 +1,19 @@
 /* CSS for NewsPage */
 .news-page {
-  padding: 0; /* Remove padding to decrease space between Archive and News Feed */
+  padding: 0;
   display: flex;
   flex-direction: row;
+  min-height: 110vh; /* Ensure news page takes at least the full viewport height */
 }
 
+.news-feed-container {
+  margin-left: 15rem;
+  margin-right: 21rem;
+  max-width: 1600px;
+  overflow-y: auto; /* Enable vertical scrolling if needed */
+  flex: 1; /* Allow news-feed-container to grow to fill remaining space */
+  padding-bottom: 20px; /* Add padding to ensure content doesn't stick to the bottom */
+}
 .news-head span {
   margin-left: 15px;
   font-family: "Times New Roman", Times, serif;
@@ -31,14 +40,13 @@
 
 .archive-container {
   /* Add styles for the archive container */
-  position: fixed;
+  position:absolute;
   left: 0;
   top: 5rem;
   bottom: 0;
   width: 200px;
   background-color: #edeaea;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  overflow-y: auto;
   transform: translateX(-200px);
   transition: transform 0.3s ease-in-out;
 }
@@ -59,7 +67,7 @@
   font-weight: bold;
   /* position: sticky; */
   /* Position Archive at the top */
-  height: max-content;
+  height:0cap;
   /* Allow Archive to grow with content */
   margin-right: 10px;
   margin-left: 0px;
@@ -95,9 +103,10 @@
 
 .pagination {
   position: fixed;
-  bottom: 20px; /* Adjust as needed */
+  bottom: 10px; /* Adjust as needed */
   left: 25px; /* Adjust as needed */
   display: flex;
+  margin-top: 10px;
   z-index: 10;
 }
 
@@ -136,10 +145,11 @@
 /* Style the arrow icon */
 
 .news-feed-container {
-  margin-left: 12rem;
-  /* margin-right: 21rem; */
-  /* max-width: 1600px; */
-  /* overflow-y: auto; */
+  margin-left: 15rem;
+  margin-right: 21rem; 
+   max-width: 1600px; 
+   overflow-y: auto;
+   margin-top: 20px;
 }
 
 .news-page h1 {
@@ -151,22 +161,24 @@
   width: 60vw;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 10px 40px;
-  align-items: center;
-  justify-content: center;
+  align-content: start; /* Align items to the top */
+  border: 2px solid #000;
+  gap: 50px; /* Space between grid items */
+  padding: 20px; /* Padding inside the container */
 }
 
 .feed-item {
-  /* margin-left: 60px; */
-  background-color: #f9f9f9;
+  background-color: #cfcbcb;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
   padding: 10px;
-  width: 250px;
+  /* Remove fixed height to allow items to expand */
+  max-height: 400px; 
+  width: 100%; /* Ensure items take full width of their grid column */
+  overflow: auto; /* Enable scrolling if content overflows */
 }
+
+
 @media screen and (max-width: 1350px) {
   .feed-items-container {
     width: 50vw;
@@ -212,7 +224,7 @@
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  position: fixed;
+  position:absolute;
   top: 0; /* Adjust the top position as needed */
   right: 0; /* Adjust the right position as needed */
   margin-top: 4.65rem; /* Adjust margin-top if necessary */

@@ -104,10 +104,7 @@ const NewsPage = () => {
 
 
             </div>
-          </div>
-
-
-          <div className="pagination">
+            <div className="pagination">
             <a href="#">1</a>
             <a href="#">2</a>
             <a href="#">3</a>
@@ -119,6 +116,10 @@ const NewsPage = () => {
               <span className="arrow">&rarr;</span>
             </span>
           </div>
+          </div>
+
+
+          
 
 
 
@@ -156,7 +157,7 @@ const NewsPage = () => {
             <div className="offer-container">
               <img src={image13} alt="Solar Panel" className="solar-panel-image" />
               <div className="offer-buttons">
-                <button className="round-button">50% Off</button>
+                <button className="round-button">0% Off</button>
 
               </div>
             </div>
