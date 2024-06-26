@@ -147,7 +147,7 @@ const NewBuildingConsultation = () => {
               </div>
             </div>
             </div>
-
+                      <div className="consultaion-containerN">
             <div className=" container-form flex flex-col mt-[50px] w-[300px] mx-[3px] item-center">
               <div className="flex flex-col  ">
                 <text className="font-medium text-sm">First Name</text>
@@ -231,6 +231,7 @@ const NewBuildingConsultation = () => {
               <button className=" text-white bg-[#334BA1] mt-3 ml-8 rounded-full h-7 w-42 flex justify-center">
                 Submit
               </button>
+            </div>
             </div>
             </div>
           </div>
