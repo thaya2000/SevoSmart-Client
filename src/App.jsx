@@ -44,6 +44,7 @@ import CartProduct from "./component/Shop/CartProduct.jsx";
 import News from "./pages/Admin/News.jsx";
 import AddNews from "./pages/Admin/AddNews.jsx";
 import AddressForm from "./pages/Shop/AddressForm.jsx";
+import Aboutus from "./component/Navigation/NavDiscover/about-us.jsx";
 
 function ScrollToTopOnRouteChange() {
   const { pathname } = useLocation();
@@ -84,6 +85,7 @@ function App() {
           path="/construction-learnmore"
           element={<Learnmoreconstruction />}
         />
+        <Route path="/about-us" element={<Aboutus/>}/>
         <Route path="/test" element={<Test />} />
         <Route path="/loading" element={<Loading />} />
         <Route path="/accessories" element={<Accessories />} />
