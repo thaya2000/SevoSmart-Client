@@ -3,6 +3,8 @@ import { Link, useParams } from 'react-router-dom';
 import axios from "axios";
 import toast from "react-hot-toast";
 import RambousLoader from "../../routes/RambousLoader";
+import "./AdminPanel.css";
+
 
 const News = () => {
     const [news, setNews] = useState([]);
@@ -54,9 +56,9 @@ const News = () => {
             {loading ? (
                 <RambousLoader />
             ) : (
-                <div className="flex h-screen">
+                <div className="admin-panelflex h-screen">
                     {/* Sidebar */}
-                    <div className="admin-sidebar bg-gray-800 w-64 p-4 text-white">
+                    <div className="admin-sidebar bg-gray-800 w-100% p-4 text-white">
                         <h2 className="text-2xl font-bold mb-4">Admin Panel</h2>
                         <ul className="space-y-4">
                             <li>
@@ -78,11 +80,11 @@ const News = () => {
                     </div>
 
                     {/* Main Content */}
-                    <div className="flex-1 p-4 overflow-y-auto">
+                    <div className="admin-table flex-1 p-4 overflow-y-auto">
                         <div className="flex flex-row justify-between">
-                            <h className=" admin-tableh text-2xl font-bold mb-4">
+                        <h1 className="admin-tableh text-2xl font-bold mb-4">
                                 News
-                            </h>
+                            </h1>
 
                             <div className="my-4">
                                 <Link
@@ -95,9 +97,10 @@ const News = () => {
                         </div>
 
                         <div className="overflow-x-auto">
-                            <table className="w-full bg-white shadow-md rounded my-6">
-                                <thead className="bg-gray-800 text-white">
-                                    <tr>
+                        <table className="table-auto w-full">
+                       
+                            <thead>
+                            <tr className="bg-gray-200 text-gray-800">
                                         <th className="text-left py-3 px-4 uppercase font-semibold text-sm border-b">Serial No</th>
                                         <th className="text-left py-3 px-4 uppercase font-semibold text-sm border-b">News Heading</th>
                                         <th className="text-left py-3 px-4 uppercase font-semibold text-sm border-b">Publish Date</th>
@@ -105,7 +108,7 @@ const News = () => {
                                         <th className="text-left py-3 px-4 uppercase font-semibold text-sm border-b">News Content</th>
                                         <th className="text-left py-3 px-4 uppercase font-semibold text-sm border-b">Actions</th>
                                     </tr>
-                                </thead>
+                                    </thead>
                                 <tbody>
                                     {news.map((newsItem) => (
                                         <tr key={newsItem.newsId} className="hover:bg-gray-100 border-b">
