@@ -59,7 +59,9 @@ const PastProjects = () => {
       ) : (
         <div className="admin-panelflex h-screen">
           <div className=" admin-sidebar bg-gray-800 w-100% p-4 text-white">
-            <h2 className="text-2xl font-bold mb-4">Admin Panel</h2>
+            <Link to="/admin-panel">
+              <h2 className="text-2xl font-bold mb-4">Admin Panel</h2>
+            </Link>
             <ul className="space-y-4">
               <li>
                 <Link to="/users">Users</Link>
@@ -80,19 +82,19 @@ const PastProjects = () => {
           </div>
 
           <div className="flex-1 p-4 overflow-y-auto">
-           <div className="flex flex-row justify-between">
-           <h className=" admin-tableh text-2xl font-bold mb-4">
-              Past Projects
-            </h>
-            <div className="my-4">
-              <Link
-                to="/add-project"
-                className="add-project bg-red-700 hover:bg-blue-800 text-white font-medium rounded-lg text-sm px-5 py-2.5 me-10 mb-40 ml-10 mr-10 focus:outline-none"
-              >
-                Add Project
-              </Link>
+            <div className="flex flex-row justify-between">
+              <h className=" admin-tableh text-2xl font-bold mb-4">
+                Past Projects
+              </h>
+              <div className="my-4">
+                <Link
+                  to="/add-project"
+                  className="add-project bg-red-700 hover:bg-blue-800 text-white font-medium rounded-lg text-sm px-5 py-2.5 me-10 mb-40 ml-10 mr-10 focus:outline-none"
+                >
+                  Add Project
+                </Link>
+              </div>
             </div>
-           </div>
 
             <table className="w-full table-auto">
               <thead>

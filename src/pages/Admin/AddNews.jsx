@@ -65,14 +65,12 @@ const AddNews = () => {
 
     return (
         <div>
-            {/* {loading ? (
-                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40">
-                    <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
-                </div>
-            ) : null} */}
+         
             <div className="admin-panel">
                 <div className="admin-sidebar bg-gray-800 w-64 p-4 text-white">
+                    <Link to="/admin-panel">
                     <h2 className="text-2xl font-bold mb-4">Admin Panel</h2>
+                    </Link>
                     <ul className="space-y-4">
                         <li><Link to="/users">Users</Link></li>
                         <li><Link to="/admin/products">Accessories</Link></li>

@@ -47,30 +47,32 @@ const Users = () => {
 
     return (
         <div className="admin-panelflex h-screen">
-      
-      <div className=" admin-sidebar bg-gray-800 w-100% p-4 text-white">
-        <h2 className="text-2xl font-bold mb-4">Admin Panel</h2>
-        <ul className="space-y-4">
-          <li>
-            <Link to="/users">Users</Link>
-          </li>
-          <li>
-            <Link to="/admin/products">Accessories</Link>
-          </li>
-          <li>
-            <Link to="/past-projects">Past Projects</Link>
-          </li>
-          <li>
-            <Link to="/news-admin">News</Link>
-          </li>
-          <li>
-            <Link to="/logout">Logout</Link>
-          </li>
-        </ul>
-      </div>
+
+            <div className=" admin-sidebar bg-gray-800 w-100% p-4 text-white">
+                <Link to="/admin-panel">
+                    <h2 className="text-2xl font-bold mb-4">Admin Panel</h2>
+                </Link>
+                <ul className="space-y-4">
+                    <li>
+                        <Link to="/users">Users</Link>
+                    </li>
+                    <li>
+                        <Link to="/admin/products">Accessories</Link>
+                    </li>
+                    <li>
+                        <Link to="/past-projects">Past Projects</Link>
+                    </li>
+                    <li>
+                        <Link to="/news-admin">News</Link>
+                    </li>
+                    <li>
+                        <Link to="/logout">Logout</Link>
+                    </li>
+                </ul>
+            </div>
 
             <div className="flex-1 p-4 overflow-y-auto">
-            <h className=" admin-tableh text-2xl font-bold mb-4">Users</h>
+                <h className=" admin-tableh text-2xl font-bold mb-4">Users</h>
                 <table className="table-auto w-full">
                     <thead>
                         <tr className='text-black'>

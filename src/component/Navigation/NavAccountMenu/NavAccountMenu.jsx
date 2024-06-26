@@ -57,7 +57,7 @@ export default function NavAccountMenu() {
           <div className="ul-container">
             <ul className="list">
               <div className="bag-containerA">
-                <a href="/cart">
+                <a href="/my-orders">
                   <li>
                     <img
                       width="20"

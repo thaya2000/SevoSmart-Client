@@ -83,7 +83,7 @@ const EditProduct = () => {
           },
         }
       );
-      
+
       toast.success("Product is successfully updated.");
       setSubmitting(false);
       navigate("/products");
@@ -101,7 +101,9 @@ const EditProduct = () => {
       ) : (
         <div className="flex">
           <div className="bg-gray-800 w-100% p-4 text-white">
-            <h2 className="text-2xl font-bold mb-4">Admin Panel</h2>
+            <Link to="/admin-panel">
+              <h2 className="text-2xl font-bold mb-4">Admin Panel</h2>
+            </Link>
             <ul className="space-y-4">
               <li>
                 <Link to="/users">Users</Link>
