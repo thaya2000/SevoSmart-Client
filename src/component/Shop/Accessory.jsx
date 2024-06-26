@@ -82,7 +82,7 @@ const Accessory = ({
         </button>
         <Link
           onClick={addToCart}
-          to="/cart"
+          to="/address"
           className="text-white bg-yellow-700 hover:bg-yellow-600 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-[10px] text-sm text-center w-32 h-10 mb-5"
           style={{
             display: "flex",
