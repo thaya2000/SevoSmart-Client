@@ -61,8 +61,14 @@ const Cart = () => {
     setSelectedProducts(updatedSelectedProducts);
   };
 
+  const handleRemoveProduct = (product_id) => {
+    setCartProducts(
+      cartProducts.filter((product) => product.product.id !== product_id)
+    );
+  };
+
   return (
-    <div>
+    <div className="container mx-auto py-8 px-4 sm:px-6 lg:px-8">
       {loading ? (
         <RambousLoader />
       ) : (
@@ -88,6 +94,7 @@ const Cart = () => {
                     }
                     onToggleSelect={() => handleToggleSelect(index)}
                     isSelected={selectedProducts[index]}
+                    onRemoveProduct={handleRemoveProduct}
                   />
                 ))
               ) : (
@@ -102,7 +109,7 @@ const Cart = () => {
                 </div>
               )}
             </div>
-            <div className="orderSummary flex flex-col justify-start p-8 bg-white rounded-lg shadow-md md:ml-8 md:w-1/3 min-w-full md:min-w-[300px]">
+            <div className="orderSummary flex flex-col justify-start p-8 bg-white rounded-lg shadow-md md:ml-8 md:w-1/3 min-w-full md:min-w-[300px] mt-8 md:mt-0">
               <h2 className="text-3xl font-semibold mb-8">Order Summary</h2>
               <div className="flex flex-row justify-between text-xl font-normal py-4">
                 <div className="shipping">Shipping</div>
