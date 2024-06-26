@@ -18,31 +18,31 @@ const Home = () => {
   const [pastProjects, setPastProjects] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    const fetchPastProjects = async () => {
-      try {
-        setLoading(true);
-        const result = await axios.get(
-          "https://sevosmarttech-efce83f08cbb.herokuapp.com/api/v1/admin/past-projects"
-        );
-        setLoading(false);
-        console.log(result);
+  // useEffect(() => {
+  //   const fetchPastProjects = async () => {
+  //     try {
+  //       setLoading(true);
+  //       const result = await axios.get(
+  //         "https://sevosmarttech-efce83f08cbb.herokuapp.com/api/v1/admin/past-projects"
+  //       );
+  //       setLoading(false);
+  //       console.log(result);
 
-        // Transform the data to match the structure required by your component
-        const transformedData = result.data.map((project) => ({
-          name: project.projectName,
-          image: project.projectImages[0], // Taking the first image
-          description: project.description,
-        }));
+  //       // Transform the data to match the structure required by your component
+  //       const transformedData = result.data.map((project) => ({
+  //         name: project.projectName,
+  //         image: project.projectImages[0], // Taking the first image
+  //         description: project.description,
+  //       }));
 
-        setPastProjects(transformedData);
-      } catch (error) {
-        console.error('Error fetching past projects:', error);
-      }
-    };
+  //       setPastProjects(transformedData);
+  //     } catch (error) {
+  //       console.error('Error fetching past projects:', error);
+  //     }
+  //   };
 
-    fetchPastProjects();
-  }, []);
+  //   fetchPastProjects();
+  // }, []);
 
   const images = [image1, image2, image3];
 
@@ -65,9 +65,9 @@ const Home = () => {
               <IntroImageSlider images={images} />
             </div>
           </div>
-          <div className="flex w-full relative">
+          {/* <div className="flex w-full relative">
             <PastProject pastProjects={pastProjects} />
-          </div>
+          </div> */}
           <ProductIntroCard
             image={SolarCoverImage}
             serviceTitle="Solar Panels"
