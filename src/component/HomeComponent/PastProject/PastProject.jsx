@@ -55,9 +55,13 @@ export default function PastProject({ pastProjects }) {
         {pastProjects.length > 2 && (
           <div className="past-project-image hidden lg:flex h-40 w-64">
             <img
-              src={`data:image/jpeg;base64,
-                ${pastProjects[(currentImageIndex + 2) % pastProjects.length]
-                  .image}`
+              // src={`data:image/jpeg;base64,
+              //   ${pastProjects[(currentImageIndex + 2) % pastProjects.length]
+              //     .image}`
+              // }
+              src={
+                pastProjects[(currentImageIndex + 2) % pastProjects.length]
+                  .image
               }
               alt={`Image ${(currentImageIndex + 2) % pastProjects.length}`}
             />
@@ -66,9 +70,14 @@ export default function PastProject({ pastProjects }) {
         {pastProjects.length > 1 && (
           <div className="past-project-image flex w-96 lg:h-48 lg:w-72">
             <img
-              src={`data:image/jpeg;base64,
-                ${pastProjects[(currentImageIndex + 1) % pastProjects.length]
-                  .image}`
+              // src={`data:image/jpeg;base64,
+              //   ${
+              //     pastProjects[(currentImageIndex + 1) % pastProjects.length]
+              //       .image
+              //   }`}
+              src={
+                pastProjects[(currentImageIndex + 1) % pastProjects.length]
+                  .image
               }
               alt={`Image ${(currentImageIndex + 1) % pastProjects.length}`}
             />
@@ -76,7 +85,8 @@ export default function PastProject({ pastProjects }) {
         )}
         <div className="past-project-image hidden lg:flex h-40 w-64">
           <img
-            src={`data:image/jpeg;base64,${pastProjects[currentImageIndex].image}`}
+            // src={`data:image/jpeg;base64,${pastProjects[currentImageIndex].image}`}
+            src={pastProjects[currentImageIndex].image}
             alt={`Image ${currentImageIndex}`}
           />
         </div>
