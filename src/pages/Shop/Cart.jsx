@@ -3,8 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import CartProduct from "../../component/Shop/CartProduct";
 import axios from "axios";
 import { useSelector } from "react-redux";
-import RambousLoader from "../../routes/RambousLoader";
 import "./Cart.css"; // Make sure to import the CSS file
+import RambousLoader from "../../routes/RambousLoader";
 
 const Cart = () => {
   const [loading, setLoading] = useState(false);
@@ -16,7 +16,6 @@ const Cart = () => {
   useEffect(() => {
     if (user.userId) {
       loadCartProducts();
-      console.log(cartProducts);
     }
   }, [user]);
 
@@ -29,7 +28,6 @@ const Cart = () => {
       setCartProducts(result.data);
       setSelectedProducts(result.data.map(() => false)); // Initialize all products as not selected
       setLoading(false);
-      console.log(result.data );
     } catch (error) {
       console.error("Error loading cart products:", error);
       setLoading(false);
@@ -63,16 +61,23 @@ const Cart = () => {
     setSelectedProducts(updatedSelectedProducts);
   };
 
+  const handleRemoveProduct = (product_id) => {
+    setCartProducts(
+      cartProducts.filter((product) => product.product.id !== product_id)
+    );
+  };
+
   return (
-    <div className="container mx-auto py-8">
+    <div className="container mx-auto py-8 px-4 sm:px-6 lg:px-8">
       {loading ? (
         <RambousLoader />
       ) : (
-        <div className="flex flex-col mx-5">
-          <div className="cardTitleContainer text-center mb-8">
-            <h1 className="text-4xl font-bold">Shopping Cart</h1>
+        <div className="flex flex-col m-5">
+          <div className="bg-gray-100 p-4 rounded-md shadow-md mt-4 mb-4">
+            <div className="ml-100 text-3xl text-blue-900 font-semibold">
+              Shopping cart
+            </div>
           </div>
-
           <div className="orderSummaryContainer flex flex-col md:flex-row">
             <div className="cartProducts flex-1">
               {cartProducts.length > 0 ? (
@@ -89,18 +94,22 @@ const Cart = () => {
                     }
                     onToggleSelect={() => handleToggleSelect(index)}
                     isSelected={selectedProducts[index]}
+                    onRemoveProduct={handleRemoveProduct}
                   />
                 ))
               ) : (
                 <div className="emptyCartMessage text-center text-2xl font-medium py-8">
                   Your cart is empty.{" "}
-                  <Link to="/accessories" className="text-blue-500 hover:underline">
+                  <Link
+                    to="/accessories"
+                    className="text-blue-500 hover:underline"
+                  >
                     Continue shopping
                   </Link>
                 </div>
               )}
             </div>
-            <div className="orderSummary flex flex-col justify-start p-8 bg-white rounded-lg shadow-md md:ml-8 md:w-1/3 min-w-full md:min-w-[300px]">
+            <div className="orderSummary flex flex-col justify-start p-8 bg-white rounded-lg shadow-md md:ml-8 md:w-1/3 min-w-full md:min-w-[300px] mt-8 md:mt-0">
               <h2 className="text-3xl font-semibold mb-8">Order Summary</h2>
               <div className="flex flex-row justify-between text-xl font-normal py-4">
                 <div className="shipping">Shipping</div>

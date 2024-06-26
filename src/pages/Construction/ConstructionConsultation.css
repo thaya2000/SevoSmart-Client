@@ -12,7 +12,22 @@
     font-weight: bold;
   }
   
+  @media (max-width: 900px) {
+    .container-sheduletime {
+        margin-top: 50px;
+        margin-left:50px;
+        width:300px;
+      }
+      
+      .container-form{
+        margin-left: 50px;
+      }
 
+      .consultaion-containerN{
+        margin-left: 10px;
+      }
+  }
+  
   @media (max-width: 768px) {
     .container-sheduletime {
         margin-top: 50px;
@@ -20,10 +35,12 @@
         width:300px;
       }
       
-      .container-form {
-        margin-left:  100px; 
-        margin-top: 50px;
+      .container-form{
+        margin-left: 50px;
       }
 
+      .consultaion-containerN{
+        margin-left: 80px;
+      }
   }
   

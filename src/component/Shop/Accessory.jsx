@@ -54,24 +54,24 @@ const Accessory = ({
   };
 
   return (
-    <div className="flex flex-col items-center border-2 border-black rounded-2xl w-80">
+    <div className="bg-white p-4 rounded-md shadow-md w-70 justify-center items-center">
       <div onClick={navigateToProductDetails}>
         <img
-          className="flex justify-self-center mt-2 py-3 h-60 w-60"
+          className="flex  pt-30px py-3 h-60 w-60 rounded-[30px]"
           src={accessory_image_url}
           alt={accessory_name}
         />
-        <div className="flex justify-items-center text-4xl font-bold py-3">
+        <div className="flex justify-items-center font-bold text-xl  py-3">
           {accessory_name}
         </div>
-        <div className="flex justify-items-center text-3xl font-bold text-red-600 py-3">
+        <div className="flex justify-items-center text-l font-bold  text-blue-800 py-3">
           {accessory_price} LKR
         </div>
       </div>
       <div className="flex flex-row justify-center gap-4 items-center py-3">
         <button
           onClick={addToCart}
-          className="text-white bg-blue-900 hover:bg-blue-600 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm text-center w-32 h-10 mb-5"
+          className="text-white bg-blue-900 hover:bg-blue-600 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-[10px] text-sm text-center w-32 h-10 mb-5"
           style={{
             display: "flex",
             alignItems: "center",
@@ -83,7 +83,7 @@ const Accessory = ({
         <Link
           onClick={addToCart}
           to="/cart"
-          className="text-white bg-yellow-900 hover:bg-yellow-600 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm text-center w-32 h-10 mb-5"
+          className="text-white bg-yellow-700 hover:bg-yellow-600 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-[10px] text-sm text-center w-32 h-10 mb-5"
           style={{
             display: "flex",
             alignItems: "center",

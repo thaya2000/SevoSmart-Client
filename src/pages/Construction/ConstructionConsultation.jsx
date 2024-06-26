@@ -85,6 +85,7 @@ const NewBuildingConsultation = () => {
 
   return (
     <div>
+        <div className="bg-gray-100 p-4 rounded-md shadow-md mt-4 mb-4"> <span className="ml-50 text-lg text-blue-900 font-semibold">Book a consultation for making suitable plans and discover what suits you best!</span> </div>
       {loading && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40">
           <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
@@ -146,7 +147,7 @@ const NewBuildingConsultation = () => {
               </div>
             </div>
             </div>
-
+                      <div className="consultaion-containerN">
             <div className=" container-form flex flex-col mt-[50px] w-[300px] mx-[3px] item-center">
               <div className="flex flex-col  ">
                 <text className="font-medium text-sm">First Name</text>
@@ -230,6 +231,7 @@ const NewBuildingConsultation = () => {
               <button className=" text-white bg-[#334BA1] mt-3 ml-8 rounded-full h-7 w-42 flex justify-center">
                 Submit
               </button>
+            </div>
             </div>
             </div>
           </div>

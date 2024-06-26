@@ -9,7 +9,7 @@
 .navigationBar {
   position: sticky;
   display: flex;
-  border: 1px solid #5b5b6c;
+ 
   align-items: center;
   justify-content: center;
   flex-direction: row;
@@ -18,7 +18,7 @@
   /* padding-bottom: 0.5rem; */
   padding-left: 0.25rem;
   padding-right: 0.25rem;
-  background-color: #fffafa;
+  background-color: #d7ecef;
   transition: background-color 0.5s ease, height 0.5s ease;
   z-index: 2;
   webkit-backdrop-filter: blur(8px);

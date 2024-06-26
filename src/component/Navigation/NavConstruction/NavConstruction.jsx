@@ -8,7 +8,7 @@ import { NavLink } from "react-router-dom";
 
 const ConstructionProduct = ({ image, name }) => {
   return (
-    <NavLink to="/construction-learnmore">
+    <NavLink to={`/new-building-consultation`}>
       <div className="construction-nav-product">
         <img className="construction-nav-product-image" src={image} alt={name} />
         <div className="construction-nav-product-name">{name}</div>
