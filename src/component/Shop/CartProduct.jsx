@@ -91,41 +91,41 @@ const CartProduct = ({
     <div className="flex sm:flex-row flex-col bg-slate-100 rounded-lg shadow-md p-5 mb-5 items-center">
       <input
         type="checkbox"
-        className="mx-3 h-7 w-7"
+        className="mx-3 h-5 w-5"
         checked={isSelected}
         onChange={handleToggleSelect}
         style={{ transform: "scale(2)" }}
       />
 
       <img
-        className="flex mx-1 h-40 w-40"
+        className="flex mx-1 h-20 w-20"
         src={cart_image_url}
         alt={product_name}
       />
       <div className="flex flex-col ml-10 justify-items-start w-full">
-        <div className="flex flex-row justify-between text-3xl font-normal pt-5 w-full">
+        <div className="flex flex-row justify-between text-xl text-blue-900 font-bold pt-5 w-full">
           <div className="flex flex-row">{product_name}</div>
           <div>Rs.{totalPrice}</div>
         </div>
         <div className="flex flex-row justify-between pt-5 w-full">
-          <div className="flex text-3xl font-normal">Quantity:</div>
+          <div className="flex text-xl font-normal">Quantity:</div>
           <div className="flex items-center">
             <button
-              className="px-3 py-1 text-white bg-red-500 rounded-lg"
+              className="px-2 py-0.8 text-white bg-red-500 rounded-lg"
               onClick={handleDecrease}
             >
               -
             </button>
-            <span className="mx-4 text-3xl font-normal">{quantity}</span>
+            <span className="mx-4 text-xl font-normal">{quantity}</span>
             <button
-              className="px-3 py-1 text-white bg-green-500 rounded-lg"
+              className="px-2 py-0.8 text-white bg-green-500 rounded-lg"
               onClick={handleIncrease}
             >
               +
             </button>
           </div>
           <div
-            className="ml-10 py-1 px-3 rounded text-3xl font-normal text-center text-white bg-blue-700 focus:ring-4 border-b-1 border-black focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 cursor-pointer"
+            className="ml-10 py-1 px-3 rounded text-l font-normal text-center text-white bg-blue-800 focus:ring-4 border-b-1 border-black focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 cursor-pointer"
             onClick={() => setShowDeleteConfirmation(true)}
           >
             Remove
@@ -187,14 +187,14 @@ const CartProduct = ({
               <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
                 <button
                   type="button"
-                  className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
+                  className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-1 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
                   onClick={handleDeleteProduct}
                 >
                   Remove
                 </button>
                 <button
                   type="button"
-                  className="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+                  className="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-1 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
                   onClick={() => setShowDeleteConfirmation(false)}
                 >
                   Cancel

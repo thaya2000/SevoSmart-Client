@@ -123,7 +123,7 @@ const Cart = () => {
                 <button
                   type="button"
                   onClick={handleCheckout}
-                  className="blue-button text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-lg px-6 py-3 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  className="blue-button text-white bg-blue-800 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-lg px-6 py-3 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                   disabled={selectedProducts.every((selected) => !selected)}
                 >
                   Checkout
