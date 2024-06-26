@@ -14,7 +14,7 @@ const Product = ({ image, name }) => {
         <Link to="/energy-learnmore">
           <div className="energy-nav-button">Learn</div>
         </Link>
-        <Link to="guest/solar/consultation">
+        <Link to="/energy-order">
           <div className="energy-nav-button">Order</div>
         </Link>
       </div>
