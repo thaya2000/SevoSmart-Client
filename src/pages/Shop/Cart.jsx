@@ -41,8 +41,10 @@ const Cart = () => {
           <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
         </div>
       )}
-      <div class="cardTittleContainer">
-        <div className="CardTittle">Shopping Cart</div>
+      <div className="bg-gray-100 p-4 rounded-md shadow-md mt-4 mb-4">
+        <div className="ml-100 text-3xl text-blue-900 font-semibold">
+          Shopping cart
+        </div>
       </div>
 
       <div className=" Ordersummery-container ">
@@ -51,7 +53,7 @@ const Cart = () => {
             // console.log(cartProduct.quantity)
             <CartProduct
               key={index}
-              cart_image_url={cartProduct.product.productImageURL}
+              cart_image_url={cartProduct.product.productImageURL }
               product_name={cartProduct.product.productName}
               product_price={cartProduct.product.price}
               product_quantity={cartProduct.quantity}
@@ -59,7 +61,7 @@ const Cart = () => {
           ))}
         </div>
         <div
-          className="flex flex-col justify-start px-8 m-auto h-80 w-85"
+          className="flex flex-col justify-start px-8 m-auto h-80 w-90"
           style={{
             background:
               "linear-gradient(180deg, rgba(239, 236, 236, 0) 50.38%, #FFFAFA 92.58%)",
@@ -69,14 +71,14 @@ const Cart = () => {
             boxShadow: "4px 4px 100px 0px #69696933",
           }}
         >
-          <div className="ordersummery">Order Summary</div>
+          <div className="ordersummery text-blue-900 font-bold">Order Summary</div>
           <div className="flex flex-row justify-between text-3xl font-normal pt-7">
             <div className="shipping ">Shipping</div>
             <div className="shipping">free</div>
           </div>
           <div className="flex flex-row justify-between text-3xl font-medium pt-5">
-            <div className="total ">Sub Total(lkr)</div>
-            <div className="total ">7500</div>
+            <div className="total text-l font-bold text-red-800">Sub Total(lkr)</div>
+            <div className="total text-red-800 font-bold ">7500</div>
           </div>
           <div className="flex flex-row justify-center text-3xl font-medium py-5">
             <Link to="/check_out">

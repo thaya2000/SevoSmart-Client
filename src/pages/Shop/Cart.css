@@ -16,7 +16,7 @@
 }
 
 .Ordersummery-container {
-    background-color: rgb(235, 233, 233);
+    background-color: rgb(255, 252, 252);
     width:400px;
     border-radius: 10px;
     border-style: double;
@@ -28,7 +28,7 @@
 }
 
 .ordersummery{
-    font-size: 26px;
+    font-size: 24px;
     font-weight:500;
     text-align: center;
     margin-top: 30px;
@@ -41,7 +41,7 @@
     margin-top: 10px;
 }
 .total{
-    font-size: 25px;
+    font-size: 24px;
     font-weight:500;
     margin-top: 10px; 
 }
@@ -65,8 +65,8 @@
     }
     
     .Ordersummery-container {
-        background-color: rgb(235, 233, 233);
-        width:300px;
+        background-color: rgb(255, 255, 255);
+        width:350px;
         border-radius: 10px;
         border-style: double;
         border-color: rgb(222, 221, 221);
