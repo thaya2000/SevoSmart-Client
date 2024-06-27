@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import './setting.css'; // Optional: for styling
-import { userAuth } from '../../../context/authContext';
+import { useSelector } from "react-redux";
+import { useNavigate } from 'react-router-dom';
+import RambousLoader from "../../../routes/RambousLoader";
 
 function Passwordsetting() {
-  const [auth, setAuth] = userAuth();
+  const { user } = useSelector((state) => state.auth);
+  const [loading, setLoading] = useState(false);
   const [profileImage, setProfileImage] = useState(null);
   const [imagePreview, setImagePreview] = useState('path-to-placeholder-image');
   const [formData, setFormData] = useState({
@@ -13,6 +16,7 @@ function Passwordsetting() {
     newPassword: '',
     confirmPassword: '',
   });
+  const navigate = useNavigate();
 
   const { oldPassword, newPassword, confirmPassword } = formData;
 
@@ -48,35 +52,32 @@ function Passwordsetting() {
     }
 
     try {
-      // Verify the old password
-      const verifyResponse = await axios.post(`https://sevosmarttech-efce83f08cbb.herokuapp.com/api/v1/auth/users/verify-password`, {
-        userId: auth.user.id,
-        password: oldPassword,
-      });
-
-      if (verifyResponse.status !== 200) {
-        toast.error('Incorrect current password.');
-        return;
-      }
-
-      // Update the password
-      const response = await axios.put(`https://sevosmarttech-efce83f08cbb.herokuapp.com/api/v1/auth/users/password/${auth.user.id}`, {
+      setLoading(true);
+      const response = await axios.put(`https://sevosmarttech-efce83f08cbb.herokuapp.com/api/v1/auth/users/password/${user.userId}`, {
         newPassword,
+        oldPassword
       });
+      setLoading(false);
 
       if (response.status === 200) {
         toast.success('Password updated successfully.');
+        navigate('/'); // Redirect to home page
       } else {
         toast.error('Failed to update password.');
       }
     } catch (error) {
       console.error('Error updating password:', error);
       toast.error('Failed to update password.');
+      setLoading(false);
     }
   };
 
   return (
-    <div className="setting-container">
+    <div>
+        {loading ? (
+        <RambousLoader />
+      ) : (
+      <div className="setting-container">
       <div className="sidebar">
         <div className="profileMain">
           <div className="profile-picture" onClick={triggerFileInput}>
@@ -159,6 +160,8 @@ function Passwordsetting() {
           <button type="submit" className='setting-submit'>Save</button>
         </form>
       </div>
+    </div>
+      )}
     </div>
   );
 }
