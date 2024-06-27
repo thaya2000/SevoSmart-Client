@@ -1,222 +1,20 @@
-/* CSS for NewsPage */
-.news-page {
-  padding: 0; /* Remove padding to decrease space between Archive and News Feed */
-  display: flex;
-  flex-direction: row;
-}
-
-.news-head span {
-  margin-left: 15px;
-  font-family: "Times New Roman", Times, serif;
-  font-size: 40px;
-  font-weight: 1000;
-  margin-top: -5px;
-}
-.news-head button {
-  width: auto;
-  border: 2px solid yellow;
-  padding: 5px 10px;
-  height: 30px;
-  font-size: small;
-  font-weight: 500;
-}
-
-.archive-container {
-  padding: 0;
-  width: 200px;
-  display: flex;
-  position: fixed;
-  z-index: 10;
-}
-
-.archive-container {
-  /* Add styles for the archive container */
-  position: fixed;
-  left: 0;
-  top: 5rem;
-  bottom: 0;
-  width: 200px;
-  background-color: #edeaea;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  overflow-y: auto;
-  transform: translateX(-200px);
-  transition: transform 0.3s ease-in-out;
-}
-.archive-container.visible {
-  transform: translateX(0);
-}
-
-.archive-toggle {
-  width: auto;
-  border: 2px solid yellow;
-  padding: 5px 10px;
-  height: 30px;
-  font-size: small;
-  font-weight: 500;
-  z-index: 999;
-}
-.archive {
-  font-weight: bold;
-  /* position: sticky; */
-  /* Position Archive at the top */
-  height: max-content;
-  /* Allow Archive to grow with content */
-  margin-right: 10px;
-  margin-left: 0px;
-  /* Add a margin between Archive and News Feed */
-}
-
-.months button {
-  font-size: 1rem;
-  /* Decrease font size of buttons */
-  padding: 3px 8px;
-  /* Decrease padding of buttons */
-  background-color: #ffd500;
-  color: #002aff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 150px;
-}
-
-.archive button:hover {
-  background-color: #83baf5;
-}
-.back-arrow {
-  background-color: transparent;
-  margin-left: 9rem;
-  margin-top: 10px;
-}
-
-.back-arrow button {
-  border: 1px solid black;
-  width: 25px;
-}
-
-.pagination {
-  position: fixed;
-  bottom: 20px; /* Adjust as needed */
-  left: 25px; /* Adjust as needed */
-  display: flex;
-  z-index: 10;
-}
-
-.pagination a {
-  margin-right: 5px;
-  color: darkblue;
-  text-decoration: none;
-  padding: 5px 2px; /* Adjust padding to control spacing */
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.pagination a:hover {
-  background-color: #f0f0f0; /* Add hover effect */
-}
-
-.arrow-container {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background-color: darkblue; /* Circle background color */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 5px; /* Adjust spacing */
-}
-
-.arrow {
-  color: white; /* Arrow color */
-  font-size: 25px; /* Adjust size */
-  line-height: 4; /* Reset line-height to ensure centering */
-  margin-top: -4px;
-  font-weight: bold;
-}
-
-/* Style the arrow icon */
-
-.news-feed-container {
-  margin-left: 12rem;
-  /* margin-right: 21rem; */
-  /* max-width: 1600px; */
-  /* overflow-y: auto; */
-}
-
-.news-page h1 {
-  font-size: 2.5rem;
-  font-weight: bold;
-}
-
-.feed-items-container {
-  width: 60vw;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 10px 40px;
-  align-items: center;
-  justify-content: center;
-}
-
-.feed-item {
-  /* margin-left: 60px; */
-  background-color: #f9f9f9;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  width: 250px;
-}
-@media screen and (max-width: 1350px) {
-  .feed-items-container {
-    width: 50vw;
-  }
-}
-
-.feed-item img {
-  width: 100%;
-  height: auto;
-  border-radius: 5px;
-}
-
-.feed-item h2 {
-  margin: 10px;
-  font-weight: bold;
-  font-size: 1.2rem;
-}
-
-.feed-item p {
-  margin: 10px;
-}
-
-.archive h2 {
-  font-size: 2.5rem;
-  font-weight: bold;
-}
-
-.archive ul {
-  list-style: none;
-  padding: 0;
-  font-size: 1.5rem;
-}
-
-.archive li {
-  margin-bottom: 5px;
-}
-
+/* Default styles for web version */
 .solar-discounts {
+  position: absolute;
+  right: 0;
+  top: 100px;
   width: 300px;
-  display: flex;
-  flex-direction: column;
   background-color: #efecec;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 30px;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  position: fixed;
-  top: 0; /* Adjust the top position as needed */
-  right: 0; /* Adjust the right position as needed */
-  margin-top: 4.65rem; /* Adjust margin-top if necessary */
-  margin-right: 20px; /* Adjust margin-right if necessary */
+  display: none;
+  flex-direction: column;
+  z-index: 10;
+}
+
+.solar-discounts.visible {
+  display: flex;
 }
 
 .solar-discounts h2 {
@@ -229,73 +27,47 @@
   font-size: 1.2rem;
 }
 
-/* CSS */
-.offerc-container {
-  display: flex;
-  align-items: flex-start;
-  animation: zoomInOut 2s infinite alternate;
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
 }
-
-@keyframes zoomInOut {
-  from {
-    transform: scale(0.5);
-    /* Initial scale */
-  }
-  to {
-    transform: scale(0.6);
-    /* Zoom in to 120% */
-  }
-}
-
-/* .solar-discounts {
- 
-  position: relative;
-  
-} */
 
 .offer-container {
   display: flex;
   align-items: center;
+  margin: 20px 0;
 }
 
 .solar-panel-image {
   width: 200px;
-  /* Adjust width as needed */
   height: auto;
+  margin-right: 20px;
 }
 
-.offer-buttons {
-  margin-left: 10px;
-  /* Decrease the margin between the image and the button */
-}
-
-.round-button {
+.offer-buttons .round-button {
+  background: #ffd700;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
   width: 80px;
   height: 80px;
-  border-radius: 50%;
-  background-color: #ffd700;
-  /* Yellow color for the button */
-  color: #fff;
   font-size: 1.2rem;
   font-weight: bold;
-  border: none;
   cursor: pointer;
+  animation: zoomInOut 2s ease-in-out infinite;
   margin-top: 60px;
   margin-left: -80px;
-  /* Adjust the margin-right to move the button to the left */
-  animation: zoomInOut 2s ease-in-out infinite; /* Apply zoom in and out animation */
 }
 
 @keyframes zoomInOut {
-  0% {
-    transform: scale(1); /* Initial scale */
-  }
-  50% {
-    transform: scale(1.2); /* Zoom in to 120% */
-  }
-  100% {
-    transform: scale(1); /* Zoom back to original size */
-  }
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
 }
 
 .silver-buttons {
@@ -304,10 +76,8 @@
 
 .silver-button {
   display: block;
-  /* Change to block to show buttons one below the other */
   padding: 0px 20px;
   background-color: silver;
-  /* Silver color for the buttons */
   color: #000;
   border: none;
   border-radius: 20px;
@@ -317,7 +87,6 @@
   width: 250px;
   height: 45px;
   margin-top: -4px;
-  /* Adjust width as needed */
 }
 
 .learn-more {
@@ -329,89 +98,297 @@
   margin-top: 12px;
 }
 
-/* Media query for mobile devices */
+/* Toggle button styles */
+.toggle-discounts {
+  display: flex;
+}
+
+@media screen and (max-width: 1000px) {
+  .toggle-discounts {
+    display: block;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 10px;
+  }
+
+  .solar-discounts {
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin-top: 4.65rem;
+    margin-right: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .solar-discounts {
+    position: relative;
+    width: 100%;
+    top: auto;
+    right: auto;
+    margin-top: 20px;
+  }
+}
+
+/* News page styles */
+.news-page {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  min-height: 110vh;
+}
+
+.news-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.news-head span {
+  margin-left: 15px;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 40px;
+  font-weight: 1000;
+  margin-top: -5px;
+}
+
+.news-head button,
+.archive-toggle,
+.pagination a,
+.months button,
+.read-more {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.news-head button,
+.archive-toggle,
+.pagination a {
+  border: 2px solid yellow;
+  padding: 5px 10px;
+  font-size: small;
+  font-weight: 500;
+}
+
+.archive-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 0;
+  top: 5rem;
+  bottom: 0;
+  
+  background-color: #edeaea;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  transform: translateX(-200px);
+  transition: transform 0.3s ease-in-out;
+  z-index: 10;
+}
+
+.archive-container.visible {
+  transform: translateX(0);
+}
+
+.archive {
+  font-weight: bold;
+  margin-right: 10px;
+  margin-left: 0px;
+}
+
+.months button {
+  font-size: 1rem;
+  padding: 3px 8px;
+  background-color: #ffd500;
+  color: #002aff;
+  border: none;
+  border-radius: 5px;
+  width: 150px;
+}
+
+.archive button:hover {
+  background-color: #83baf5;
+}
+
+.back-arrow {
+  background-color: transparent;
+  margin-left: 9rem;
+  margin-top: 10px;
+}
+
+.back-arrow button {
+  border: 1px solid black;
+  width: 25px;
+}
+
+.news-feed-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1600px;
+  overflow-y: auto;
+  padding-bottom: 20px;
+  flex: 1;
+}
+
+.feed-items-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  align-content: start;
+  gap: 50px;
+  padding: 20px;
+  width: 60vw;
+}
+
+.feed-item {
+  background-color: #cfcbcb;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.feed-item img {
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.feed-item h2 {
+  font-size: 1.2em;
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+.feed-item p {
+  flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  margin-bottom: 10px;
+  max-height: 100px;
+}
+
+.read-more {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 16px;
+  border-radius: 5px;
+  align-self: flex-end;
+}
+
+.pagination {
+  position: fixed;
+  bottom: 10px;
+  left: 25px;
+  display: flex;
+  margin-top: 10px;
+  z-index: 10;
+}
+
+.pagination a {
+  margin-right: 5px;
+  color: darkblue;
+  padding: 5px 2px;
+  border-radius: 5px;
+}
+
+.pagination a:hover {
+  background-color: #f0f0f0;
+}
+
+.arrow-container {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: darkblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 5px;
+}
+
+.arrow {
+  color: white;
+  font-size: 25px;
+  margin-top: -4px;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 1350px) {
+  .feed-items-container {
+    width: 50vw;
+  }
+}
+
 @media screen and (max-width: 1050px) {
   .news-page {
-    display: flex;
     flex-direction: column;
-    /* Change flex direction to column on small screens */
-
-    /* Center items vertically */
   }
 
   .archive {
     top: 0;
-    /* Position Archive at the top */
     width: 100%;
-    /* Make Archive full width on small screens */
     text-align: center;
-    /* Center text */
     margin-bottom: 20px;
-    /* Add some bottom margin */
   }
 
   .feed-items-container {
-    display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
     margin-left: 0;
-    /* margin-right: 16rem; */
     width: 20vw;
-  }
-  .solar-discounts {
-    position: fixed;
   }
 }
 
 @media screen and (max-width: 800px) {
   .feed-items-container {
-    display: flex;
+    
     flex-direction: column;
     justify-content: flex-start;
-    align-items: flex-start;
-    margin-left: 0;
-    /* margin-right: 16rem; */
-    width: 0vw;
+    align-items: center;
+    width: 50vw;
+    padding: 10px;
   }
 
-  .pagination {
-    display: none;
+  .feed-item {
+    width: 90vw;
+    height: auto;
+    padding: 15px;
+    margin-bottom: 20px;
   }
 
-  .news-feed-container {
-    margin-left: 2rem;
-  }
-  .news-page {
-    /* align-items: center; */
-  }
-}
-@media screen and (max-width: 630px) {
-  .solar-discounts {
-    width: 30vw;
-    padding: 5px;
-  }
-
-  .solar-discounts h2 {
+  .feed-item h2 {
     font-size: 1rem;
-    font-weight: bold;
-    margin-top: 20px;
   }
 
-  .solar-discounts p {
-    font-size: 0.7rem;
-    text-align: justify;
-  }
-  .silver-buttons {
-    margin-top: 20px;
+  .feed-item p {
+    -webkit-line-clamp: 2;
+    max-height: 80px;
   }
 
-  .silver-button {
-    width: 120px;
-    font-size: 10px;
-    height: 30px;
+  .feed-item img {
+    max-height: 150px;
   }
-  .learn-more {
-    font-size: medium;
-  }
+  
 }

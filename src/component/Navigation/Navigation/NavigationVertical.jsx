@@ -3,31 +3,31 @@ import { UilTimes, UilUser } from "@iconscout/react-unicons";
 import "./Navigation.css";
 import { Link } from "react-router-dom";
 
-const NavigationVertical = () => {
+const NavigationVertical = ({onClose}) => {
   return (
-    <div className="navigation-vertical">
+    <div className="navigation-vertical" >
       <div className="close-button">
-        <Link to="/">
-          <button>
+        
+          <button onClick={onClose}>
             <UilTimes />
           </button>
-        </Link>
+        
       </div>
       <div className="navi-buttons">
         <Link to="/energy-vertical">
-          <button className="navi-butt">Energy</button>
+          <button className="navi-butt" onClick={onClose}>Energy</button>
         </Link>
         <Link to="/construction-vertical">
-          <button className="navi-butt">Constructions</button>
+          <button className="navi-butt"onClick={onClose}>Constructions</button>
         </Link>
         <Link to="/shop-vertical">
-          <button className="navi-butt">Shop</button>
+          <button className="navi-butt"onClick={onClose}>Shop</button>
         </Link>
         <Link to="/discover-vertical">
-          <button className="navi-butt">Discover</button>
+          <button className="navi-butt"onClick={onClose}>Discover</button>
         </Link>
 
-        <button className="navi-butt">Support</button>
+        <button className="navi-butt"onClick={onClose}>Support</button>
       </div>
       <div className="account-button">
         <Link to="/login">

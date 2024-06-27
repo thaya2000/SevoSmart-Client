@@ -46,6 +46,11 @@ import AddNews from "./pages/Admin/AddNews.jsx";
 import AddressForm from "./pages/Shop/AddressForm.jsx";
 import MyOrders from "./pages/Shop/MyOrder.jsx";
 import Aboutus from "./component/Navigation/NavDiscover/about-us.jsx";
+import DiscoverVertical from "./component/Navigation/NavDiscover/DiscoverVertical.jsx";
+import ShopVertical from "./component/Navigation/NavShop/ShopVertical.jsx";
+import ConstructionsVertical from "./component/Navigation/NavConstruction/ConstructionsVertical.jsx";
+import EnergyVertical from "./component/Navigation/NavEnergy/EnergyVertical.jsx";
+import Nav from "./component/Navigation/Nav/Nav.jsx";
 
 function ScrollToTopOnRouteChange() {
   const { pathname } = useLocation();
@@ -69,6 +74,7 @@ function App() {
       <Toaster />
       <ScrollToTopOnRouteChange />
       <Navigation />
+      <Nav />
       <Routes>
         <Route path="/admin/*" element={<AdminRoutes />} />
         <Route path="/user/*" element={<PrivateRoutes />} />

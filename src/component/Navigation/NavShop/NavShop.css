@@ -77,6 +77,8 @@
   padding-top: 1vh;
   width: 100vw;
   background-color: #f2f2f2;
+  height: 100%;
+  z-index: 9999;
 }
 .ShopProducts-vertical {
   /* margin-right: auto; */

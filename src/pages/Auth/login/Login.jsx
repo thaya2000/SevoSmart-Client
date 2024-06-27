@@ -57,6 +57,7 @@ const Login = () => {
                 placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                id="login-user-name"
               />
               <FaUser className="user-icon" />
             </div>
@@ -66,6 +67,7 @@ const Login = () => {
                 className="login-input"
                 placeholder="Enter your password"
                 value={password}
+                id="login-password"
                 onChange={(e) => setPassword(e.target.value)}
               />
               {showPassword ? (
@@ -87,7 +89,7 @@ const Login = () => {
               Sign up
             </Link>
           </div>
-          <div className="submit-button-login" onClick={handleSubmit}>
+          <div id="LoginID" className="submit-button-login" onClick={handleSubmit}>
             Login
           </div>
         </form>

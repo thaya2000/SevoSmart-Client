@@ -1,3 +1,4 @@
+import React from "react";
 import "./NavConstruction.css";
 import NewBuilding from "../../../Images/NewBuilding.png";
 import Renovation from "../../../Images/Renovation.png";
@@ -9,7 +10,7 @@ const ConstructionProduct = ({ image, name }) => {
   return (
     <NavLink to={`/new-building-consultation`}>
       <div className="construction-nav-product">
-        <img className="construction-nav-product-image" src={image} alt="" />
+        <img className="construction-nav-product-image" src={image} alt={name} />
         <div className="construction-nav-product-name">{name}</div>
       </div>
     </NavLink>
@@ -19,7 +20,7 @@ const ConstructionProduct = ({ image, name }) => {
 const NavConstruction = () => {
   return (
     <div className="constructions-nav">
-      <div className="construction-nav-products ">
+      <div className="construction-nav-products">
         <ConstructionProduct
           image={NewBuilding}
           name="New Building Construction"
@@ -28,12 +29,18 @@ const NavConstruction = () => {
           image={Renovation}
           name="Old Building Renovation"
         />
-        <ConstructionProduct image={SwimmingPool} name="Swimming Pool Design" />
-        <ConstructionProduct image={Havana} name="Havana Design" />
+        <ConstructionProduct
+          image={SwimmingPool}
+          name="Swimming Pool Design"
+        />
+        <ConstructionProduct
+          image={Havana}
+          name="Havana Design"
+        />
       </div>
 
       <div className="construction-nav-options">
-        <div className="construction-nav-list ">
+        <div className="construction-nav-list">
           <span>Schedule a Consultation</span>
           <span>About Team</span>
           <span>Incentives</span>

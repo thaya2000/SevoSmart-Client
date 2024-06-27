@@ -47,7 +47,9 @@
   flex-direction: column;
   padding-top: 3vh;
   width: 100%;
+  height: 100%;
   background-color: #f2f2f2;
+  z-index: 999;
 }
 
 .options-vertical {
@@ -63,15 +65,4 @@
   margin-top: 3vh;
   margin-left: 5vw;
   font-weight: bold;
-}
-/* Adjust link styles */
-.Discover .left span a,
-.Discover .right span a {
-  color: #333; /* Link color */
-  text-decoration: none;
-}
-
-.Discover .left span a:hover,
-.Discover .right span a:hover {
-  text-decoration: underline; /* Underline on hover */
 }
