@@ -6,12 +6,12 @@ import NavConstruction from "../NavConstruction/NavConstruction.jsx";
 import NavShop from "../NavShop/NavShop.jsx";
 import NavDiscover from "../NavDiscover/NavDiscover.jsx";
 import Logo from "../Logo/Logo.jsx";
-import { useNavigate } from "react-router-dom";
-import { NavLink } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import NavAccountMenu from "../NavAccountMenu/NavAccountMenu.jsx";
 import { IoCartOutline } from "react-icons/io5";
 import NewsPage from "../../../pages/News/NewsPage.jsx";
+import NavSupport from "../NavSupport/NavSupport.jsx";
 
 const Navigation = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
@@ -26,28 +26,34 @@ const Navigation = () => {
   const handleButtonLeave = () => {
     setActiveDropdown(null);
   };
+
   const handleNewsClick = () => {
-    navigate('/news');
+    navigate("/news");
   };
+
   const handleShopClick = () => {
-    navigate('/accessories');
+    navigate("/accessories");
   };
 
   const handleConstructionClick = () => {
-    navigate('/construction-learnmore');
+    navigate("/construction-learnmore");
   };
+
   const handleEnergyClick = () => {
-    navigate('/energy-learnmore');
+    navigate("/energy-learnmore");
+  };
+
+  const handleContactClick = () => {
+    document.getElementById("footer").scrollIntoView({ behavior: "smooth" });
   };
 
   const navItems = [
-    { label: "Energy", component: <NavEnergy />,onClick:handleEnergyClick },
-    { label: "Construction", component: <NavConstruction /> ,onClick:handleConstructionClick},
-    { label: "Shop", component: <NavShop />,onClick: handleShopClick },
+    { label: "Energy", component: <NavEnergy />, onClick: handleEnergyClick },
+    { label: "Construction", component: <NavConstruction />, onClick: handleConstructionClick },
+    { label: "Shop", component: <NavShop />, onClick: handleShopClick },
     { label: "Discover", component: <NavDiscover /> },
-    { label: "Contact", component: <div></div> },
-    { label: "News", onClick: handleNewsClick }
-  
+    { label: "Contact", onClick: handleContactClick },
+    { label: "News", component: <NewsPage />, onClick: handleNewsClick }
   ];
 
   return (
