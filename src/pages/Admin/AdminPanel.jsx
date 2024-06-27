@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import toast from "react-hot-toast";
 import RambousLoader from "../../routes/RambousLoader";
 import "./AdminPanel.css";
 
@@ -41,10 +42,8 @@ const AdminPanel = () => {
       const response = await axios.put(
         `https://sevosmarttech-efce83f08cbb.herokuapp.com/api/v1/user/deliverOrder/${orderNumber}`
       );
-      setLoading(false);
 
       if (response.status === 200) {
-        toast.success("Order Delivered.")
         setOrders((prevOrders) =>
           prevOrders.map((order) =>
             order.orderNumber === orderNumber
@@ -52,9 +51,12 @@ const AdminPanel = () => {
               : order
           )
         );
+        toast.success("Order Delivered.");
       }
     } catch (error) {
       console.error("Error updating order status:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
