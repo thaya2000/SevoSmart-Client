@@ -7,7 +7,7 @@ import Partners from "./Partners/Partners";
 
 const Footer = () => {
   return (
-    <div className="footer bg-primary md:px-3 md:py-8  mx-auto py-4 ">
+    <div id ="footer" className="footer bg-primary md:px-3 md:py-8  mx-auto py-4 ">
       <div className="w-full h-4/10 my-10">
         <Partners />
       </div>
