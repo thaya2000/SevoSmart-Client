@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
-import toast from 'react-hot-toast';
+import toast from "react-hot-toast";
 import RambousLoader from "../../routes/RambousLoader";
+import "./Addressform.css";
 
 const AddressForm = () => {
   const { state } = useLocation();
@@ -13,7 +14,7 @@ const AddressForm = () => {
     addressLineTwo: "",
     city: "",
     district: "",
-    phoneNo: ""
+    phoneNo: "",
   });
   const { user } = useSelector((state) => state.auth);
   const navigate = useNavigate();
@@ -23,7 +24,7 @@ const AddressForm = () => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -31,7 +32,9 @@ const AddressForm = () => {
     e.preventDefault();
     try {
       setLoading(true);
-      const cartIdsParam = selectedCartIds.map(id => `cartIds=${id}`).join('&');
+      const cartIdsParam = selectedCartIds
+        .map((id) => `cartIds=${id}`)
+        .join("&");
       await axios.post(
         `https://sevosmarttech-efce83f08cbb.herokuapp.com/api/v1/user/order/placeOrder/${user.userId}?${cartIdsParam}`,
         formData
@@ -52,10 +55,15 @@ const AddressForm = () => {
         <RambousLoader />
       ) : (
         <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
-          <h1 className="text-2xl font-bold mb-6 text-center">Delivery Address</h1>
+          <h1 className="text-2xl font-bold mb-6 text-center">
+            Delivery Address
+          </h1>
           <form onSubmit={handleSubmit}>
             <div className="mb-4">
-              <label htmlFor="addressLineOne" className="block text-lg font-medium text-gray-700 mb-2">
+              <label
+                htmlFor="addressLineOne"
+                className="block text-lg font-medium text-gray-700 mb-2"
+              >
                 Address Line 1
               </label>
               <input
@@ -69,7 +77,10 @@ const AddressForm = () => {
               />
             </div>
             <div className="mb-4">
-              <label htmlFor="addressLineTwo" className="block text-lg font-medium text-gray-700 mb-2">
+              <label
+                htmlFor="addressLineTwo"
+                className="block text-lg font-medium text-gray-700 mb-2"
+              >
                 Address Line 2
               </label>
               <input
@@ -82,7 +93,10 @@ const AddressForm = () => {
               />
             </div>
             <div className="mb-4">
-              <label htmlFor="city" className="block text-lg font-medium text-gray-700 mb-2">
+              <label
+                htmlFor="city"
+                className="block text-lg font-medium text-gray-700 mb-2"
+              >
                 City
               </label>
               <input
@@ -96,7 +110,10 @@ const AddressForm = () => {
               />
             </div>
             <div className="mb-4">
-              <label htmlFor="district" className="block text-lg font-medium text-gray-700 mb-2">
+              <label
+                htmlFor="district"
+                className="block text-lg font-medium text-gray-700 mb-2"
+              >
                 District
               </label>
               <input
@@ -110,7 +127,10 @@ const AddressForm = () => {
               />
             </div>
             <div className="mb-6">
-              <label htmlFor="phoneNo" className="block text-lg font-medium text-gray-700 mb-2">
+              <label
+                htmlFor="phoneNo"
+                className="block text-lg font-medium text-gray-700 mb-2"
+              >
                 Phone Number
               </label>
               <input
@@ -139,4 +159,3 @@ const AddressForm = () => {
 };
 
 export default AddressForm;
- 

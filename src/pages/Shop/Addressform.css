@@ -1,0 +1,46 @@
+
+.form-container{
+
+    justify-content: center;
+    align-items: center;
+    
+    
+    
+}
+.label{
+    width: fit-content;
+}
+
+.submit-but{
+  
+
+}
+.form-content-container{
+margin-left: 100px;
+  
+}
+.form{
+    display:flex;
+}
+
+.centent{
+    width:100%;
+}
+@media (max-width: 640px) {
+    .form-container {
+      width: 100%;
+     
+      justify-content: center;
+      align-items: center;
+     
+    }
+
+    .form-content-container{
+        margin-left:55px;
+    }
+
+    
+  
+   
+  }
+  

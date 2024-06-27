@@ -45,7 +45,7 @@ const Navigation = () => {
     { label: "Construction", component: <NavConstruction /> ,onClick:handleConstructionClick},
     { label: "Shop", component: <NavShop />,onClick: handleShopClick },
     { label: "Discover", component: <NavDiscover /> },
-    { label: "Support", component: <div></div> },
+    { label: "Contact", component: <div></div> },
     { label: "News", onClick: handleNewsClick }
   
   ];

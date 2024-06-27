@@ -24,13 +24,13 @@ const DiscoverVertical = () => {
         </div>
       </div>
       <div className="options-vertical">
-        <span>About us</span>
+        <span className="about us">About us</span>
         <span>Careers</span>
-        <span>Inverstor Relations</span>
+        <span className="about us">Inverstor Relations</span>
 
         <span>Video Guides</span>
         <span>Customer Stories</span>
-        <span>Events</span>
+        <span className="about us">Events</span>
       </div>
     </div>
   );

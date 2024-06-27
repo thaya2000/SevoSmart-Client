@@ -70,19 +70,19 @@ const AdminPanel = () => {
             </Link>
             <ul className="space-y-4">
               <li>
-                <Link to="/users">Users</Link>
+                <Link to="/users" className="hover:text-blue-800" >Users</Link>
               </li>
               <li>
-                <Link to="/products">Accessories</Link>
+                <Link to="/products"className="hover:text-blue-800" >Accessories</Link>
               </li>
               <li>
-                <Link to="/past-projects">Past Projects</Link>
+                <Link to="/past-projects" className="hover:text-blue-800">Past Projects</Link>
               </li>
               <li>
-                <Link to="/news-admin">News</Link>
+                <Link to="/news-admin" className="hover:text-blue-800">News</Link>
               </li>
               <li>
-                <Link to="/logout">Logout</Link>
+                <Link to="/logout" className="hover:text-blue-800">Logout</Link>
               </li>
             </ul>
           </div>

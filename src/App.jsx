@@ -45,6 +45,7 @@ import News from "./pages/Admin/News.jsx";
 import AddNews from "./pages/Admin/AddNews.jsx";
 import AddressForm from "./pages/Shop/AddressForm.jsx";
 import MyOrders from "./pages/Shop/MyOrder.jsx";
+import Aboutus from "./component/Navigation/NavDiscover/about-us.jsx";
 
 function ScrollToTopOnRouteChange() {
   const { pathname } = useLocation();
@@ -85,11 +86,12 @@ function App() {
           path="/construction-learnmore"
           element={<Learnmoreconstruction />}
         />
+        <Route path="/about-us" element={<Aboutus />} />
         <Route path="/test" element={<Test />} />
         <Route path="/loading" element={<Loading />} />
         <Route path="/accessories" element={<Accessories />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/my-orders" element={<MyOrders/>} />
+        <Route path="/my-orders" element={<MyOrders />} />
         <Route path="/energy" element={<AccountDetailsForm />} />
         <Route path="/orderSolarPanel" element={<OrderSolarPanel />} />
         <Route path="/billCalculation" element={<BillCalculation />} />
@@ -103,9 +105,9 @@ function App() {
         <Route path="/users" element={<Users />} />
         <Route path="/edit-project/:id" element={<EditPastProject />} />
         <Route path="/news" element={<NewsPage />} />
-        <Route path="/news-admin" element={<News/>} />
-        <Route path="/edit-news/:id" element={<EditNews/>} />
-        <Route path="/add-news" element={<AddNews/>} />
+        <Route path="/news-admin" element={<News />} />
+        <Route path="/edit-news/:id" element={<EditNews />} />
+        <Route path="/add-news" element={<AddNews />} />
         <Route path="/newspage/:id" element={<NewsDetails />} />
         <Route path="/userdropdownmenu" element={<UserDropdown />} />
         <Route path="/product-details/:id" element={<ProductDetails />} />
@@ -137,7 +139,7 @@ function App() {
         </Route> */}
         <Route path="/passwordsetting" element={<Passwordsetting />} />
         <Route path="/usersetting" element={<Setting />} />
-        <Route path="/address" element={<AddressForm/>} />
+        <Route path="/address" element={<AddressForm />} />
       </Routes>
       <Footer />
     </BrowserRouter>
