@@ -24,7 +24,7 @@ const Setting = () => {
     try {
       setLoading(true);
       const response = await axios.get(
-        `https://sevosmarttech-efce83f08cbb.herokuapp.com/api/v1/auth/users/${user.userId}`,
+        `https://sevosmarttech-efce83f08cbb.herokuapp.com/api/v1/auth/users/${user.userId}`
       );
       const userData = response.data;
       setFirstname(userData.firstname);
@@ -86,7 +86,9 @@ const Setting = () => {
           <div className="sidebar">
             <div className="profileMain">
               <div className="profilename">
-                <span>{auth?.user?.firstname + " " + auth?.user?.lastname}</span>
+                <span>
+                  {auth?.user?.firstname + " " + auth?.user?.lastname}
+                </span>
               </div>
             </div>
             <nav className="navigation">
@@ -105,7 +107,7 @@ const Setting = () => {
                   </a>
                 </div>
                 <div className="bag-containerA">
-                  <a href="/cart">
+                  <a href="/my-orders">
                     <li>
                       <img
                         width="20"
