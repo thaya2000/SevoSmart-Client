@@ -43,12 +43,12 @@ const Cart = () => {
   };
 
   const handleCheckout = () => {
-    const selectedProductIds = cartProducts
+    const selectedCartIds = cartProducts
       .filter((_, index) => selectedProducts[index])
-      .map((cartProduct) => cartProduct.product.productId);
-    navigate("/address", { state: { selectedProductIds } });
+      .map((cartProduct) => cartProduct.id);
+    navigate("/address", { state: { selectedCartIds } });
   };
-
+  
   const handleUpdateQuantity = async (index, newQuantity) => {
     const updatedCartProducts = [...cartProducts];
     updatedCartProducts[index].quantity = newQuantity;

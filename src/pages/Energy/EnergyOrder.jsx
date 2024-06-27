@@ -17,12 +17,11 @@ const EnergyOrder = () => {
     lastname: "",
     email: "",
     phoneno: "",
-    product: "",
-    solarpanel: "",
-    battery: "",
-    inverter: "",
     date: "",
     time: "",
+    solartype: "",
+    power: "",
+    customPower: "",
   };
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
@@ -40,7 +39,6 @@ const EnergyOrder = () => {
   };
 
   useEffect(() => {
-    console.log(formErrors);
     if (Object.keys(formErrors).length === 0 && isSubmit) {
       console.log(formValues);
     }
@@ -69,25 +67,16 @@ const EnergyOrder = () => {
     if (!values.time) {
       errors.time = "Time is required!";
     }
-
-    if (!values.solarpanel && !values.battery && !values.inverter) {
-      errors.product = "You need to choose your product";
+    if (!values.solartype) {
+      errors.solartype = "Please select a solar type";
+    }
+    if (!values.power && !values.customPower) {
+      errors.power = "Please select a power option or enter a custom power value";
     }
     return errors;
   };
 
   const [selectedDate, setSelectedDate] = useState(null);
-
-  // try {
-  //   const response = await axios.post("/api/energyOrder", formData);
-  //   console.log("Data sent successfully:", response.data);
-  //   // Handle any success scenarios here (e.g., show a confirmation message)
-  // } catch (error) {
-  //   console.error("Error sending data:", error);
-  //   // Handle any error scenarios here (e.g., show an error message)
-  // }
-  // };
-
   const datepickerRef = useRef(null);
 
   const handleCalendarIconClick = () => {
@@ -96,181 +85,199 @@ const EnergyOrder = () => {
     }
   };
 
-  return  (
+  return (
     <div>
-      <div className="bg-gray-100 p-4 rounded-md shadow-md mt-4 mb-4"> <span className="ml-50 text-lg text-blue-900 font-semibold">Schedule a consultation to select the right product</span> </div>
-    <div className="flex flex-wrap justify-center">
-      
-     
-      <div className="OrderSolarPanelImage-container w-[600px] ml-0 mr-30 mt-10"> <OrderSolarPanelImage /></div>
-      <form onSubmit={handleSubmit}>
+      <div className="bg-gray-100 p-4 rounded-md shadow-md mt-4 mb-4">
+        <span className="ml-50 text-lg text-blue-900 font-semibold">
+          Schedule a consultation to select the right product
+        </span>
+      </div>
+      <div className="flex flex-wrap justify-center">
+        <div className="OrderSolarPanelImage-container w-[600px] ml-0 mr-30 mt-10">
+          <OrderSolarPanelImage />
+        </div>
+        <form onSubmit={handleSubmit}>
+          <div className="flex flex-col items-center gap-5 py-[80px]">
+            <div className="flex flex-col sm:flex-row gap-10">
+              <div className="flex flex-col w-[300px]">
+                <div className="flex flex-col">
+                  <span className="font-medium text-sm mb-2">First Name</span>
+                  <input
+                    className="h-7 pl-[4px] rounded-md bg-[#D9D9D9] w-full"
+                    type="text"
+                    value={formValues.firstname}
+                    onChange={handleChange}
+                    name="firstname"
+                  />
+                  <p className="text-red-700">{formErrors.firstname}</p>
+                </div>
 
-        <div className="flex flex-col items-center gap-5 py-[80px]">
-          <div className="flex flex-col sm:flex-row gap-10">
-          <div className="flex flex-col w-[300px]">
-  <div className="flex flex-col">
-    <span className="font-medium text-sm mb-2">First Name</span>
-    <input
-      className="h-7 pl-[4px] rounded-md bg-[#D9D9D9] w-full"
-      type="text"
-      value={formValues.firstname}
-      onChange={handleChange}
-      name="firstname"
-    />
-    <p className="text-red-700">{formErrors.firstname}</p>
-  </div>
+                <div className="flex flex-col mt-3">
+                  <span className="font-medium text-sm mb-2">Last Name</span>
+                  <input
+                    className="h-7 pl-[4px] rounded-md bg-[#D9D9D9] w-full"
+                    type="text"
+                    value={formValues.lastname}
+                    onChange={handleChange}
+                    name="lastname"
+                  />
+                  <p className="text-red-700">{formErrors.lastname}</p>
+                </div>
 
-  <div className="flex flex-col mt-3">
-    <span className="font-medium text-sm mb-2">Last Name</span>
-    <input
-      className="h-7 pl-[4px] rounded-md bg-[#D9D9D9] w-full"
-      type="text"
-      value={formValues.lastname}
-      onChange={handleChange}
-      name="lastname"
-    />
-    <p className="text-red-700">{formErrors.lastname}</p>
-  </div>
+                <div className="flex flex-col mt-3">
+                  <span className="font-medium text-sm mb-2">Email ID</span>
+                  <input
+                    className="h-7 pl-[4px] rounded-md bg-[#D9D9D9] w-full"
+                    type="text"
+                    value={formValues.email}
+                    onChange={handleChange}
+                    name="email"
+                  />
+                  <p className="text-red-700">{formErrors.email}</p>
+                </div>
 
-  <div className="flex flex-col mt-3">
-    <span className="font-medium text-sm mb-2">Email ID</span>
-    <input
-      className="h-7 pl-[4px] rounded-md bg-[#D9D9D9] w-full"
-      type="text"
-      value={formValues.email}
-      onChange={handleChange}
-      name="email"
-    />
-    <p className="text-red-700">{formErrors.email}</p>
-  </div>
+                <div className="flex flex-col mt-3">
+                  <span className="font-medium text-sm mb-2">Phone No</span>
+                  <input
+                    className="h-7 pl-[4px] rounded-md bg-[#D9D9D9] w-full"
+                    type="text"
+                    value={formValues.phoneno}
+                    onChange={handleChange}
+                    name="phoneno"
+                  />
+                  <p className="text-red-700">{formErrors.phoneno}</p>
+                </div>
 
-  <div className="flex flex-col mt-3">
-    <span className="font-medium text-sm mb-2">Phone No</span>
-    <input
-      className="h-7 pl-[4px] rounded-md bg-[#D9D9D9] w-full"
-      type="text"
-      value={formValues.phoneno}
-      onChange={handleChange}
-      name="phoneno"
-    />
-    <p className="text-red-700">{formErrors.phoneno}</p>
-  </div>
+                <div className="flex flex-col mt-3">
+                  <span className="font-medium text-sm mb-2">Date</span>
+                  <div className="flex justify-items-start items-center gap-3 h-7 border-gray-800">
+                    <BsCalendarDate
+                      size={30}
+                      onClick={handleCalendarIconClick}
+                      className="hover:cursor-pointer"
+                    />
+                    <DatePicker
+                      name="date"
+                      ref={datepickerRef}
+                      selected={selectedDate}
+                      onChange={(date) => {
+                        setFormValues({ ...formValues, date });
+                        setSelectedDate(date);
+                      }}
+                      dateFormat="dd/MM/yyyy"
+                      filterDate={(date) => date.getDay() !== 6 && date.getDay() !== 0}
+                      className="w-full"
+                    />
+                  </div>
+                  <p className="text-red-700">{formErrors.date}</p>
+                </div>
 
-  <div className="flex flex-col mt-3">
-    <span className="font-medium text-sm mb-2">Date</span>
-    <div className="flex justify-items-start items-center gap-3 h-7 border-gray-800">
-      <BsCalendarDate
-        size={30}
-        onClick={handleCalendarIconClick}
-        className="hover:cursor-pointer"
-      />
-      <DatePicker
-        name="date"
-        ref={datepickerRef}
-        selected={selectedDate}
-        onChange={(date) => {
-          setFormValues({ ...formValues, date });
-          setSelectedDate(date);
-        }}
-        dateFormat="dd/MM/yyyy"
-        filterDate={(date) => date.getDay() !== 6 && date.getDay() !== 0}
-        className="w-full"
-      />
-    </div>
-    <p className="text-red-700">{formErrors.date}</p>
-  </div>
+                <div className="flex flex-col mt-3">
+                  <span className="font-medium text-sm mb-2">Time</span>
+                  <input
+                    value={formValues.time}
+                    onChange={handleChange}
+                    name="time"
+                    disableClock="true"
+                    placeholder="Time"
+                    className="h-7 hover:cursor-pointer rounded-md bg-[#D9D9D9] w-full"
+                    type="time"
+                  />
+                  <p className="text-red-700">{formErrors.time}</p>
+                </div>
 
-  <div className="flex flex-col mt-3">
-    <span className="font-medium text-sm mb-2">Time</span>
-    <input
-      value={formValues.time}
-      onChange={handleChange}
-      name="time"
-      disableClock="true"
-      placeholder="Time"
-      className="h-7 hover:cursor-pointer rounded-md bg-[#D9D9D9] w-full"
-      type="time"
-    />
-    <p className="text-red-700">{formErrors.time}</p>
-  </div>
+                <div className="bg-[#1d3a80] my-3 rounded-full h-7 flex items-center justify-center text-white hover:bg-gray-600 cursor-pointer transition-colors duration-200">
+                  Submit
+                </div>
+              </div>
 
-  <div className="bg-[#1d3a80] my-3 rounded-full h-7 flex items-center justify-center text-white hover:bg-gray-600 cursor-pointer transition-colors duration-200">
-    Submit
-  </div>
-</div>
+              <div className="flex flex-col w-[250px] mx-[3px]">
+                <p className="text-lg font-medium">Choose your solar type</p>
+                <div className="flex flex-col mt-4 ml-5">
+                  <div className="flex items-center mb-[0.125rem] min-h-[1.5rem]">
+                    <input
+                      type="radio"
+                      name="solartype"
+                      value="On-Grid"
+                      checked={formValues.solartype === "On-Grid"}
+                      onChange={handleChange}
+                      className="mr-2"
+                    />
+                    <label className="hover:cursor-pointer" htmlFor="On-Grid">
+                      On-Grid
+                    </label>
+                  </div>
 
+                  <div className="flex items-center mb-[0.125rem] min-h-[1.5rem]">
+                    <input
+                      type="radio"
+                      name="solartype"
+                      value="Off-Grid"
+                      checked={formValues.solartype === "Off-Grid"}
+                      onChange={handleChange}
+                      className="mr-2"
+                    />
+                    <label className="hover:cursor-pointer" htmlFor="Off-Grid">
+                      Off-Grid
+                    </label>
+                  </div>
+                </div>
+                <p className="text-red-700">{formErrors.solartype}</p>
 
-            <div className="flex flex-col w-[250px] mx-[3px]">
-              <p className="text-lg font-medium">Choose your product here</p>
-              <div className="flex flex-col gap-5 mt-4 ml-5">
-        <div className="flex items-center mb-[0.125rem] min-h-[1.5rem]">
-        <input
-      className="mr-[6px] h-[1.125rem] w-[1.125rem] appearance-none rounded-[0.25rem] border-[0.125rem] border-solid border-neutral-300 outline-none before:pointer-events-none before:absolute before:h-[0.875rem] before:w-[0.875rem] before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-[0px_0px_0px_13px_transparent] before:content-[''] checked:border-primary checked:bg-primary checked:before:opacity-[0.16] checked:after:absolute checked:after:-mt-px checked:after:ml-[0.25rem] checked:after:block checked:after:h-[0.8125rem] checked:after:w-[0.375rem] checked:after:rotate-45 checked:after:border-[0.125rem] checked:after:border-l-0 checked:after:border-t-0 checked:after:border-solid checked:after:border-white checked:after:bg-transparent checked:after:content-[''] hover:cursor-pointer hover:before:opacity-[0.04] hover:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:shadow-none focus:transition-[border-color_0.2s] focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:before:transition-[box-shadow_0.2s,transform_0.2s] focus:after:absolute focus:after:z-[1] focus:after:block focus:after:h-[0.875rem] focus:after:w-[0.875rem] focus:after:rounded-[0.125rem] focus:after:content-[''] checked:focus:before:scale-100 checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca] checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] checked:focus:after:-mt-px checked:focus:after:ml-[0.25rem] checked:focus:after:h-[0.8125rem] checked:focus:after:w-[0.375rem] checked:focus:after:rotate-45 checked:focus:after:rounded-none checked:focus:after:border-[0.125rem] checked:focus:after:border-l-0 checked:focus:after:border-t-0 checked:focus:after:border-solid checked:focus:after:border-white checked:focus:after:bg-transparent dark:border-neutral-600 dark:checked:border-primary dark:checked:bg-primary dark:focus:before:shadow-[0px_0px_0px_13px_rgba(255,255,255,0.4)] dark:checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca]"
-      type="checkbox"
-      checked={formValues.solarpanel}
-      onChange={(e) =>
-        setFormValues({
-          ...formValues,
-          solarpanel: e.target.checked,
-        })
-      }
-      id="solarpanel"
-      name="solarpanel"
-    />
-    <label className="hover:cursor-pointer" htmlFor="solarpanel">
-      Solar panel
-    </label>
-  </div>
-
-  <div className="flex items-center mb-[0.125rem] min-h-[1.5rem]">
-    <input
-      className="mr-[6px] h-[1.125rem] w-[1.125rem] appearance-none rounded-[0.25rem] border-[0.125rem] border-solid border-neutral-300 outline-none before:pointer-events-none before:absolute before:h-[0.875rem] before:w-[0.875rem] before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-[0px_0px_0px_13px_transparent] before:content-[''] checked:border-primary checked:bg-primary checked:before:opacity-[0.16] checked:after:absolute checked:after:-mt-px checked:after:ml-[0.25rem] checked:after:block checked:after:h-[0.8125rem] checked:after:w-[0.375rem] checked:after:rotate-45 checked:after:border-[0.125rem] checked:after:border-l-0 checked:after:border-t-0 checked:after:border-solid checked:after:border-white checked:after:bg-transparent checked:after:content-[''] hover:cursor-pointer hover:before:opacity-[0.04] hover:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:shadow-none focus:transition-[border-color_0.2s] focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:before:transition-[box-shadow_0.2s,transform_0.2s] focus:after:absolute focus:after:z-[1] focus:after:block focus:after:h-[0.875rem] focus:after:w-[0.875rem] focus:after:rounded-[0.125rem] focus:after:content-[''] checked:focus:before:scale-100 checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca] checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] checked:focus:after:-mt-px checked:focus:after:ml-[0.25rem] checked:focus:after:h-[0.8125rem] checked:focus:after:w-[0.375rem] checked:focus:after:rotate-45 checked:focus:after:rounded-none checked:focus:after:border-[0.125rem] checked:focus:after:border-l-0 checked:focus:after:border-t-0 checked:focus:after:border-solid checked:focus:after:border-white checked:focus:after:bg-transparent dark:border-neutral-600 dark:checked:border-primary dark:checked:bg-primary dark:focus:before:shadow-[0px_0px_0px_13px_rgba(255,255,255,0.4)] dark:checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca]"
-      type="checkbox"
-      checked={formValues.battery}
-      onChange={(e) =>
-        setFormValues({
-          ...formValues,
-          battery: e.target.checked,
-        })
-      }
-      id="battery"
-      name="battery"
-    />
-    <label className="hover:cursor-pointer" htmlFor="battery">
-      Battery
-    </label>
-  </div>
-
-  <div className="flex items-center mb-[0.125rem] min-h-[1.5rem]">
-    <input
-      className="mr-[6px] h-[1.125rem] w-[1.125rem] appearance-none rounded-[0.25rem] border-[0.125rem] border-solid border-neutral-300 outline-none before:pointer-events-none before:absolute before:h-[0.875rem] before:w-[0.875rem] before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-[0px_0px_0px_13px_transparent] before:content-[''] checked:border-primary checked:bg-primary checked:before:opacity-[0.16] checked:after:absolute checked:after:-mt-px checked:after:ml-[0.25rem] checked:after:block checked:after:h-[0.8125rem] checked:after:w-[0.375rem] checked:after:rotate-45 checked:after:border-[0.125rem] checked:after:border-l-0 checked:after:border-t-0 checked:after:border-solid checked:after:border-white checked:after:bg-transparent checked:after:content-[''] hover:cursor-pointer hover:before:opacity-[0.04] hover:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:shadow-none focus:transition-[border-color_0.2s] focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:before:transition-[box-shadow_0.2s,transform_0.2s] focus:after:absolute focus:after:z-[1] focus:after:block focus:after:h-[0.875rem] focus:after:w-[0.875rem] focus:after:rounded-[0.125rem] focus:after:content-[''] checked:focus:before:scale-100 checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca] checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] checked:focus:after:-mt-px checked:focus:after:ml-[0.25rem] checked:focus:after:h-[0.8125rem] checked:focus:after:w-[0.375rem] checked:focus:after:rotate-45 checked:focus:after:rounded-none checked:focus:after:border-[0.125rem] checked:focus:after:border-l-0 checked:focus:after:border-t-0 checked:focus:after:border-solid checked:focus:after:border-white checked:focus:after:bg-transparent dark:border-neutral-600 dark:checked:border-primary dark:checked:bg-primary dark:focus:before:shadow-[0px_0px_0px_13px_rgba(255,255,255,0.4)] dark:checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca]"
-      type="checkbox"
-      checked={formValues.inverter}
-      onChange={(e) =>
-        setFormValues({
-          ...formValues,
-          inverter: e.target.checked,
-        })
-      }
-      id="inverter"
-      name="inverter"
-    />
-    <label className="hover:cursor-pointer" htmlFor="inverter">
-      Inverter
-    </label>
-  </div>
-</div>
-
-              <p className="text-red-700">{formErrors.product}</p>
+                {formValues.solartype && (
+                  <div className="flex flex-col mt-3">
+                    <p className="text-lg font-medium">Choose your power option</p>
+                    <div className="flex flex-col mt-4 ml-5">
+                      {["5Kw", "10Kw", "20Kw", "40Kw"].map((option) => (
+                        <div className="flex items-center mb-[0.125rem] min-h-[1.5rem]" key={option}>
+                          <input
+                            type="radio"
+                            name="power"
+                            value={option}
+                            checked={formValues.power === option}
+                            onChange={handleChange}
+                            className="mr-2"
+                          />
+                          <label className="hover:cursor-pointer" htmlFor={option}>
+                            {option}
+                          </label>
+                        </div>
+                      ))}
+                      <div className="flex items-center mb-[0.125rem] min-h-[1.5rem]">
+                        <input
+                          type="radio"
+                          name="power"
+                          value="custom"
+                          checked={formValues.power === "custom"}
+                          onChange={handleChange}
+                          className="mr-2"
+                        />
+                        <label className="hover:cursor-pointer" htmlFor="custom">
+                          Custom
+                        </label>
+                      </div>
+                      {formValues.power === "custom" && (
+                        <div className="mt-2">
+                          <input
+                            type="text"
+                            name="customPower"
+                            value={formValues.customPower}
+                            onChange={handleChange}
+                            placeholder="Enter custom power"
+                            className="h-7 pl-[4px] rounded-md bg-[#D9D9D9] w-full"
+                          />
+                        </div>
+                      )}
+                    </div>
+                    <p className="text-red-700">{formErrors.power}</p>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
-
-          
-        </div>
-      </form>
+        </form>
       </div>
     </div>
-    
   );
 };
 

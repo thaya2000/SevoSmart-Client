@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "./BillCalculator.css";
 import axios from "axios";
 import { IoCloseCircle } from "react-icons/io5";
+import { Link} from 'react-router-dom';
 
 export default function BillCalculator() {
   const [bill, setBill] = useState("");
@@ -157,6 +158,7 @@ export default function BillCalculator() {
                 <IoCloseCircle size="2rem" />
               </div>
             </div>
+          
           </div>
         </>
       )}

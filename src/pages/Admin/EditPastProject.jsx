@@ -2,10 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import RambousLoader from "../../routes/RambousLoader";
 
 const EditPastProject = () => {
   const navigate = useNavigate();
   const { id } = useParams();
+  
+  const [loading, setLoading] = useState(false);
 
   const [project, setProject] = useState({
     projectName: "",
@@ -23,7 +26,9 @@ const EditPastProject = () => {
 
   const loadProject = async () => {
     try {
+      setLoading(true);
       const result = await axios.get(`https://sevosmarttech-efce83f08cbb.herokuapp.com/api/v1/admin/past-project/${id}`);
+      setLoading(false);
       const projectData = result.data;
 
       setProject({
@@ -75,7 +80,11 @@ const EditPastProject = () => {
   };
 
   return (
-    <div className="flex">
+    <div>
+          {loading ? (
+        <RambousLoader />
+      ) : (
+      <div className="flex">
       <div className="bg-gray-800 w-100% p-4 text-white">
         <Link to="/admin-panel">
           <h2 className="text-2xl font-bold mb-4">Admin Panel</h2>
@@ -155,6 +164,8 @@ const EditPastProject = () => {
           </div>
         </form>
       </div>
+    </div>
+      )}
     </div>
   );
 };

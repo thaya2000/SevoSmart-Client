@@ -28,17 +28,17 @@ const MyOrders = () => {
 
     return (
         <div className="container mx-auto p-4">
-            <div className="text-3xl text-blue-900 font-semibold text-center mb-4">
+        <div className="text-3xl text-blue-900 font-semibold text-center mb-4">
                 My Orders
             </div>
 
             {loading ? (
                 <RambousLoader />
             ) : (
-                <div className="grid grid-cols-1 md:grid-cols-2 mt-11 gap-6">
+                <div className="grid grid-cols-1 mt-20 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {orders.map((order, index) => (
-                        <div key={index} className="bg-white shadow-md rounded-lg p-4 mb-4 md:mb-0">
-                            <h2 className="text-xl font-semibold mb-2">Order #{order.orderNumber}</h2>
+                        <div key={index} className="bg-white shadow-lg rounded-lg p-6">
+                            <h2 className="text-2xl font-semibold mb-4">Order #{order.orderNumber}</h2>
                             <p className="mb-2">
                                 <span className="font-bold">Date:</span> {new Date(order.orderDate).toLocaleDateString()}
                             </p>
@@ -48,7 +48,7 @@ const MyOrders = () => {
                                     className={`px-2 py-1 rounded-full text-sm ${order.orderStatus === 'DELIVERED'
                                         ? 'bg-green-100 text-green-700'
                                         : 'bg-yellow-100 text-yellow-700'
-                                    }`}
+                                        }`}
                                 >
                                     {order.orderStatus}
                                 </span>
@@ -60,20 +60,22 @@ const MyOrders = () => {
                                 <span className="font-bold">Billing Address:</span> {order.orderBillingAddress}
                             </p>
                             <div>
-                                <h3 className="text-lg font-semibold mb-2">Products:</h3>
-                                {order.products.map((product, index) => (
-                                    <div key={index} className="flex items-center mb-2">
-                                        <img
-                                            src={product.productImageUrl}
-                                            alt={product.productName}
-                                            className="w-16 h-16 object-cover rounded mr-4"
-                                        />
-                                        <div>
-                                            <p className="font-bold">{product.productName}</p>
-                                            <p>Quantity: {product.productQuantity}</p>
+                                <h3 className="text-lg font-semibold mb-3">Products:</h3>
+                                <div className="space-y-3">
+                                    {order.products.map((product, index) => (
+                                        <div key={index} className="flex items-center space-x-4">
+                                            <img
+                                                src={product.productImageUrl}
+                                                alt={product.productName}
+                                                className="w-16 h-16 object-cover rounded-lg shadow-md"
+                                            />
+                                            <div>
+                                                <p className="font-bold">{product.productName}</p>
+                                                <p>Quantity: {product.productQuantity}</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                ))}
+                                    ))}
+                                </div>
                             </div>
                         </div>
                     ))}
