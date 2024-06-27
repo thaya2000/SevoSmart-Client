@@ -44,6 +44,11 @@ import CartProduct from "./component/Shop/CartProduct.jsx";
 import News from "./pages/Admin/News.jsx";
 import AddNews from "./pages/Admin/AddNews.jsx";
 import AddressForm from "./pages/Shop/AddressForm.jsx";
+import DiscoverVertical from "./component/Navigation/NavDiscover/DiscoverVertical.jsx";
+import ShopVertical from "./component/Navigation/NavShop/ShopVertical.jsx";
+import ConstructionsVertical from "./component/Navigation/NavConstruction/ConstructionsVertical.jsx";
+import EnergyVertical from "./component/Navigation/NavEnergy/EnergyVertical.jsx";
+import Nav from "./component/Navigation/Nav/Nav.jsx";
 
 function ScrollToTopOnRouteChange() {
   const { pathname } = useLocation();
@@ -67,6 +72,7 @@ function App() {
       <Toaster />
       <ScrollToTopOnRouteChange />
       <Navigation />
+      <Nav/>
       <Routes>
         <Route path="/admin/*" element={<AdminRoutes />} />
         <Route path="/user/*" element={<PrivateRoutes />} />
@@ -136,6 +142,12 @@ function App() {
         <Route path="/passwordsetting" element={<Passwordsetting />} />
         <Route path="/usersetting" element={<Setting />} />
         <Route path="/address" element={<AddressForm/>} />
+        
+        
+        <Route path="/discover-vertical" element={<DiscoverVertical/>}/>
+        <Route path="/shop-vertical" element={<ShopVertical/>}/>
+        <Route path="/construction-vertical" element={<ConstructionsVertical/>}/>
+        <Route path="/energy-vertical" element={<EnergyVertical/>}/>
       </Routes>
       <Footer />
     </BrowserRouter>

@@ -104,12 +104,14 @@
 }
 
 .Construction-vertical {
-  position: relative;
+  position: fixed;
   display: flex;
   flex-direction: column;
   padding-top: 3vh;
   width: 100%;
   background-color: #f2f2f2;
+  z-index: 999;
+  height: 100%;
 }
 /* .c-span {
   margin-top: 3vh;

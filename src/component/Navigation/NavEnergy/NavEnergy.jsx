@@ -8,11 +8,13 @@ import { Link } from "react-router-dom";
 
 const Product = ({ image, name }) => {
   return (
-    <Link to="/energy-learnmore">
-      <div className="energy-nav-product">
+    <div className="energy-nav-product">
+      <Link to="/energy-learnmore">
         <img className="energy-nav-product-image" src={image} alt={name} />
         <div className="energy-nav-product-name">{name}</div>
-        <div className="flex items-center justify-around w-6/10">
+      </Link>
+      <div className="flex items-center justify-around w-6/10">
+        <Link to="/energy-learnmore">
           <div className="energy-nav-button">Learn</div>
         </Link>
         <Link to="/energy-order">

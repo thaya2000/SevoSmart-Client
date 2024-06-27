@@ -47,7 +47,9 @@
   flex-direction: column;
   padding-top: 3vh;
   width: 100%;
+  height: 100%;
   background-color: #f2f2f2;
+  z-index: 999;
 }
 
 .options-vertical {
