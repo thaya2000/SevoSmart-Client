@@ -34,7 +34,7 @@ const EditProduct = () => {
       setLoading(false);
       const productData = result.data;
       setProduct(productData);
-      setImagePreview(productData.productImage);
+      setImagePreview(productData.productImageURL); // Assuming URL is returned
     } catch (error) {
       setLoading(false);
       console.error("Error loading product:", error);
@@ -103,7 +103,7 @@ const EditProduct = () => {
                 <Link to="/users">Users</Link>
               </li>
               <li>
-                <Link to="/products">Accessories</Link>
+                <Link to="/admin/products">Accessories</Link>
               </li>
               <li>
                 <Link to="/past-projects">Past Projects</Link>

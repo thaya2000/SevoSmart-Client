@@ -9,16 +9,14 @@ const EditPastProject = () => {
   const { id } = useParams();
 
   const [loading, setLoading] = useState(false);
-
   const [project, setProject] = useState({
     projectName: "",
     description: "",
-    Image: [],
+    productImageURL: [],
   });
 
+  const [imageFiles, setImageFiles] = useState([]);
   const [imagePreviews, setImagePreviews] = useState([]);
-
-  const { projectName, description, Image } = project;
 
   useEffect(() => {
     loadProject();
@@ -30,18 +28,12 @@ const EditPastProject = () => {
       const result = await axios.get(`/api/v1/admin/past-project/${id}`);
       setLoading(false);
       const projectData = result.data;
-
       setProject({
         projectName: projectData.projectName,
         description: projectData.description,
-        Image: projectData.Image || [], // Ensure Image is an array
+        productImageURL: projectData.productImageURL || [],
       });
-
-      // Generate image previews from base64 strings
-      const previews = projectData.Image.map(
-        (image) => `data:image/jpeg;base64,${image}`
-      );
-      setImagePreviews(previews);
+      setImagePreviews(projectData.productImageURL);
     } catch (error) {
       console.error("Error loading project:", error);
     }
@@ -55,16 +47,25 @@ const EditPastProject = () => {
     e.preventDefault();
     try {
       const formData = new FormData();
-      formData.append("projectName", projectName);
-      formData.append("description", description);
-      Image.forEach((image) => formData.append("Image", image));
+      formData.append("projectName", project.projectName);
+      formData.append("description", project.description);
+
+      project.productImageURL.forEach((url) =>
+        formData.append("productImageURL", url)
+      );
+
+      if (imageFiles.length > 0) {
+        imageFiles.forEach((file) => formData.append("Image", file));
+      } else {
+        const emptyFile = new Blob([], { type: "application/octet-stream" });
+        formData.append("Image", emptyFile);
+      }
 
       await axios.put(`/api/v1/admin/past-project/${id}`, formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
+        headers: { "Content-Type": "multipart/form-data" },
       });
-      toast.success("Project is successfully updated.");
+
+      toast.success("Project successfully updated.");
       navigate("/past-projects");
     } catch (err) {
       console.error(err);
@@ -73,11 +74,10 @@ const EditPastProject = () => {
   };
 
   const handleImageChange = (e) => {
-    const selectedImages = Array.from(e.target.files);
-    setProject({ ...project, Image: selectedImages });
-
-    const previews = selectedImages.map((image) => URL.createObjectURL(image));
-    setImagePreviews(previews);
+    const selectedFiles = Array.from(e.target.files);
+    const imageUrls = selectedFiles.map((file) => URL.createObjectURL(file));
+    setImageFiles(selectedFiles);
+    setImagePreviews(imageUrls);
   };
 
   return (
@@ -120,7 +120,7 @@ const EditPastProject = () => {
                 <input
                   type="text"
                   name="projectName"
-                  value={projectName}
+                  value={project.projectName}
                   onChange={onInputChange}
                   className="shadow appearance-none border rounded w-full max-w-sm py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline md:w-3/4"
                 />
@@ -131,7 +131,7 @@ const EditPastProject = () => {
                 </label>
                 <textarea
                   name="description"
-                  value={description}
+                  value={project.description}
                   onChange={onInputChange}
                   className="shadow appearance-none border rounded w-full max-w-sm py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline md:w-3/4"
                   rows={8}
@@ -162,7 +162,6 @@ const EditPastProject = () => {
                     />
                   ))}
               </div>
-
               <div className="my-8 flex justify-center">
                 <button
                   type="submit"
