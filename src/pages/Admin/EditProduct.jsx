@@ -30,9 +30,7 @@ const EditProduct = () => {
   const loadProduct = async () => {
     setLoading(true);
     try {
-      const result = await axios.get(
-        `https://sevosmarttech-efce83f08cbb.herokuapp.com/admin/product/${id}`
-      );
+      const result = await axios.get(`/admin/product/${id}`);
       setLoading(false);
       const productData = result.data;
       setProduct(productData);
@@ -74,15 +72,11 @@ const EditProduct = () => {
         formData.append("productpic", productImage);
       }
 
-      await axios.put(
-        `https://sevosmarttech-efce83f08cbb.herokuapp.com/admin/updateProduct/${id}`,
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+      await axios.put(`/admin/updateProduct/${id}`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
 
       toast.success("Product is successfully updated.");
       setSubmitting(false);
@@ -213,13 +207,19 @@ const EditProduct = () => {
               </div>
               {imagePreview && (
                 <div className="mb-6 flex justify-center">
-                  <img src={imagePreview} className="w-1/5 mx-auto" alt="Preview" />
+                  <img
+                    src={imagePreview}
+                    className="w-1/5 mx-auto"
+                    alt="Preview"
+                  />
                 </div>
               )}
               <div className="my-8 flex justify-center">
                 <button
                   type="submit"
-                  className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ${submitting ? 'opacity-50 cursor-not-allowed' : ''}`}
+                  className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ${
+                    submitting ? "opacity-50 cursor-not-allowed" : ""
+                  }`}
                   disabled={submitting}
                 >
                   {submitting ? (

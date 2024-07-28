@@ -21,14 +21,11 @@ const Products = () => {
   const loadProducts = async () => {
     setLoading(true);
     try {
-      const result = await axios.get(
-        "https://sevosmarttech-efce83f08cbb.herokuapp.com/admin/allProduct",
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const result = await axios.get("/admin/allProduct", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       setProducts(result.data);
       generateSerialNumbers(result.data);
     } catch (error) {
@@ -49,9 +46,7 @@ const Products = () => {
 
   const handleDeleteProduct = async (id) => {
     try {
-      await axios.delete(
-        `https://sevosmarttech-efce83f08cbb.herokuapp.com/admin/deleteProduct/${id}`
-      );
+      await axios.delete(`/admin/deleteProduct/${id}`);
       toast.success("Product is successfully deleted.");
       loadProducts(); // Reload products after deletion
       setDeleteProductId(null);
@@ -90,20 +85,20 @@ const Products = () => {
             </ul>
           </div>
           <div className="admin-table flex-1 p-4 overflow-y-auto">
-          <div className="flex flex-row justify-between">
-           <h className=" admin-tableh text-2xl font-bold mb-4">
-           Accessories
-            </h>
-            <div className="my-4">
-              <Link
-                to="/add-product"
-                className="add-project bg-red-700 hover:bg-blue-800 text-white font-medium rounded-lg text-sm px-5 py-2.5 me-10 mb-40 ml-10 mr-10 focus:outline-none"
-              >
-               Add Accessories
-              </Link>
+            <div className="flex flex-row justify-between">
+              <h className=" admin-tableh text-2xl font-bold mb-4">
+                Accessories
+              </h>
+              <div className="my-4">
+                <Link
+                  to="/add-product"
+                  className="add-project bg-red-700 hover:bg-blue-800 text-white font-medium rounded-lg text-sm px-5 py-2.5 me-10 mb-40 ml-10 mr-10 focus:outline-none"
+                >
+                  Add Accessories
+                </Link>
+              </div>
             </div>
-           </div>
-      
+
             <div className="overflow-x-auto flex justify-center mt-10">
               <table className="table-auto w-full">
                 <thead>
@@ -125,7 +120,9 @@ const Products = () => {
                       <td className="border px-4 py-2">
                         {serialNumbers[product.id]}
                       </td>
-                      <td className="border px-4 py-2">{product.productName}</td>
+                      <td className="border px-4 py-2">
+                        {product.productName}
+                      </td>
                       <td className="border px-4 py-2">
                         <div className="flex flex-row justify-center">
                           <img

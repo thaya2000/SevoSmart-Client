@@ -33,7 +33,7 @@ const AddProject = () => {
       });
 
       const { data } = await axios.post(
-        "https://sevosmarttech-efce83f08cbb.herokuapp.com/api/v1/admin/past-project",
+        "/api/v1/admin/past-project",
         projectData
       );
 

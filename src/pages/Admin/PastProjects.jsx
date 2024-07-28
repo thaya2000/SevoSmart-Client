@@ -19,9 +19,7 @@ const PastProjects = () => {
   const loadPastProjects = async () => {
     try {
       setLoading(true);
-      const result = await axios.get(
-        "https://sevosmarttech-efce83f08cbb.herokuapp.com/api/v1/admin/past-projects"
-      );
+      const result = await axios.get("/api/v1/admin/past-projects");
       setLoading(false);
       console.log("Loaded projects:", result.data);
       setPastProjects(result.data);
@@ -41,9 +39,7 @@ const PastProjects = () => {
 
   const handleDeletePastProject = async (id) => {
     try {
-      await axios.delete(
-        `https://sevosmarttech-efce83f08cbb.herokuapp.com/api/v1/admin/past-project/${id}`
-      );
+      await axios.delete(`/api/v1/admin/past-project/${id}`);
       toast.success("Past project is successfully deleted.");
       loadPastProjects();
       setDeletePastProjectId(null);
@@ -118,7 +114,7 @@ const PastProjects = () => {
                     <td className="border px-4 py-2">
                       <div className="flex flex-wrap justify-center">
                         {Array.isArray(project.productImageURL) &&
-                          project.productImageURL.length > 0 ? (
+                        project.productImageURL.length > 0 ? (
                           project.productImageURL.map((imageData, index) => (
                             <img
                               key={index}

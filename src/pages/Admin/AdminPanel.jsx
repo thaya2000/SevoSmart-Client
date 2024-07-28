@@ -40,7 +40,7 @@ const AdminPanel = () => {
     try {
       setLoading(true);
       const response = await axios.put(
-        `https://sevosmarttech-efce83f08cbb.herokuapp.com/api/v1/user/deliverOrder/${orderNumber}`
+        `/api/v1/user/deliverOrder/${orderNumber}`
       );
 
       if (response.status === 200) {
@@ -72,19 +72,29 @@ const AdminPanel = () => {
             </Link>
             <ul className="space-y-4">
               <li>
-                <Link to="/users" className="hover:text-blue-800" >Users</Link>
+                <Link to="/users" className="hover:text-blue-800">
+                  Users
+                </Link>
               </li>
               <li>
-                <Link to="/products"className="hover:text-blue-800" >Accessories</Link>
+                <Link to="/products" className="hover:text-blue-800">
+                  Accessories
+                </Link>
               </li>
               <li>
-                <Link to="/past-projects" className="hover:text-blue-800">Past Projects</Link>
+                <Link to="/past-projects" className="hover:text-blue-800">
+                  Past Projects
+                </Link>
               </li>
               <li>
-                <Link to="/news-admin" className="hover:text-blue-800">News</Link>
+                <Link to="/news-admin" className="hover:text-blue-800">
+                  News
+                </Link>
               </li>
               <li>
-                <Link to="/logout" className="hover:text-blue-800">Logout</Link>
+                <Link to="/logout" className="hover:text-blue-800">
+                  Logout
+                </Link>
               </li>
             </ul>
           </div>
@@ -122,7 +132,10 @@ const AdminPanel = () => {
                         <select
                           value={order.orderStatus}
                           onChange={(e) =>
-                            handleStatusChange(order.orderNumber, e.target.value)
+                            handleStatusChange(
+                              order.orderNumber,
+                              e.target.value
+                            )
                           }
                           className="bg-white border border-gray-300 text-gray-800 py-1 px-2 rounded"
                         >

@@ -13,9 +13,7 @@ const OrderDetails = () => {
     const fetchOrderDetails = async () => {
       try {
         setLoading(true);
-        const response = await axios.get(
-          `https://sevosmarttech-efce83f08cbb.herokuapp.com/api/v1/user/order/${orderNumber}`
-        );
+        const response = await axios.get(`/api/v1/user/order/${orderNumber}`);
         setLoading(false);
         setOrder(response.data);
         setError(null); // Clear any previous errors
@@ -42,11 +40,15 @@ const OrderDetails = () => {
       <div className="bg-gray-700 p-6 rounded-lg shadow-lg w-full max-w-3xl">
         <div className="mb-6">
           <strong className="text-lg text-gray-400">Order Number:</strong>
-          <span className="text-lg text-gray-200 ml-2">{order.orderNumber}</span>
+          <span className="text-lg text-gray-200 ml-2">
+            {order.orderNumber}
+          </span>
         </div>
         <div className="mb-6">
           <strong className="text-lg text-gray-400">Customer Name:</strong>
-          <span className="text-lg text-gray-200 ml-2">{order.orderCustomerName}</span>
+          <span className="text-lg text-gray-200 ml-2">
+            {order.orderCustomerName}
+          </span>
         </div>
         <div className="mb-6">
           <strong className="text-lg text-gray-400">Order Date:</strong>
@@ -54,15 +56,21 @@ const OrderDetails = () => {
         </div>
         <div className="mb-6">
           <strong className="text-lg text-gray-400">Status:</strong>
-          <span className="text-lg text-gray-200 ml-2">{order.orderStatus}</span>
+          <span className="text-lg text-gray-200 ml-2">
+            {order.orderStatus}
+          </span>
         </div>
         <div className="mb-6">
           <strong className="text-lg text-gray-400">Order Amount:</strong>
-          <span className="text-lg text-gray-200 ml-2">{order.orderAmount}</span>
+          <span className="text-lg text-gray-200 ml-2">
+            {order.orderAmount}
+          </span>
         </div>
         <div className="mb-6">
           <strong className="text-lg text-gray-400">Billing Address:</strong>
-          <span className="text-lg text-gray-200 ml-2">{order.orderBillingAddress}</span>
+          <span className="text-lg text-gray-200 ml-2">
+            {order.orderBillingAddress}
+          </span>
         </div>
         <div className="mb-6">
           <strong className="text-lg text-gray-400">Products:</strong>

@@ -38,7 +38,7 @@ const AddProduct = () => {
       productData.append("brand", brand);
 
       const { data } = await axios.post(
-        `https://sevosmarttech-efce83f08cbb.herokuapp.com/admin/addProduct/${user.userId}`,
+        `/admin/addProduct/${user.userId}`,
         productData
       );
 
@@ -208,7 +208,9 @@ const AddProduct = () => {
           <div className="my-8 flex justify-center">
             <button
               type="submit"
-              className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
+              className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ${
+                loading ? "opacity-50 cursor-not-allowed" : ""
+              }`}
               disabled={loading}
             >
               {loading ? (

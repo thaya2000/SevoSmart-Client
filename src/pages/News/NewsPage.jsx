@@ -1,14 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import './NewsPage.css';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import "./NewsPage.css";
 import axios from "axios";
-import image13 from '../../assets/offer_solar.png';
+import image13 from "../../assets/offer_solar.png";
 import RambousLoader from "../../routes/RambousLoader";
 
 const NewsPage = () => {
   const months = [
-    "January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December"
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
   ];
 
   const [loading, setLoading] = useState(false);
@@ -27,9 +37,9 @@ const NewsPage = () => {
     const handleResize = () => {
       setArchiveVisible(window.innerWidth >= 800);
     };
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
@@ -42,11 +52,11 @@ const NewsPage = () => {
   const loadNews = async () => {
     setLoading(true);
     try {
-      const result = await axios.get("https://sevosmarttech-efce83f08cbb.herokuapp.com/api/v1/admin/news");
-      console.log('Loaded projects:', result.data);
+      const result = await axios.get("/api/v1/admin/news");
+      console.log("Loaded projects:", result.data);
       setNewsList(result.data);
     } catch (error) {
-      console.error('Error loading News:', error);
+      console.error("Error loading News:", error);
     } finally {
       setLoading(false);
     }
@@ -58,13 +68,13 @@ const NewsPage = () => {
         <RambousLoader />
       ) : (
         <div className="news-page">
-          <div className={`archive-container ${archiveVisible ? 'visible' : ''}`}>
+          <div
+            className={`archive-container ${archiveVisible ? "visible" : ""}`}
+          >
             <div className="archive">
               {window.innerWidth < 800 && (
                 <div className="back-arrow">
-                  <button onClick={toggleArchiveVisibility}>
-                    &larr;
-                  </button>
+                  <button onClick={toggleArchiveVisibility}>&larr;</button>
                 </div>
               )}
               <h2>Archive</h2>
@@ -92,9 +102,12 @@ const NewsPage = () => {
           </div>
 
           <div className="news-feed-container">
-            <div className='news-head'>
+            <div className="news-head">
               {window.innerWidth < 800 && (
-                <button className="archive-toggle" onClick={toggleArchiveVisibility}>
+                <button
+                  className="archive-toggle"
+                  onClick={toggleArchiveVisibility}
+                >
                   Archive
                 </button>
               )}
@@ -103,12 +116,25 @@ const NewsPage = () => {
             <div className="feed-items-container">
               {newsList.map((news) => (
                 <div key={news.newsId} className="feed-item">
-                  <Link to={{ pathname: `/newspage/${news.newsId}`, state: { news } }}>
-                    <img src={`data:image/jpeg;base64,${news.newsImage}`} alt={news.newsTitle} />
+                  <Link
+                    to={{
+                      pathname: `/newspage/${news.newsId}`,
+                      state: { news },
+                    }}
+                  >
+                    <img
+                      src={`data:image/jpeg;base64,${news.newsImage}`}
+                      alt={news.newsTitle}
+                    />
                   </Link>
                   <h2>{news.newsTitle}</h2>
                   <p>{news.newsContent}</p>
-                  <Link to={{ pathname: `/newspage/${news.newsId}`, state: { news } }}>
+                  <Link
+                    to={{
+                      pathname: `/newspage/${news.newsId}`,
+                      state: { news },
+                    }}
+                  >
                     <button className="read-more">Read More</button>
                   </Link>
                 </div>
@@ -119,17 +145,30 @@ const NewsPage = () => {
           {/* Conditionally render the solar discounts */}
           {discountsVisible && (
             <div className="solar-discounts visible">
-              <button className="close-button" onClick={toggleDiscountsVisibility}>✖</button>
+              <button
+                className="close-button"
+                onClick={toggleDiscountsVisibility}
+              >
+                ✖
+              </button>
               <h2>Special Offer: 50% Off on Solar Products</h2>
-              <p>Upgrade to solar energy today and save big! Limited time offer.</p>
+              <p>
+                Upgrade to solar energy today and save big! Limited time offer.
+              </p>
               <div className="offer-container">
-                <img src={image13} alt="Solar Panel" className="solar-panel-image" />
+                <img
+                  src={image13}
+                  alt="Solar Panel"
+                  className="solar-panel-image"
+                />
                 <div className="offer-buttons">
                   <button className="round-button">50% Off</button>
                 </div>
               </div>
               <div className="silver-buttons">
-                <button className="silver-button">unbeatable solar solutions</button>
+                <button className="silver-button">
+                  unbeatable solar solutions
+                </button>
               </div>
               <div className="silver-buttons">
                 <button className="silver-button">smart home solutions</button>
@@ -138,7 +177,9 @@ const NewsPage = () => {
                 <button className="silver-button">constructions</button>
               </div>
               <div>
-                <a href="#" className="learn-more">Learn More</a>
+                <a href="#" className="learn-more">
+                  Learn More
+                </a>
               </div>
             </div>
           )}

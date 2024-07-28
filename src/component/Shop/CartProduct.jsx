@@ -32,7 +32,7 @@ const CartProduct = ({
 
     try {
       await axios.post(
-        `https://sevosmarttech-efce83f08cbb.herokuapp.com/api/v1/user/addProductToCart/${product_id}/${user.userId}`,
+        `/api/v1/user/addProductToCart/${product_id}/${user.userId}`,
         {
           quantity: newQuantity,
         }
@@ -52,7 +52,7 @@ const CartProduct = ({
 
       try {
         await axios.delete(
-          `https://sevosmarttech-efce83f08cbb.herokuapp.com/api/v1/user/removeProductFromCartById/${product_id}/${user.userId}`,
+          `/api/v1/user/removeProductFromCartById/${product_id}/${user.userId}`,
           {
             quantity: newQuantity,
           }
@@ -72,7 +72,7 @@ const CartProduct = ({
   const handleDeleteProduct = async () => {
     try {
       await axios.delete(
-        `https://sevosmarttech-efce83f08cbb.herokuapp.com/api/v1/user/deleteProductFromCartById/${product_id}/${user.userId}`
+        `/api/v1/user/deleteProductFromCartById/${product_id}/${user.userId}`
       );
       toast.success("Product successfully removed from cart.");
       onRemoveProduct(product_id);

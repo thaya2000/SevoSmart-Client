@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate, Link } from 'react-router-dom';
-import axios from 'axios';
-import toast from 'react-hot-toast';
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate, Link } from "react-router-dom";
+import axios from "axios";
+import toast from "react-hot-toast";
 import RambousLoader from "../../routes/RambousLoader";
 
 const EditNews = () => {
@@ -28,7 +28,7 @@ const EditNews = () => {
   const loadNews = async () => {
     try {
       setLoading(true);
-      const result = await axios.get(`https://sevosmarttech-efce83f08cbb.herokuapp.com/api/v1/admin/news/${id}`);
+      const result = await axios.get(`/api/v1/admin/news/${id}`);
       setLoading(false);
       const newsData = result.data;
 
@@ -41,9 +41,8 @@ const EditNews = () => {
 
       // Set image preview to the URL of the current image
       if (newsData.Image) {
-        setImagePreview(`https://sevosmarttech-efce83f08cbb.herokuapp.com/${newsData.Image}`);
+        setImagePreview(`/${newsData.Image}`);
       }
-
     } catch (error) {
       console.error("Error loading news:", error);
     }
@@ -58,16 +57,16 @@ const EditNews = () => {
     setSubmitting(true);
     try {
       const formData = new FormData();
-      formData.append('newsTitle', newsTitle);
-      formData.append('newsContent', newsContent);
-      formData.append('newsPublishDate', newsPublishDate);
+      formData.append("newsTitle", newsTitle);
+      formData.append("newsContent", newsContent);
+      formData.append("newsPublishDate", newsPublishDate);
       if (Image) {
-        formData.append('Image', Image);
+        formData.append("Image", Image);
       }
 
-      await axios.put(`https://sevosmarttech-efce83f08cbb.herokuapp.com/api/v1/admin/news/${id}`, formData, {
+      await axios.put(`/api/v1/admin/news/${id}`, formData, {
         headers: {
-          'Content-Type': 'multipart/form-data',
+          "Content-Type": "multipart/form-data",
         },
       });
       setSubmitting(false);
@@ -103,17 +102,29 @@ const EditNews = () => {
               <h2 className="text-2xl font-bold mb-4">Admin Panel</h2>
             </Link>
             <ul className="space-y-4">
-              <li><Link to="/users">Users</Link></li>
-              <li><Link to="/admin/products">Accessories</Link></li>
-              <li><Link to="/past-projects">Past Projects</Link></li>
-              <li><Link to="/news-admin">News</Link></li>
-              <li><Link to="/logout">Logout</Link></li>
+              <li>
+                <Link to="/users">Users</Link>
+              </li>
+              <li>
+                <Link to="/admin/products">Accessories</Link>
+              </li>
+              <li>
+                <Link to="/past-projects">Past Projects</Link>
+              </li>
+              <li>
+                <Link to="/news-admin">News</Link>
+              </li>
+              <li>
+                <Link to="/logout">Logout</Link>
+              </li>
             </ul>
           </div>
 
           {/* Main Content */}
           <div className="flex-1 p-8 bg-white">
-            <h1 className="text-4xl font-medium mb-8 text-blue-900 text-center">Edit News</h1>
+            <h1 className="text-4xl font-medium mb-8 text-blue-900 text-center">
+              Edit News
+            </h1>
             <form onSubmit={handleSubmit}>
               <div className="mb-4 flex flex-col justify-center md:flex-row">
                 <label className="block text-blue-900 text-m font-bold mb-2 md:mb-0 md:w-1/4">
@@ -168,14 +179,20 @@ const EditNews = () => {
               </div>
               <div className="mb-4 flex justify-center">
                 {imagePreview && (
-                  <img src={imagePreview} alt="News Preview" className="w-40 mx-2 mb-2 rounded" />
+                  <img
+                    src={imagePreview}
+                    alt="News Preview"
+                    className="w-40 mx-2 mb-2 rounded"
+                  />
                 )}
               </div>
 
               <div className="my-8 flex justify-center">
                 <button
                   type="submit"
-                  className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ${submitting ? 'opacity-50 cursor-not-allowed' : ''}`}
+                  className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ${
+                    submitting ? "opacity-50 cursor-not-allowed" : ""
+                  }`}
                   disabled={submitting}
                 >
                   {submitting ? (

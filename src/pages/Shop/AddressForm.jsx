@@ -36,7 +36,7 @@ const AddressForm = () => {
         .map((id) => `cartIds=${id}`)
         .join("&");
       await axios.post(
-        `https://sevosmarttech-efce83f08cbb.herokuapp.com/api/v1/user/order/placeOrder/${user.userId}?${cartIdsParam}`,
+        `/api/v1/user/order/placeOrder/${user.userId}?${cartIdsParam}`,
         formData
       );
       setLoading(false);

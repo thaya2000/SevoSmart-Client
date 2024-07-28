@@ -23,9 +23,7 @@ const Setting = () => {
   const fetchUserDetails = async () => {
     try {
       setLoading(true);
-      const response = await axios.get(
-        `https://sevosmarttech-efce83f08cbb.herokuapp.com/api/v1/auth/users/${user.userId}`
-      );
+      const response = await axios.get(`/api/v1/auth/users/${user.userId}`);
       const userData = response.data;
       setFirstname(userData.firstname);
       setLastname(userData.lastname);
@@ -42,14 +40,11 @@ const Setting = () => {
     e.preventDefault();
     try {
       setLoading(true);
-      const response = await axios.put(
-        `https://sevosmarttech-efce83f08cbb.herokuapp.com/api/v1/auth/users/${user.userId}`,
-        {
-          firstname,
-          lastname,
-          email,
-        }
-      );
+      const response = await axios.put(`/api/v1/auth/users/${user.userId}`, {
+        firstname,
+        lastname,
+        email,
+      });
       setLoading(false);
       if (response.status === 200) {
         toast.success("Profile updated successfully.");

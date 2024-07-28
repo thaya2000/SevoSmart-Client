@@ -23,7 +23,7 @@ const Cart = () => {
     setLoading(true);
     try {
       const result = await axios.get(
-        `https://sevosmarttech-efce83f08cbb.herokuapp.com/api/v1/user/cart_products/${user.userId}`
+        `/api/v1/user/cart_products/${user.userId}`
       );
       setCartProducts(result.data);
       setSelectedProducts(result.data.map(() => false)); // Initialize all products as not selected
@@ -48,7 +48,7 @@ const Cart = () => {
       .map((cartProduct) => cartProduct.id);
     navigate("/address", { state: { selectedCartIds } });
   };
-  
+
   const handleUpdateQuantity = async (index, newQuantity) => {
     const updatedCartProducts = [...cartProducts];
     updatedCartProducts[index].quantity = newQuantity;

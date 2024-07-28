@@ -20,9 +20,7 @@ const News = () => {
   const loadNews = async () => {
     try {
       setLoading(true);
-      const result = await axios.get(
-        "https://sevosmarttech-efce83f08cbb.herokuapp.com/api/v1/admin/news"
-      );
+      const result = await axios.get("/api/v1/admin/news");
       setLoading(false);
       console.log("Loaded news:", result.data);
       setNews(result.data);
@@ -42,9 +40,7 @@ const News = () => {
 
   const handleDeleteNews = async (id) => {
     try {
-      await axios.delete(
-        `https://sevosmarttech-efce83f08cbb.herokuapp.com/api/v1/admin/news/${id}`
-      );
+      await axios.delete(`/api/v1/admin/news/${id}`);
       toast.success("News is successfully deleted.");
       loadNews();
       setDeleteNewsId(null);
