@@ -31,10 +31,10 @@ export default function Signup() {
     );
     if (register.fulfilled.match(resultAction)) {
       toast.success("Registration successful");
-      // navigate(location.state?.from || "/");
       navigate("/");
     } else {
       toast.error(resultAction.payload || resultAction.error.message);
+      navigate("/login");
     }
   };
 

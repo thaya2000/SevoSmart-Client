@@ -36,7 +36,7 @@ const Cart = () => {
 
   const calculateSubtotal = () => {
     return cartProducts.reduce((subtotal, cartProduct, index) => {
-      return selectedProducts[index]
+      return selectedProducts[index] && cartProduct.product
         ? subtotal + cartProduct.product.price * cartProduct.quantity
         : subtotal;
     }, 0);
@@ -44,7 +44,9 @@ const Cart = () => {
 
   const handleCheckout = () => {
     const selectedCartIds = cartProducts
-      .filter((_, index) => selectedProducts[index])
+      .filter(
+        (_, index) => selectedProducts[index] && cartProducts[index].product
+      )
       .map((cartProduct) => cartProduct.id);
     navigate("/address", { state: { selectedCartIds } });
   };
@@ -63,7 +65,7 @@ const Cart = () => {
 
   const handleRemoveProduct = (product_id) => {
     setCartProducts(
-      cartProducts.filter((product) => product.product.id !== product_id)
+      cartProducts.filter((product) => product.product?.id !== product_id)
     );
   };
 
@@ -81,22 +83,24 @@ const Cart = () => {
           <div className="orderSummaryContainer flex flex-col md:flex-row">
             <div className="cartProducts flex-1">
               {cartProducts.length > 0 ? (
-                cartProducts.map((cartProduct, index) => (
-                  <CartProduct
-                    key={index}
-                    cart_image_url={cartProduct.product.productImageURL}
-                    product_name={cartProduct.product.productName}
-                    product_price={cartProduct.product.price}
-                    product_quantity={cartProduct.quantity}
-                    product_id={cartProduct.product.id}
-                    onUpdateQuantity={(newQuantity) =>
-                      handleUpdateQuantity(index, newQuantity)
-                    }
-                    onToggleSelect={() => handleToggleSelect(index)}
-                    isSelected={selectedProducts[index]}
-                    onRemoveProduct={handleRemoveProduct}
-                  />
-                ))
+                cartProducts.map((cartProduct, index) =>
+                  cartProduct.product ? (
+                    <CartProduct
+                      key={index}
+                      cart_image_url={cartProduct.product.productImageURL}
+                      product_name={cartProduct.product.productName}
+                      product_price={cartProduct.product.price}
+                      product_quantity={cartProduct.quantity}
+                      product_id={cartProduct.product.id}
+                      onUpdateQuantity={(newQuantity) =>
+                        handleUpdateQuantity(index, newQuantity)
+                      }
+                      onToggleSelect={() => handleToggleSelect(index)}
+                      isSelected={selectedProducts[index]}
+                      onRemoveProduct={handleRemoveProduct}
+                    />
+                  ) : null
+                )
               ) : (
                 <div className="emptyCartMessage text-center text-2xl font-medium py-8">
                   Your cart is empty.{" "}
